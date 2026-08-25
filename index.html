@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEIKI Sub Say Foundation | Serving Beyond Boundaries</title>
+
+  <meta name="description" content="NEIKI is a community-powered non-profit organization dedicated to building clean water projects, providing food security, and health assistance across Pakistan.">
+
+  
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  
+
+  <style>
+
+    /* Reset & Base */
+
+    :root {
+
+      --color-primary: #00a2e8; /* UN Blue */
+
+      --color-secondary: #1E88C7; /* Mid Blue */
+
+      --color-accent: #4FD1E8; 
+
+      --color-bg-white: #FFFFFF;
+
+      --color-bg-light: #F6F4F0; /* Beige */
+
+      --color-text: #1C2B33;
+
+      --color-text-muted: #5B6B73;
+
+      
+
+      --font-heading: 'Noto Serif', serif;
+
+      --font-body: 'Noto Sans', sans-serif;
+
+      --font-sans-bold: 'Noto Sans', sans-serif;
+
+      
+
+      --radius-card: 24px;
+
+      --radius-btn: 4px;
+
+    }
+
+    
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+
+      font-family: var(--font-body);
+
+      color: inherit;
+
+      background-color: var(--color-bg-white);
+
+      line-height: 1.6;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+    img, video { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+
+      width: 100%;
+
+      max-width: 1280px;
+
+      margin: 0 auto;
+
+      padding: 0 2rem;
+
+    }
+
+
+
+    /* Top Bar & Header */
+
+    .site-header {
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+    }
+
+    .header-inner {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      height: 80px;
+
+    }
+
+    .text-logo {
+
+      font-family: var(--font-heading);
+
+      font-weight: 700;
+
+      font-size: 1.75rem;
+
+      letter-spacing: -0.5px;
+
+      color: white;
+
+      display: flex;
+
+      align-items: baseline;
+
+    }
+
+    .text-logo span {
+
+      font-family: var(--font-body);
+
+      font-weight: 400;
+
+      font-size: 1rem;
+
+      letter-spacing: 0;
+
+      margin-left: 8px;
+
+      opacity: 0.9;
+
+    }
+
+    .main-nav ul {
+
+      display: flex;
+
+      list-style: none;
+
+      gap: 2rem;
+
+    }
+
+    .main-nav a {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+    }
+
+    .main-nav a:hover {
+
+      color: var(--color-accent);
+
+    }
+
+    .header-search {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+    }
+
+
+
+    /* Hero Carousel */
+
+    .hero-container {
+
+      background-color: var(--color-primary);
+
+      padding: 0 2rem 2rem 2rem; /* creates the frame */
+
+    }
+
+    .hero-wrapper {
+
+      position: relative;
+
+      height: calc(100vh - 120px);
+
+      min-height: 600px;
+
+      border-radius: 40px;
+
+      overflow: hidden;
+
+    }
+
+    .hero-slide {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      opacity: 0;
+
+      transition: opacity 0.8s ease;
+
+      z-index: 1;
+
+    }
+
+    .hero-slide.active {
+
+      opacity: 1;
+
+      z-index: 2;
+
+    }
+
+    .hero-img {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      object-fit: cover;
+
+    }
+
+    .hero-overlay {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%);
+
+    }
+
+    .hero-content {
+
+      position: absolute;
+
+      bottom: 12%;
+
+      left: 5%;
+
+      max-width: 650px;
+
+      color: white;
+
+    }
+
+    .hero-headline {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 4.5rem;
+
+      font-weight: 900;
+
+      line-height: 1;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1rem;
+
+      letter-spacing: -1px;
+
+    }
+
+    .hero-subtext {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .hero-btn {
+
+      display: inline-block;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      font-family: var(--font-body);
+
+      font-weight: 600;
+
+      padding: 1rem 2rem;
+
+      border-radius: var(--radius-btn);
+
+      transition: background 0.3s;
+
+    }
+
+    .hero-btn:hover {
+
+      background-color: #007AA5;
+
+    }
+
+    .carousel-indicators {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+    }
+
+    .dot {
+
+      width: 10px;
+
+      height: 10px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      cursor: pointer;
+
+    }
+
+    .dot.active {
+
+      background-color: var(--color-primary);
+
+      border-color: var(--color-primary);
+
+    }
+
+
+
+    /* Mission Statement */
+
+    .mission-section {
+
+      padding: 8rem 2rem;
+
+      text-align: center;
+
+    }
+
+    .mission-statement {
+
+      font-family: var(--font-heading);
+
+      font-size: 3rem;
+
+      line-height: 1.3;
+
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+      color: inherit;
+
+    }
+
+    .mission-statement em {
+
+      font-style: italic;
+
+      color: var(--color-primary);
+
+    }
+
+
+
+    /* Horizontal Cards (Core Programs) */
+
+    .horizontal-cards-section {
+
+      padding: 4rem 0;
+
+    }
+
+    .card-horizontal {
+
+      display: flex;
+
+      flex-direction: row;
+
+      gap: 4rem;
+
+      margin-bottom: 4rem;
+
+      align-items: center;
+
+    }
+
+    .card-horizontal:nth-child(even) {
+
+      flex-direction: row-reverse;
+
+    }
+
+    .card-horizontal-img {
+
+      flex: 0 0 50%;
+
+      border-radius: var(--radius-card);
+
+      overflow: hidden;
+
+      aspect-ratio: 16/10;
+
+    }
+
+    .card-horizontal-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+      transition: transform 0.5s ease;
+
+    }
+
+    .card-horizontal:hover .card-horizontal-img img {
+
+      transform: scale(1.03);
+
+    }
+
+    .card-horizontal-content {
+
+      flex: 1;
+
+    }
+
+    .card-horizontal-eyebrow {
+
+      text-transform: uppercase;
+
+      font-size: 0.875rem;
+
+      font-weight: 700;
+
+      color: rgba(255,255,255,0.8);
+
+      margin-bottom: 1rem;
+
+      letter-spacing: 1px;
+
+    }
+
+    .card-horizontal h3 {
+
+      font-size: 2.5rem;
+
+      margin-bottom: 1.25rem;
+
+      color: inherit;
+
+      font-family: var(--font-heading);
+
+      line-height: 1.2;
+
+    }
+
+    .card-horizontal p {
+
+      color: rgba(255,255,255,0.8);
+
+      margin-bottom: 2rem;
+
+      font-size: 1.125rem;
+
+      line-height: 1.6;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .text-link {
+
+      font-weight: 600;
+
+      color: var(--color-primary);
+
+      text-decoration: none;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 1.05rem;
+
+    }
+
+    .text-link:hover {
+
+      text-decoration: underline;
+
+    }
+
+
+
+    /* Facts Section */
+
+    .facts-wrapper {
+
+      padding: 0 2rem 4rem 2rem;
+
+    }
+
+    .facts-card {
+
+      background-color: var(--color-primary);
+      color: white;
+
+      border-radius: 40px;
+
+      padding: 4rem;
+
+      position: relative;
+
+    }
+
+    .facts-header {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .facts-title-wrapper h2 {
+
+      font-family: var(--font-heading);
+
+      font-size: 2.5rem;
+
+      font-weight: 400;
+
+      color: inherit;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .facts-title-wrapper p {
+
+      color: rgba(255,255,255,0.8);
+
+      font-size: 0.9375rem;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .facts-link {
+
+      font-weight: 600;
+
+      color: inherit;
+
+      font-size: 0.9375rem;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+    }
+
+    .facts-link:hover { text-decoration: underline; }
+
+    
+
+    .stats-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 2rem;
+
+    }
+
+    .stat-item {
+
+      text-align: center;
+
+      flex: 1;
+
+    }
+
+    .stat-number {
+
+      font-family: var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 300;
+
+      color: inherit;
+
+      line-height: 1;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .stat-label {
+
+      font-size: 1.125rem;
+
+      color: rgba(255,255,255,0.8);
+
+      font-family: var(--font-heading);
+
+    }
+
+
+
+    /* Dark Ideas Section */
+
+    .ideas-section {
+
+      background-color: #2F3943; /* Slate dark */
+
+      color: white;
+
+      padding: 6rem 0;
+
+      overflow: hidden;
+
+    }
+
+    .ideas-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: baseline;
+
+      margin-bottom: 3rem;
+
+    }
+
+    .ideas-title {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 3rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .ideas-layout {
+
+      display: flex;
+
+      gap: 4rem;
+
+    }
+
+    .ideas-sidebar {
+
+      flex: 0 0 250px;
+
+    }
+
+    .ideas-nav {
+
+      list-style: none;
+
+    }
+
+    .ideas-nav li {
+
+      margin-bottom: 1rem;
+
+    }
+
+    .ideas-nav a {
+
+      color: rgba(255,255,255,0.6);
+
+      font-size: 1.25rem;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition: color 0.2s;
+
+    }
+
+    .ideas-nav a:hover, .ideas-nav a.active {
+
+      color: white;
+
+    }
+
+    .ideas-carousel {
+
+      flex: 1;
+
+      display: flex;
+
+      gap: 2rem;
+
+      overflow-x: auto;
+
+      padding-bottom: 1rem;
+
+      scrollbar-width: none;
+
+    }
+
+    .ideas-carousel::-webkit-scrollbar { display: none; }
+
+    .idea-card {
+
+      flex: 0 0 380px;
+
+      position: relative;
+
+      cursor: pointer;
+
+    }
+
+    .idea-card-img {
+
+      border-radius: 12px;
+
+      aspect-ratio: 16/10;
+
+      overflow: hidden;
+
+      margin-bottom: 1.5rem;
+
+      position: relative;
+
+    }
+
+    .idea-card-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+    }
+
+    .idea-card-btn {
+
+      position: absolute;
+
+      right: 1rem;
+
+      bottom: 1rem;
+
+      width: 40px; height: 40px;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      border-radius: 4px;
+
+      display: flex; align-items: center; justify-content: center;
+
+      font-weight: bold;
+
+    }
+
+    .idea-card h4 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      margin-bottom: 1rem;
+
+      line-height: 1.2;
+
+    }
+
+    .idea-card p {
+
+      color: rgba(255,255,255,0.8);
+
+      font-family: var(--font-heading);
+
+      font-size: 1rem;
+
+      line-height: 1.5;
+
+    }
+
+
+
+    /* Newsletter Section */
+
+    .newsletter-wrapper {
+
+      padding: 4rem 2rem;
+
+    }
+
+    .newsletter-card {
+
+      background-color: var(--color-primary); /* Navy */
+
+      border-radius: 40px;
+
+      padding: 5rem 4rem;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+      color: white;
+
+    }
+
+    .newsletter-content {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-content h2 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2.5rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1.5rem;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .newsletter-content p {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      line-height: 1.6;
+
+    }
+
+    .newsletter-form-container {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-form {
+
+      display: flex;
+
+      width: 100%;
+
+    }
+
+    .newsletter-input {
+
+      flex: 1;
+
+      padding: 1.25rem;
+
+      border: none;
+
+      border-radius: 4px 0 0 4px;
+
+      font-size: 1rem;
+
+      font-family: var(--font-body);
+
+    }
+
+    .newsletter-btn {
+
+      background-color: #2F3943;
+
+      color: white;
+
+      padding: 0 2rem;
+
+      border: none;
+
+      border-radius: 0 4px 4px 0;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      font-size: 1rem;
+
+      transition: background-color 0.2s;
+
+    }
+
+    .newsletter-btn:hover {
+
+      background-color: #1a2026;
+
+    }
+
+    .newsletter-disclaimer {
+
+      margin-top: 1rem;
+
+      font-size: 0.75rem;
+
+      color: rgba(255,255,255,0.7);
+
+      line-height: 1.4;
+
+    }
+
+    .newsletter-disclaimer a { text-decoration: underline; color: white; }
+
+
+
+    /* Footer */
+
+    .site-footer {
+
+      background-color: var(--color-primary); /* Navy Blue Theme */
+
+      color: white;
+
+      padding: 4rem 0 2rem;
+
+      border-top: none;
+
+    }
+
+    .footer-grid {
+
+      display: grid;
+
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+
+      gap: 3rem;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .footer-col-brand .text-logo {
+
+      color: white;
+
+      margin-bottom: 1.5rem;
+
+      display: flex;
+
+    }
+
+    .footer-col h4 {
+
+      font-family: var(--font-body);
+
+      font-weight: 700;
+
+      margin-bottom: 1.5rem;
+
+      color: white;
+
+    }
+
+    .footer-col ul { list-style:none; }
+
+    .footer-col ul li { margin-bottom:0.75rem; }
+
+    .footer-col a { color: rgba(255,255,255,0.8); }
+
+    .footer-col a:hover { color: var(--color-accent); text-decoration: underline; }
+
+    
+
+    .footer-bottom {
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding-top: 2rem;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 0.875rem;
+
+      color: rgba(255,255,255,0.6);
+
+    }
+
+
+
+    /* Responsive */
+
+    @media (max-width: 1024px) {
+
+      .hero-headline { font-size: 3.5rem; }
+
+      .card-horizontal, .card-horizontal:nth-child(even) { flex-direction: column; gap: 2rem; }
+
+      .facts-card { padding: 3rem; }
+
+      .stats-row { flex-wrap: wrap; }
+
+      .stat-item { flex: 0 0 45%; margin-bottom: 2rem; }
+
+      .newsletter-card { flex-direction: column; padding: 3rem; }
+
+      .ideas-layout { flex-direction: column; }
+
+    }
+
+    @media (max-width: 768px) {
+
+      .hero-container { padding: 0; }
+
+      .hero-wrapper { border-radius: 0; height: 60vh; }
+
+      .hero-content { left: 2rem; right: 2rem; }
+
+      .hero-headline { font-size: 2.5rem; }
+
+      .mission-statement { font-size: 2rem; }
+
+      .facts-wrapper { padding: 0; }
+
+      .facts-card { border-radius: 0; }
+
+      .stat-item { flex: 0 0 100%; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+
+    }
+
+  
+
+    /* --- NEW CSS ADDITIONS --- */
+
+    /* Header Dropdowns */
+
+    .logo-link { display: flex; align-items: center; }
+
+    
+
+    .header-logo {
+
+      height: 45px;
+
+      object-fit: contain;
+
+      filter: brightness(0) invert(1);
+
+    }
+
+    .has-dropdown { position: relative; }
+
+    .dropdown-menu {
+
+      display: none;
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      background-color: white;
+
+      color: inherit;
+
+      min-width: 200px;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+      border-radius: 4px;
+
+      padding: 0.5rem 0;
+
+      z-index: 200;
+
+    }
+
+    .has-dropdown:hover .dropdown-menu {
+
+      display: block;
+
+    }
+
+    .dropdown-menu a {
+
+      display: block;
+
+      padding: 0.75rem 1.5rem;
+
+      font-weight: 500;
+
+      color: var(--color-text) !important;
+
+    }
+
+    .dropdown-menu a:hover {
+
+      background-color: var(--color-bg-light);
+
+      color: var(--color-primary) !important;
+
+    }
+
+
+
+    /* Intro Cards */
+
+    .intro-cards-section { margin-bottom: 5rem; }
+
+    .intro-cards-wrapper { display: flex; gap: 2rem; }
+
+    .intro-card { flex: 1; display: flex; border-radius: 12px; overflow: hidden; align-items: center; padding-right: 2rem; }
+
+    .intro-card.bg-light-blue { background-color: #E6F3FA; }
+
+    .intro-card.bg-white { background-color: white; }
+
+    .intro-card-img-wrapper { position: relative; flex: 0 0 50%; max-width: 50%; height: 250px; margin-right: 2rem; }
+
+    .intro-card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+    .yellow-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background-color: #FFC000; border-radius: 4px 0 0 4px; }
+
+    .intro-card-content { flex: 1; padding: 1rem 0; }
+
+    .intro-card-content h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; color: inherit; }
+
+    .intro-card-content h3 em { font-style: italic; color: var(--color-secondary); font-weight: 400; }
+
+    .intro-card-content p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.5; font-family: var(--font-heading); }
+
+    .text-link-underline { font-weight: 700; color: inherit; text-decoration: underline; font-size: 0.9375rem; display: inline-block; }
+
+    .text-link-underline:hover { color: var(--color-primary); }
+
+
+
+    /* Partners Section */
+
+    .partners-section {
+
+      display: flex;
+
+      align-items: center;
+
+      margin-bottom: 6rem;
+
+      gap: 4rem;
+
+    }
+
+    .partners-image-container {
+
+      flex: 0 0 50%;
+
+      height: 600px;
+
+    }
+
+    .partners-image-container img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 0 80px 80px 0;
+
+    }
+
+    .partners-content {
+
+      flex: 1;
+
+      padding-right: 4rem;
+
+      text-align: center;
+
+      max-width: 550px;
+
+    }
+
+    .partners-title {
+
+      font-family: 'Caveat', cursive, var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 400;
+
+      line-height: 1.1;
+
+      color: inherit;
+
+      margin-bottom: 2rem;
+
+      font-style: italic;
+
+    }
+
+    .partners-desc {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      color: rgba(255,255,255,0.8);
+
+      line-height: 1.6;
+
+      margin-bottom: 2.5rem;
+
+    }
+
+    .btn-yellow {
+
+      display: inline-block;
+
+      background-color: #EED202;
+
+      color: inherit;
+
+      font-family: var(--font-sans-bold);
+
+      font-weight: 700;
+
+      padding: 1rem 2.5rem;
+
+      border-radius: 4px;
+
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      transition: background-color 0.3s;
+
+    }
+
+    .btn-yellow:hover { background-color: #D4BA00; }
+
+
+
+    /* More About Section */
+
+    .more-about-section { padding: 6rem 2rem; }
+
+    .section-heading-uppercase {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 3rem;
+
+      color: inherit;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .more-cards-wrapper { display: flex; gap: 2rem; }
+
+    .more-card { flex: 1; }
+
+    .more-card-img { border-radius: 16px; overflow: hidden; aspect-ratio: 16/11; margin-bottom: 1.5rem; }
+
+    .more-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .more-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: inherit; }
+
+    .more-card p { font-family: var(--font-heading); color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
+
+
+
+    /* Button under mission statement */
+
+    .btn-outline-blue {
+
+      display: inline-block;
+
+      border: 1px solid var(--color-secondary);
+
+      color: var(--color-secondary);
+
+      background: transparent;
+
+      padding: 0.75rem 2rem;
+
+      border-radius: 4px;
+
+      font-weight: 600;
+
+      font-size: 1rem;
+
+      margin-top: 2rem;
+
+      transition: all 0.3s;
+
+    }
+
+    .btn-outline-blue:hover {
+
+      background: var(--color-secondary);
+
+      color: white;
+
+    }
+
+    
+
+    @media (max-width: 1024px) {
+
+      .intro-cards-wrapper { flex-direction: column; }
+
+      .partners-section { flex-direction: column; }
+
+      .partners-image-container { border-radius: 0; width: 100%; }
+
+      .partners-image-container img { border-radius: 0; }
+
+      .partners-content { padding: 2rem; }
+
+      .more-cards-wrapper { flex-direction: column; }
+
+    }
+
+
+
+
+
+    /* --- MEGA MENU & CAROUSEL --- */
+
+    .header-logo-icon { height: 45px; object-fit: contain; margin-right: 15px; }
+
+    .header-logo-wordmark { height: 45px; object-fit: contain; }
+
+    .header-search { display: flex; align-items: center; cursor: pointer; font-size: 1.15rem; font-weight: 600; }
+
+    .header-search img { height: 26px; margin-left: 10px; border-radius: 50%; }
+
+
+
+    /* Remove old dropdown css to avoid conflict */
+
+    .dropdown-menu { display: none !important; } 
+
+
+
+    .site-header { position: relative; } /* To contain absolute mega menu */
+
+    
+
+    .mega-menu {
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      width: 100%;
+
+      background-color: var(--color-primary); /* Navy blue */
+
+      color: white;
+
+      display: none;
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding: 3rem 0;
+
+      z-index: 1000;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    }
+
+    .mega-menu.active { display: block; }
+
+    .mega-menu-inner {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      gap: 2rem;
+
+    }
+
+    .mega-col h3 { font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; line-height:1; }
+
+    .mega-col h4 { font-family: var(--font-sans-bold); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+    .mega-col p { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); }
+
+    .mega-col a { display: block; margin-bottom: 1rem; color: white; opacity: 0.9; text-decoration: none; font-size:0.95rem; }
+
+    .mega-col a:hover { opacity: 1; text-decoration: underline; }
+
+    .intro-col a { font-weight: bold; text-decoration: underline; font-family: var(--font-body); }
+
+    .nav-link { display: flex; align-items: center; gap: 4px; }
+
+    .arrow { font-size: 0.8rem; font-family: monospace; }
+
+
+
+    /* New Carousel Controls */
+
+    .carousel-controls {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+      align-items: center;
+
+    }
+
+    .carousel-controls .dot {
+
+      width: 12px;
+
+      height: 12px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      margin-bottom: 5px;
+
+    }
+
+    .carousel-controls .dot.active {
+
+      background-color: #EED202; /* Yellow filled circle */
+
+      border-color: #EED202;
+
+    }
+
+    .carousel-controls .car-arrow {
+
+      color: white;
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      user-select: none;
+
+    }
+
+    .carousel-controls .car-arrow:hover {
+
+      color: #EED202;
+
+    }
+
+    .carousel-indicators { display: none !important; } /* Hide old one */
+
+
+
+    /* New Footer */
+
+    .site-footer { display: none; } /* hide old footer rules */
+
+    .new-footer {
+
+      display: block;
+
+      background-color: var(--color-primary); /* Dark slate matching Gates */
+
+      color: white;
+
+      padding: 6rem 0 4rem;
+
+      font-family: var(--font-body);
+
+      border-top: none;
+
+    }
+
+    .footer-flex {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+    }
+
+    .footer-left {
+
+      flex: 0 0 300px;
+
+    }
+
+    .footer-right {
+
+      flex: 1;
+
+      max-width: 700px;
+
+    }
+
+    .footer-top-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      margin-bottom: 3rem;
+
+    }
+
+    .footer-tagline {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      font-weight: 600;
+
+      max-width: 300px;
+
+      line-height: 1.4;
+
+    }
+
+    .footer-socials {
+
+      display: flex;
+
+      gap: 0.75rem;
+
+    }
+
+    .footer-socials a {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 32px; height: 32px;
+
+      border: 1px solid rgba(255,255,255,0.6);
+
+      border-radius: 50%;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 0.85rem;
+
+      transition: all 0.3s;
+
+      text-transform: uppercase;
+
+      font-weight: bold;
+
+    }
+
+    .footer-socials a:hover {
+
+      background: white; color: #2F3943;
+
+    }
+
+    .footer-nav-primary {
+
+      font-weight: 700;
+
+      font-size: 1.1rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-primary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-primary a:first-child { margin-left: 0; }
+
+    .footer-nav-primary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-divider {
+
+      border: none;
+
+      border-top: 1px solid rgba(255,255,255,0.2);
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-secondary {
+
+      font-weight: 600;
+
+      font-size: 0.95rem;
+
+      margin-bottom: 3rem;
+
+      line-height: 2;
+
+    }
+
+    .footer-nav-secondary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-secondary a:first-child { margin-left: 0; }
+
+    .footer-nav-secondary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-nav-tertiary {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.6);
+
+      line-height: 2;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-tertiary a { color: rgba(255,255,255,0.6); margin: 0 0.25rem; text-decoration: none; }
+
+    .footer-nav-tertiary a:first-child { margin-left: 0; }
+
+    .footer-nav-tertiary a:hover { color: white; text-decoration: underline; }
+
+    
+
+    .footer-copyright {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.5);
+
+    }
+
+    @media(max-width: 768px) {
+
+      .footer-flex { flex-direction: column; }
+
+      .footer-top-row { flex-direction: column; gap: 2rem; }
+
+    }
+
+</style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+
+    <style>
+      .facts-card { background-color: var(--color-primary) !important; color: white !important; }
+      .facts-card .stat-number, .facts-card .stat-label, .facts-card p, .facts-card h2, .facts-card .facts-link { color: white !important; }
+      .newsletter-card { background-color: var(--color-primary) !important; color: white !important; }
+      .newsletter-card h2, .newsletter-card p { color: white !important; }
+      .future-goals-card { background-color: var(--color-primary) !important; color: white !important; }
+      .future-goals-card h3, .future-goals-card p { color: white !important; }
+      .site-footer, .new-footer { background-color: var(--color-primary) !important; }
+    </style>
+    
+
+    <style>
+      .btn-outline-blue {
+          background-color: var(--color-primary) !important;
+          color: white !important;
+          border: 2px solid var(--color-primary) !important;
+      }
+      .btn-outline-blue:hover {
+          background-color: #008cc9 !important; /* Slightly darker light blue for hover */
+          border-color: #008cc9 !important;
+      }
+    </style>
+    
+</head>
+
+<body>
+
+
+
+  
+
+  <!-- Header -->
+
+  <header class="site-header" id="header">
+
+    <div class="container header-inner">
+
+      <a href="/" class="logo-link">
+
+        <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="about.html" class="nav-link" data-target="about-mega-menu">About us <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="impact.html" class="nav-link" data-target="work-mega-menu">Our Impact <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="flood-relief.html" class="direct-link" style="color: var(--color-accent); font-weight: 700;">2025 Flood Relief</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-target="ideas-mega-menu">Accountability & Impact <span class="arrow">▼</span></a>
+          </li>
+        </ul>
+      </nav>
+
+
+      
+
+      <div class="header-search">
+
+        Search <img src="assets/images/d844dfa8c06ae901bc8fa2eb395d2155.jpg-removebg-preview.png" alt="Search">
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Mega Menu - About Us -->
+
+    <div class="mega-menu" id="about-mega-menu">
+
+      <div class="container mega-menu-inner">
+
+        <div class="mega-col intro-col">
+
+          <h3>About us</h3>
+
+          <p>Learn about our origins, our vision, and the core values that drive our mission to serve humanity.</p>
+
+          <a href="about.html">Learn more about us</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Identity & Purpose</h4>
+
+          
+
+          
+
+          <a href="vision.html">Vision statement</a>
+
+          <a href="mission.html">Mission statement</a>
+
+          <a href="core-values.html">Core values</a>
+
+          <a href="objectives.html">Strategic Objectives</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Governance</h4>
+
+          <a href="governance.html">Organizational Structure & Governance</a>
+
+          <a href="compliance.html">Legal Registration & Compliance</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+                        <!-- Mega Menu - Our Impact -->
+    <div class="mega-menu" id="work-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Our Impact</h3>
+          <p>Discover our on-the-ground impact, completed water projects, and our vision for tomorrow.</p>
+          <a href="impact.html">Explore our impact</a>
+        </div>
+        <div class="mega-col">
+          <h4>Our Programs</h4>
+          <a href="program-framework.html">Program Framework</a>
+          <a href="thematic-areas.html">Main Thematic Areas</a>
+          <a href="flagship-programs.html">Flagship Programs</a>
+        </div>
+        <div class="mega-col">
+          <h4>Completed Initiatives</h4>
+          <a href="impact.html">Phase 1 Water Projects</a>
+          <a href="future-goals.html">Future Goals & Vision</a>
+        </div>
+      </div>
+    </div>
+
+
+
+        <!-- Mega Menu - Accountability -->
+    <div class="mega-menu" id="ideas-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Accountability & Impact</h3>
+          <p>Transparency, structured monitoring, and clear communication are at the heart of our operations.</p>
+          <a href="accountability.html">Read about our approach</a>
+        </div>
+        
+        <div class="mega-col">
+          <h4>Network & Outreach</h4>
+          <a href="partnerships.html">Partnerships & Collaborations</a>
+          </div>
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+  <!-- Hero Section (Carousel) -->
+  <section class="hero-container">
+    <div class="hero-wrapper">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <img src="assets/images/impact_hero.jpeg" alt="Stories of Impact" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-headline">STORIES OF IMPACT</h1>
+          <p class="hero-subtext">Fresh water storage tanks in northern and northwestern parts, addressing water shortages with sustainable filtration plants.</p>
+          <a href="pages/clean-water.html" class="hero-btn">See our work</a>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <img src="assets/images/health.png" alt="Future Goals" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-headline">FUTURE GOALS</h1>
+          <p class="hero-subtext">Expanding our reach to provide sustainable healthcare, education, and economic initiatives for generations to come.</p>
+          <a href="pages/health-wellbeing.html" class="hero-btn">See our goals</a>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <img src="assets/img/banner_professional.jpg" alt="Core Values" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-headline">CORE VALUES</h1>
+          <p class="hero-subtext">Guided by integrity, compassion, and transparency, we are dedicated to inclusive and sustainable human development.</p>
+          <a href="core-values.html" class="hero-btn">Discover our values</a>
+        </div>
+      </div>
+      
+      <!-- Carousel UI -->
+      <div class="carousel-controls">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+        <div class="car-arrow up-arrow">&#8593;</div>
+        <div class="car-arrow down-arrow">&#8595;</div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Mission Statement -->
+
+  <section class="mission-section">
+
+    <div class="container">
+
+      <div class="mission-statement">
+
+        To build a compassionate, inclusive, and sustainable world where <em>every</em> individual has the opportunity to live with dignity, security, and hope.
+
+      </div>
+
+      <a href="vision.html" class="btn-outline-blue">Read our vision statement</a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Intro Cards (Updated) -->
+  <section class="intro-cards-section container" style="padding-top: 6rem; padding-bottom: 2rem;">
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <a href="work.html" style="text-decoration: none;">
+            <h2 style="font-family: var(--font-sans-bold); font-size: 3.5rem; font-weight: 900; color: inherit; text-transform: uppercase; cursor: pointer;">Our Work</h2>
+        </a>
+        <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 1rem auto;"></div>
+    </div>
+    
+    <!-- Beautiful Completed Projects Slider -->
+    <div style="width: 100%; position: relative; overflow: hidden; padding: 1rem 0;">
+        <a href="work.html" style="text-decoration: none; cursor: pointer; display: block;">
+            <div style="display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem; scrollbar-width: none;" class="custom-slider">
+                <img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/2.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/2.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 6.00.13 PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/4.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/3.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/2.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/2.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Completed Project">
+            </div>
+        </a>
+        <style>
+            .custom-slider::-webkit-scrollbar { display: none; }
+            .custom-slider img {
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+            }
+            .custom-slider img:hover {
+                transform: translateY(-10px) scale(1.02);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const slider = document.querySelector('.custom-slider');
+                if (slider) {
+                    setInterval(() => {
+                        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                            slider.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            slider.scrollBy({ left: 450, behavior: 'smooth' });
+                        }
+                    }, 5000);
+                }
+            });
+        </script>
+    </div>
+  </section>
+
+
+
+  <!-- Chairman Message -->
+
+  <section class="chairman-message-section" style="padding: 6rem 2rem; background-color: var(--color-bg-white);">
+
+    <div class="container" style="text-align: center;">
+
+      <!-- Chairman Image -->
+
+      <img src="assets/img/neiki_chairman_headshot_final.png" alt="Usman Mustafa" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem;">
+
+      <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: inherit; margin-bottom: 1rem;">Chairman / President</h2>
+
+      <hr style="width: 80px; margin: 0 auto 3rem; border: none; border-top: 3px solid var(--color-primary);">
+
+      
+
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+
+        <p style="font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem; color: inherit; margin-bottom: 1rem;">
+
+          " On behalf of NEIKI SUB SAY FOUNDATION, I take great pride in presenting this organizational profile, which reflects our mission, institutional framework, and long-term commitment to sustainable and inclusive human development. This profile represents our values, strategic direction and resolve to serve humanity with integrity, professionalism, and compassion. "
+
+        </p>
+
+        <p style="font-size: 0.9rem; font-family: var(--font-sans-bold); color: var(--color-text-muted); margin-bottom: 4rem; letter-spacing: 0.5px;">
+
+          - Usman Mustafa<br>NEIKI SUB SAY FOUNDATION Chairman / President
+
+        </p>
+
+      </div>
+
+      
+
+      <div style="max-width: 800px; margin: 0 auto; text-align: left; font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.8; color: var(--color-text);">
+
+        <p style="margin-bottom: 1.5rem;">NEIKI SUB SAY FOUNDATION operates on the core principle of "Serving Beyond Boundaries." We believe that humanitarian service must rise above geographical borders, social divisions, and economic limitations. Our commitment is to ensure that support reaches every individual in need without discrimination, exclusion, or bias, while preserving human dignity and mutual respect.</p>
+
+        <p style="margin-bottom: 1.5rem;">Our work focuses on critical development sectors including education, healthcare, livelihood support, disaster preparedness and response, and social empowerment. Each initiative is designed to address real community needs and is carefully aligned with the United Nations Sustainable Development Goals (SDGs), ensuring that our efforts contribute meaningfully to both national priorities and global development objectives.</p>
+
+        <p style="margin-bottom: 1.5rem;">At NEIKI, transparency, accountability, and measurable impact are the cornerstones of all our programs. We implement robust governance practices and performance monitoring mechanisms to ensure that resources are utilized responsibly and outcomes are clearly documented. Every activity undertaken by the Foundation is guided by ethical standards, operational efficiency, and strong community engagement.</p>
+
+        <p style="margin-bottom: 1.5rem;">We strongly believe that sustainable change can only be achieved through collaboration. Therefore, community participation remains central to our approach, empowering beneficiaries to become active stakeholders in their own development. Through partnerships, innovation, and data-driven planning, we aim to create scalable and long-lasting solutions.</p>
+
+        <p style="margin-bottom: 2rem;">I extend my sincere appreciation to our partners, donors, advisors, and volunteers whose trust and continued support make our mission possible. Their dedication and shared commitment strengthen our capacity to deliver impactful programs and expand our reach to underserved communities.</p>
+
+        <p style="margin-bottom: 0;">Together, we remain steadfast in our dedication to advancing humanity through action, innovation, integrity, and compassion, striving to build a more equitable, resilient, and hopeful future for all.</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Sustainable Development Goals (Wheel) -->
+<style>
+/* SDG Interactive Wheel */
+    .sdg-interactive-section {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 8rem 0;
+      overflow: hidden;
+    }
+    .sdg-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    #sdg-wheel-svg {
+      width: 450px;
+      height: 450px;
+      filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+      
+    }
+    .sdg-slice {
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-origin: 250px 250px;
+    }
+    .sdg-slice:hover, .sdg-slice.active {
+      transform: scale(1.1);
+      stroke-width: 2px;
+      stroke: white;
+      z-index: 10;
+    }
+    
+    .sdg-info-panel {
+      flex: 1;
+      max-width: 500px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .sdg-icon-badge {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.4s ease;
+    }
+    #sdg-info-title {
+      font-family: var(--font-sans-bold);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      transition: color 0.4s ease;
+    }
+    #sdg-info-desc {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+    }
+    .sdg-hint {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-sans-bold);
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+  
+</style>
+
+<!-- Interactive SDG Section -->
+  <section class="sdg-interactive-section">
+    <div class="container" style="text-align: center; margin-bottom: 4rem;">
+      <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; margin-bottom: 1rem;">Explore Our Alignment with the SDGs</h2>
+      <p style="font-family: var(--font-heading); font-size: 1.25rem; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">Interact with the wheel below to see how NEIKI SUB SAY FOUNDATION’s strategic roadmap matches the 17 Global Goals for Sustainable Development.</p>
+    </div>
+    
+    <div class="sdg-container">
+      
+      <!-- SVG Wheel generated by JS -->
+      <div style="position: relative;">
+        <div class="sdg-hint">Hover or Click a Slice</div>
+        <svg id="sdg-wheel-svg" viewBox="0 0 500 500" style="filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));">
+          <g id="sdg-wheel-group" style="transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1); transform-origin: 250px 250px;"></g>
+        </svg>
+      </div>
+      
+      <!-- Info Panel -->
+      <div class="sdg-info-panel" id="sdg-info-panel">
+        <div class="sdg-icon-badge" id="sdg-badge" style="background-color: #E5243B;">1</div>
+        <h3 id="sdg-info-title" style="color: #E5243B;">No Poverty</h3>
+        <p id="sdg-info-desc">End poverty in all its forms everywhere. NEIKI aligns with this goal through our extensive livelihood and income-generation programs, focusing on uplifting the most vulnerable and marginalized communities.</p>
+      </div>
+
+    </div>
+  </section>
+
+<script>
+// Interactive SDG Wheel Data
+    const sdgs = [
+      { num: 1, name: "No Poverty", color: "#e5243b", desc: "End poverty in all its forms everywhere. NEIKI aligns with this goal through our extensive livelihood and income-generation programs, focusing on uplifting the most vulnerable and marginalized communities." },
+      { num: 2, name: "Zero Hunger", color: "#dda63a", desc: "End hunger, achieve food security and improved nutrition. We actively organize food distribution drives and long-term agricultural support to combat malnutrition." },
+      { num: 3, name: "Good Health", color: "#4c9f38", desc: "Ensure healthy lives and promote well-being for all. We conduct medical camps, awareness campaigns, and establish local clinics in underserved areas." },
+      { num: 4, name: "Quality Education", color: "#c5192d", desc: "Ensure inclusive and equitable quality education. NEIKI provides scholarships, vocational skills, and builds educational infrastructure to empower the youth." },
+      { num: 5, name: "Gender Equality", color: "#ff3a21", desc: "Achieve gender equality and empower all women and girls. Our inclusive policies ensure equal opportunities and specialized programs for women's empowerment." },
+      { num: 6, name: "Clean Water", color: "#26bde2", desc: "Ensure availability and sustainable management of water. We build solar-powered wells and water filtration systems to guarantee clean drinking water." },
+      { num: 7, name: "Clean Energy", color: "#fcc30b", desc: "Ensure access to affordable, reliable, sustainable and modern energy. We integrate solar technology into our infrastructure projects." },
+      { num: 8, name: "Economic Growth", color: "#a21942", desc: "Promote sustained, inclusive and sustainable economic growth. We focus on skill development and entrepreneurship to boost local economies." },
+      { num: 9, name: "Industry & Innovation", color: "#fd6925", desc: "Build resilient infrastructure and foster innovation. We employ modern, innovative approaches to community building and resource management." },
+      { num: 10, name: "Reduced Inequalities", color: "#dd1367", desc: "Reduce inequality within and among countries. Our core value of inclusiveness ensures our programs target those most commonly left behind." },
+      { num: 11, name: "Sustainable Cities", color: "#fd9d24", desc: "Make cities and human settlements inclusive, safe, resilient and sustainable. We advocate for and build sustainable community centers." },
+      { num: 12, name: "Responsible Consumption", color: "#bf8b2e", desc: "Ensure sustainable consumption and production patterns. We promote resource efficiency in all our projects." },
+      { num: 13, name: "Climate Action", color: "#3f7e44", desc: "Take urgent action to combat climate change. NEIKI's sustainability focus ensures our interventions are environmentally conscious." },
+      { num: 14, name: "Life Below Water", color: "#0a97d9", desc: "Conserve and sustainably use the oceans, seas and marine resources. We promote environmental stewardship in coastal program areas." },
+      { num: 15, name: "Life on Land", color: "#56c02b", desc: "Protect, restore and promote sustainable use of terrestrial ecosystems. We engage in tree-planting and environmental conservation drives." },
+      { num: 16, name: "Peace & Justice", color: "#00689d", desc: "Promote peaceful and inclusive societies for sustainable development. We promote civic responsibility and ethical, transparent governance." },
+      { num: 17, name: "Partnerships", color: "#19486a", desc: "Strengthen the means of implementation and revitalize the global partnership. Collaboration is one of our strategic objectives to achieve large-scale impact." }
+    ];
+
+    const wheelGroup = document.getElementById('sdg-wheel-group');
+    const badge = document.getElementById('sdg-badge');
+    const title = document.getElementById('sdg-info-title');
+    const desc = document.getElementById('sdg-info-desc');
+    
+    const cx = 250;
+    const cy = 250;
+    const radius = 240;
+    const innerRadius = 140;
+    const numSlices = 17;
+    const sliceAngle = 360 / numSlices;
+    const gap = 1; // 1 degree gap between slices
+
+    function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+      var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+      return {
+        x: centerX + (radius * Math.cos(angleInRadians)),
+        y: centerY + (radius * Math.sin(angleInRadians))
+      };
+    }
+
+    function describeArc(x, y, innerR, outerR, startAngle, endAngle){
+        var start = polarToCartesian(x, y, outerR, endAngle);
+        var end = polarToCartesian(x, y, outerR, startAngle);
+        var innerStart = polarToCartesian(x, y, innerR, endAngle);
+        var innerEnd = polarToCartesian(x, y, innerR, startAngle);
+        var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+        var d = [
+            "M", start.x, start.y, 
+            "A", outerR, outerR, 0, largeArcFlag, 0, end.x, end.y,
+            "L", innerEnd.x, innerEnd.y,
+            "A", innerR, innerR, 0, largeArcFlag, 1, innerStart.x, innerStart.y,
+            "Z"
+        ].join(" ");
+        return d;
+    }
+
+    let currentIndex = 0;
+    let autoRotateInterval;
+
+    function activateSlice(index) {
+        // Reset all
+        document.querySelectorAll('.sdg-slice-group').forEach(g => {
+            const path = g.querySelector('path');
+            if(path) {
+                path.classList.remove('active');
+                path.style.transform = 'scale(1)';
+            }
+        });
+
+        // Activate new
+        const activeGroup = document.getElementById(`sdg-slice-${index}`);
+        if(activeGroup) {
+            const activePath = activeGroup.querySelector('path');
+            if(activePath) {
+                activePath.classList.add('active');
+                activePath.style.transform = 'scale(1.05)';
+            }
+        }
+
+        // Update Panel
+        const sdg = sdgs[index];
+        if (badge && title && desc) {
+            badge.innerText = sdg.num;
+            badge.style.backgroundColor = sdg.color;
+            title.innerText = sdg.name;
+            title.style.color = sdg.color;
+            desc.innerText = sdg.desc;
+        }
+
+        // Rotate Wheel to point to the panel (right side = 90 degrees)
+        const startAngle = index * sliceAngle;
+        const midAngle = startAngle + (sliceAngle / 2);
+        let rotationTarget = 90 - midAngle;
+        
+        if(wheelGroup) {
+            wheelGroup.style.transform = `rotate(${rotationTarget}deg)`;
+        }
+        
+        currentIndex = index;
+    }
+
+    function startAutoRotation() {
+        clearInterval(autoRotateInterval);
+        autoRotateInterval = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % numSlices;
+            activateSlice(nextIndex);
+        }, 10000); // 10 seconds
+    }
+
+    // Generate Wheel
+    if(wheelGroup) {
+        sdgs.forEach((sdg, index) => {
+          const startAngle = index * sliceAngle;
+          const endAngle = startAngle + sliceAngle - gap;
+          
+          const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+          group.setAttribute("id", `sdg-slice-${index}`);
+          group.setAttribute("class", "sdg-slice-group");
+          group.style.cursor = "pointer";
+          
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute("d", describeArc(cx, cy, innerRadius, radius, startAngle, endAngle));
+          path.setAttribute("fill", sdg.color);
+          path.style.transition = "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+          path.style.transformOrigin = "250px 250px";
+          
+          const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          const midAngle = startAngle + (sliceAngle - gap) / 2;
+          const textPos = polarToCartesian(cx, cy, (innerRadius + radius) / 2, midAngle);
+          
+          text.setAttribute("x", textPos.x);
+          text.setAttribute("y", textPos.y + 6);
+          text.setAttribute("fill", "white");
+          text.setAttribute("text-anchor", "middle");
+          text.setAttribute("font-family", "sans-serif");
+          text.setAttribute("font-weight", "bold");
+          text.setAttribute("font-size", "22px");
+          text.setAttribute("filter", "drop-shadow(0px 2px 2px rgba(0,0,0,0.5))");
+          text.textContent = sdg.num;
+          text.setAttribute("transform", `rotate(${midAngle}, ${textPos.x}, ${textPos.y})`);
+
+          group.appendChild(path);
+          group.appendChild(text);
+
+          group.addEventListener('mouseenter', () => {
+            activateSlice(index);
+            clearInterval(autoRotateInterval);
+          });
+          
+          group.addEventListener('mouseleave', () => {
+            startAutoRotation();
+          });
+
+          wheelGroup.appendChild(group);
+        });
+
+        activateSlice(0);
+        startAutoRotation();
+    }
+</script>
+
+
+
+  <!-- Organizational Structure & Governance -->
+
+  <section class="structure-section" style="padding: 6rem 0; background-color: var(--color-bg-white);">
+
+    <div class="container">
+
+      <div style="text-align: center; margin-bottom: 4rem;">
+
+        <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: inherit; margin-bottom: 1.5rem;">Structure of the Foundation</h2>
+
+        <p style="max-width: 900px; margin: 0 auto; font-family: var(--font-heading); font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+
+          The main parts of our governance structure are the <strong>President</strong>, the <strong>Board of Trustees</strong>, the <strong>Advisory Council</strong>, the <strong>Executive Management Committee</strong>, and the <strong>Finance & Audit Committee</strong>. All work together to ensure effective leadership, sound decision-making, and efficient delivery of humanitarian programs.
+
+        </p>
+
+      </div>
+
+
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; text-align: center; margin-bottom: 4rem;">
+
+        
+
+        <div class="gov-item">
+
+          <div style="color: var(--color-primary); margin-bottom: 1.5rem;">
+
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+
+          </div>
+
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">The President</h3>
+
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Serves as the Head of Governance and Chair of the Board of Trustees, Advisory Council, and Executive Management Committee. Provides strategic leadership and represents the Foundation globally.</p>
+
+        </div>
+
+
+
+        <div class="gov-item">
+
+          <div style="color: var(--color-primary); margin-bottom: 1.5rem;">
+
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+
+          </div>
+
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">Board of Trustees</h3>
+
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">The supreme decision-making body, responsible for approving vision, policies, budgets, audit reports, and long-term strategic plans.</p>
+
+        </div>
+
+
+
+        <div class="gov-item">
+
+          <div style="color: var(--color-primary); margin-bottom: 1.5rem;">
+
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+
+          </div>
+
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">Advisory Council</h3>
+
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Composed of subject-matter experts providing technical guidance, evidence-based planning, and alignment with international best practices.</p>
+
+        </div>
+
+
+
+        <div class="gov-item">
+
+          <div style="color: var(--color-primary); margin-bottom: 1.5rem;">
+
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+
+          </div>
+
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">Executive Management</h3>
+
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Translates governance decisions into operational strategies. Oversees coordination, program execution, and internal governance.</p>
+
+        </div>
+
+
+
+        <div class="gov-item">
+
+          <div style="color: var(--color-primary); margin-bottom: 1.5rem;">
+
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+
+          </div>
+
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">Finance & Audit Committee</h3>
+
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Reports directly to the Board to ensure financial transparency, audit compliance, and adherence to legal requirements.</p>
+
+        </div>
+
+      </div>
+
+
+
+      <div style="text-align: center;">
+
+        <a href="governance.html" class="hero-btn" style="background-color: var(--color-primary); border: 2px solid var(--color-primary); color: white; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">More about the structure of Neiki Foundation</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Donate Section -->
+
+  <section class="newsletter-wrapper">
+
+    <div class="container">
+
+      <div class="newsletter-card" style="align-items: center; background-color: var(--color-primary);">
+
+        <div class="newsletter-content">
+
+          <h2>DONATE NOW</h2>
+
+          <p>Your contribution directly supports our efforts to provide clean water, education, healthcare, and empowerment to communities in need.</p>
+
+        </div>
+
+        <div class="newsletter-form-container" style="display: flex; justify-content: flex-end;">
+
+          <a href="ways-to-give.html" class="hero-btn" style="background-color: white; color: var(--color-primary); padding: 1.25rem 2.5rem; border-radius: 4px; font-size: 1.1rem; text-decoration: none; font-weight: 700;">Make a Donation</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Facts Section -->
+
+  <section class="facts-wrapper">
+
+    <div class="container">
+
+      <div class="facts-card">
+
+        <div class="facts-header">
+
+          <div class="facts-title-wrapper">
+
+            <h2>Foundation facts</h2>
+
+            <p>For the year ended December 31, 2025. Impact achieved across Pakistan.</p>
+
+          </div>
+
+          <a href="#" class="facts-link">More about the foundation</a>
+
+        </div>
+
+        <div class="stats-row">
+
+          <div class="stat-item">
+
+            <div class="stat-number">81+</div>
+
+            <div class="stat-label">Wells Built</div>
+
+          </div>
+
+          <div class="stat-item">
+
+            <div class="stat-number">1.2M</div>
+
+            <div class="stat-label">People Served</div>
+
+          </div>
+
+          <div class="stat-item">
+
+            <div class="stat-number">4</div>
+
+            <div class="stat-label">Provinces Reached</div>
+
+          </div>
+
+          <div class="stat-item">
+
+            <div class="stat-number">24</div>
+
+            <div class="stat-label">Active Projects</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Future Goals Section -->
+  <section class="future-goals-section container" style="padding: 6rem 2rem; text-align: center;">
+    <h2 class="section-heading-uppercase" style="font-size: 3rem; margin-bottom: 1rem;">Future Goals</h2>
+    <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 0 auto 3rem;"></div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+      <div style="background: var(--color-primary); border-radius: 24px; padding: 3rem; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.03); color: white;">
+        <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--color-primary);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem;">Expand Healthcare Access</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Establish permanent clinics and increase mobile medical camps in the most remote areas of the country.</p>
+      </div>
+
+      <div style="background: var(--color-primary); border-radius: 24px; padding: 3rem; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.03); color: white;">
+        <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--color-primary);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
+        <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem;">Educational Empowerment</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Construct dedicated vocational training centers to equip youth with modern, sustainable skills.</p>
+      </div>
+
+      <div style="background: var(--color-primary); border-radius: 24px; padding: 3rem; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.03); color: white;">
+        <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--color-primary);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem;">Climate Resilience</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Integrate sustainable, climate-smart technologies across all infrastructure and agricultural projects.</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 4rem;">
+        <a href="future-goals.html" style="background-color: var(--color-primary); color: white; padding: 1.25rem 3rem; border-radius: 8px; font-size: 1.1rem; text-decoration: none; font-weight: 700; display: inline-block; box-shadow: 0 4px 15px rgba(0,118,192,0.3); transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,118,192,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,118,192,0.3)';">Future Goals & Vision Page</a>
+    </div>
+  </section>
+
+
+
+    <!-- Footer -->
+
+  <footer class="site-footer new-footer">
+
+    <div class="container footer-flex">
+
+      <div class="footer-left">
+
+        <a href="/" class="logo-link">
+
+          <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+        </a>
+
+      </div>
+
+      <div class="footer-right">
+
+        <div class="footer-top-row">
+
+          <div class="footer-tagline">We are a nonprofit fighting poverty, disease, and inequity across Pakistan.</div>
+
+          <div class="footer-socials">
+
+            <a href="#">X</a>
+
+            <a href="#">f</a>
+
+            <a href="#">in</a>
+
+            <a href="#">ig</a>
+
+            <a href="#">yt</a>
+
+          </div>
+
+        </div>
+
+        
+
+        <div class="footer-nav-primary">
+
+          <a href="about.html">About</a> &middot; <a href="#">Our work</a> &middot; <a href="#">Ideas</a>
+
+        </div>
+
+        
+
+        <hr class="footer-divider">
+
+        
+
+        <div class="footer-nav-secondary">
+
+          <a href="contact.html">Contact</a> &middot; <a href="#">Media Center</a> &middot; <a href="#">Discovery Center</a> &middot; <a href="ways-to-give.html">Give with us</a>
+
+          <br><br>
+
+          <a href="#" style="text-decoration:underline;">Annual Reports</a>
+
+        </div>
+
+        
+
+        <div class="footer-nav-tertiary">
+
+          <a href="#">Reporting scams</a> | <a href="#">Ethics reporting</a> | <a href="#">Privacy & Cookies Notice</a><br>
+
+          <a href="#">Terms of Use</a> | <a href="#">Brand guidelines</a> | <a href="#">Vendors</a>
+
+        </div>
+
+        
+
+        <div class="footer-copyright">
+
+          Â© 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- Scripts -->
+
+  <script>
+
+    // Mega Menu functionality
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const megaMenus = document.querySelectorAll('.mega-menu');
+
+
+
+    navLinks.forEach(link => {
+
+      link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const targetId = link.getAttribute('data-target');
+
+        const targetMenu = document.getElementById(targetId);
+
+        
+
+        // close others
+
+        megaMenus.forEach(menu => {
+
+          if (menu !== targetMenu) menu.classList.remove('active');
+
+        });
+
+        navLinks.forEach(nav => {
+
+          if (nav !== link) nav.querySelector('.arrow').innerText = '▼';
+
+        });
+
+
+
+        if (targetMenu) {
+
+          targetMenu.classList.toggle('active');
+
+          const arrow = link.querySelector('.arrow');
+
+          if (targetMenu.classList.contains('active')) {
+
+            arrow.innerText = '▼'; // Up arrow
+
+          } else {
+
+            arrow.innerText = '▼'; // Down arrow
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+
+    // Close menu when clicking outside
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.site-header')) {
+
+        megaMenus.forEach(menu => menu.classList.remove('active'));
+
+        navLinks.forEach(nav => nav.querySelector('.arrow').innerText = '▼');
+
+      }
+
+    });
+
+
+
+    // Carousel functionality
+
+    const slides = document.querySelectorAll('.hero-slide');
+
+    const dots = document.querySelectorAll('.carousel-controls .dot');
+
+    const upArrow = document.querySelector('.up-arrow');
+
+    const downArrow = document.querySelector('.down-arrow');
+
+    let currentSlide = 0;
+
+    let slideInterval;
+
+
+
+    function showSlide(index) {
+
+      if (!slides.length) return;
+
+      slides[currentSlide].classList.remove('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+      
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      
+
+      slides[currentSlide].classList.add('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+    }
+
+
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+
+
+    function startSlide() {
+
+      slideInterval = setInterval(nextSlide, 5000);
+
+    }
+
+
+
+    function resetSlide() {
+
+      clearInterval(slideInterval);
+
+      startSlide();
+
+    }
+
+
+
+    if (upArrow && downArrow) {
+
+      upArrow.addEventListener('click', () => { prevSlide(); resetSlide(); });
+
+      downArrow.addEventListener('click', () => { nextSlide(); resetSlide(); });
+
+    }
+
+    
+
+    dots.forEach((dot, idx) => {
+
+      dot.addEventListener('click', () => { showSlide(idx); resetSlide(); });
+
+    });
+
+
+
+    startSlide();
+
+  </script>
+
+</body>
+
+
+
+</html>
+

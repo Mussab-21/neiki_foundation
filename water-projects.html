@@ -1,0 +1,2989 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Impact & Water Projects | NEIKI</title>
+
+  <meta name="description" content="NEIKI is a community-powered non-profit organization dedicated to building clean water projects, providing food security, and health assistance across Pakistan.">
+
+  
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  
+
+  <style>
+
+    /* Reset & Base */
+
+    :root {
+
+      --color-primary: #009EDB; /* UN Blue */
+
+      --color-secondary: #1E88C7; /* Mid Blue */
+
+      --color-accent: #4FD1E8; 
+
+      --color-bg-white: #FFFFFF;
+
+      --color-bg-light: #F6F4F0; /* Beige */
+
+      --color-text: #1C2B33;
+
+      --color-text-muted: #5B6B73;
+
+      
+
+      --font-heading: 'Noto Serif', serif;
+
+      --font-body: 'Noto Sans', sans-serif;
+
+      --font-sans-bold: 'Noto Sans', sans-serif;
+
+      
+
+      --radius-card: 24px;
+
+      --radius-btn: 4px;
+
+    }
+
+    
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+
+      font-family: var(--font-body);
+
+      color: var(--color-text);
+
+      background-color: var(--color-bg-white);
+
+      line-height: 1.6;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+    img, video { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+
+      width: 100%;
+
+      max-width: 1280px;
+
+      margin: 0 auto;
+
+      padding: 0 2rem;
+
+    }
+
+
+
+    /* Top Bar & Header */
+
+    .site-header {
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+    }
+
+    .header-inner {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      height: 80px;
+
+    }
+
+    .text-logo {
+
+      font-family: var(--font-heading);
+
+      font-weight: 700;
+
+      font-size: 1.75rem;
+
+      letter-spacing: -0.5px;
+
+      color: white;
+
+      display: flex;
+
+      align-items: baseline;
+
+    }
+
+    .text-logo span {
+
+      font-family: var(--font-body);
+
+      font-weight: 400;
+
+      font-size: 1rem;
+
+      letter-spacing: 0;
+
+      margin-left: 8px;
+
+      opacity: 0.9;
+
+    }
+
+    .main-nav ul {
+
+      display: flex;
+
+      list-style: none;
+
+      gap: 2rem;
+
+    }
+
+    .main-nav a {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+    }
+
+    .main-nav a:hover {
+
+      color: var(--color-accent);
+
+    }
+
+    .header-search {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+    }
+
+
+
+    /* Hero Carousel */
+
+    .hero-container {
+
+      background-color: var(--color-primary);
+
+      padding: 0 2rem 2rem 2rem; /* creates the frame */
+
+    }
+
+    .hero-wrapper {
+
+      position: relative;
+
+      height: calc(100vh - 120px);
+
+      min-height: 600px;
+
+      border-radius: 40px;
+
+      overflow: hidden;
+
+    }
+
+    .hero-slide {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      opacity: 0;
+
+      transition: opacity 0.8s ease;
+
+      z-index: 1;
+
+    }
+
+    .hero-slide.active {
+
+      opacity: 1;
+
+      z-index: 2;
+
+    }
+
+    .hero-img {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      object-fit: cover;
+
+    }
+
+    .hero-overlay {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%);
+
+    }
+
+    .hero-content {
+
+      position: absolute;
+
+      bottom: 12%;
+
+      left: 5%;
+
+      max-width: 650px;
+
+      color: white;
+
+    }
+
+    .hero-headline {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 4.5rem;
+
+      font-weight: 900;
+
+      line-height: 1;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1rem;
+
+      letter-spacing: -1px;
+
+    }
+
+    .hero-subtext {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .hero-btn {
+
+      display: inline-block;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      font-family: var(--font-body);
+
+      font-weight: 600;
+
+      padding: 1rem 2rem;
+
+      border-radius: var(--radius-btn);
+
+      transition: background 0.3s;
+
+    }
+
+    .hero-btn:hover {
+
+      background-color: #062338;
+
+    }
+
+    .carousel-indicators {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+    }
+
+    .dot {
+
+      width: 10px;
+
+      height: 10px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      cursor: pointer;
+
+    }
+
+    .dot.active {
+
+      background-color: var(--color-primary);
+
+      border-color: var(--color-primary);
+
+    }
+
+
+
+    /* Mission Statement */
+
+    .mission-section {
+
+      padding: 8rem 2rem;
+
+      text-align: center;
+
+    }
+
+    .mission-statement {
+
+      font-family: var(--font-heading);
+
+      font-size: 3rem;
+
+      line-height: 1.3;
+
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+      color: var(--color-text);
+
+    }
+
+    .mission-statement em {
+
+      font-style: italic;
+
+      color: var(--color-primary);
+
+    }
+
+
+
+    /* Horizontal Cards (Core Programs) */
+
+    .horizontal-cards-section {
+
+      padding: 4rem 0;
+
+    }
+
+    .card-horizontal {
+
+      display: flex;
+
+      flex-direction: row;
+
+      gap: 4rem;
+
+      margin-bottom: 4rem;
+
+      align-items: center;
+
+    }
+
+    .card-horizontal:nth-child(even) {
+
+      flex-direction: row-reverse;
+
+    }
+
+    .card-horizontal-img {
+
+      flex: 0 0 50%;
+
+      border-radius: var(--radius-card);
+
+      overflow: hidden;
+
+      aspect-ratio: 16/10;
+
+    }
+
+    .card-horizontal-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+      transition: transform 0.5s ease;
+
+    }
+
+    .card-horizontal:hover .card-horizontal-img img {
+
+      transform: scale(1.03);
+
+    }
+
+    .card-horizontal-content {
+
+      flex: 1;
+
+    }
+
+    .card-horizontal-eyebrow {
+
+      text-transform: uppercase;
+
+      font-size: 0.875rem;
+
+      font-weight: 700;
+
+      color: var(--color-text-muted);
+
+      margin-bottom: 1rem;
+
+      letter-spacing: 1px;
+
+    }
+
+    .card-horizontal h3 {
+
+      font-size: 2.5rem;
+
+      margin-bottom: 1.25rem;
+
+      color: var(--color-text);
+
+      font-family: var(--font-heading);
+
+      line-height: 1.2;
+
+    }
+
+    .card-horizontal p {
+
+      color: var(--color-text-muted);
+
+      margin-bottom: 2rem;
+
+      font-size: 1.125rem;
+
+      line-height: 1.6;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .text-link {
+
+      font-weight: 600;
+
+      color: var(--color-primary);
+
+      text-decoration: none;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 1.05rem;
+
+    }
+
+    .text-link:hover {
+
+      text-decoration: underline;
+
+    }
+
+
+
+    /* Facts Section */
+
+    .facts-wrapper {
+
+      padding: 0 2rem 4rem 2rem;
+
+    }
+
+    .facts-card {
+
+      background-color: var(--color-bg-light);
+
+      border-radius: 40px;
+
+      padding: 4rem;
+
+      position: relative;
+
+    }
+
+    .facts-header {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .facts-title-wrapper h2 {
+
+      font-family: var(--font-heading);
+
+      font-size: 2.5rem;
+
+      font-weight: 400;
+
+      color: var(--color-text);
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .facts-title-wrapper p {
+
+      color: var(--color-text-muted);
+
+      font-size: 0.9375rem;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .facts-link {
+
+      font-weight: 600;
+
+      color: var(--color-text);
+
+      font-size: 0.9375rem;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+    }
+
+    .facts-link:hover { text-decoration: underline; }
+
+    
+
+    .stats-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 2rem;
+
+    }
+
+    .stat-item {
+
+      text-align: center;
+
+      flex: 1;
+
+    }
+
+    .stat-number {
+
+      font-family: var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 300;
+
+      color: var(--color-text);
+
+      line-height: 1;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .stat-label {
+
+      font-size: 1.125rem;
+
+      color: var(--color-text-muted);
+
+      font-family: var(--font-heading);
+
+    }
+
+
+
+    /* Dark Ideas Section */
+
+    .ideas-section {
+
+      background-color: #2F3943; /* Slate dark */
+
+      color: white;
+
+      padding: 6rem 0;
+
+      overflow: hidden;
+
+    }
+
+    .ideas-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: baseline;
+
+      margin-bottom: 3rem;
+
+    }
+
+    .ideas-title {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 3rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .ideas-layout {
+
+      display: flex;
+
+      gap: 4rem;
+
+    }
+
+    .ideas-sidebar {
+
+      flex: 0 0 250px;
+
+    }
+
+    .ideas-nav {
+
+      list-style: none;
+
+    }
+
+    .ideas-nav li {
+
+      margin-bottom: 1rem;
+
+    }
+
+    .ideas-nav a {
+
+      color: rgba(255,255,255,0.6);
+
+      font-size: 1.25rem;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition: color 0.2s;
+
+    }
+
+    .ideas-nav a:hover, .ideas-nav a.active {
+
+      color: white;
+
+    }
+
+    .ideas-carousel {
+
+      flex: 1;
+
+      display: flex;
+
+      gap: 2rem;
+
+      overflow-x: auto;
+
+      padding-bottom: 1rem;
+
+      scrollbar-width: none;
+
+    }
+
+    .ideas-carousel::-webkit-scrollbar { display: none; }
+
+    .idea-card {
+
+      flex: 0 0 380px;
+
+      position: relative;
+
+      cursor: pointer;
+
+    }
+
+    .idea-card-img {
+
+      border-radius: 12px;
+
+      aspect-ratio: 16/10;
+
+      overflow: hidden;
+
+      margin-bottom: 1.5rem;
+
+      position: relative;
+
+    }
+
+    .idea-card-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+    }
+
+    .idea-card-btn {
+
+      position: absolute;
+
+      right: 1rem;
+
+      bottom: 1rem;
+
+      width: 40px; height: 40px;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      border-radius: 4px;
+
+      display: flex; align-items: center; justify-content: center;
+
+      font-weight: bold;
+
+    }
+
+    .idea-card h4 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      margin-bottom: 1rem;
+
+      line-height: 1.2;
+
+    }
+
+    .idea-card p {
+
+      color: rgba(255,255,255,0.8);
+
+      font-family: var(--font-heading);
+
+      font-size: 1rem;
+
+      line-height: 1.5;
+
+    }
+
+
+
+    /* Newsletter Section */
+
+    .newsletter-wrapper {
+
+      padding: 4rem 2rem;
+
+    }
+
+    .newsletter-card {
+
+      background-color: var(--color-primary); /* Navy */
+
+      border-radius: 40px;
+
+      padding: 5rem 4rem;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+      color: white;
+
+    }
+
+    .newsletter-content {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-content h2 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2.5rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1.5rem;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .newsletter-content p {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      line-height: 1.6;
+
+    }
+
+    .newsletter-form-container {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-form {
+
+      display: flex;
+
+      width: 100%;
+
+    }
+
+    .newsletter-input {
+
+      flex: 1;
+
+      padding: 1.25rem;
+
+      border: none;
+
+      border-radius: 4px 0 0 4px;
+
+      font-size: 1rem;
+
+      font-family: var(--font-body);
+
+    }
+
+    .newsletter-btn {
+
+      background-color: #2F3943;
+
+      color: white;
+
+      padding: 0 2rem;
+
+      border: none;
+
+      border-radius: 0 4px 4px 0;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      font-size: 1rem;
+
+      transition: background-color 0.2s;
+
+    }
+
+    .newsletter-btn:hover {
+
+      background-color: #1a2026;
+
+    }
+
+    .newsletter-disclaimer {
+
+      margin-top: 1rem;
+
+      font-size: 0.75rem;
+
+      color: rgba(255,255,255,0.7);
+
+      line-height: 1.4;
+
+    }
+
+    .newsletter-disclaimer a { text-decoration: underline; color: white; }
+
+
+
+    /* Footer */
+
+    .site-footer {
+
+      background-color: var(--color-primary); /* Navy Blue Theme */
+
+      color: white;
+
+      padding: 4rem 0 2rem;
+
+      border-top: none;
+
+    }
+
+    .footer-grid {
+
+      display: grid;
+
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+
+      gap: 3rem;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .footer-col-brand .text-logo {
+
+      color: white;
+
+      margin-bottom: 1.5rem;
+
+      display: flex;
+
+    }
+
+    .footer-col h4 {
+
+      font-family: var(--font-body);
+
+      font-weight: 700;
+
+      margin-bottom: 1.5rem;
+
+      color: white;
+
+    }
+
+    .footer-col ul { list-style:none; }
+
+    .footer-col ul li { margin-bottom:0.75rem; }
+
+    .footer-col a { color: rgba(255,255,255,0.8); }
+
+    .footer-col a:hover { color: var(--color-accent); text-decoration: underline; }
+
+    
+
+    .footer-bottom {
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding-top: 2rem;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 0.875rem;
+
+      color: rgba(255,255,255,0.6);
+
+    }
+
+
+
+    /* Responsive */
+
+    @media (max-width: 1024px) {
+
+      .hero-headline { font-size: 3.5rem; }
+
+      .card-horizontal, .card-horizontal:nth-child(even) { flex-direction: column; gap: 2rem; }
+
+      .facts-card { padding: 3rem; }
+
+      .stats-row { flex-wrap: wrap; }
+
+      .stat-item { flex: 0 0 45%; margin-bottom: 2rem; }
+
+      .newsletter-card { flex-direction: column; padding: 3rem; }
+
+      .ideas-layout { flex-direction: column; }
+
+    }
+
+    @media (max-width: 768px) {
+
+      .hero-container { padding: 0; }
+
+      .hero-wrapper { border-radius: 0; height: 60vh; }
+
+      .hero-content { left: 2rem; right: 2rem; }
+
+      .hero-headline { font-size: 2.5rem; }
+
+      .mission-statement { font-size: 2rem; }
+
+      .facts-wrapper { padding: 0; }
+
+      .facts-card { border-radius: 0; }
+
+      .stat-item { flex: 0 0 100%; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+
+    }
+
+  
+
+    /* --- NEW CSS ADDITIONS --- */
+
+    /* Header Dropdowns */
+
+    .logo-link { display: flex; align-items: center; }
+
+    
+
+    .header-logo {
+
+      height: 45px;
+
+      object-fit: contain;
+
+      filter: brightness(0) invert(1);
+
+    }
+
+    .has-dropdown { position: relative; }
+
+    .dropdown-menu {
+
+      display: none;
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      background-color: white;
+
+      color: var(--color-text);
+
+      min-width: 200px;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+      border-radius: 4px;
+
+      padding: 0.5rem 0;
+
+      z-index: 200;
+
+    }
+
+    .has-dropdown:hover .dropdown-menu {
+
+      display: block;
+
+    }
+
+    .dropdown-menu a {
+
+      display: block;
+
+      padding: 0.75rem 1.5rem;
+
+      font-weight: 500;
+
+      color: var(--color-text) !important;
+
+    }
+
+    .dropdown-menu a:hover {
+
+      background-color: var(--color-bg-light);
+
+      color: var(--color-primary) !important;
+
+    }
+
+
+
+    /* Intro Cards */
+
+    .intro-cards-section { margin-bottom: 5rem; }
+
+    .intro-cards-wrapper { display: flex; gap: 2rem; }
+
+    .intro-card { flex: 1; display: flex; border-radius: 12px; overflow: hidden; align-items: center; padding-right: 2rem; }
+
+    .intro-card.bg-light-blue { background-color: #E6F3FA; }
+
+    .intro-card.bg-white { background-color: white; }
+
+    .intro-card-img-wrapper { position: relative; flex: 0 0 50%; max-width: 50%; height: 250px; margin-right: 2rem; }
+
+    .intro-card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+    .yellow-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background-color: #FFC000; border-radius: 4px 0 0 4px; }
+
+    .intro-card-content { flex: 1; padding: 1rem 0; }
+
+    .intro-card-content h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; color: var(--color-text); }
+
+    .intro-card-content h3 em { font-style: italic; color: var(--color-secondary); font-weight: 400; }
+
+    .intro-card-content p { color: var(--color-text-muted); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.5; font-family: var(--font-heading); }
+
+    .text-link-underline { font-weight: 700; color: var(--color-text); text-decoration: underline; font-size: 0.9375rem; display: inline-block; }
+
+    .text-link-underline:hover { color: var(--color-primary); }
+
+
+
+    /* Partners Section */
+
+    .partners-section {
+
+      display: flex;
+
+      align-items: center;
+
+      margin-bottom: 6rem;
+
+      gap: 4rem;
+
+    }
+
+    .partners-image-container {
+
+      flex: 0 0 50%;
+
+      height: 600px;
+
+    }
+
+    .partners-image-container img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 0 80px 80px 0;
+
+    }
+
+    .partners-content {
+
+      flex: 1;
+
+      padding-right: 4rem;
+
+      text-align: center;
+
+      max-width: 550px;
+
+    }
+
+    .partners-title {
+
+      font-family: 'Caveat', cursive, var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 400;
+
+      line-height: 1.1;
+
+      color: var(--color-text);
+
+      margin-bottom: 2rem;
+
+      font-style: italic;
+
+    }
+
+    .partners-desc {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      color: var(--color-text-muted);
+
+      line-height: 1.6;
+
+      margin-bottom: 2.5rem;
+
+    }
+
+    .btn-yellow {
+
+      display: inline-block;
+
+      background-color: #EED202;
+
+      color: var(--color-text);
+
+      font-family: var(--font-sans-bold);
+
+      font-weight: 700;
+
+      padding: 1rem 2.5rem;
+
+      border-radius: 4px;
+
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      transition: background-color 0.3s;
+
+    }
+
+    .btn-yellow:hover { background-color: #D4BA00; }
+
+
+
+    /* More About Section */
+
+    .more-about-section { padding: 6rem 2rem; }
+
+    .section-heading-uppercase {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 3rem;
+
+      color: var(--color-text);
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .more-cards-wrapper { display: flex; gap: 2rem; }
+
+    .more-card { flex: 1; }
+
+    .more-card-img { border-radius: 16px; overflow: hidden; aspect-ratio: 16/11; margin-bottom: 1.5rem; }
+
+    .more-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .more-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--color-text); }
+
+    .more-card p { font-family: var(--font-heading); color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
+
+
+
+    /* Button under mission statement */
+
+    .btn-outline-blue {
+
+      display: inline-block;
+
+      border: 1px solid var(--color-secondary);
+
+      color: var(--color-secondary);
+
+      background: transparent;
+
+      padding: 0.75rem 2rem;
+
+      border-radius: 4px;
+
+      font-weight: 600;
+
+      font-size: 1rem;
+
+      margin-top: 2rem;
+
+      transition: all 0.3s;
+
+    }
+
+    .btn-outline-blue:hover {
+
+      background: var(--color-secondary);
+
+      color: white;
+
+    }
+
+    
+
+    @media (max-width: 1024px) {
+
+      .intro-cards-wrapper { flex-direction: column; }
+
+      .partners-section { flex-direction: column; }
+
+      .partners-image-container { border-radius: 0; width: 100%; }
+
+      .partners-image-container img { border-radius: 0; }
+
+      .partners-content { padding: 2rem; }
+
+      .more-cards-wrapper { flex-direction: column; }
+
+    }
+
+
+
+
+
+    /* --- MEGA MENU & CAROUSEL --- */
+
+    .header-logo-icon { height: 45px; object-fit: contain; margin-right: 15px; }
+
+    .header-logo-wordmark { height: 45px; object-fit: contain; }
+
+    .header-search { display: flex; align-items: center; cursor: pointer; font-size: 1.15rem; font-weight: 600; }
+
+    .header-search img { height: 26px; margin-left: 10px; border-radius: 50%; }
+
+
+
+    /* Remove old dropdown css to avoid conflict */
+
+    .dropdown-menu { display: none !important; } 
+
+
+
+    .site-header { position: relative; } /* To contain absolute mega menu */
+
+    
+
+    .mega-menu {
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      width: 100%;
+
+      background-color: var(--color-primary); /* Navy blue */
+
+      color: white;
+
+      display: none;
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding: 3rem 0;
+
+      z-index: 1000;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    }
+
+    .mega-menu.active { display: block; }
+
+    .mega-menu-inner {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      gap: 2rem;
+
+    }
+
+    .mega-col h3 { font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; line-height:1; }
+
+    .mega-col h4 { font-family: var(--font-sans-bold); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+    .mega-col p { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); }
+
+    .mega-col a { display: block; margin-bottom: 1rem; color: white; opacity: 0.9; text-decoration: none; font-size:0.95rem; }
+
+    .mega-col a:hover { opacity: 1; text-decoration: underline; }
+
+    .intro-col a { font-weight: bold; text-decoration: underline; font-family: var(--font-body); }
+
+    .nav-link { display: flex; align-items: center; gap: 4px; }
+
+    .arrow { font-size: 0.8rem; font-family: monospace; }
+
+
+
+    /* New Carousel Controls */
+
+    .carousel-controls {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+      align-items: center;
+
+    }
+
+    .carousel-controls .dot {
+
+      width: 12px;
+
+      height: 12px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      margin-bottom: 5px;
+
+    }
+
+    .carousel-controls .dot.active {
+
+      background-color: #EED202; /* Yellow filled circle */
+
+      border-color: #EED202;
+
+    }
+
+    .carousel-controls .car-arrow {
+
+      color: white;
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      user-select: none;
+
+    }
+
+    .carousel-controls .car-arrow:hover {
+
+      color: #EED202;
+
+    }
+
+    .carousel-indicators { display: none !important; } /* Hide old one */
+
+
+
+
+
+    /* --- ABOUT PAGE CSS --- */
+
+    .about-header { text-align: center; padding: 0 2rem; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+    .about-header h4 { font-family: var(--font-sans-bold); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; color: var(--color-primary); letter-spacing: 2px; }
+
+    .about-mission { font-family: var(--font-heading); font-size: 3.5rem; max-width: 1000px; margin: 0 auto; line-height: 1.2; color: var(--color-text); font-weight: 300; }
+
+    .about-mission em { font-style: italic; color: var(--color-secondary); }
+
+
+
+    .about-para { max-width: 800px; margin: 0 auto; padding: 0 2rem 4rem; font-family: var(--font-heading); font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted); }
+
+    .about-para p { margin-bottom: 1.5rem; }
+
+
+
+    .four-cards-section { padding: 4rem 2rem; background-color: white; }
+
+    .four-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+
+    .four-card { display: flex; flex-direction: column; }
+
+    .four-card-img { border-radius: 12px; overflow: hidden; aspect-ratio: 16/10; margin-bottom: 1.5rem; }
+
+    .four-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .four-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text); line-height: 1.2; }
+
+    .four-card p { font-family: var(--font-heading); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
+
+    .four-card a { font-weight: 700; color: var(--color-text); text-decoration: underline; display: inline-block; }
+
+    .four-card a:hover { color: var(--color-primary); }
+
+
+
+    .zigzag-section { padding: 4rem 2rem; }
+
+    .zigzag-row { display: flex; align-items: center; gap: 4rem; margin-bottom: 6rem; }
+
+    .zigzag-row:nth-child(even) { flex-direction: row-reverse; }
+
+    .zigzag-img { flex: 0 0 50%; max-width: 50%; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; }
+
+    .zigzag-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .zigzag-content { flex: 1; max-width: 500px; }
+
+    .zigzag-content h3 { font-family: var(--font-sans-bold); font-size: 1.75rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
+
+    .zigzag-content p { font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+
+
+    .offices-section { padding: 4rem 2rem; }
+
+    .offices-box { background-color: #2F3943; border-radius: 32px; padding: 4rem; color: white; position: relative; overflow: hidden; min-height: 500px; display: flex; flex-direction: column; }
+
+    .offices-title { font-family: var(--font-sans-bold); font-size: 1.5rem; text-transform: uppercase; z-index: 2; margin-bottom: 2rem; }
+
+    .map-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.2; object-fit: cover; z-index: 1; }
+
+    .map-content { z-index: 2; position: relative; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
+
+    .map-card { background: #FFC000; color: var(--color-text); padding: 1.5rem; border-radius: 8px; width: 250px; font-weight: 700; }
+
+    .map-card h4 { font-family: var(--font-sans-bold); font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+
+    .map-card a { font-size: 0.9rem; text-decoration: underline; }
+
+
+
+    .faq-section { padding: 6rem 2rem; max-width: 800px; margin: 0 auto; }
+
+    .faq-title { font-family: var(--font-sans-bold); font-size: 2.5rem; text-transform: uppercase; margin-bottom: 3rem; text-align: center; }
+
+    .faq-item { border-bottom: 1px solid #eaeaea; padding: 1.5rem 0; }
+
+    .faq-question { font-family: var(--font-sans-bold); font-size: 1.25rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--color-text); }
+
+    .faq-answer { font-family: var(--font-heading); font-size: 1rem; line-height: 1.6; color: var(--color-text-muted); display: none; padding-top: 1rem; }
+
+    .faq-item.active .faq-answer { display: block; }
+
+    
+
+    @media(max-width: 1024px) {
+
+      .four-cards-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .zigzag-row, .zigzag-row:nth-child(even) { flex-direction: column; }
+
+      .zigzag-img { max-width: 100%; }
+
+      .about-mission { font-size: 2.5rem; }
+
+    }
+
+    @media(max-width: 768px) {
+
+      .four-cards-grid { grid-template-columns: 1fr; }
+
+      .offices-box { padding: 2rem; }
+
+    }
+
+    
+
+    /* New Footer */
+
+    .site-footer { display: none; } /* hide old footer rules */
+
+    .new-footer {
+
+      display: block;
+
+      background-color: var(--color-primary); /* Dark slate matching Gates */
+
+      color: white;
+
+      padding: 6rem 0 4rem;
+
+      font-family: var(--font-body);
+
+      border-top: none;
+
+    }
+
+    .footer-flex {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+    }
+
+    .footer-left {
+
+      flex: 0 0 300px;
+
+    }
+
+    .footer-right {
+
+      flex: 1;
+
+      max-width: 700px;
+
+    }
+
+    .footer-top-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      margin-bottom: 3rem;
+
+    }
+
+    .footer-tagline {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      font-weight: 600;
+
+      max-width: 300px;
+
+      line-height: 1.4;
+
+    }
+
+    .footer-socials {
+
+      display: flex;
+
+      gap: 0.75rem;
+
+    }
+
+    .footer-socials a {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 32px; height: 32px;
+
+      border: 1px solid rgba(255,255,255,0.6);
+
+      border-radius: 50%;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 0.85rem;
+
+      transition: all 0.3s;
+
+      text-transform: uppercase;
+
+      font-weight: bold;
+
+    }
+
+    .footer-socials a:hover {
+
+      background: white; color: #2F3943;
+
+    }
+
+    .footer-nav-primary {
+
+      font-weight: 700;
+
+      font-size: 1.1rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-primary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-primary a:first-child { margin-left: 0; }
+
+    .footer-nav-primary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-divider {
+
+      border: none;
+
+      border-top: 1px solid rgba(255,255,255,0.2);
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-secondary {
+
+      font-weight: 600;
+
+      font-size: 0.95rem;
+
+      margin-bottom: 3rem;
+
+      line-height: 2;
+
+    }
+
+    .footer-nav-secondary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-secondary a:first-child { margin-left: 0; }
+
+    .footer-nav-secondary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-nav-tertiary {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.6);
+
+      line-height: 2;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-tertiary a { color: rgba(255,255,255,0.6); margin: 0 0.25rem; text-decoration: none; }
+
+    .footer-nav-tertiary a:first-child { margin-left: 0; }
+
+    .footer-nav-tertiary a:hover { color: white; text-decoration: underline; }
+
+    
+
+    .footer-copyright {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.5);
+
+    }
+
+    @media(max-width: 768px) {
+
+      .footer-flex { flex-direction: column; }
+
+      .footer-top-row { flex-direction: column; gap: 2rem; }
+
+    }
+
+
+
+    .fade-up-on-scroll {
+
+      opacity: 0;
+
+      transform: translateY(40px);
+
+      transition: opacity 1s ease-out, transform 1s ease-out;
+
+    }
+
+    .fade-up-on-scroll.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+
+
+</style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+<!-- Header -->
+
+  <header class="site-header" id="header">
+
+    <div class="container header-inner">
+
+      <a href="/" class="logo-link">
+
+        <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="about.html" class="nav-link" data-target="about-mega-menu">About us <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="impact.html" class="nav-link" data-target="work-mega-menu">Our Impact <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="flood-relief.html" class="direct-link" style="color: var(--color-accent); font-weight: 700;">2025 Flood Relief</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-target="ideas-mega-menu">Accountability & Impact <span class="arrow">▼</span></a>
+          </li>
+        </ul>
+      </nav>
+
+
+      
+
+      <div class="header-search">
+
+        Search <img src="assets/images/d844dfa8c06ae901bc8fa2eb395d2155.jpg-removebg-preview.png" alt="Search">
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Mega Menu - About Us -->
+
+    <div class="mega-menu" id="about-mega-menu">
+
+      <div class="container mega-menu-inner">
+
+        <div class="mega-col intro-col">
+
+          <h3>About us</h3>
+
+          <p>Learn about our origins, our vision, and the core values that drive our mission to serve humanity.</p>
+
+          <a href="about.html">Learn more about us</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Identity & Purpose</h4>
+          <a href="vision.html">Vision statement</a>
+
+          <a href="mission.html">Mission statement</a>
+
+          <a href="core-values.html">Core values</a>
+
+          <a href="objectives.html">Strategic Objectives</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Governance</h4>
+
+          <a href="governance.html">Organizational Structure & Governance</a>
+
+          <a href="compliance.html">Legal Registration & Compliance</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+                        <!-- Mega Menu - Our Impact -->
+    <div class="mega-menu" id="work-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Our Impact</h3>
+          <p>Discover our on-the-ground impact, completed water projects, and our vision for tomorrow.</p>
+          <a href="impact.html">Explore our impact</a>
+        </div>
+        <div class="mega-col">
+          <h4>Our Programs</h4>
+          <a href="program-framework.html">Program Framework</a>
+          <a href="thematic-areas.html">Main Thematic Areas</a>
+          <a href="flagship-programs.html">Flagship Programs</a>
+        </div>
+        <div class="mega-col">
+          <h4>Completed Initiatives</h4>
+          <a href="impact.html">Phase 1 Water Projects</a>
+          <a href="future-goals.html">Future Goals & Vision</a>
+        </div>
+      </div>
+    </div>
+
+
+
+        <!-- Mega Menu - Accountability -->
+    <div class="mega-menu" id="ideas-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Accountability & Impact</h3>
+          <p>Transparency, structured monitoring, and clear communication are at the heart of our operations.</p>
+          <a href="accountability.html">Read about our approach</a>
+        </div>
+        
+        <div class="mega-col">
+          <h4>Network & Outreach</h4>
+          <a href="partnerships.html">Partnerships & Collaborations</a>
+          </div>
+      </div>
+    </div>
+
+  </header>
+  <!-- Hero Section -->
+  <section class="hero-section" style="position: relative; height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0A192F;">
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
+      <img src="assets/img/project3.jpg" alt="Water Project Impact" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(0, 158, 219, 0.4) 0%, rgba(17,42,70,0.9) 100%);"></div>
+    </div>
+    <div class="container" style="position: relative; z-index: 2; text-align: center; color: white;">
+      <h1 class="anim-fade-down" style="font-family: var(--font-sans-bold); font-size: 4.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.5);">The Impact<br>We've Made</h1>
+      <p class="anim-fade-up" style="font-family: var(--font-heading); font-size: 1.5rem; max-width: 800px; margin: 0 auto; line-height: 1.5; font-weight: 300; animation-delay: 0.3s;">Phase 1 ISLD Donated Water Projects & Solutions</p>
+    </div>
+  </section>
+
+  <style>
+    .anim-fade-down { animation: fadeDown 1s ease-out forwards; opacity: 0; }
+    .anim-fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.1, 0.8, 0.1, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* TIMELINE STYLES */
+    .timeline-section { padding: 6rem 0; background-color: var(--color-bg-light); }
+    .timeline { position: relative; max-width: 1000px; margin: 4rem auto 0; padding: 2rem 0; }
+    .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--color-primary); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+    .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; margin-bottom: 3rem; }
+    .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: white; border: 4px solid var(--color-primary); top: 20px; border-radius: 50%; z-index: 1; }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 50%; }
+    .timeline-item.right::after { left: -10px; }
+    .timeline-content { padding: 2rem 2.5rem; background: white; position: relative; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); transition: transform 0.4s ease, box-shadow 0.4s ease; opacity: 0; }
+    .timeline-item.left .timeline-content { transform: translateX(-50px); }
+    .timeline-item.right .timeline-content { transform: translateX(50px); }
+    .timeline-content.visible { opacity: 1; transform: translateX(0) !important; }
+    .timeline-content:hover { transform: translateY(-5px) !important; box-shadow: 0 15px 40px rgba(0, 158, 219, 0.2); }
+    .timeline-num { position: absolute; top: 10px; right: 20px; font-size: 4rem; font-family: var(--font-sans-bold); color: rgba(0, 158, 219, 0.1); line-height: 1; z-index: 0; }
+    .timeline-content h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-text); margin-bottom: 1rem; position: relative; z-index: 1; }
+    .timeline-content p { font-family: var(--font-heading); color: var(--color-text-muted); line-height: 1.6; position: relative; z-index: 1; }
+    @media (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item::after { left: 21px; }
+      .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
+      .timeline-item.right { left: 0; }
+      .timeline-item.left .timeline-content, .timeline-item.right .timeline-content { transform: translateX(30px); }
+    }
+
+    /* FIXED GRID GALLERY */
+    .uniform-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+      background: #000;
+      aspect-ratio: 1 / 1; /* FORCES ALL TO BE PERFECT SQUARES */
+      cursor: pointer;
+    }
+    .project-img-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* CROPS TO FIT PERFECTLY */
+      display: block;
+      transition: transform 0.6s ease, opacity 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      opacity: 0.6;
+    }
+    .project-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(17, 42, 70, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      text-align: center;
+      padding: 2rem;
+    }
+    .gallery-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .view-project-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-family: var(--font-sans-bold);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .view-project-btn:hover {
+      background: white;
+      color: #112A46;
+    }
+
+    /* MODAL SLIDESHOW STYLES */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      z-index: 10000;
+      background: transparent;
+      border: none;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--color-primary); }
+    
+    .modal-title {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: white;
+      font-family: var(--font-sans-bold);
+      font-size: 1.5rem;
+    }
+    .modal-title span { color: var(--color-primary); }
+
+    .slider-container {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+    .slider-btn:hover { background: var(--color-primary); }
+    .slider-prev { left: -60px; }
+    .slider-next { right: -60px; }
+    
+    .slider-counter {
+      position: absolute;
+      bottom: -40px;
+      color: rgba(255,255,255,0.7);
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+    }
+
+    @media(max-width: 768px) {
+      .slider-btn { width: 40px; height: 40px; }
+      .slider-prev { left: -10px; }
+      .slider-next { right: -10px; }
+    }
+  </style>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 900px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; color: var(--color-text); margin-bottom: 1rem;">Comprehensive Water Solutions</h2>
+        <p style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-text-muted); line-height: 1.7;">
+          Water is the foundation of life. Our Phase 1 initiative focuses on delivering diverse, sustainable water systems tailored to the specific geographical and communal needs of underserved regions.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item left"><div class="timeline-content scroll-anim"><div class="timeline-num">01</div><h3>Family Water Hand Pump</h3><p>Designed for individual households, providing safe and immediate access to clean drinking water right at home.</p></div></div>
+        <div class="timeline-item right"><div class="timeline-content scroll-anim"><div class="timeline-num">02</div><h3>Community Water Hand Pump</h3><p>Larger, more durable pumps installed in central locations to serve multiple families and small neighborhoods.</p></div></div>
+        <div class="timeline-item left"><div class="timeline-content scroll-anim"><div class="timeline-num">03</div><h3>Deep Water Well</h3><p>Excavated deep into the earth to reach pure aquifers, ensuring a reliable water supply even during dry seasons.</p></div></div>
+        <div class="timeline-item right"><div class="timeline-content scroll-anim"><div class="timeline-num">04</div><h3>Solar Water Plant</h3><p>Eco-friendly water extraction utilizing solar panels to pump water from deep reserves without electricity costs.</p></div></div>
+        <div class="timeline-item left"><div class="timeline-content scroll-anim"><div class="timeline-num">05</div><h3>Water Purification Plant</h3><p>Medium to large-scale RO plants that filter out contaminants, serving entire regions with WHO-standard clean water.</p></div></div>
+        <div class="timeline-item right"><div class="timeline-content scroll-anim"><div class="timeline-num">06</div><h3>Natural Water Supply</h3><p>Projects designed to channel and distribute water from natural springs and mountain streams safely to communities.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISLD Donated Gallery -->
+  <section style="padding: 6rem 0; background-color: white;">
+    <div class="container">
+      
+      <div class="reveal" style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; color: #112A46;">Phase 1: ISLD Donated Projects</h2>
+        <div style="width: 80px; height: 4px; background: var(--color-primary); margin: 1.5rem auto;"></div>
+        <p style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-text-muted); max-width: 800px; margin: 0 auto;">
+          Browse the gallery below to view the field photos of completed water projects funded by our generous donors.
+        </p>
+      </div>
+
+      <div class="uniform-gallery">
+        
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.42 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.45 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM.jpeg&quot;]" data-title="abdul rab">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/3.jpg" alt="abdul rab" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">abdul rab</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/3.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/4.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/5.png&quot;]" data-title="سرور جان۔بی بی">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/2.jpeg" alt="سرور جان۔بی بی" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">سرور جان۔بی بی</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/WhatsApp Image 2025-12-26 at 6.02.35 PM.jpeg&quot;]" data-title="اشرف صاحب۔">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/2.jpeg" alt="اشرف صاحب۔" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">اشرف صاحب۔</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2026-01-04 at 3.37.24 PM.jpeg&quot;]" data-title="ریحان یونس">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpeg" alt="ریحان یونس" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">ریحان یونس</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/5.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 6.00.13 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 8.58.24 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 9.10.18 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 9.10.19 PM.jpeg&quot;]" data-title="S عرفان یونس">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/3.jpg" alt="S عرفان یونس" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">S عرفان یونس</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/132123.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/page-5-&-6.png&quot;]" data-title="S  یاسمین یونس">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/132123.png" alt="S  یاسمین یونس" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">S  یاسمین یونس</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/page-5-&-6.png&quot;]" data-title="S  سالم یونس">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/2.jpeg" alt="S  سالم یونس" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">S  سالم یونس</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/5.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/IMG-20251203-WA0016.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/IMG-20251203-WA0017.jpg&quot;]" data-title="افراسیاب">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/2.jpeg" alt="افراسیاب" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">افراسیاب</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/00113.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/003.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/IMG-20251203-WA0018.jpg&quot;]" data-title="حنیف صاحب">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/00113.jpg" alt="حنیف صاحب" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">حنیف صاحب</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/5.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/WhatsApp Image 2025-12-26 at 5.00.58 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/WhatsApp Image 2025-12-26 at 9.39.16 PM.jpeg&quot;]" data-title="خلیل">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/2.jpeg" alt="خلیل" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">خلیل</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/pictirial.png&quot;]" data-title="فاضل کریم">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/2.jpeg" alt="فاضل کریم" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">فاضل کریم</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/desfewd.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/WhatsApp Image 2025-12-26 at 9.21.41 PM (1).jpeg&quot;]" data-title="چوہدری اوصاف">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/2.jpeg" alt="چوہدری اوصاف" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">چوہدری اوصاف</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/2.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/5.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/6.jpeg&quot;]" data-title="جاویداقبال">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/2.jpg" alt="جاویداقبال" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">جاویداقبال</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/21212.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/6.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/Untitled.png&quot;]" data-title="نیاز">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/2.jpeg" alt="نیاز" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">نیاز</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/WhatsApp Image 2025-12-26 at 5.18.43 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/WhatsApp Image 2025-12-26 at 5.18.45 PM (1).jpeg&quot;]" data-title="مسز تسنیم جاوید۔">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/2.jpeg" alt="مسز تسنیم جاوید۔" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">مسز تسنیم جاوید۔</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/WhatsApp Image 2025-12-26 at 5.00.52 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/WhatsApp Image 2025-12-26 at 5.00.53 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/WhatsApp Image 2025-12-26 at 9.55.00 PM.jpeg&quot;]" data-title="مریم">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/2.jpeg" alt="مریم" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">مریم</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/ewewewe.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.10 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.14 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.34 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.50 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.55 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 5.00.02 PM.jpeg&quot;]" data-title="مسز یاسمین">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/3.jpg" alt="مسز یاسمین" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">مسز یاسمین</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/6.jpeg&quot;]" data-title="سرورجان">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/2.jpeg" alt="سرورجان" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">سرورجان</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/02.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/03 (2).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/03.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/04.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.28 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (2).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (2).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM.jpeg&quot;]" data-title="مسز اقبال سرور">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/02.jpeg" alt="مسز اقبال سرور" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">مسز اقبال سرور</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/3.jpg&quot;]" data-title="EBAD ILAHI  ISSUE">
+                  <div class="project-img-wrapper">
+                    <img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/3.jpg" alt="EBAD ILAHI  ISSUE" loading="lazy">
+                    <div class="project-overlay">
+                      <h4 style="font-family: var(--font-sans-bold); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Donated By</h4>
+                      <p style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem;">EBAD ILAHI  ISSUE</p>
+                      
+                      <button class="view-project-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        View Project Photos
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL LIGHTBOX -->
+  <div class="modal-overlay" id="photo-modal">
+    <div class="modal-title">Project: <span id="modal-project-name">Abdul Rab</span></div>
+    <button class="modal-close" id="modal-close-btn">&times;</button>
+    
+    <div class="slider-container">
+      <button class="slider-btn slider-prev" id="slider-prev">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
+      </button>
+      
+      <img src="" alt="Project Photo" class="slider-img" id="slider-img">
+      
+      <button class="slider-btn slider-next" id="slider-next">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </button>
+      
+      <div class="slider-counter"><span id="slider-current">1</span> / <span id="slider-total">5</span></div>
+    </div>
+  </div>
+
+  <script>
+    // Reveal Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) { entry.target.classList.add('active'); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) { entry.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.scroll-anim').forEach(el => timelineObserver.observe(el));
+
+    // Modal Logic
+    const modal = document.getElementById('photo-modal');
+    const closeBtn = document.getElementById('modal-close-btn');
+    const sliderImg = document.getElementById('slider-img');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    const titleEl = document.getElementById('modal-project-name');
+    const currentEl = document.getElementById('slider-current');
+    const totalEl = document.getElementById('slider-total');
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const imagesJson = item.getAttribute('data-images');
+        const title = item.getAttribute('data-title');
+        
+        if (imagesJson) {
+          currentImages = JSON.parse(imagesJson);
+          if (currentImages.length > 0) {
+            currentIndex = 0;
+            titleEl.innerText = title;
+            updateSlider();
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden'; // prevent background scrolling
+          }
+        }
+      });
+    });
+
+    function updateSlider() {
+      sliderImg.src = currentImages[currentIndex];
+      currentEl.innerText = currentIndex + 1;
+      totalEl.innerText = currentImages.length;
+      
+      // Hide buttons if only 1 image
+      if(currentImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      updateSlider();
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    }
+  </script>
+<!-- Footer -->
+
+  <footer class="site-footer new-footer">
+
+    <div class="container footer-flex">
+
+      <div class="footer-left">
+
+        <a href="/" class="logo-link">
+
+          <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+        </a>
+
+      </div>
+
+      <div class="footer-right">
+
+        <div class="footer-top-row">
+
+          <div class="footer-tagline">We are a nonprofit fighting poverty, disease, and inequity across Pakistan.</div>
+
+          <div class="footer-socials">
+
+            <a href="#">X</a>
+
+            <a href="#">f</a>
+
+            <a href="#">in</a>
+
+            <a href="#">ig</a>
+
+            <a href="#">yt</a>
+
+          </div>
+
+        </div>
+
+        
+
+        <div class="footer-nav-primary">
+
+          <a href="about.html">About</a> &middot; <a href="#">Our work</a> &middot; <a href="#">Ideas</a>
+
+        </div>
+
+        
+
+        <hr class="footer-divider">
+
+        
+
+        <div class="footer-nav-secondary">
+
+          <a href="contact.html">Contact</a> &middot; <a href="#">Media Center</a> &middot; <a href="#">Discovery Center</a> &middot; <a href="ways-to-give.html">Give with us</a>
+
+          <br><br>
+
+          <a href="#" style="text-decoration:underline;">Annual Reports</a>
+
+        </div>
+
+        
+
+        <div class="footer-nav-tertiary">
+
+          <a href="#">Reporting scams</a> | <a href="#">Ethics reporting</a> | <a href="#">Privacy & Cookies Notice</a><br>
+
+          <a href="#">Terms of Use</a> | <a href="#">Brand guidelines</a> | <a href="#">Vendors</a>
+
+        </div>
+
+        
+
+        <div class="footer-copyright">
+
+          Â© 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+<!-- Scripts -->
+
+  <script>
+
+    // Mega Menu functionality
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const megaMenus = document.querySelectorAll('.mega-menu');
+
+
+
+    navLinks.forEach(link => {
+
+      link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const targetId = link.getAttribute('data-target');
+
+        const targetMenu = document.getElementById(targetId);
+
+        
+
+        // close others
+
+        megaMenus.forEach(menu => {
+
+          if (menu !== targetMenu) menu.classList.remove('active');
+
+        });
+
+        navLinks.forEach(nav => {
+
+          if (nav !== link) nav.querySelector('.arrow').innerText = '▼';
+
+        });
+
+
+
+        if (targetMenu) {
+
+          targetMenu.classList.toggle('active');
+
+          const arrow = link.querySelector('.arrow');
+
+          if (targetMenu.classList.contains('active')) {
+
+            arrow.innerText = '▼'; // Up arrow
+
+          } else {
+
+            arrow.innerText = '▼'; // Down arrow
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+
+    // Close menu when clicking outside
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.site-header')) {
+
+        megaMenus.forEach(menu => menu.classList.remove('active'));
+
+        navLinks.forEach(nav => nav.querySelector('.arrow').innerText = '▼');
+
+      }
+
+    });
+
+
+
+    // Carousel functionality
+
+    const slides = document.querySelectorAll('.hero-slide');
+
+    const dots = document.querySelectorAll('.carousel-controls .dot');
+
+    const upArrow = document.querySelector('.up-arrow');
+
+    const downArrow = document.querySelector('.down-arrow');
+
+    let currentSlide = 0;
+
+    let slideInterval;
+
+
+
+    function showSlide(index) {
+
+      if (!slides.length) return;
+
+      slides[currentSlide].classList.remove('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+      
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      
+
+      slides[currentSlide].classList.add('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+    }
+
+
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+
+
+    function startSlide() {
+
+      slideInterval = setInterval(nextSlide, 5000);
+
+    }
+
+
+
+    function resetSlide() {
+
+      clearInterval(slideInterval);
+
+      startSlide();
+
+    }
+
+
+
+    if (upArrow && downArrow) {
+
+      upArrow.addEventListener('click', () => { prevSlide(); resetSlide(); });
+
+      downArrow.addEventListener('click', () => { nextSlide(); resetSlide(); });
+
+    }
+
+    
+
+    dots.forEach((dot, idx) => {
+
+      dot.addEventListener('click', () => { showSlide(idx); resetSlide(); });
+
+    });
+
+
+
+    startSlide();
+
+  </script>
+
+  <script>
+
+    // FAQ Toggle functionality
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', () => {
+
+        const isActive = item.classList.contains('active');
+
+        // Close all
+
+        faqItems.forEach(i => {
+
+            i.classList.remove('active');
+
+            i.querySelector('span').innerText = '+';
+
+        });
+
+        if (!isActive) {
+
+            item.classList.add('active');
+
+            item.querySelector('span').innerText = '-';
+
+        }
+
+      });
+
+    });
+
+  
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+
+          entry.target.classList.add('visible');
+
+        }
+
+      });
+
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up-on-scroll').forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+
+
+
+</html>

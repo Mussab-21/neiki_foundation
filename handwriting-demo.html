@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handwriting SVG | UI UX Pro Max Demo</title>
+  
+  <!-- Import Inter for Pro Max Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Required CDNs for handwriting-svg -->
+  <script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@10.16.2/dist/motion.js"></script>
+  
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-glow: rgba(225, 29, 72, 0.15); /* Rose glow */
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ambient Background Glow for Pro Max effect */
+    .ambient-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--bg-glow) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .handwriting-wrapper {
+      height: 160px;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .description {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    .replay-btn {
+      background: #e11d48;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px 0 rgba(225, 29, 72, 0.39);
+    }
+
+    .replay-btn:hover {
+      background: #be123c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.5);
+    }
+
+    .replay-btn:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  
+  <div class="container">
+    <div class="badge">✨ UI UX Pro Max Integration</div>
+    
+    <div class="handwriting-wrapper" id="handwriting-demo">
+      <!-- SVG will be injected here -->
+    </div>
+    
+    <p class="description">
+      Beautiful, smooth SVG handwriting animation perfectly integrated without needing React or Tailwind. Powered by Opentype.js and Framer Motion's vanilla library.
+    </p>
+
+    <button class="replay-btn" onclick="playAnimation()">Replay Animation</button>
+  </div>
+
+  <!-- Load our custom logic -->
+  <script src="js/handwriting.js"></script>
+  <script>
+    function playAnimation() {
+      createHandwritingSvg("handwriting-demo", {
+        text: "Neeki Foundation",
+        fontSize: 72,
+        duration: 3,
+        strokeWidth: 1.5,
+        color: "#f43f5e" // Rose 500
+      });
+    }
+
+    // Trigger on load
+    window.addEventListener("DOMContentLoaded", playAnimation);
+  </script>
+</body>
+</html>

@@ -1,0 +1,3577 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Financials | NEIKI Sub Say Foundation</title>
+
+  <meta name="description" content="NEIKI is a community-powered non-profit organization dedicated to building clean water projects, providing food security, and health assistance across Pakistan.">
+
+  
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  
+
+  <style>
+
+    /* Reset & Base */
+
+    :root {
+
+      --color-primary: #009EDB; /* UN Blue */
+
+      --color-secondary: #1E88C7; /* Mid Blue */
+
+      --color-accent: #4FD1E8; 
+
+      --color-bg-white: #FFFFFF;
+
+      --color-bg-light: #F6F4F0; /* Beige */
+
+      --color-text: #1C2B33;
+
+      --color-text-muted: #5B6B73;
+
+      
+
+      --font-heading: 'Noto Serif', serif;
+
+      --font-body: 'Noto Sans', sans-serif;
+
+      --font-sans-bold: 'Noto Sans', sans-serif;
+
+      
+
+      --radius-card: 24px;
+
+      --radius-btn: 4px;
+
+    }
+
+    
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+
+      font-family: var(--font-body);
+
+      color: var(--color-text);
+
+      background-color: var(--color-bg-white);
+
+      line-height: 1.6;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+    img, video { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+
+      width: 100%;
+
+      max-width: 1280px;
+
+      margin: 0 auto;
+
+      padding: 0 2rem;
+
+    }
+
+
+
+    /* Top Bar & Header */
+
+    .site-header {
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+    }
+
+    .header-inner {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      height: 80px;
+
+    }
+
+    .text-logo {
+
+      font-family: var(--font-heading);
+
+      font-weight: 700;
+
+      font-size: 1.75rem;
+
+      letter-spacing: -0.5px;
+
+      color: white;
+
+      display: flex;
+
+      align-items: baseline;
+
+    }
+
+    .text-logo span {
+
+      font-family: var(--font-body);
+
+      font-weight: 400;
+
+      font-size: 1rem;
+
+      letter-spacing: 0;
+
+      margin-left: 8px;
+
+      opacity: 0.9;
+
+    }
+
+    .main-nav ul {
+
+      display: flex;
+
+      list-style: none;
+
+      gap: 2rem;
+
+    }
+
+    .main-nav a {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+    }
+
+    .main-nav a:hover {
+
+      color: var(--color-accent);
+
+    }
+
+    .header-search {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+    }
+
+
+
+    /* Hero Carousel */
+
+    .hero-container {
+
+      background-color: var(--color-primary);
+
+      padding: 0 2rem 2rem 2rem; /* creates the frame */
+
+    }
+
+    .hero-wrapper {
+
+      position: relative;
+
+      height: calc(100vh - 120px);
+
+      min-height: 600px;
+
+      border-radius: 40px;
+
+      overflow: hidden;
+
+    }
+
+    .hero-slide {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      opacity: 0;
+
+      transition: opacity 0.8s ease;
+
+      z-index: 1;
+
+    }
+
+    .hero-slide.active {
+
+      opacity: 1;
+
+      z-index: 2;
+
+    }
+
+    .hero-img {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      object-fit: cover;
+
+    }
+
+    .hero-overlay {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%);
+
+    }
+
+    .hero-content {
+
+      position: absolute;
+
+      bottom: 12%;
+
+      left: 5%;
+
+      max-width: 650px;
+
+      color: white;
+
+    }
+
+    .hero-headline {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 4.5rem;
+
+      font-weight: 900;
+
+      line-height: 1;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1rem;
+
+      letter-spacing: -1px;
+
+    }
+
+    .hero-subtext {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .hero-btn {
+
+      display: inline-block;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      font-family: var(--font-body);
+
+      font-weight: 600;
+
+      padding: 1rem 2rem;
+
+      border-radius: var(--radius-btn);
+
+      transition: background 0.3s;
+
+    }
+
+    .hero-btn:hover {
+
+      background-color: #062338;
+
+    }
+
+    .carousel-indicators {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+    }
+
+    .dot {
+
+      width: 10px;
+
+      height: 10px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      cursor: pointer;
+
+    }
+
+    .dot.active {
+
+      background-color: var(--color-primary);
+
+      border-color: var(--color-primary);
+
+    }
+
+
+
+    /* Mission Statement */
+
+    .mission-section {
+
+      padding: 8rem 2rem;
+
+      text-align: center;
+
+    }
+
+    .mission-statement {
+
+      font-family: var(--font-heading);
+
+      font-size: 3rem;
+
+      line-height: 1.3;
+
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+      color: var(--color-text);
+
+    }
+
+    .mission-statement em {
+
+      font-style: italic;
+
+      color: var(--color-primary);
+
+    }
+
+
+
+    /* Horizontal Cards (Core Programs) */
+
+    .horizontal-cards-section {
+
+      padding: 4rem 0;
+
+    }
+
+    .card-horizontal {
+
+      display: flex;
+
+      flex-direction: row;
+
+      gap: 4rem;
+
+      margin-bottom: 4rem;
+
+      align-items: center;
+
+    }
+
+    .card-horizontal:nth-child(even) {
+
+      flex-direction: row-reverse;
+
+    }
+
+    .card-horizontal-img {
+
+      flex: 0 0 50%;
+
+      border-radius: var(--radius-card);
+
+      overflow: hidden;
+
+      aspect-ratio: 16/10;
+
+    }
+
+    .card-horizontal-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+      transition: transform 0.5s ease;
+
+    }
+
+    .card-horizontal:hover .card-horizontal-img img {
+
+      transform: scale(1.03);
+
+    }
+
+    .card-horizontal-content {
+
+      flex: 1;
+
+    }
+
+    .card-horizontal-eyebrow {
+
+      text-transform: uppercase;
+
+      font-size: 0.875rem;
+
+      font-weight: 700;
+
+      color: var(--color-text-muted);
+
+      margin-bottom: 1rem;
+
+      letter-spacing: 1px;
+
+    }
+
+    .card-horizontal h3 {
+
+      font-size: 2.5rem;
+
+      margin-bottom: 1.25rem;
+
+      color: var(--color-text);
+
+      font-family: var(--font-heading);
+
+      line-height: 1.2;
+
+    }
+
+    .card-horizontal p {
+
+      color: var(--color-text-muted);
+
+      margin-bottom: 2rem;
+
+      font-size: 1.125rem;
+
+      line-height: 1.6;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .text-link {
+
+      font-weight: 600;
+
+      color: var(--color-primary);
+
+      text-decoration: none;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 1.05rem;
+
+    }
+
+    .text-link:hover {
+
+      text-decoration: underline;
+
+    }
+
+
+
+    /* Facts Section */
+
+    .facts-wrapper {
+
+      padding: 0 2rem 4rem 2rem;
+
+    }
+
+    .facts-card {
+
+      background-color: var(--color-bg-light);
+
+      border-radius: 40px;
+
+      padding: 4rem;
+
+      position: relative;
+
+    }
+
+    .facts-header {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .facts-title-wrapper h2 {
+
+      font-family: var(--font-heading);
+
+      font-size: 2.5rem;
+
+      font-weight: 400;
+
+      color: var(--color-text);
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .facts-title-wrapper p {
+
+      color: var(--color-text-muted);
+
+      font-size: 0.9375rem;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .facts-link {
+
+      font-weight: 600;
+
+      color: var(--color-text);
+
+      font-size: 0.9375rem;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+    }
+
+    .facts-link:hover { text-decoration: underline; }
+
+    
+
+    .stats-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 2rem;
+
+    }
+
+    .stat-item {
+
+      text-align: center;
+
+      flex: 1;
+
+    }
+
+    .stat-number {
+
+      font-family: var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 300;
+
+      color: var(--color-text);
+
+      line-height: 1;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .stat-label {
+
+      font-size: 1.125rem;
+
+      color: var(--color-text-muted);
+
+      font-family: var(--font-heading);
+
+    }
+
+
+
+    /* Dark Ideas Section */
+
+    .ideas-section {
+
+      background-color: #2F3943; /* Slate dark */
+
+      color: white;
+
+      padding: 6rem 0;
+
+      overflow: hidden;
+
+    }
+
+    .ideas-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: baseline;
+
+      margin-bottom: 3rem;
+
+    }
+
+    .ideas-title {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 3rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .ideas-layout {
+
+      display: flex;
+
+      gap: 4rem;
+
+    }
+
+    .ideas-sidebar {
+
+      flex: 0 0 250px;
+
+    }
+
+    .ideas-nav {
+
+      list-style: none;
+
+    }
+
+    .ideas-nav li {
+
+      margin-bottom: 1rem;
+
+    }
+
+    .ideas-nav a {
+
+      color: rgba(255,255,255,0.6);
+
+      font-size: 1.25rem;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition: color 0.2s;
+
+    }
+
+    .ideas-nav a:hover, .ideas-nav a.active {
+
+      color: white;
+
+    }
+
+    .ideas-carousel {
+
+      flex: 1;
+
+      display: flex;
+
+      gap: 2rem;
+
+      overflow-x: auto;
+
+      padding-bottom: 1rem;
+
+      scrollbar-width: none;
+
+    }
+
+    .ideas-carousel::-webkit-scrollbar { display: none; }
+
+    .idea-card {
+
+      flex: 0 0 380px;
+
+      position: relative;
+
+      cursor: pointer;
+
+    }
+
+    .idea-card-img {
+
+      border-radius: 12px;
+
+      aspect-ratio: 16/10;
+
+      overflow: hidden;
+
+      margin-bottom: 1.5rem;
+
+      position: relative;
+
+    }
+
+    .idea-card-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+    }
+
+    .idea-card-btn {
+
+      position: absolute;
+
+      right: 1rem;
+
+      bottom: 1rem;
+
+      width: 40px; height: 40px;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      border-radius: 4px;
+
+      display: flex; align-items: center; justify-content: center;
+
+      font-weight: bold;
+
+    }
+
+    .idea-card h4 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      margin-bottom: 1rem;
+
+      line-height: 1.2;
+
+    }
+
+    .idea-card p {
+
+      color: rgba(255,255,255,0.8);
+
+      font-family: var(--font-heading);
+
+      font-size: 1rem;
+
+      line-height: 1.5;
+
+    }
+
+
+
+    /* Newsletter Section */
+
+    .newsletter-wrapper {
+
+      padding: 4rem 2rem;
+
+    }
+
+    .newsletter-card {
+
+      background-color: var(--color-primary); /* Navy */
+
+      border-radius: 40px;
+
+      padding: 5rem 4rem;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+      color: white;
+
+    }
+
+    .newsletter-content {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-content h2 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2.5rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1.5rem;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .newsletter-content p {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      line-height: 1.6;
+
+    }
+
+    .newsletter-form-container {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-form {
+
+      display: flex;
+
+      width: 100%;
+
+    }
+
+    .newsletter-input {
+
+      flex: 1;
+
+      padding: 1.25rem;
+
+      border: none;
+
+      border-radius: 4px 0 0 4px;
+
+      font-size: 1rem;
+
+      font-family: var(--font-body);
+
+    }
+
+    .newsletter-btn {
+
+      background-color: #2F3943;
+
+      color: white;
+
+      padding: 0 2rem;
+
+      border: none;
+
+      border-radius: 0 4px 4px 0;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      font-size: 1rem;
+
+      transition: background-color 0.2s;
+
+    }
+
+    .newsletter-btn:hover {
+
+      background-color: #1a2026;
+
+    }
+
+    .newsletter-disclaimer {
+
+      margin-top: 1rem;
+
+      font-size: 0.75rem;
+
+      color: rgba(255,255,255,0.7);
+
+      line-height: 1.4;
+
+    }
+
+    .newsletter-disclaimer a { text-decoration: underline; color: white; }
+
+
+
+    /* Footer */
+
+    .site-footer {
+
+      background-color: var(--color-primary); /* Navy Blue Theme */
+
+      color: white;
+
+      padding: 4rem 0 2rem;
+
+      border-top: none;
+
+    }
+
+    .footer-grid {
+
+      display: grid;
+
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+
+      gap: 3rem;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .footer-col-brand .text-logo {
+
+      color: white;
+
+      margin-bottom: 1.5rem;
+
+      display: flex;
+
+    }
+
+    .footer-col h4 {
+
+      font-family: var(--font-body);
+
+      font-weight: 700;
+
+      margin-bottom: 1.5rem;
+
+      color: white;
+
+    }
+
+    .footer-col ul { list-style:none; }
+
+    .footer-col ul li { margin-bottom:0.75rem; }
+
+    .footer-col a { color: rgba(255,255,255,0.8); }
+
+    .footer-col a:hover { color: var(--color-accent); text-decoration: underline; }
+
+    
+
+    .footer-bottom {
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding-top: 2rem;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 0.875rem;
+
+      color: rgba(255,255,255,0.6);
+
+    }
+
+
+
+    /* Responsive */
+
+    @media (max-width: 1024px) {
+
+      .hero-headline { font-size: 3.5rem; }
+
+      .card-horizontal, .card-horizontal:nth-child(even) { flex-direction: column; gap: 2rem; }
+
+      .facts-card { padding: 3rem; }
+
+      .stats-row { flex-wrap: wrap; }
+
+      .stat-item { flex: 0 0 45%; margin-bottom: 2rem; }
+
+      .newsletter-card { flex-direction: column; padding: 3rem; }
+
+      .ideas-layout { flex-direction: column; }
+
+    }
+
+    @media (max-width: 768px) {
+
+      .hero-container { padding: 0; }
+
+      .hero-wrapper { border-radius: 0; height: 60vh; }
+
+      .hero-content { left: 2rem; right: 2rem; }
+
+      .hero-headline { font-size: 2.5rem; }
+
+      .mission-statement { font-size: 2rem; }
+
+      .facts-wrapper { padding: 0; }
+
+      .facts-card { border-radius: 0; }
+
+      .stat-item { flex: 0 0 100%; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+
+    }
+
+  
+
+    /* --- NEW CSS ADDITIONS --- */
+
+    /* Header Dropdowns */
+
+    .logo-link { display: flex; align-items: center; }
+
+    
+
+    .header-logo {
+
+      height: 45px;
+
+      object-fit: contain;
+
+      filter: brightness(0) invert(1);
+
+    }
+
+    .has-dropdown { position: relative; }
+
+    .dropdown-menu {
+
+      display: none;
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      background-color: white;
+
+      color: var(--color-text);
+
+      min-width: 200px;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+      border-radius: 4px;
+
+      padding: 0.5rem 0;
+
+      z-index: 200;
+
+    }
+
+    .has-dropdown:hover .dropdown-menu {
+
+      display: block;
+
+    }
+
+    .dropdown-menu a {
+
+      display: block;
+
+      padding: 0.75rem 1.5rem;
+
+      font-weight: 500;
+
+      color: var(--color-text) !important;
+
+    }
+
+    .dropdown-menu a:hover {
+
+      background-color: var(--color-bg-light);
+
+      color: var(--color-primary) !important;
+
+    }
+
+
+
+    /* Intro Cards */
+
+    .intro-cards-section { margin-bottom: 5rem; }
+
+    .intro-cards-wrapper { display: flex; gap: 2rem; }
+
+    .intro-card { flex: 1; display: flex; border-radius: 12px; overflow: hidden; align-items: center; padding-right: 2rem; }
+
+    .intro-card.bg-light-blue { background-color: #E6F3FA; }
+
+    .intro-card.bg-white { background-color: white; }
+
+    .intro-card-img-wrapper { position: relative; flex: 0 0 50%; max-width: 50%; height: 250px; margin-right: 2rem; }
+
+    .intro-card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+    .yellow-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background-color: #FFC000; border-radius: 4px 0 0 4px; }
+
+    .intro-card-content { flex: 1; padding: 1rem 0; }
+
+    .intro-card-content h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; color: var(--color-text); }
+
+    .intro-card-content h3 em { font-style: italic; color: var(--color-secondary); font-weight: 400; }
+
+    .intro-card-content p { color: var(--color-text-muted); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.5; font-family: var(--font-heading); }
+
+    .text-link-underline { font-weight: 700; color: var(--color-text); text-decoration: underline; font-size: 0.9375rem; display: inline-block; }
+
+    .text-link-underline:hover { color: var(--color-primary); }
+
+
+
+    /* Partners Section */
+
+    .partners-section {
+
+      display: flex;
+
+      align-items: center;
+
+      margin-bottom: 6rem;
+
+      gap: 4rem;
+
+    }
+
+    .partners-image-container {
+
+      flex: 0 0 50%;
+
+      height: 600px;
+
+    }
+
+    .partners-image-container img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 0 80px 80px 0;
+
+    }
+
+    .partners-content {
+
+      flex: 1;
+
+      padding-right: 4rem;
+
+      text-align: center;
+
+      max-width: 550px;
+
+    }
+
+    .partners-title {
+
+      font-family: 'Caveat', cursive, var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 400;
+
+      line-height: 1.1;
+
+      color: var(--color-text);
+
+      margin-bottom: 2rem;
+
+      font-style: italic;
+
+    }
+
+    .partners-desc {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      color: var(--color-text-muted);
+
+      line-height: 1.6;
+
+      margin-bottom: 2.5rem;
+
+    }
+
+    .btn-yellow {
+
+      display: inline-block;
+
+      background-color: #EED202;
+
+      color: var(--color-text);
+
+      font-family: var(--font-sans-bold);
+
+      font-weight: 700;
+
+      padding: 1rem 2.5rem;
+
+      border-radius: 4px;
+
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      transition: background-color 0.3s;
+
+    }
+
+    .btn-yellow:hover { background-color: #D4BA00; }
+
+
+
+    /* More About Section */
+
+    .more-about-section { padding: 6rem 2rem; }
+
+    .section-heading-uppercase {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 3rem;
+
+      color: var(--color-text);
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .more-cards-wrapper { display: flex; gap: 2rem; }
+
+    .more-card { flex: 1; }
+
+    .more-card-img { border-radius: 16px; overflow: hidden; aspect-ratio: 16/11; margin-bottom: 1.5rem; }
+
+    .more-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .more-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--color-text); }
+
+    .more-card p { font-family: var(--font-heading); color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
+
+
+
+    /* Button under mission statement */
+
+    .btn-outline-blue {
+
+      display: inline-block;
+
+      border: 1px solid var(--color-secondary);
+
+      color: var(--color-secondary);
+
+      background: transparent;
+
+      padding: 0.75rem 2rem;
+
+      border-radius: 4px;
+
+      font-weight: 600;
+
+      font-size: 1rem;
+
+      margin-top: 2rem;
+
+      transition: all 0.3s;
+
+    }
+
+    .btn-outline-blue:hover {
+
+      background: var(--color-secondary);
+
+      color: white;
+
+    }
+
+    
+
+    @media (max-width: 1024px) {
+
+      .intro-cards-wrapper { flex-direction: column; }
+
+      .partners-section { flex-direction: column; }
+
+      .partners-image-container { border-radius: 0; width: 100%; }
+
+      .partners-image-container img { border-radius: 0; }
+
+      .partners-content { padding: 2rem; }
+
+      .more-cards-wrapper { flex-direction: column; }
+
+    }
+
+
+
+
+
+    /* --- MEGA MENU & CAROUSEL --- */
+
+    .header-logo-icon { height: 45px; object-fit: contain; margin-right: 15px; }
+
+    .header-logo-wordmark { height: 45px; object-fit: contain; }
+
+    .header-search { display: flex; align-items: center; cursor: pointer; font-size: 1.15rem; font-weight: 600; }
+
+    .header-search img { height: 26px; margin-left: 10px; border-radius: 50%; }
+
+
+
+    /* Remove old dropdown css to avoid conflict */
+
+    .dropdown-menu { display: none !important; } 
+
+
+
+    .site-header { position: relative; } /* To contain absolute mega menu */
+
+    
+
+    .mega-menu {
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      width: 100%;
+
+      background-color: var(--color-primary); /* Navy blue */
+
+      color: white;
+
+      display: none;
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding: 3rem 0;
+
+      z-index: 1000;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    }
+
+    .mega-menu.active { display: block; }
+
+    .mega-menu-inner {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      gap: 2rem;
+
+    }
+
+    .mega-col h3 { font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; line-height:1; }
+
+    .mega-col h4 { font-family: var(--font-sans-bold); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+    .mega-col p { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); }
+
+    .mega-col a { display: block; margin-bottom: 1rem; color: white; opacity: 0.9; text-decoration: none; font-size:0.95rem; }
+
+    .mega-col a:hover { opacity: 1; text-decoration: underline; }
+
+    .intro-col a { font-weight: bold; text-decoration: underline; font-family: var(--font-body); }
+
+    .nav-link { display: flex; align-items: center; gap: 4px; }
+
+    .arrow { font-size: 0.8rem; font-family: monospace; }
+
+
+
+    /* New Carousel Controls */
+
+    .carousel-controls {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+      align-items: center;
+
+    }
+
+    .carousel-controls .dot {
+
+      width: 12px;
+
+      height: 12px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      margin-bottom: 5px;
+
+    }
+
+    .carousel-controls .dot.active {
+
+      background-color: #EED202; /* Yellow filled circle */
+
+      border-color: #EED202;
+
+    }
+
+    .carousel-controls .car-arrow {
+
+      color: white;
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      user-select: none;
+
+    }
+
+    .carousel-controls .car-arrow:hover {
+
+      color: #EED202;
+
+    }
+
+    .carousel-indicators { display: none !important; } /* Hide old one */
+
+
+
+
+
+    /* --- ABOUT PAGE CSS --- */
+
+    .about-header { text-align: center; padding: 0 2rem; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+    .about-header h4 { font-family: var(--font-sans-bold); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; color: var(--color-primary); letter-spacing: 2px; }
+
+    .about-mission { font-family: var(--font-heading); font-size: 3.5rem; max-width: 1000px; margin: 0 auto; line-height: 1.2; color: var(--color-text); font-weight: 300; }
+
+    .about-mission em { font-style: italic; color: var(--color-secondary); }
+
+
+
+    .about-para { max-width: 800px; margin: 0 auto; padding: 0 2rem 4rem; font-family: var(--font-heading); font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted); }
+
+    .about-para p { margin-bottom: 1.5rem; }
+
+
+
+    .four-cards-section { padding: 4rem 2rem; background-color: white; }
+
+    .four-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+
+    .four-card { display: flex; flex-direction: column; }
+
+    .four-card-img { border-radius: 12px; overflow: hidden; aspect-ratio: 16/10; margin-bottom: 1.5rem; }
+
+    .four-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .four-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text); line-height: 1.2; }
+
+    .four-card p { font-family: var(--font-heading); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
+
+    .four-card a { font-weight: 700; color: var(--color-text); text-decoration: underline; display: inline-block; }
+
+    .four-card a:hover { color: var(--color-primary); }
+
+
+
+    .zigzag-section { padding: 4rem 2rem; }
+
+    .zigzag-row { display: flex; align-items: center; gap: 4rem; margin-bottom: 6rem; }
+
+    .zigzag-row:nth-child(even) { flex-direction: row-reverse; }
+
+    .zigzag-img { flex: 0 0 50%; max-width: 50%; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; }
+
+    .zigzag-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .zigzag-content { flex: 1; max-width: 500px; }
+
+    .zigzag-content h3 { font-family: var(--font-sans-bold); font-size: 1.75rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
+
+    .zigzag-content p { font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+
+
+    .offices-section { padding: 4rem 2rem; }
+
+    .offices-box { background-color: #2F3943; border-radius: 32px; padding: 4rem; color: white; position: relative; overflow: hidden; min-height: 500px; display: flex; flex-direction: column; }
+
+    .offices-title { font-family: var(--font-sans-bold); font-size: 1.5rem; text-transform: uppercase; z-index: 2; margin-bottom: 2rem; }
+
+    .map-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.2; object-fit: cover; z-index: 1; }
+
+    .map-content { z-index: 2; position: relative; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
+
+    .map-card { background: #FFC000; color: var(--color-text); padding: 1.5rem; border-radius: 8px; width: 250px; font-weight: 700; }
+
+    .map-card h4 { font-family: var(--font-sans-bold); font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+
+    .map-card a { font-size: 0.9rem; text-decoration: underline; }
+
+
+
+    .faq-section { padding: 6rem 2rem; max-width: 800px; margin: 0 auto; }
+
+    .faq-title { font-family: var(--font-sans-bold); font-size: 2.5rem; text-transform: uppercase; margin-bottom: 3rem; text-align: center; }
+
+    .faq-item { border-bottom: 1px solid #eaeaea; padding: 1.5rem 0; }
+
+    .faq-question { font-family: var(--font-sans-bold); font-size: 1.25rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--color-text); }
+
+    .faq-answer { font-family: var(--font-heading); font-size: 1rem; line-height: 1.6; color: var(--color-text-muted); display: none; padding-top: 1rem; }
+
+    .faq-item.active .faq-answer { display: block; }
+
+    
+
+    @media(max-width: 1024px) {
+
+      .four-cards-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .zigzag-row, .zigzag-row:nth-child(even) { flex-direction: column; }
+
+      .zigzag-img { max-width: 100%; }
+
+      .about-mission { font-size: 2.5rem; }
+
+    }
+
+    @media(max-width: 768px) {
+
+      .four-cards-grid { grid-template-columns: 1fr; }
+
+      .offices-box { padding: 2rem; }
+
+    }
+
+    
+
+    /* New Footer */
+
+    .site-footer { display: none; } /* hide old footer rules */
+
+    .new-footer {
+
+      display: block;
+
+      background-color: var(--color-primary); /* Dark slate matching Gates */
+
+      color: white;
+
+      padding: 6rem 0 4rem;
+
+      font-family: var(--font-body);
+
+      border-top: none;
+
+    }
+
+    .footer-flex {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+    }
+
+    .footer-left {
+
+      flex: 0 0 300px;
+
+    }
+
+    .footer-right {
+
+      flex: 1;
+
+      max-width: 700px;
+
+    }
+
+    .footer-top-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      margin-bottom: 3rem;
+
+    }
+
+    .footer-tagline {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      font-weight: 600;
+
+      max-width: 300px;
+
+      line-height: 1.4;
+
+    }
+
+    .footer-socials {
+
+      display: flex;
+
+      gap: 0.75rem;
+
+    }
+
+    .footer-socials a {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 32px; height: 32px;
+
+      border: 1px solid rgba(255,255,255,0.6);
+
+      border-radius: 50%;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 0.85rem;
+
+      transition: all 0.3s;
+
+      text-transform: uppercase;
+
+      font-weight: bold;
+
+    }
+
+    .footer-socials a:hover {
+
+      background: white; color: #2F3943;
+
+    }
+
+    .footer-nav-primary {
+
+      font-weight: 700;
+
+      font-size: 1.1rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-primary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-primary a:first-child { margin-left: 0; }
+
+    .footer-nav-primary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-divider {
+
+      border: none;
+
+      border-top: 1px solid rgba(255,255,255,0.2);
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-secondary {
+
+      font-weight: 600;
+
+      font-size: 0.95rem;
+
+      margin-bottom: 3rem;
+
+      line-height: 2;
+
+    }
+
+    .footer-nav-secondary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-secondary a:first-child { margin-left: 0; }
+
+    .footer-nav-secondary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-nav-tertiary {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.6);
+
+      line-height: 2;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-tertiary a { color: rgba(255,255,255,0.6); margin: 0 0.25rem; text-decoration: none; }
+
+    .footer-nav-tertiary a:first-child { margin-left: 0; }
+
+    .footer-nav-tertiary a:hover { color: white; text-decoration: underline; }
+
+    
+
+    .footer-copyright {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.5);
+
+    }
+
+    @media(max-width: 768px) {
+
+      .footer-flex { flex-direction: column; }
+
+      .footer-top-row { flex-direction: column; gap: 2rem; }
+
+    }
+
+
+
+    .fade-up-on-scroll {
+
+      opacity: 0;
+
+      transform: translateY(40px);
+
+      transition: opacity 1s ease-out, transform 1s ease-out;
+
+    }
+
+    .fade-up-on-scroll.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+
+
+
+
+    /* --- FINANCIALS PAGE CSS --- */
+
+    .financials-page {
+
+      font-family: var(--font-body);
+
+    }
+
+    .financials-container {
+
+      max-width: 800px;
+
+      margin: 0 auto;
+
+      padding: 6rem 2rem 4rem;
+
+    }
+
+    .financials-header {
+
+      margin-bottom: 3rem;
+
+    }
+
+    .financials-header h1 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 3rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      color: var(--color-text);
+
+      letter-spacing: -0.5px;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .financials-intro {
+
+      font-family: var(--font-heading);
+
+      font-size: 1rem;
+
+      color: var(--color-text-muted);
+
+      line-height: 1.8;
+
+    }
+
+    .financials-intro p {
+
+      margin-bottom: 1.5rem;
+
+    }
+
+    .financials-intro a {
+
+      font-family: var(--font-body);
+
+      font-weight: 700;
+
+      color: var(--color-primary);
+
+      text-decoration: underline;
+
+    }
+
+    .financials-intro strong {
+
+      font-weight: 700;
+
+      color: var(--color-text);
+
+    }
+
+    
+
+    .year-section {
+
+      margin-top: 4rem;
+
+      padding-top: 2rem;
+
+      border-top: 1px solid #eee;
+
+    }
+
+    .year-section h2 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2rem;
+
+      font-weight: 800;
+
+      color: var(--color-text);
+
+      margin-bottom: 2rem;
+
+    }
+
+    .entity-group {
+
+      margin-bottom: 2rem;
+
+    }
+
+    .entity-group h4 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 1rem;
+
+      font-weight: 800;
+
+      color: var(--color-text);
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .entity-group ul {
+
+      list-style: none;
+
+      padding: 0;
+
+      margin: 0;
+
+    }
+
+    .entity-group li {
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .entity-group a {
+
+      font-family: var(--font-heading);
+
+      font-size: 0.9375rem;
+
+      color: var(--color-text-muted);
+
+      text-decoration: underline;
+
+    }
+
+    .entity-group a:hover {
+
+      color: var(--color-primary);
+
+    }
+
+
+
+</style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+<!-- Header -->
+
+  <header class="site-header" id="header">
+
+    <div class="container header-inner">
+
+      <a href="/" class="logo-link">
+
+        <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="about.html" class="nav-link" data-target="about-mega-menu">About us <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="impact.html" class="nav-link" data-target="work-mega-menu">Our Impact <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="flood-relief.html" class="direct-link" style="color: var(--color-accent); font-weight: 700;">2025 Flood Relief</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-target="ideas-mega-menu">Accountability & Impact <span class="arrow">▼</span></a>
+          </li>
+        </ul>
+      </nav>
+
+
+      
+
+      <div class="header-search">
+
+        Search <img src="assets/images/d844dfa8c06ae901bc8fa2eb395d2155.jpg-removebg-preview.png" alt="Search">
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Mega Menu - About Us -->
+
+    <div class="mega-menu" id="about-mega-menu">
+
+      <div class="container mega-menu-inner">
+
+        <div class="mega-col intro-col">
+
+          <h3>About us</h3>
+
+          <p>Learn about our origins, our vision, and the core values that drive our mission to serve humanity.</p>
+
+          <a href="about.html">Learn more about us</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Identity & Purpose</h4>
+          <a href="vision.html">Vision statement</a>
+
+          <a href="mission.html">Mission statement</a>
+
+          <a href="core-values.html">Core values</a>
+
+          <a href="objectives.html">Strategic Objectives</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Governance</h4>
+
+          <a href="governance.html">Organizational Structure & Governance</a>
+
+          <a href="compliance.html">Legal Registration & Compliance</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+                    <!-- Mega Menu - Our Impact -->
+    <div class="mega-menu" id="work-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Our Impact</h3>
+          <p>Discover our on-the-ground impact, completed water projects, and our vision for tomorrow.</p>
+          <a href="impact.html">Explore our impact</a>
+        </div>
+        <div class="mega-col">
+          <h4>Our Programs</h4>
+          <a href="program-framework.html">Program Framework</a>
+          <a href="thematic-areas.html">Main Thematic Areas</a>
+          <a href="flagship-programs.html">Flagship Programs</a>
+        </div>
+        <div class="mega-col">
+          <h4>Completed Initiatives</h4>
+          <a href="impact.html">Phase 1 Water Projects</a>
+          <a href="future-goals.html">Future Goals & Vision</a>
+        </div>
+      </div>
+    </div>
+
+
+
+        <!-- Mega Menu - Accountability -->
+    <div class="mega-menu" id="ideas-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Accountability & Impact</h3>
+          <p>Transparency, structured monitoring, and clear communication are at the heart of our operations.</p>
+          <a href="accountability.html">Read about our approach</a>
+        </div>
+        
+        <div class="mega-col">
+          <h4>Network & Outreach</h4>
+          <a href="partnerships.html">Partnerships & Collaborations</a>
+          </div>
+      </div>
+    </div>
+
+  </header>
+
+
+
+  <main class="financials-page">
+
+    <div class="financials-container">
+
+      
+
+      <div class="financials-header">
+
+        <h1>FINANCIALS</h1>
+
+        <div class="financials-intro">
+
+          <p>We post our audited financial statements and tax returns on the site as they become available. Typically, the financial statement for a given year is posted the summer of the following year, while the tax returns are available in the fall of the following year.</p>
+
+          <p>The NEIKI Sub Say Foundation works to reduce inequities around the world. It focuses on improving health, providing clean water, and alleviating extreme poverty across Pakistan and beyond. The foundation is led by our CEO under the direction of the governing board.</p>
+
+          <p><a href="faq.html">Browse Frequently Asked Questions about the foundation</a></p>
+
+          <p><strong>NEIKI Philanthropy Partners</strong> is a public charity established to provide a streamlined, transparent way for donors to align their gifts with the charitable purpose of the foundation.</p>
+
+          <p><a href="#">Guide to Understanding the Financial Statements and Tax Returns</a></p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2025</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2025 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2025 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2025 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2025 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2024</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2024 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2024 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2024 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2024 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2023</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2023 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2023 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2023 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2023 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2022</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2022 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2022 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2022 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2022 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2021</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2021 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2021 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2021 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2021 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2020</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2020 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2020 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2020 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2020 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2019</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2019 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2019 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2019 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2019 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2018</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2018 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2018 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2018 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2018 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2017</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2017 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2017 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2017 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2017 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2016</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2016 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2016 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2016 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2016 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2015</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2015 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2015 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2015 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2015 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2014</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2014 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2014 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2014 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2014 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2013</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2013 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2013 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2013 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2013 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2012</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2012 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2012 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2012 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2012 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2011</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2011 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2011 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2011 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2011 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2010</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2010 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2010 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2010 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2010 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2009</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2009 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2009 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2009 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2009 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2008</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2008 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2008 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2008 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2008 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2007</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2007 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2007 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2007 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2007 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2006</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2006 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2006 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2006 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2006 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2005</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2005 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2005 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2005 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2005 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2004</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2004 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2004 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2004 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2004 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2003</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2003 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2003 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2003 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2003 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2002</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2002 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2002 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2002 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2002 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2001</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2001 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2001 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2001 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2001 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="year-section">
+
+        <h2>2000</h2>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Sub Say Foundation</h4>
+
+          <ul>
+
+            <li><a href="#">2000 Audited Financial Statements (PDF, 450 KB, 20 pages)</a></li>
+
+            <li><a href="#">2000 Annual Tax Return, Form 990-PF: Return of Private Foundation (PDF, 1.5 MB, 100 pages)</a></li>
+
+            <li><a href="#">2000 Annual Tax Return, Form 990-T: Exempt Organization Business Income Tax Return (PDF, 1.2 MB, 45 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+        
+
+        <div class="entity-group">
+
+          <h4>NEIKI Philanthropy Partners</h4>
+
+          <ul>
+
+            <li><a href="#">2000 Annual Tax Return, Form 990: Return of Organization Exempt from Income Tax (PDF, 2.3 MB, 40 pages)</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </main>
+
+
+
+<footer class="site-footer new-footer">
+
+    <div class="container footer-flex">
+
+      <div class="footer-left">
+
+        <a href="/" class="logo-link">
+
+          <img src="assets/images/neiki-logo-full.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+        </a>
+
+      </div>
+
+      <div class="footer-right">
+
+        <div class="footer-top-row">
+
+          <div class="footer-tagline">We are a nonprofit fighting poverty, disease, and inequity across Pakistan.</div>
+
+          <div class="footer-socials">
+
+            <a href="#">X</a>
+
+            <a href="#">f</a>
+
+            <a href="#">in</a>
+
+            <a href="#">ig</a>
+
+            <a href="#">yt</a>
+
+          </div>
+
+        </div>
+
+        
+
+        <div class="footer-nav-primary">
+
+          <a href="about.html">About</a> &middot; <a href="#">Our work</a> &middot; <a href="#">Ideas</a>
+
+        </div>
+
+        
+
+        <hr class="footer-divider">
+
+        
+
+        <div class="footer-nav-secondary">
+
+          <a href="contact.html">Contact</a> &middot; <a href="#">Media Center</a> &middot; <a href="#">Discovery Center</a> &middot; <a href="ways-to-give.html">Give with us</a>
+
+          <br><br>
+
+          <a href="#" style="text-decoration:underline;">Annual Reports</a>
+
+        </div>
+
+        
+
+        <div class="footer-nav-tertiary">
+
+          <a href="#">Reporting scams</a> | <a href="#">Ethics reporting</a> | <a href="#">Privacy & Cookies Notice</a><br>
+
+          <a href="#">Terms of Use</a> | <a href="#">Brand guidelines</a> | <a href="#">Vendors</a>
+
+        </div>
+
+        
+
+        <div class="footer-copyright">
+
+          Â© 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+<!-- Scripts -->
+
+  <script>
+
+    // Mega Menu functionality
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const megaMenus = document.querySelectorAll('.mega-menu');
+
+
+
+    navLinks.forEach(link => {
+
+      link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const targetId = link.getAttribute('data-target');
+
+        const targetMenu = document.getElementById(targetId);
+
+        
+
+        // close others
+
+        megaMenus.forEach(menu => {
+
+          if (menu !== targetMenu) menu.classList.remove('active');
+
+        });
+
+        navLinks.forEach(nav => {
+
+          if (nav !== link) nav.querySelector('.arrow').innerText = '▼';
+
+        });
+
+
+
+        if (targetMenu) {
+
+          targetMenu.classList.toggle('active');
+
+          const arrow = link.querySelector('.arrow');
+
+          if (targetMenu.classList.contains('active')) {
+
+            arrow.innerText = '▼'; // Up arrow
+
+          } else {
+
+            arrow.innerText = '▼'; // Down arrow
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+
+    // Close menu when clicking outside
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.site-header')) {
+
+        megaMenus.forEach(menu => menu.classList.remove('active'));
+
+        navLinks.forEach(nav => nav.querySelector('.arrow').innerText = '▼');
+
+      }
+
+    });
+
+
+
+    // Carousel functionality
+
+    const slides = document.querySelectorAll('.hero-slide');
+
+    const dots = document.querySelectorAll('.carousel-controls .dot');
+
+    const upArrow = document.querySelector('.up-arrow');
+
+    const downArrow = document.querySelector('.down-arrow');
+
+    let currentSlide = 0;
+
+    let slideInterval;
+
+
+
+    function showSlide(index) {
+
+      if (!slides.length) return;
+
+      slides[currentSlide].classList.remove('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+      
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      
+
+      slides[currentSlide].classList.add('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+    }
+
+
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+
+
+    function startSlide() {
+
+      slideInterval = setInterval(nextSlide, 5000);
+
+    }
+
+
+
+    function resetSlide() {
+
+      clearInterval(slideInterval);
+
+      startSlide();
+
+    }
+
+
+
+    if (upArrow && downArrow) {
+
+      upArrow.addEventListener('click', () => { prevSlide(); resetSlide(); });
+
+      downArrow.addEventListener('click', () => { nextSlide(); resetSlide(); });
+
+    }
+
+    
+
+    dots.forEach((dot, idx) => {
+
+      dot.addEventListener('click', () => { showSlide(idx); resetSlide(); });
+
+    });
+
+
+
+    startSlide();
+
+  </script>
+
+  <script>
+
+    // FAQ Toggle functionality
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', () => {
+
+        const isActive = item.classList.contains('active');
+
+        // Close all
+
+        faqItems.forEach(i => {
+
+            i.classList.remove('active');
+
+            i.querySelector('span').innerText = '+';
+
+        });
+
+        if (!isActive) {
+
+            item.classList.add('active');
+
+            item.querySelector('span').innerText = '-';
+
+        }
+
+      });
+
+    });
+
+  
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+
+          entry.target.classList.add('visible');
+
+        }
+
+      });
+
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up-on-scroll').forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+
+
+
+</html>
