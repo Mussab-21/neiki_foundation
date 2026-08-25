@@ -1112,13 +1112,16 @@
     
 
     .header-logo {
-
-      height: 45px;
-
+      height: 50px;
+      width: auto;
+      margin-right: 2rem;
       object-fit: contain;
-
-      filter: brightness(0) invert(1);
-
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 38px;
+        margin-right: 1rem;
+      }
     }
 
     .has-dropdown { position: relative; }
@@ -1783,6 +1786,9 @@
       }
     </style>
     
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 </head>
 
 <body>
@@ -1797,9 +1803,9 @@
 
     <div class="container header-inner">
 
-      <a href="/" class="logo-link">
+      <a href="/" class="nav-brand">
 
-        <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+        <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
 
       </a>
       <nav class="main-nav">
@@ -1869,7 +1875,7 @@
         <div class="mega-col">
 
           <h4>Governance</h4>
-
+          <a href="chairman-message.html">Chairman Message</a>
           <a href="governance.html">Organizational Structure & Governance</a>
 
           <a href="compliance.html">Legal Registration & Compliance</a>
@@ -1933,27 +1939,27 @@
     <div class="hero-wrapper">
       <!-- Slide 1 -->
       <div class="hero-slide active">
-        <img src="assets/images/impact_hero.jpeg" alt="Stories of Impact" class="hero-img">
+        <img src="assets/img/stories_of_impact.jpeg" alt="Stories of Impact" class="hero-img">
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <h1 class="hero-headline">STORIES OF IMPACT</h1>
           <p class="hero-subtext">Fresh water storage tanks in northern and northwestern parts, addressing water shortages with sustainable filtration plants.</p>
-          <a href="pages/clean-water.html" class="hero-btn">See our work</a>
+          <a href="impact.html" class="hero-btn">See our work</a>
         </div>
       </div>
       <!-- Slide 2 -->
       <div class="hero-slide">
-        <img src="assets/images/health.png" alt="Future Goals" class="hero-img">
+        <img src="assets/img/future_goals.jpeg" alt="Future Goals" class="hero-img">
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <h1 class="hero-headline">FUTURE GOALS</h1>
           <p class="hero-subtext">Expanding our reach to provide sustainable healthcare, education, and economic initiatives for generations to come.</p>
-          <a href="pages/health-wellbeing.html" class="hero-btn">See our goals</a>
+          <a href="future-goals.html" class="hero-btn">See our goals</a>
         </div>
       </div>
       <!-- Slide 3 -->
       <div class="hero-slide">
-        <img src="assets/img/banner_professional.jpg" alt="Core Values" class="hero-img">
+        <img src="assets/img/core_values.jpeg" alt="Core Values" class="hero-img">
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <h1 class="hero-headline">CORE VALUES</h1>
@@ -1999,7 +2005,7 @@
   <section class="intro-cards-section container" style="padding-top: 6rem; padding-bottom: 2rem;">
     <div style="text-align: center; margin-bottom: 3rem;">
         <a href="work.html" style="text-decoration: none;">
-            <h2 style="font-family: var(--font-sans-bold); font-size: 3.5rem; font-weight: 900; color: inherit; text-transform: uppercase; cursor: pointer;">Our Work</h2>
+            <h2 style="font-family: var(--font-sans-bold); font-size: 3.5rem; font-weight: 900; color: inherit; text-transform: uppercase; cursor: pointer;">Our Gallery</h2>
         </a>
         <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 1rem auto;"></div>
     </div>
@@ -2036,62 +2042,6 @@
             });
         </script>
     </div>
-  </section>
-
-
-
-  <!-- Chairman Message -->
-
-  <section class="chairman-message-section" style="padding: 6rem 2rem; background-color: var(--color-bg-white);">
-
-    <div class="container" style="text-align: center;">
-
-      <!-- Chairman Image -->
-
-      <img src="assets/img/neiki_chairman_headshot_final.png" alt="Usman Mustafa" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem;">
-
-      <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: inherit; margin-bottom: 1rem;">Chairman / President</h2>
-
-      <hr style="width: 80px; margin: 0 auto 3rem; border: none; border-top: 3px solid var(--color-primary);">
-
-      
-
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-
-        <p style="font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem; color: inherit; margin-bottom: 1rem;">
-
-          " On behalf of NEIKI SUB SAY FOUNDATION, I take great pride in presenting this organizational profile, which reflects our mission, institutional framework, and long-term commitment to sustainable and inclusive human development. This profile represents our values, strategic direction and resolve to serve humanity with integrity, professionalism, and compassion. "
-
-        </p>
-
-        <p style="font-size: 0.9rem; font-family: var(--font-sans-bold); color: var(--color-text-muted); margin-bottom: 4rem; letter-spacing: 0.5px;">
-
-          - Usman Mustafa<br>NEIKI SUB SAY FOUNDATION Chairman / President
-
-        </p>
-
-      </div>
-
-      
-
-      <div style="max-width: 800px; margin: 0 auto; text-align: left; font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.8; color: var(--color-text);">
-
-        <p style="margin-bottom: 1.5rem;">NEIKI SUB SAY FOUNDATION operates on the core principle of "Serving Beyond Boundaries." We believe that humanitarian service must rise above geographical borders, social divisions, and economic limitations. Our commitment is to ensure that support reaches every individual in need without discrimination, exclusion, or bias, while preserving human dignity and mutual respect.</p>
-
-        <p style="margin-bottom: 1.5rem;">Our work focuses on critical development sectors including education, healthcare, livelihood support, disaster preparedness and response, and social empowerment. Each initiative is designed to address real community needs and is carefully aligned with the United Nations Sustainable Development Goals (SDGs), ensuring that our efforts contribute meaningfully to both national priorities and global development objectives.</p>
-
-        <p style="margin-bottom: 1.5rem;">At NEIKI, transparency, accountability, and measurable impact are the cornerstones of all our programs. We implement robust governance practices and performance monitoring mechanisms to ensure that resources are utilized responsibly and outcomes are clearly documented. Every activity undertaken by the Foundation is guided by ethical standards, operational efficiency, and strong community engagement.</p>
-
-        <p style="margin-bottom: 1.5rem;">We strongly believe that sustainable change can only be achieved through collaboration. Therefore, community participation remains central to our approach, empowering beneficiaries to become active stakeholders in their own development. Through partnerships, innovation, and data-driven planning, we aim to create scalable and long-lasting solutions.</p>
-
-        <p style="margin-bottom: 2rem;">I extend my sincere appreciation to our partners, donors, advisors, and volunteers whose trust and continued support make our mission possible. Their dedication and shared commitment strengthen our capacity to deliver impactful programs and expand our reach to underserved communities.</p>
-
-        <p style="margin-bottom: 0;">Together, we remain steadfast in our dedication to advancing humanity through action, innovation, integrity, and compassion, striving to build a more equitable, resilient, and hopeful future for all.</p>
-
-      </div>
-
-    </div>
-
   </section>
 
 
@@ -2396,7 +2346,7 @@
 
         <p style="max-width: 900px; margin: 0 auto; font-family: var(--font-heading); font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
 
-          The main parts of our governance structure are the <strong>President</strong>, the <strong>Board of Trustees</strong>, the <strong>Advisory Council</strong>, the <strong>Executive Management Committee</strong>, and the <strong>Finance & Audit Committee</strong>. All work together to ensure effective leadership, sound decision-making, and efficient delivery of humanitarian programs.
+          The main parts of our governance structure are the <strong>President</strong>, the <strong>Board of Trustees</strong>, the <strong>Advisory Council</strong>, the <strong>Management Board</strong>, and the <strong>Finance & Audit Committee</strong>. All work together to ensure effective leadership, sound decision-making, and efficient delivery of humanitarian programs.
 
         </p>
 
@@ -2418,7 +2368,7 @@
 
           <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">The President</h3>
 
-          <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Serves as the Head of Governance and Chair of the Board of Trustees, Advisory Council, and Executive Management Committee. Provides strategic leadership and represents the Foundation globally.</p>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Serves as the Head of Governance and Chair of the Board of Trustees, Advisory Council, and Management Board. Provides strategic leadership and represents the Foundation globally.</p>
 
         </div>
 
@@ -2464,7 +2414,7 @@
 
           </div>
 
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">Executive Management</h3>
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 1rem; color: inherit;">Management Board</h3>
 
           <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Translates governance decisions into operational strategies. Oversees coordination, program execution, and internal governance.</p>
 
@@ -2502,32 +2452,59 @@
 
 
 
-  <!-- Donate Section -->
-
-  <section class="newsletter-wrapper">
-
-    <div class="container">
-
-      <div class="newsletter-card" style="align-items: center; background-color: var(--color-primary);">
-
-        <div class="newsletter-content">
-
-          <h2>DONATE NOW</h2>
-
-          <p>Your contribution directly supports our efforts to provide clean water, education, healthcare, and empowerment to communities in need.</p>
-
-        </div>
-
-        <div class="newsletter-form-container" style="display: flex; justify-content: flex-end;">
-
-          <a href="ways-to-give.html" class="hero-btn" style="background-color: white; color: var(--color-primary); padding: 1.25rem 2.5rem; border-radius: 4px; font-size: 1.1rem; text-decoration: none; font-weight: 700;">Make a Donation</a>
-
-        </div>
-
+    <!-- Donate Section -->
+  <style>
+    .cta-banner {
+      background-color: var(--color-primary);
+      padding: 4rem 0;
+      color: white;
+      margin-bottom: 30pt;
+    }
+    .cta-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .cta-left h2 {
+      font-family: var(--font-sans-bold);
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .cta-left p {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: white;
+      color: var(--color-primary);
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-family: var(--font-sans-bold);
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: transform 0.3s;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      transform: scale(1.05);
+    }
+    @media(max-width: 1024px) {
+      .cta-flex { flex-direction: column; text-align: center; }
+    }
+  </style>
+  <section class="cta-banner">
+    <div class="container cta-flex">
+      <div class="cta-left">
+        <h2>Support Our Cause Today</h2>
+        <p>Your generous donation helps us bring meaningful change to communities in need.</p>
       </div>
-
+      <div class="cta-right">
+        <a href="ways-to-give.html" class="cta-btn">Donate Now &rarr;</a>
+      </div>
     </div>
-
   </section>
 
 
@@ -2541,53 +2518,21 @@
       <div class="facts-card">
 
         <div class="facts-header">
-
           <div class="facts-title-wrapper">
-
-            <h2>Foundation facts</h2>
-
-            <p>For the year ended December 31, 2025. Impact achieved across Pakistan.</p>
-
+            <h2>Foundation Progress</h2>
+            <p>The impact we have made across Pakistan.</p>
           </div>
-
-          <a href="#" class="facts-link">More about the foundation</a>
-
         </div>
 
-        <div class="stats-row">
-
-          <div class="stat-item">
-
+        <div class="stats-row" style="justify-content: space-around;">
+          <div class="stat-item" style="flex: 0 0 auto;">
             <div class="stat-number">81+</div>
-
-            <div class="stat-label">Wells Built</div>
-
+            <div class="stat-label">Water Projects</div>
           </div>
-
-          <div class="stat-item">
-
+          <div class="stat-item" style="flex: 0 0 auto;">
             <div class="stat-number">1.2M</div>
-
             <div class="stat-label">People Served</div>
-
           </div>
-
-          <div class="stat-item">
-
-            <div class="stat-number">4</div>
-
-            <div class="stat-label">Provinces Reached</div>
-
-          </div>
-
-          <div class="stat-item">
-
-            <div class="stat-number">24</div>
-
-            <div class="stat-label">Active Projects</div>
-
-          </div>
-
         </div>
 
       </div>
@@ -2599,126 +2544,214 @@
 
 
   <!-- Future Goals Section -->
-  <section class="future-goals-section container" style="padding: 6rem 2rem; text-align: center;">
-    <h2 class="section-heading-uppercase" style="font-size: 3rem; margin-bottom: 1rem;">Future Goals</h2>
-    <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 0 auto 3rem;"></div>
+  <style>
+    .future-goals-marquee-section {
+      background-color: var(--color-bg-light);
+      padding: 6rem 0;
+      overflow: hidden;
+      text-align: center;
+    }
+    .fg-heading {
+      font-family: var(--font-sans-bold);
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      color: var(--color-text);
+      font-weight: 900;
+    }
+    .fg-divider {
+      width: 60px;
+      height: 4px;
+      background-color: var(--color-primary);
+      margin: 0 auto 3rem;
+    }
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      padding: 2rem 0;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 150px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--color-bg-light) 0%, transparent 100%);
+    }
+    .marquee-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--color-bg-light) 0%, transparent 100%);
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+    }
+    .marquee-wrapper:hover .marquee-content {
+      animation-play-state: paused;
+    }
+    .goal-card-min {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 320px;
+      height: 220px;
+      margin: 0 1.5rem;
+      background: var(--color-primary);
+      color: white !important;
+      border-radius: 24px;
+      text-decoration: none;
+      white-space: normal;
+      padding: 2rem;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s, background 0.3s;
+      box-shadow: 0 10px 30px rgba(0, 158, 219, 0.2);
+    }
+    .goal-card-min:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 158, 219, 0.4);
+      background: #008cc9;
+    }
+    .goal-icon {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      background: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .goal-title {
+      font-family: var(--font-sans-bold);
+      font-size: 1.25rem;
+      line-height: 1.4;
+      text-align: center;
+      font-weight: 700;
+    }
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-      <div style="background: var(--color-primary); border-radius: 24px; padding: 3rem; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.03); color: white;">
-        <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--color-primary);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem;">Expand Healthcare Access</h3>
-        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Establish permanent clinics and increase mobile medical camps in the most remote areas of the country.</p>
-      </div>
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
 
-      <div style="background: var(--color-primary); border-radius: 24px; padding: 3rem; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.03); color: white;">
-        <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--color-primary);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-        </div>
-        <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem;">Educational Empowerment</h3>
-        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Construct dedicated vocational training centers to equip youth with modern, sustainable skills.</p>
-      </div>
-
-      <div style="background: var(--color-primary); border-radius: 24px; padding: 3rem; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.03); color: white;">
-        <div style="width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: var(--color-primary);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-        </div>
-        <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem;">Climate Resilience</h3>
-        <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Integrate sustainable, climate-smart technologies across all infrastructure and agricultural projects.</p>
-      </div>
+  <section class="future-goals-marquee-section">
+    <div class="container">
+      <h2 class="fg-heading">Future Goals</h2>
+      <div class="fg-divider"></div>
+      <p style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text-muted); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">Explore our strategic focus areas designed to create lasting impact across the nation. Click any goal to discover our long-term roadmap.</p>
     </div>
-    <div style="text-align: center; margin-top: 4rem;">
-        <a href="future-goals.html" style="background-color: var(--color-primary); color: white; padding: 1.25rem 3rem; border-radius: 8px; font-size: 1.1rem; text-decoration: none; font-weight: 700; display: inline-block; box-shadow: 0 4px 15px rgba(0,118,192,0.3); transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,118,192,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,118,192,0.3)';">Future Goals & Vision Page</a>
+    
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        <!-- Original Set -->
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌱</div>
+          <div class="goal-title">Environmental Sustainability</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🚑</div>
+          <div class="goal-title">Emergency & Healthcare</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌾</div>
+          <div class="goal-title">Food & Ration Drives</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🏘️</div>
+          <div class="goal-title">Community Development</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">📚</div>
+          <div class="goal-title">Education & Empowerment</div>
+        </a>
+        <!-- Duplicate Set for infinite scrolling -->
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌱</div>
+          <div class="goal-title">Environmental Sustainability</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🚑</div>
+          <div class="goal-title">Emergency & Healthcare</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌾</div>
+          <div class="goal-title">Food & Ration Drives</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🏘️</div>
+          <div class="goal-title">Community Development</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">📚</div>
+          <div class="goal-title">Education & Empowerment</div>
+        </a>
+      </div>
     </div>
   </section>
 
+<!-- Footer -->
 
-
-    <!-- Footer -->
-
-  <footer class="site-footer new-footer">
-
+    <footer class="site-footer new-footer">
     <div class="container footer-flex">
-
       <div class="footer-left">
-
-        <a href="/" class="logo-link">
-
-          <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
-
+        <a href="/" class="nav-brand">
+          <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="height: 95px; width: auto; margin-bottom: 2rem; object-fit: contain;">
         </a>
-
       </div>
-
       <div class="footer-right">
-
         <div class="footer-top-row">
-
-          <div class="footer-tagline">We are a nonprofit fighting poverty, disease, and inequity across Pakistan.</div>
-
-          <div class="footer-socials">
-
-            <a href="#">X</a>
-
-            <a href="#">f</a>
-
-            <a href="#">in</a>
-
-            <a href="#">ig</a>
-
-            <a href="#">yt</a>
-
+          <div class="footer-col-main">
+            <p style="font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">We are a nonprofit, nonpolitical, and nonreligious organization committed to advancing the United Nations Sustainable Development Goals across Pakistan. We work to alleviate poverty, improve healthcare and education, expand access to clean water and sanitation, promote equality and inclusion, strengthen livelihoods, protect the environment, and build resilient communities without discrimination and with dignity for all.</p>
+            <div class="footer-nav-primary">
+              <a href="about.html">About</a> &middot;
+              <a href="impact.html">Impact that we made</a>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-nav-secondary">
+              <a href="#">Contact</a>
+            </div>
           </div>
-
+          <div class="footer-col-social">
+            <div class="footer-socials" style="display: flex; gap: 1.25rem; align-items: center;">
+              <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+              </a>
+              <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+            </div>
+          </div>
         </div>
-
-        
-
-        <div class="footer-nav-primary">
-
-          <a href="about.html">About</a> &middot; <a href="#">Our work</a> &middot; <a href="#">Ideas</a>
-
+        <div class="footer-bottom-row">
+          <div class="footer-nav-tertiary">
+            <a href="compliance.html">Legal Registration & Compliance</a>
+          </div>
+          <div class="footer-copyright">
+            &copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
+          </div>
         </div>
-
-        
-
-        <hr class="footer-divider">
-
-        
-
-        <div class="footer-nav-secondary">
-
-          <a href="contact.html">Contact</a> &middot; <a href="#">Media Center</a> &middot; <a href="#">Discovery Center</a> &middot; <a href="ways-to-give.html">Give with us</a>
-
-          <br><br>
-
-          <a href="#" style="text-decoration:underline;">Annual Reports</a>
-
-        </div>
-
-        
-
-        <div class="footer-nav-tertiary">
-
-          <a href="#">Reporting scams</a> | <a href="#">Ethics reporting</a> | <a href="#">Privacy & Cookies Notice</a><br>
-
-          <a href="#">Terms of Use</a> | <a href="#">Brand guidelines</a> | <a href="#">Vendors</a>
-
-        </div>
-
-        
-
-        <div class="footer-copyright">
-
-          Â© 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
-
-        </div>
-
       </div>
-
     </div>
-
   </footer>
 
 

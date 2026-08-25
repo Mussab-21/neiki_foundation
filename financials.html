@@ -1111,13 +1111,16 @@
     
 
     .header-logo {
-
-      height: 45px;
-
+      height: 50px;
+      width: auto;
+      margin-right: 2rem;
       object-fit: contain;
-
-      filter: brightness(0) invert(1);
-
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 38px;
+        margin-right: 1rem;
+      }
     }
 
     .has-dropdown { position: relative; }
@@ -2056,6 +2059,9 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 </head>
 
 
@@ -2068,9 +2074,9 @@
 
     <div class="container header-inner">
 
-      <a href="/" class="logo-link">
+      <a href="/" class="nav-brand">
 
-        <img src="assets/images/neiki-full-logo.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+        <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
 
       </a>
       <nav class="main-nav">
@@ -2135,7 +2141,7 @@
         <div class="mega-col">
 
           <h4>Governance</h4>
-
+          <a href="chairman-message.html">Chairman Message</a>
           <a href="governance.html">Organizational Structure & Governance</a>
 
           <a href="compliance.html">Legal Registration & Compliance</a>
@@ -3266,88 +3272,56 @@
 
 
 
-<footer class="site-footer new-footer">
-
+  <footer class="site-footer new-footer">
     <div class="container footer-flex">
-
       <div class="footer-left">
-
-        <a href="/" class="logo-link">
-
-          <img src="assets/images/neiki-logo-full.png" alt="NEIKI Sub Say Foundation" class="header-logo">
-
+        <a href="/" class="nav-brand">
+          <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="height: 95px; width: auto; margin-bottom: 2rem; object-fit: contain;">
         </a>
-
       </div>
-
       <div class="footer-right">
-
         <div class="footer-top-row">
-
-          <div class="footer-tagline">We are a nonprofit fighting poverty, disease, and inequity across Pakistan.</div>
-
-          <div class="footer-socials">
-
-            <a href="#">X</a>
-
-            <a href="#">f</a>
-
-            <a href="#">in</a>
-
-            <a href="#">ig</a>
-
-            <a href="#">yt</a>
-
+          <div class="footer-col-main">
+            <p style="font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">We are a nonprofit, nonpolitical, and nonreligious organization committed to advancing the United Nations Sustainable Development Goals across Pakistan. We work to alleviate poverty, improve healthcare and education, expand access to clean water and sanitation, promote equality and inclusion, strengthen livelihoods, protect the environment, and build resilient communities without discrimination and with dignity for all.</p>
+            <div class="footer-nav-primary">
+              <a href="about.html">About</a> &middot;
+              <a href="impact.html">Impact that we made</a>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-nav-secondary">
+              <a href="#">Contact</a>
+            </div>
           </div>
-
+          <div class="footer-col-social">
+            <div class="footer-socials" style="display: flex; gap: 1.25rem; align-items: center;">
+              <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+              </a>
+              <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+            </div>
+          </div>
         </div>
-
-        
-
-        <div class="footer-nav-primary">
-
-          <a href="about.html">About</a> &middot; <a href="#">Our work</a> &middot; <a href="#">Ideas</a>
-
+        <div class="footer-bottom-row">
+          <div class="footer-nav-tertiary">
+            <a href="compliance.html">Legal Registration & Compliance</a>
+          </div>
+          <div class="footer-copyright">
+            &copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
+          </div>
         </div>
-
-        
-
-        <hr class="footer-divider">
-
-        
-
-        <div class="footer-nav-secondary">
-
-          <a href="contact.html">Contact</a> &middot; <a href="#">Media Center</a> &middot; <a href="#">Discovery Center</a> &middot; <a href="ways-to-give.html">Give with us</a>
-
-          <br><br>
-
-          <a href="#" style="text-decoration:underline;">Annual Reports</a>
-
-        </div>
-
-        
-
-        <div class="footer-nav-tertiary">
-
-          <a href="#">Reporting scams</a> | <a href="#">Ethics reporting</a> | <a href="#">Privacy & Cookies Notice</a><br>
-
-          <a href="#">Terms of Use</a> | <a href="#">Brand guidelines</a> | <a href="#">Vendors</a>
-
-        </div>
-
-        
-
-        <div class="footer-copyright">
-
-          Â© 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
-
-        </div>
-
       </div>
-
     </div>
-
   </footer>
 
 <!-- Scripts -->
