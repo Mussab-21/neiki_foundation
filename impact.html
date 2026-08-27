@@ -2257,382 +2257,681 @@
   </section>
 
   <!-- ISLD Donated Gallery -->
-  <section style="padding: 6rem 0; background-color: white;">
-    <div class="container">
+
+
+<style>
+  :root{
+    --neiki-blue: #009EDB;
+    --neiki-blue-deep: #112A46;
+    --sand: #C98A4B;
+    --sand-pale: #F1E4D2;
+    --paper: #FAF8F4;
+    --ink: #112A46;
+    --ink-soft: #56626C;
+    --line: #E1DCD1;
+    --radius: 12px;
+  }
+
+  .projects-timeline {
+    position: relative;
+    padding: 96px 0 80px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+  }
+  
+  .pt-header {
+    padding: 0 32px 56px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .pt-header h2 {
+    font-family: var(--font-sans-bold);
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--neiki-blue-deep);
+    margin-bottom: 20px;
+  }
+  
+  .pt-header p {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .pt-body {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .pt-rail {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+    height: calc(100vh - 160px);
+    display: flex;
+    gap: 20px;
+  }
+  
+  .pt-waterbar {
+    width: 4px;
+    background: var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .pt-waterbar-fill {
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    background: linear-gradient(180deg, var(--neiki-blue) 0%, var(--neiki-blue-deep) 100%);
+    height: 0%;
+    transition: height 0.3s ease-out;
+  }
+  
+  .pt-navlist {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    gap: 12px;
+  }
+  
+  .pt-navlist::-webkit-scrollbar { width: 4px; }
+  .pt-navlist::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
+  .pt-navlist button {
+    all: unset;
+    cursor: pointer;
+    display: block;
+    font-family: var(--font-sans-bold);
+    font-size: 15px;
+    color: #9AA5AC;
+    padding: 8px 0;
+    transition: all 0.2s ease;
+  }
+  
+  .pt-navlist li.active button {
+    color: var(--neiki-blue-deep);
+    transform: translateX(5px);
+    font-weight: 700;
+  }
+
+  .pt-entries {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pt-entry {
+    padding: 60px 0;
+    border-top: 1px solid var(--line);
+    opacity: 0.3;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(20px);
+  }
+  
+  .pt-entry:first-child { border-top: none; padding-top: 0; }
+  .pt-entry.in-view { opacity: 1; transform: translateY(0); }
+
+  .pt-entry-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .pt-entry-figure {
+    font-family: var(--font-sans-bold);
+    font-size: 48px;
+    color: var(--neiki-blue);
+    line-height: 1;
+  }
+  
+  .pt-entry-title {
+    font-family: var(--font-sans-bold);
+    font-size: 28px;
+    color: var(--neiki-blue-deep);
+    margin: 0;
+  }
+
+  .pt-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;
+  }
+  
+  .pt-tags span {
+    font-size: 13px; font-weight: 600; font-family: var(--font-body);
+    color: var(--neiki-blue-deep);
+    background: white;
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  }
+
+  .pt-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  
+  .pt-gallery-main {
+    grid-column: 1 / -1;
+    aspect-ratio: 16/9;
+  }
+  
+  .pt-gallery-sub {
+    aspect-ratio: 4/3;
+  }
+  
+  .pt-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    transition: transform 0.5s ease;
+  }
+  
+  .pt-gallery img:hover {
+    transform: scale(1.03);
+  }
+
+  @media (max-width: 900px) {
+    .pt-body { grid-template-columns: 1fr; }
+    .pt-rail { display: none; }
+    .pt-entry { padding: 40px 0; }
+  }
+</style>
+
+<section class="projects-timeline">
+  <div class="pt-header">
+    <h2>Projects that mark our journey</h2>
+    <p>Every milestone in NEIKI's timeline represents a real project, a real community, and a real impact. Scroll through the visual history of our Phase 1 ISLD donated water solutions.</p>
+  </div>
+
+  <div class="pt-body">
+    <nav class="pt-rail" aria-label="Jump to project">
+      <div class="pt-waterbar"><div class="pt-waterbar-fill" id="ptFill"></div></div>
+      <ul class="pt-navlist" id="ptNav">
+        <li data-target="proj-200"><button>Project 200</button></li>
+<li data-target="proj-201"><button>Project 201</button></li>
+<li data-target="proj-202"><button>Project 202</button></li>
+<li data-target="proj-203"><button>Project 203</button></li>
+<li data-target="proj-204"><button>Project 204</button></li>
+<li data-target="proj-205"><button>Project 205</button></li>
+<li data-target="proj-206"><button>Project 206</button></li>
+<li data-target="proj-207"><button>Project 207</button></li>
+<li data-target="proj-208"><button>Project 208</button></li>
+<li data-target="proj-209"><button>Project 209</button></li>
+<li data-target="proj-210"><button>Project 210</button></li>
+<li data-target="proj-211"><button>Project 211</button></li>
+<li data-target="proj-212"><button>Project 212</button></li>
+<li data-target="proj-213"><button>Project 213</button></li>
+<li data-target="proj-214"><button>Project 214</button></li>
+<li data-target="proj-215"><button>Project 215</button></li>
+<li data-target="proj-216"><button>Project 216</button></li>
+<li data-target="proj-217"><button>Project 217</button></li>
+<li data-target="proj-218"><button>Project 218</button></li>
+<li data-target="proj-219"><button>Project 219</button></li>
+      </ul>
+    </nav>
+
+    <div class="pt-entries" id="ptEntries">
       
-      <div class="reveal" style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; color: #112A46;">Phase 1: ISLD Donated Projects</h2>
-        <div style="width: 80px; height: 4px; background: var(--color-primary); margin: 1.5rem auto;"></div>
-        <p style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-text-muted); max-width: 800px; margin: 0 auto;">
-          Browse the gallery below to view the field photos of completed water projects funded by our generous donors.
-        </p>
-      </div>
-
-      <div class="uniform-gallery">
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.42 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.45 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM.jpeg&quot;]" data-title="محترم عبدالرب صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/1.jpeg" alt="Project 200" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #200</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم عبدالرب صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-200">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#200</div>
+          <h3 class="pt-entry-title">محترم عبدالرب صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/3.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/4.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/201---- \u0633\u0631\u0648\u0631 \u062c\u0627\u0646\u06d4\u0628\u06cc \u0628\u06cc/New folder/5.png&quot;]" data-title="بی بی سرورجان(صدقہ پروجیکٹ)">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/1.jpeg" alt="Project 201" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #201</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">بی بی سرورجان(صدقہ پروجیکٹ)</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">سولرپمپ • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/1.jpeg" alt="Project 200 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/3.jpg" alt="Project 200 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/4.jpg" alt="Project 200 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/202 \u0627\u0634\u0631\u0641 \u0635\u0627\u062d\u0628\u06d4/Presentable/WhatsApp Image 2025-12-26 at 6.02.35 PM.jpeg&quot;]" data-title="محترم اشرف صاحب(صدقہ پروجیکٹ)">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/1.jpeg" alt="Project 202" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #202</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم اشرف صاحب(صدقہ پروجیکٹ)</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">سولرپمپ • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-201">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#201</div>
+          <h3 class="pt-entry-title">بی بی سرورجان(صدقہ پروجیکٹ)</h3>
+        </div>
+        <div class="pt-tags">
+          <span>سولرپمپ</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/1.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/pictorial.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/203 \u0631\u06cc\u062d\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2026-01-04 at 3.37.24 PM.jpeg&quot;]" data-title="محترم ریحان یونس  صاحب(زکوۃپروجیکٹ)">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/1.png" alt="Project 203" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #203</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم ریحان یونس  صاحب(زکوۃپروجیکٹ)</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">سولرپمپ • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/1.jpeg" alt="Project 201 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/2.jpeg" alt="Project 201 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/3.jpg" alt="Project 201 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/5.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 6.00.13 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 8.58.24 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 9.10.18 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/204 S \u0639\u0631\u0641\u0627\u0646 \u06cc\u0648\u0646\u0633/Presentable/WhatsApp Image 2025-12-26 at 9.10.19 PM.jpeg&quot;]" data-title="محترم عرفان یونس صاحب (زکوۃپروجیکٹ)">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/3.jpg" alt="Project 204" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #204</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم عرفان یونس صاحب (زکوۃپروجیکٹ)</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">سولرپمپ • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-202">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#202</div>
+          <h3 class="pt-entry-title">محترم اشرف صاحب(صدقہ پروجیکٹ)</h3>
+        </div>
+        <div class="pt-tags">
+          <span>سولرپمپ</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/132123.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/205  S  \u06cc\u0627\u0633\u0645\u06cc\u0646 \u06cc\u0648\u0646\u0633/Presentable/page-5-&-6.png&quot;]" data-title="محترم یاسمین یونس صاحب (زکوۃپروجیکٹ)">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/1.jpeg" alt="Project 205" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #205</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم یاسمین یونس صاحب (زکوۃپروجیکٹ)</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">سولرپمپ • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/1.jpeg" alt="Project 202 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/2.jpeg" alt="Project 202 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/3.jpeg" alt="Project 202 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/206 S  \u0633\u0627\u0644\u0645 \u06cc\u0648\u0646\u0633/Presentable/page-5-&-6.png&quot;]" data-title="محترم سالم یونس صاحب (زکوۃپروجیکٹ)">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/1.jpeg" alt="Project 206" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #206</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم سالم یونس صاحب (زکوۃپروجیکٹ)</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">سولرپمپ • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-203">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#203</div>
+          <h3 class="pt-entry-title">محترم ریحان یونس  صاحب(زکوۃپروجیکٹ)</h3>
+        </div>
+        <div class="pt-tags">
+          <span>سولرپمپ</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/1.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/5.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/IMG-20251203-WA0016.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/IMG-20251203-WA0017.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/207 \u0627\u0641\u0631\u0627\u0633\u06cc\u0627\u0628/Presentable/pictorial.png&quot;]" data-title="محترم افراسیاب صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/1.jpg" alt="Project 207" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #207</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم افراسیاب صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/1.png" alt="Project 203 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpeg" alt="Project 203 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpg" alt="Project 203 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/00113.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/003.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/1.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/IMG-20251203-WA0018.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/pictorial.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/208 \u062d\u0646\u06cc\u0641 \u0635\u0627\u062d\u0628/Presentable/Screenshot 2025-12-30 122841.png&quot;]" data-title="محترم حنیف صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/00113.jpg" alt="Project 208" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #208</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم حنیف صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-204">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#204</div>
+          <h3 class="pt-entry-title">محترم عرفان یونس صاحب (زکوۃپروجیکٹ)</h3>
+        </div>
+        <div class="pt-tags">
+          <span>سولرپمپ</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/5.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/pictorial.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/WhatsApp Image 2025-12-26 at 5.00.58 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/209  \u062e\u0644\u06cc\u0644/Presentable/WhatsApp Image 2025-12-26 at 9.39.16 PM.jpeg&quot;]" data-title="محترم خلیل صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/1.jpeg" alt="Project 209" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #209</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم خلیل صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/3.jpg" alt="Project 204 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/5.png" alt="Project 204 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 6.00.13 PM.jpeg" alt="Project 204 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/1.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/210 \u0641\u0627\u0636\u0644 \u06a9\u0631\u06cc\u0645/Presentable/pictirial.png&quot;]" data-title="محترم فاضل کریم صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/1.png" alt="Project 210" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #210</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم فاضل کریم صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-205">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#205</div>
+          <h3 class="pt-entry-title">محترم یاسمین یونس صاحب (زکوۃپروجیکٹ)</h3>
+        </div>
+        <div class="pt-tags">
+          <span>سولرپمپ</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/1.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/desfewd.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/pictorial.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/211 \u0686\u0648\u06c1\u062f\u0631\u06cc \u0627\u0648\u0635\u0627\u0641/New folder/WhatsApp Image 2025-12-26 at 9.21.41 PM (1).jpeg&quot;]" data-title="محترم چوہدری اوصاف صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/1.png" alt="Project 211" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #211</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم چوہدری اوصاف صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/1.jpeg" alt="Project 205 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/132123.png" alt="Project 205 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/2.jpeg" alt="Project 205 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/2.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/5.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/212 \u062c\u0627\u0648\u06cc\u062f\u0627\u0642\u0628\u0627\u0644/presentable/pictorial.png&quot;]" data-title="محترم جاویداقبال صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/1.jpeg" alt="Project 212" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #212</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم جاویداقبال صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-206">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#206</div>
+          <h3 class="pt-entry-title">محترم سالم یونس صاحب (زکوۃپروجیکٹ)</h3>
+        </div>
+        <div class="pt-tags">
+          <span>سولرپمپ</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/21212.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/6.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/pictorials.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/Screenshot 2025-12-30 134638.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/213  \u0646\u06cc\u0627\u0632/Presentable/Untitled.png&quot;]" data-title="محترم نیاز صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/1.jpeg" alt="Project 213" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #213</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">محترم نیاز صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/1.jpeg" alt="Project 206 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/2.jpeg" alt="Project 206 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/3.jpeg" alt="Project 206 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/pictorial.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/Screenshot 2025-12-30 134638.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/Screenshot 2025-12-30 140626.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/WhatsApp Image 2025-12-26 at 5.18.43 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/214 \u0645\u0633\u0632 \u062a\u0633\u0646\u06cc\u0645 \u062c\u0627\u0648\u06cc\u062f\u06d4/presentable/WhatsApp Image 2025-12-26 at 5.18.45 PM (1).jpeg&quot;]" data-title="مسزتسنیم جاوید صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/1.jpeg" alt="Project 214" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #214</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">مسزتسنیم جاوید صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-207">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#207</div>
+          <h3 class="pt-entry-title">محترم افراسیاب صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/11111.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/pictorial.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/WhatsApp Image 2025-12-26 at 5.00.52 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/WhatsApp Image 2025-12-26 at 5.00.53 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/215 \u0645\u0631\u06cc\u0645/presentable/WhatsApp Image 2025-12-26 at 9.55.00 PM.jpeg&quot;]" data-title="مسزمریم صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/1.jpeg" alt="Project 215" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #215</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">مسزمریم صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/1.jpg" alt="Project 207 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/2.jpeg" alt="Project 207 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/3.jpeg" alt="Project 207 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/ewewewe.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/pictorial.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.10 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.14 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.34 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.50 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 4.59.55 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/216 \u0645\u0633\u0632 \u06cc\u0627\u0633\u0645\u06cc\u0646/presentable/WhatsApp Image 2025-12-26 at 5.00.02 PM.jpeg&quot;]" data-title="مسزیاسمین صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/3.jpg" alt="Project 216" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #216</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">مسزیاسمین صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-208">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#208</div>
+          <h3 class="pt-entry-title">محترم حنیف صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/2.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/3.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/4.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/6.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/217 \u0633\u0631\u0648\u0631\u062c\u0627\u0646/presentable/pictorial.png&quot;]" data-title="مسزسرورجان صاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/1.jpeg" alt="Project 217" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #217</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">مسزسرورجان صاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/00113.jpg" alt="Project 208 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/003.jpg" alt="Project 208 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/1.png" alt="Project 208 Detail 2" loading="lazy"></div>
         </div>
         
+      </article>
+    
 
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/01.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/02.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/03 (2).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/03.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/04.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/3.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/4.jpg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/5.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/Presentables/Screenshot 2026-01-06 135252.png&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.28 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (2).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (2).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM (1).jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/218  \u0645\u0633\u0632 \u0627\u0642\u0628\u0627\u0644 \u0633\u0631\u0648\u0631/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM.jpeg&quot;]" data-title="مسزاقبال سرورصاحب">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/01.jpeg" alt="Project 218" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #218</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">مسزاقبال سرورصاحب</h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+      <article class="pt-entry" id="proj-209">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#209</div>
+          <h3 class="pt-entry-title">محترم خلیل صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
         </div>
         
-
-        <div class="gallery-item reveal" data-images="[&quot;assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/1.jpeg&quot;, &quot;assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/3.jpg&quot;]" data-title="عبداللہ ">
-          <div class="project-img-wrapper">
-            <img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/1.jpeg" alt="Project 219" loading="lazy">
-            <div class="project-overlay" style="padding: 1.5rem;">
-              <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; margin-bottom: 1rem;">
-                <p style="font-family: var(--font-body); font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 1px;">Project #219</p>
-                <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; color: white; margin-bottom: 0.5rem; line-height: 1.3;">عبداللہ </h4>
-                <p style="font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0;">کنواں • تھرپارکر</p>
-              </div>
-              <button class="view-project-btn">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                View Photos
-              </button>
-            </div>
-          </div>
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/1.jpeg" alt="Project 209 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/2.jpeg" alt="Project 209 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/3.jpeg" alt="Project 209 Detail 2" loading="lazy"></div>
         </div>
         
-</div>
+      </article>
+    
 
+      <article class="pt-entry" id="proj-210">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#210</div>
+          <h3 class="pt-entry-title">محترم فاضل کریم صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/1.png" alt="Project 210 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/2.jpeg" alt="Project 210 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/3.jpeg" alt="Project 210 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-211">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#211</div>
+          <h3 class="pt-entry-title">محترم چوہدری اوصاف صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/1.png" alt="Project 211 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/2.jpeg" alt="Project 211 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/3.jpeg" alt="Project 211 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-212">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#212</div>
+          <h3 class="pt-entry-title">محترم جاویداقبال صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/1.jpeg" alt="Project 212 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/2.jpg" alt="Project 212 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/3.jpeg" alt="Project 212 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-213">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#213</div>
+          <h3 class="pt-entry-title">محترم نیاز صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/1.jpeg" alt="Project 213 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/2.jpeg" alt="Project 213 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/21212.png" alt="Project 213 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-214">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#214</div>
+          <h3 class="pt-entry-title">مسزتسنیم جاوید صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/1.jpeg" alt="Project 214 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/2.jpeg" alt="Project 214 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/3.jpeg" alt="Project 214 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-215">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#215</div>
+          <h3 class="pt-entry-title">مسزمریم صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/1.jpeg" alt="Project 215 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/11111.jpeg" alt="Project 215 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/2.jpeg" alt="Project 215 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-216">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#216</div>
+          <h3 class="pt-entry-title">مسزیاسمین صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/3.jpg" alt="Project 216 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/ewewewe.png" alt="Project 216 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/pictorial.png" alt="Project 216 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-217">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#217</div>
+          <h3 class="pt-entry-title">مسزسرورجان صاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/1.jpeg" alt="Project 217 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/2.jpeg" alt="Project 217 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/3.jpeg" alt="Project 217 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-218">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#218</div>
+          <h3 class="pt-entry-title">مسزاقبال سرورصاحب</h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery">
+          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/01.jpeg" alt="Project 218 Main" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/02.jpeg" alt="Project 218 Detail 1" loading="lazy"></div>
+          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/03 (2).jpeg" alt="Project 218 Detail 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
+
+      <article class="pt-entry" id="proj-219">
+        <div class="pt-entry-header">
+          <div class="pt-entry-figure">#219</div>
+          <h3 class="pt-entry-title">عبداللہ </h3>
+        </div>
+        <div class="pt-tags">
+          <span>کنواں</span>
+          <span>تھرپارکر</span>
+        </div>
+        
+        <div class="pt-gallery" style="grid-template-columns: 1fr 1fr;">
+          <div class="pt-gallery-sub" style="grid-column: span 1;"><img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/1.jpeg" alt="Project 219 1" loading="lazy"></div>
+          <div class="pt-gallery-sub" style="grid-column: span 1;"><img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/3.jpg" alt="Project 219 2" loading="lazy"></div>
+        </div>
+        
+      </article>
+    
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const entries = document.querySelectorAll('.pt-entry');
+  const navItems = document.querySelectorAll('#ptNav li');
+  const fill = document.getElementById('ptFill');
+  const navMap = {};
+  
+  navItems.forEach(li => navMap[li.dataset.target] = li);
+
+  navItems.forEach(li => {
+    li.querySelector('button').addEventListener('click', () => {
+      const target = document.getElementById(li.dataset.target);
+      if(target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+             top: offsetPosition,
+             behavior: "smooth"
+        });
+      }
+    });
+  });
+
+  const order = Array.from(entries).map(e => e.id);
+
+  const io = new IntersectionObserver((observed) => {
+    let activeFound = false;
+    
+    observed.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        
+        Object.values(navMap).forEach(li => li.classList.remove('active'));
+        if(navMap[entry.target.id]) navMap[entry.target.id].classList.add('active');
+        
+        const idx = order.indexOf(entry.target.id);
+        const pct = ((idx + 1) / order.length) * 100;
+        fill.style.height = pct + '%';
+        
+        // Scroll nav to active item
+        if(navMap[entry.target.id]) {
+          navMap[entry.target.id].scrollIntoView({behavior: 'smooth', block: 'nearest'});
+        }
+      } else {
+        // Keep it visible once scrolled past, just update nav
+        if(entry.boundingClientRect.top > 0) {
+           entry.target.classList.remove('in-view');
+        }
+      }
+    });
+  }, { threshold: 0.2, rootMargin: '-10% 0px -40% 0px' });
+
+  entries.forEach(e => io.observe(e));
+  
+  // ensure first item is visible on load if at top
+  setTimeout(() => {
+      if(entries.length > 0 && window.scrollY < 500) {
+          entries[0].classList.add('in-view');
+      }
+  }, 500);
+});
+</script>
+
+
 
   <!-- MODAL LIGHTBOX -->
   <div class="modal-overlay" id="photo-modal">
