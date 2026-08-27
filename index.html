@@ -1785,6 +1785,84 @@
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+
+  <style>
+  .hero-donation-content {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    z-index: 5;
+  }
+  .hero-donation-text {
+    flex: 1;
+    padding-right: 2rem;
+    color: white;
+  }
+  .hero-donation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem 2.25rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: fadeUp 1s ease 0.5s both;
+  }
+  
+  .hero-donation-headline {
+    font-family: var(--font-sans-bold);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1.5px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    animation: fadeUp 1s ease 0.2s both;
+  }
+  .hero-donation-subtext {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    max-width: 500px;
+    opacity: 0.95;
+    line-height: 1.5;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    animation: fadeUp 1s ease 0.35s both;
+  }
+  
+  @media (max-width: 900px) {
+    .hero-donation-content {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+      padding-top: 2rem;
+    }
+    .hero-donation-text {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+    .hero-donation-subtext {
+      margin: 0 auto;
+      font-size: 1.15rem;
+    }
+    .hero-donation-card {
+      padding: 1.5rem;
+    }
+    .hero-donation-headline {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+  @media (max-width: 500px) {
+    .hero-donation-headline {
+      font-size: 2.5rem;
+    }
+  }
+  </style>
+
 </head>
 
 <body>
@@ -1932,8 +2010,44 @@
   <!-- Hero Section (Carousel) -->
   <section class="hero-container">
     <div class="hero-wrapper">
-      <!-- Slide 1 -->
+
+      <!-- Slide 0 (Donation) -->
       <div class="hero-slide active">
+        <img src="assets/img/neiki_hero_donation_slide.png" alt="Donate for a Cause" class="hero-img">
+        <div class="hero-overlay" style="background: linear-gradient(to right, rgba(17,42,70,0.85) 0%, rgba(17,42,70,0.4) 50%, rgba(0,0,0,0.1) 100%);"></div>
+        
+        <div class="hero-donation-content">
+          <div class="hero-donation-text">
+            <h1 class="hero-donation-headline">DONATE FOR A CAUSE</h1>
+            <p class="hero-donation-subtext">Your support helps us create meaningful change in communities that need it most.</p>
+          </div>
+          
+          <div class="hero-donation-card">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--color-primary); text-align: center;">Select a Cause</h3>
+            
+            <select style="width: 100%; padding: 1rem; border: 1.5px solid #E1DCD1; border-radius: 8px; margin-bottom: 1rem; font-family: var(--font-body); font-size: 1rem; color: var(--color-text); background-color: #FAF8F4; cursor: pointer; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#E1DCD1'">
+              <option value="water">Clean Water Projects</option>
+              <option value="education">Education Initiatives</option>
+              <option value="health">Healthcare Services</option>
+              <option value="relief">Flood Relief</option>
+              <option value="general">General Support</option>
+            </select>
+            
+            <select style="width: 100%; padding: 1rem; border: 1.5px solid #E1DCD1; border-radius: 8px; margin-bottom: 1.5rem; font-family: var(--font-body); font-size: 1rem; color: var(--color-text); background-color: #FAF8F4; cursor: pointer; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#E1DCD1'">
+              <option value="1000">PKR 1,000</option>
+              <option value="2500">PKR 2,500</option>
+              <option value="5000">PKR 5,000</option>
+              <option value="10000">PKR 10,000</option>
+              <option value="custom">Custom Amount</option>
+            </select>
+            
+            <a href="under-construction.html" style="display: block; width: 100%; text-align: center; background: var(--color-primary); color: white; padding: 1.1rem; border-radius: 8px; font-family: var(--font-sans-bold); font-size: 1.15rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,158,219,0.3);" onmouseover="this.style.background='#062338'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,158,219,0.4)';" onmouseout="this.style.background='var(--color-primary)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,158,219,0.3)';">Donate Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 1 -->
+      <div class="hero-slide">
         <img src="assets/img/stories_of_impact.jpeg" alt="Stories of Impact" class="hero-img">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -1968,6 +2082,7 @@
         <div class="dot active" data-slide="0"></div>
         <div class="dot" data-slide="1"></div>
         <div class="dot" data-slide="2"></div>
+        <div class="dot" data-slide="3"></div>
         <div class="car-arrow up-arrow">&#8593;</div>
         <div class="car-arrow down-arrow">&#8595;</div>
       </div>
