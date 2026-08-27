@@ -1824,10 +1824,9 @@
 
       
 
-      <div class="header-search">
-
-        Search <img src="assets/images/d844dfa8c06ae901bc8fa2eb395d2155.jpg-removebg-preview.png" alt="Search">
-
+      <div class="header-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <a href="contact.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.4rem 1rem; border-radius: 4px; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.background='transparent';">Contact Us</a>
+        <a href="under-construction.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-primary); background: white; padding: 0.4rem 1.25rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.background='#f0f0f0'; this.style.transform='translateY(-1px)';" onmouseout="this.style.background='white'; this.style.transform='translateY(0)';">Donate</a>
       </div>
 
     </div>
@@ -2720,53 +2719,97 @@
 
 <!-- Footer -->
 
-    <footer class="site-footer new-footer">
-    <div class="container footer-flex">
-      <div class="footer-left">
-        <a href="/" class="nav-brand">
-          <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 100%; max-width: 400px; height: auto; object-fit: contain;">
-        </a>
+    
+  <!-- Interactive Donation Section -->
+  <section style="position: relative; padding: 5rem 0; background-color: var(--color-bg-light); overflow: hidden;">
+    <!-- Abstract Water Ripple Background -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: radial-gradient(circle at center, var(--color-primary) 0%, transparent 70%); pointer-events: none;"></div>
+    
+    <div class="container" style="position: relative; z-index: 2;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); transition: transform 0.4s ease, box-shadow 0.4s ease;" 
+           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 45px rgba(0, 158, 219, 0.15)';" 
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.06)';">
+        
+        <!-- Image Side -->
+        <div style="flex: 1 1 50%; min-width: 300px; position: relative;">
+          <!-- Using the generated cinematic documentary visual -->
+          <img src="assets/img/donation_impact_visual.png" alt="Community impact" style="width: 100%; height: 100%; min-height: 350px; object-fit: cover; display: block;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15));"></div>
+        </div>
+
+        <!-- Content Side -->
+        <div style="flex: 1 1 50%; min-width: 300px; padding: 3rem 4rem;">
+          <h2 style="font-family: var(--font-sans-bold); font-size: 2.25rem; color: var(--color-text); margin-bottom: 1rem; line-height: 1.2;">Your support can create real change.</h2>
+          <p style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 2rem; line-height: 1.6;">Every contribution helps us continue serving communities beyond boundaries.</p>
+          
+          <a href="under-construction.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--color-primary); color: white; font-family: var(--font-sans-bold); font-size: 1.05rem; font-weight: 700; padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 158, 219, 0.3);"
+             onmouseover="this.style.background='#062338'; this.style.transform='scale(1.05)';" 
+             onmouseout="this.style.background='var(--color-primary)'; this.style.transform='scale(1)';">
+            Donate Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
       </div>
-      <div class="footer-right">
-        <div class="footer-top-row">
-          <div class="footer-col-main">
-            <p style="font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; text-align: justify;">We are a nonprofit, nonpolitical, and nonreligious organization committed to advancing the United Nations Sustainable Development Goals across Pakistan. We work to alleviate poverty, improve healthcare and education, expand access to clean water and sanitation, promote equality and inclusion, strengthen livelihoods, protect the environment, and build resilient communities without discrimination and with dignity for all.</p>
-            <div class="footer-nav-primary">
-              <a href="about.html">About</a> &middot;
-              <a href="impact.html">Impact that we made</a>
-            </div>
-            <hr class="footer-divider">
-            <div class="footer-nav-secondary">
-              <a href="contact.html">Contact</a>
-            </div>
-          </div>
-          <div class="footer-col-social">
-            <div class="footer-socials" style="display: flex; gap: 1.25rem; align-items: center;">
-              <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-              </a>
-              <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </a>
-              <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
-              </a>
-              <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-              </a>
-              <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              </a>
-            </div>
+    </div>
+  </section>
+
+<footer class="site-footer new-footer" style="padding: 3rem 0 1.5rem; background-color: var(--color-primary); color: white; font-family: var(--font-body);">
+    <div class="container" style="max-width: 1000px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+        
+        <!-- Brand & Description -->
+        <div>
+          <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
+            <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
+          </a>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
+        </div>
+
+        <!-- Explore -->
+        <div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
+            <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
+            <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
+            <li><a href="under-construction.html" style="color: var(--color-accent); font-weight: 700; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--color-accent)'; this.style.textDecoration='none';">Donate</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Social -->
+        <div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
+          <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Info@neikisubsay.org
+          </a>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
           </div>
         </div>
-        <div class="footer-bottom-row">
-          <div class="footer-nav-tertiary">
-            <a href="compliance.html">Legal Registration & Compliance</a>
-          </div>
-          <div class="footer-copyright">
-            &copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.
-          </div>
+
+      </div>
+
+      <!-- Copyright Line -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+        <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
+        <div>
+          <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
         </div>
       </div>
     </div>
