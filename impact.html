@@ -2256,684 +2256,934 @@
     </div>
   </section>
 
-  <!-- ISLD Donated Gallery -->
-
+  
 
 <style>
-  :root{
-    --neiki-blue: #009EDB;
-    --neiki-blue-deep: #112A46;
-    --sand: #C98A4B;
-    --sand-pale: #F1E4D2;
-    --paper: #FAF8F4;
-    --ink: #112A46;
-    --ink-soft: #56626C;
-    --line: #E1DCD1;
-    --radius: 12px;
+  :root {
+    --neiki-accent: #009EDB;
+    --neiki-dark: #112A46;
+    --neiki-text: #333333;
+    --neiki-light: #F7F9FA;
+    --timeline-line: #E1E8ED;
   }
 
-  .projects-timeline {
-    position: relative;
-    padding: 96px 0 80px;
-    background: var(--paper);
-    color: var(--ink);
+  .editorial-section {
+    background-color: var(--neiki-light);
+    padding: 100px 0;
     font-family: var(--font-body);
   }
-  
-  .pt-header {
-    padding: 0 32px 56px;
-    max-width: 1000px;
-    margin: 0 auto;
+
+  .editorial-header {
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
   }
-  
-  .pt-header h2 {
+
+  .editorial-header h2 {
     font-family: var(--font-sans-bold);
-    font-size: clamp(32px, 4vw, 48px);
-    color: var(--neiki-blue-deep);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--neiki-dark);
     margin-bottom: 20px;
   }
-  
-  .pt-header p {
-    font-family: var(--font-heading);
-    font-size: 18px;
+
+  .editorial-header p {
+    font-size: 1.2rem;
+    color: #555;
     line-height: 1.6;
-    color: var(--ink-soft);
   }
 
-  .pt-body {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 60px;
-    max-width: 1200px;
+  .timeline-container {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  .pt-rail {
-    position: sticky;
-    top: 120px;
-    align-self: start;
-    height: calc(100vh - 160px);
-    display: flex;
-    gap: 20px;
-  }
-  
-  .pt-waterbar {
-    width: 4px;
-    background: var(--line);
-    border-radius: 4px;
-    overflow: hidden;
     position: relative;
+    display: flex;
+    padding: 0 20px;
   }
-  
-  .pt-waterbar-fill {
+
+  /* The actual vertical line */
+  .timeline-track {
     position: absolute;
-    top: 0; left: 0; width: 100%;
-    background: linear-gradient(180deg, var(--neiki-blue) 0%, var(--neiki-blue-deep) 100%);
-    height: 0%;
-    transition: height 0.3s ease-out;
-  }
-  
-  .pt-navlist {
-    list-style: none; margin: 0; padding: 0;
-    display: flex; flex-direction: column;
-    flex: 1;
-    overflow-y: auto;
-    gap: 12px;
-  }
-  
-  .pt-navlist::-webkit-scrollbar { width: 4px; }
-  .pt-navlist::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-
-  .pt-navlist button {
-    all: unset;
-    cursor: pointer;
-    display: block;
-    font-family: var(--font-sans-bold);
-    font-size: 15px;
-    color: #9AA5AC;
-    padding: 8px 0;
-    transition: all 0.2s ease;
-  }
-  
-  .pt-navlist li.active button {
-    color: var(--neiki-blue-deep);
-    transform: translateX(5px);
-    font-weight: 700;
+    left: 200px; /* 200px from left for the anchors */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--timeline-line);
+    z-index: 1;
   }
 
-  .pt-entries {
+  .timeline-content-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
-  
-  .pt-entry {
-    padding: 60px 0;
-    border-top: 1px solid var(--line);
-    opacity: 0.3;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: translateY(20px);
-  }
-  
-  .pt-entry:first-child { border-top: none; padding-top: 0; }
-  .pt-entry.in-view { opacity: 1; transform: translateY(0); }
 
-  .pt-entry-header {
+  .timeline-project {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 24px;
+    width: 100%;
+    margin-bottom: 100px;
+    position: relative;
+    /* Initial state for animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-  
-  .pt-entry-figure {
+
+  .timeline-project.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Left Anchor (Project Number) */
+  .timeline-anchor {
+    width: 200px;
+    padding-right: 40px;
+    text-align: right;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .anchor-text {
     font-family: var(--font-sans-bold);
-    font-size: 48px;
-    color: var(--neiki-blue);
+    font-size: 2.2rem;
+    color: var(--timeline-line);
+    position: sticky;
+    top: 150px;
+    transition: color 0.4s ease;
     line-height: 1;
   }
-  
-  .pt-entry-title {
+
+  .timeline-project.in-view .anchor-text {
+    color: var(--neiki-dark);
+  }
+
+  /* The Dot */
+  .timeline-node {
+    position: absolute;
+    right: -7px; /* Align perfectly over the 2px line */
+    top: 153px; /* Align with sticky text */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--timeline-line);
+    z-index: 2;
+    transition: all 0.4s ease;
+  }
+
+  .timeline-project.in-view .timeline-node {
+    background-color: var(--neiki-accent);
+    box-shadow: 0 0 0 4px rgba(0, 158, 219, 0.2);
+  }
+
+  /* Right Content (Project Details) */
+  .timeline-details {
+    flex: 1;
+    padding-left: 60px;
+    max-width: 800px; /* Consistent project width */
+  }
+
+  /* Connecting horizontal line to the title */
+  .title-connection {
+    position: relative;
+    display: inline-block;
+  }
+  .title-connection::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    width: 40px;
+    height: 2px;
+    background-color: var(--timeline-line);
+    transition: background-color 0.4s ease;
+  }
+  .timeline-project.in-view .title-connection::before {
+    background-color: var(--neiki-accent);
+  }
+
+  .project-title {
     font-family: var(--font-sans-bold);
-    font-size: 28px;
-    color: var(--neiki-blue-deep);
-    margin: 0;
+    font-size: 1.8rem;
+    color: var(--neiki-dark);
+    margin-bottom: 25px;
+    margin-top: -5px; /* Alignment */
   }
 
-  .pt-tags {
-    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;
-  }
-  
-  .pt-tags span {
-    font-size: 13px; font-weight: 600; font-family: var(--font-body);
-    color: var(--neiki-blue-deep);
-    background: white;
-    border: 1px solid var(--line);
-    padding: 6px 14px;
-    border-radius: 50px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  .project-metadata {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 35px;
   }
 
-  .pt-gallery {
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .meta-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  .meta-value {
+    font-size: 1.1rem;
+    color: var(--neiki-dark);
+    font-weight: 500;
+    font-family: var(--font-heading);
+  }
+
+  /* Image Gallery */
+  .project-gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  
-  .pt-gallery-main {
-    grid-column: 1 / -1;
-    aspect-ratio: 16/9;
-  }
-  
-  .pt-gallery-sub {
-    aspect-ratio: 4/3;
-  }
-  
-  .pt-gallery img {
+    gap: 20px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--radius);
-    transition: transform 0.5s ease;
-  }
-  
-  .pt-gallery img:hover {
-    transform: scale(1.03);
   }
 
-  @media (max-width: 900px) {
-    .pt-body { grid-template-columns: 1fr; }
-    .pt-rail { display: none; }
-    .pt-entry { padding: 40px 0; }
+  /* Dynamic grid based on image count */
+  .project-gallery.grid-1 { grid-template-columns: 1fr; max-width: 600px; }
+  .project-gallery.grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .project-gallery.grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .project-gallery.grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .project-gallery.grid-more { grid-template-columns: repeat(3, 1fr); }
+
+  .gallery-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   }
+
+  .gallery-img:hover {
+    filter: brightness(0.9);
+  }
+
+  .timeline-project.in-view .gallery-img {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 850px) {
+    .timeline-track { left: 30px; }
+    .timeline-anchor { width: 60px; padding-right: 20px; }
+    .anchor-text { font-size: 1.2rem; top: 100px; writing-mode: vertical-rl; transform: rotate(180deg); }
+    .timeline-node { right: -6px; top: 100px; }
+    .timeline-details { padding-left: 30px; }
+    .title-connection::before { width: 15px; left: -30px; }
+    .project-gallery.grid-3, .project-gallery.grid-4, .project-gallery.grid-more { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 550px) {
+    .project-gallery.grid-2, .project-gallery.grid-3, .project-gallery.grid-4, .project-gallery.grid-more { grid-template-columns: 1fr; }
+    .project-metadata { gap: 15px; flex-direction: column; }
+    .project-title { font-size: 1.5rem; }
+  }
+
+  /* Lightbox Styles */
+  .lightbox {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(17, 42, 70, 0.95);
+    z-index: 9999; display: none; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .lightbox.active { display: flex; opacity: 1; }
+  .lightbox-img { max-width: 90%; max-height: 85vh; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+  .lightbox-close { position: absolute; top: 30px; right: 40px; color: white; font-size: 2rem; cursor: pointer; }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 2.5rem; cursor: pointer; padding: 20px; }
+  .lightbox-prev { left: 20px; }
+  .lightbox-next { right: 20px; }
 </style>
 
-<section class="projects-timeline">
-  <div class="pt-header">
+<!-- ISLD Donated Gallery Redesigned -->
+<section class="editorial-section">
+  <div class="editorial-header">
     <h2>Projects that mark our journey</h2>
-    <p>Every milestone in NEIKI's timeline represents a real project, a real community, and a real impact. Scroll through the visual history of our Phase 1 ISLD donated water solutions.</p>
+    <p>Every milestone in NEIKI's timeline represents a real project, a real community, and a real impact. Scroll through the visual history of our Phase 1 water solutions.</p>
   </div>
 
-  <div class="pt-body">
-    <nav class="pt-rail" aria-label="Jump to project">
-      <div class="pt-waterbar"><div class="pt-waterbar-fill" id="ptFill"></div></div>
-      <ul class="pt-navlist" id="ptNav">
-        <li data-target="proj-200"><button>Project 200</button></li>
-<li data-target="proj-201"><button>Project 201</button></li>
-<li data-target="proj-202"><button>Project 202</button></li>
-<li data-target="proj-203"><button>Project 203</button></li>
-<li data-target="proj-204"><button>Project 204</button></li>
-<li data-target="proj-205"><button>Project 205</button></li>
-<li data-target="proj-206"><button>Project 206</button></li>
-<li data-target="proj-207"><button>Project 207</button></li>
-<li data-target="proj-208"><button>Project 208</button></li>
-<li data-target="proj-209"><button>Project 209</button></li>
-<li data-target="proj-210"><button>Project 210</button></li>
-<li data-target="proj-211"><button>Project 211</button></li>
-<li data-target="proj-212"><button>Project 212</button></li>
-<li data-target="proj-213"><button>Project 213</button></li>
-<li data-target="proj-214"><button>Project 214</button></li>
-<li data-target="proj-215"><button>Project 215</button></li>
-<li data-target="proj-216"><button>Project 216</button></li>
-<li data-target="proj-217"><button>Project 217</button></li>
-<li data-target="proj-218"><button>Project 218</button></li>
-<li data-target="proj-219"><button>Project 219</button></li>
-      </ul>
-    </nav>
-
-    <div class="pt-entries" id="ptEntries">
+  <div class="timeline-container">
+    <div class="timeline-track"></div>
+    <div class="timeline-content-wrapper">
       
-      <article class="pt-entry" id="proj-200">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#200</div>
-          <h3 class="pt-entry-title">محترم عبدالرب صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-200">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#200</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 200</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/1.jpeg" alt="Project 200 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/3.jpg" alt="Project 200 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/4.jpg" alt="Project 200 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم عبدالرب صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 200)" data-pid="200"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 200)" data-pid="200"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/4.jpg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 200)" data-pid="200"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.42 PM.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 200)" data-pid="200"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.45 PM.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 200)" data-pid="200"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 200)" data-pid="200"><img src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 200)" data-pid="200">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-201">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#201</div>
-          <h3 class="pt-entry-title">بی بی سرورجان(صدقہ پروجیکٹ)</h3>
-        </div>
-        <div class="pt-tags">
-          <span>سولرپمپ</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-201">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#201</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 201</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/1.jpeg" alt="Project 201 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/2.jpeg" alt="Project 201 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/3.jpg" alt="Project 201 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">بی بی سرورجان(صدقہ پروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 201)" data-pid="201"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 201)" data-pid="201"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/3.jpg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 201)" data-pid="201"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/3.png" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 201)" data-pid="201"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/4.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 201)" data-pid="201"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/4.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 201)" data-pid="201"><img src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/5.png" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 201)" data-pid="201">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-202">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#202</div>
-          <h3 class="pt-entry-title">محترم اشرف صاحب(صدقہ پروجیکٹ)</h3>
-        </div>
-        <div class="pt-tags">
-          <span>سولرپمپ</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-202">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#202</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 202</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/1.jpeg" alt="Project 202 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/2.jpeg" alt="Project 202 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/3.jpeg" alt="Project 202 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم اشرف صاحب(صدقہ پروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 202)" data-pid="202"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 202)" data-pid="202"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 202)" data-pid="202"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 202)" data-pid="202"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 202)" data-pid="202"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/4.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 202)" data-pid="202"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 202)" data-pid="202"><img src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/WhatsApp Image 2025-12-26 at 6.02.35 PM.jpeg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 202)" data-pid="202">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-203">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#203</div>
-          <h3 class="pt-entry-title">محترم ریحان یونس  صاحب(زکوۃپروجیکٹ)</h3>
-        </div>
-        <div class="pt-tags">
-          <span>سولرپمپ</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-203">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#203</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 203</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/1.png" alt="Project 203 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpeg" alt="Project 203 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpg" alt="Project 203 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم ریحان یونس  صاحب(زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/1.png" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 203)" data-pid="203"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 203)" data-pid="203"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 203)" data-pid="203"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 203)" data-pid="203"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 203)" data-pid="203"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/pictorial.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 203)" data-pid="203"><img src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/WhatsApp Image 2026-01-04 at 3.37.24 PM.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 203)" data-pid="203">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-204">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#204</div>
-          <h3 class="pt-entry-title">محترم عرفان یونس صاحب (زکوۃپروجیکٹ)</h3>
-        </div>
-        <div class="pt-tags">
-          <span>سولرپمپ</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-204">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#204</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 204</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/3.jpg" alt="Project 204 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/5.png" alt="Project 204 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 6.00.13 PM.jpeg" alt="Project 204 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم عرفان یونس صاحب (زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 204)" data-pid="204"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/5.png" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 204)" data-pid="204"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 6.00.13 PM.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 204)" data-pid="204"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 8.58.24 PM.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 204)" data-pid="204"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 9.10.18 PM.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 204)" data-pid="204"><img src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 9.10.19 PM.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 204)" data-pid="204">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-205">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#205</div>
-          <h3 class="pt-entry-title">محترم یاسمین یونس صاحب (زکوۃپروجیکٹ)</h3>
-        </div>
-        <div class="pt-tags">
-          <span>سولرپمپ</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-205">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#205</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 205</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/1.jpeg" alt="Project 205 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/132123.png" alt="Project 205 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/2.jpeg" alt="Project 205 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم یاسمین یونس صاحب (زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 205)" data-pid="205"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/132123.png" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 205)" data-pid="205"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 205)" data-pid="205"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 205)" data-pid="205"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 205)" data-pid="205"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 205)" data-pid="205"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 205)" data-pid="205"><img src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/page-5-&-6.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 205)" data-pid="205">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-206">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#206</div>
-          <h3 class="pt-entry-title">محترم سالم یونس صاحب (زکوۃپروجیکٹ)</h3>
-        </div>
-        <div class="pt-tags">
-          <span>سولرپمپ</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-206">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#206</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 206</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/1.jpeg" alt="Project 206 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/2.jpeg" alt="Project 206 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/3.jpeg" alt="Project 206 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم سالم یونس صاحب (زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 206)" data-pid="206"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 206)" data-pid="206"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 206)" data-pid="206"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 206)" data-pid="206"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 206)" data-pid="206"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 206)" data-pid="206"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 206)" data-pid="206"><img src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/page-5-&-6.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 206)" data-pid="206">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-207">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#207</div>
-          <h3 class="pt-entry-title">محترم افراسیاب صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-207">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#207</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 207</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/1.jpg" alt="Project 207 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/2.jpeg" alt="Project 207 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/3.jpeg" alt="Project 207 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم افراسیاب صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/1.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/5.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/IMG-20251203-WA0016.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/IMG-20251203-WA0017.jpg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 207)" data-pid="207"><img src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 207)" data-pid="207">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-208">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#208</div>
-          <h3 class="pt-entry-title">محترم حنیف صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-208">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#208</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 208</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/00113.jpg" alt="Project 208 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/003.jpg" alt="Project 208 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/1.png" alt="Project 208 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم حنیف صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/00113.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/003.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/1.png" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/IMG-20251203-WA0018.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 208)" data-pid="208"><img src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/Screenshot 2025-12-30 122841.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 208)" data-pid="208">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-209">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#209</div>
-          <h3 class="pt-entry-title">محترم خلیل صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-209">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#209</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 209</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/1.jpeg" alt="Project 209 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/2.jpeg" alt="Project 209 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/3.jpeg" alt="Project 209 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم خلیل صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/5.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/WhatsApp Image 2025-12-26 at 5.00.58 PM.jpeg" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 209)" data-pid="209"><img src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/WhatsApp Image 2025-12-26 at 9.39.16 PM.jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 209)" data-pid="209">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-210">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#210</div>
-          <h3 class="pt-entry-title">محترم فاضل کریم صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-210">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#210</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 210</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/1.png" alt="Project 210 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/2.jpeg" alt="Project 210 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/3.jpeg" alt="Project 210 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم فاضل کریم صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/1.png" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 210)" data-pid="210"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 210)" data-pid="210"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 210)" data-pid="210"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 210)" data-pid="210"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 210)" data-pid="210"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 210)" data-pid="210"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 210)" data-pid="210"><img src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/pictirial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 210)" data-pid="210">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-211">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#211</div>
-          <h3 class="pt-entry-title">محترم چوہدری اوصاف صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-211">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#211</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 211</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/1.png" alt="Project 211 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/2.jpeg" alt="Project 211 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/3.jpeg" alt="Project 211 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم چوہدری اوصاف صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/1.png" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 211)" data-pid="211"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 211)" data-pid="211"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 211)" data-pid="211"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 211)" data-pid="211"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/desfewd.png" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 211)" data-pid="211"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/pictorial.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 211)" data-pid="211"><img src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/WhatsApp Image 2025-12-26 at 9.21.41 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 211)" data-pid="211">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-212">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#212</div>
-          <h3 class="pt-entry-title">محترم جاویداقبال صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-212">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#212</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 212</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/1.jpeg" alt="Project 212 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/2.jpg" alt="Project 212 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/3.jpeg" alt="Project 212 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم جاویداقبال صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 212)" data-pid="212"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/2.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 212)" data-pid="212"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 212)" data-pid="212"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 212)" data-pid="212"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 212)" data-pid="212"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/5.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 212)" data-pid="212"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 212)" data-pid="212"><img src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 212)" data-pid="212">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-213">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#213</div>
-          <h3 class="pt-entry-title">محترم نیاز صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-213">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#213</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 213</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/1.jpeg" alt="Project 213 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/2.jpeg" alt="Project 213 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/21212.png" alt="Project 213 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم نیاز صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 213)" data-pid="213"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 213)" data-pid="213"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/21212.png" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 213)" data-pid="213"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 213)" data-pid="213"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/6.png" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 213)" data-pid="213"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/pictorials.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 213)" data-pid="213"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/Screenshot 2025-12-30 134638.png" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 213)" data-pid="213"><img src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/Untitled.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 213)" data-pid="213">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-214">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#214</div>
-          <h3 class="pt-entry-title">مسزتسنیم جاوید صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-214">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#214</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 214</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/1.jpeg" alt="Project 214 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/2.jpeg" alt="Project 214 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/3.jpeg" alt="Project 214 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزتسنیم جاوید صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/Screenshot 2025-12-30 134638.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/Screenshot 2025-12-30 140626.png" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/WhatsApp Image 2025-12-26 at 5.18.43 PM.jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 214)" data-pid="214"><img src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/WhatsApp Image 2025-12-26 at 5.18.45 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.1s;" onclick="openLightbox(this, 214)" data-pid="214">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-215">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#215</div>
-          <h3 class="pt-entry-title">مسزمریم صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-215">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#215</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 215</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/1.jpeg" alt="Project 215 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/11111.jpeg" alt="Project 215 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/2.jpeg" alt="Project 215 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزمریم صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/11111.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/WhatsApp Image 2025-12-26 at 5.00.52 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/WhatsApp Image 2025-12-26 at 5.00.53 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 215)" data-pid="215"><img src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/WhatsApp Image 2025-12-26 at 9.55.00 PM.jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 215)" data-pid="215">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-216">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#216</div>
-          <h3 class="pt-entry-title">مسزیاسمین صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-216">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#216</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 216</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/3.jpg" alt="Project 216 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/ewewewe.png" alt="Project 216 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/pictorial.png" alt="Project 216 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزیاسمین صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/ewewewe.png" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.10 PM.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.14 PM.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.34 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.50 PM.jpeg" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.55 PM.jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 216)" data-pid="216"><img src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 5.00.02 PM.jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 216)" data-pid="216">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-217">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#217</div>
-          <h3 class="pt-entry-title">مسزسرورجان صاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-217">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#217</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 217</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/1.jpeg" alt="Project 217 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/2.jpeg" alt="Project 217 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/3.jpeg" alt="Project 217 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزسرورجان صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 217)" data-pid="217"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 217)" data-pid="217"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 217)" data-pid="217"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 217)" data-pid="217"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 217)" data-pid="217"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 217)" data-pid="217"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 217)" data-pid="217"><img src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 217)" data-pid="217">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-218">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#218</div>
-          <h3 class="pt-entry-title">مسزاقبال سرورصاحب</h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-218">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#218</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 218</h3>
         
-        <div class="pt-gallery">
-          <div class="pt-gallery-main"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/01.jpeg" alt="Project 218 Main" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/02.jpeg" alt="Project 218 Detail 1" loading="lazy"></div>
-          <div class="pt-gallery-sub"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/03 (2).jpeg" alt="Project 218 Detail 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزاقبال سرورصاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-more">
+          <img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/01.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/02.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/03 (2).jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/03.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/04.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/3.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/4.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/5.jpeg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/Screenshot 2026-01-06 135252.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.28 PM.jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM.jpeg" class="gallery-img" style="transition-delay: 1.1s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.2000000000000002s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (2).jpeg" class="gallery-img" style="transition-delay: 1.3s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM.jpeg" class="gallery-img" style="transition-delay: 1.4000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.5s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM.jpeg" class="gallery-img" style="transition-delay: 1.6s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.7000000000000002s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (2).jpeg" class="gallery-img" style="transition-delay: 1.8s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM.jpeg" class="gallery-img" style="transition-delay: 1.9000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM (1).jpeg" class="gallery-img" style="transition-delay: 2.0s;" onclick="openLightbox(this, 218)" data-pid="218"><img src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM.jpeg" class="gallery-img" style="transition-delay: 2.1s;" onclick="openLightbox(this, 218)" data-pid="218">
+        </div>
+      </div>
+    </div>
     
 
-      <article class="pt-entry" id="proj-219">
-        <div class="pt-entry-header">
-          <div class="pt-entry-figure">#219</div>
-          <h3 class="pt-entry-title">عبداللہ </h3>
-        </div>
-        <div class="pt-tags">
-          <span>کنواں</span>
-          <span>تھرپارکر</span>
-        </div>
+    <div class="timeline-project" id="proj-219">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#219</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 219</h3>
         
-        <div class="pt-gallery" style="grid-template-columns: 1fr 1fr;">
-          <div class="pt-gallery-sub" style="grid-column: span 1;"><img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/1.jpeg" alt="Project 219 1" loading="lazy"></div>
-          <div class="pt-gallery-sub" style="grid-column: span 1;"><img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/3.jpg" alt="Project 219 2" loading="lazy"></div>
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">عبداللہ </span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
         </div>
-        
-      </article>
+
+        <div class="project-gallery grid-2">
+          <img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 219)" data-pid="219"><img src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 219)" data-pid="219">
+        </div>
+      </div>
+    </div>
     
     </div>
   </div>
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const entries = document.querySelectorAll('.pt-entry');
-  const navItems = document.querySelectorAll('#ptNav li');
-  const fill = document.getElementById('ptFill');
-  const navMap = {};
-  
-  navItems.forEach(li => navMap[li.dataset.target] = li);
+<!-- Lightbox Element -->
+<div class="lightbox" id="editorial-lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)">&#10094;</span>
+  <img class="lightbox-img" id="lightbox-img-element" src="">
+  <span class="lightbox-nav lightbox-next" onclick="changeLightbox(1)">&#10095;</span>
+</div>
 
-  navItems.forEach(li => {
-    li.querySelector('button').addEventListener('click', () => {
-      const target = document.getElementById(li.dataset.target);
-      if(target) {
-        const headerOffset = 100;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        window.scrollTo({
-             top: offsetPosition,
-             behavior: "smooth"
-        });
-      }
+<script>
+  // Intersection Observer for scroll animations and timeline active state
+  document.addEventListener('DOMContentLoaded', function() {
+    const projects = document.querySelectorAll('.timeline-project');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -25% 0px',
+      threshold: 0.1
     });
+
+    projects.forEach(p => observer.observe(p));
   });
 
-  const order = Array.from(entries).map(e => e.id);
+  // Lightbox functionality
+  let currentImages = [];
+  let currentIndex = 0;
 
-  const io = new IntersectionObserver((observed) => {
-    let activeFound = false;
+  function openLightbox(imgElement, pid) {
+    const allImages = Array.from(document.querySelectorAll(`.gallery-img[data-pid="$219"]`));
+    currentImages = allImages.map(img => img.src);
+    currentIndex = currentImages.indexOf(imgElement.src);
     
-    observed.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        
-        Object.values(navMap).forEach(li => li.classList.remove('active'));
-        if(navMap[entry.target.id]) navMap[entry.target.id].classList.add('active');
-        
-        const idx = order.indexOf(entry.target.id);
-        const pct = ((idx + 1) / order.length) * 100;
-        fill.style.height = pct + '%';
-        
-        // Scroll nav to active item
-        if(navMap[entry.target.id]) {
-          navMap[entry.target.id].scrollIntoView({behavior: 'smooth', block: 'nearest'});
-        }
-      } else {
-        // Keep it visible once scrolled past, just update nav
-        if(entry.boundingClientRect.top > 0) {
-           entry.target.classList.remove('in-view');
-        }
-      }
-    });
-  }, { threshold: 0.2, rootMargin: '-10% 0px -40% 0px' });
+    updateLightboxImg();
+    document.getElementById('editorial-lightbox').classList.add('active');
+  }
 
-  entries.forEach(e => io.observe(e));
-  
-  // ensure first item is visible on load if at top
-  setTimeout(() => {
-      if(entries.length > 0 && window.scrollY < 500) {
-          entries[0].classList.add('in-view');
-      }
-  }, 500);
-});
+  function closeLightbox() {
+    document.getElementById('editorial-lightbox').classList.remove('active');
+  }
+
+  function changeLightbox(dir) {
+    currentIndex += dir;
+    if (currentIndex < 0) currentIndex = currentImages.length - 1;
+    if (currentIndex >= currentImages.length) currentIndex = 0;
+    updateLightboxImg();
+  }
+
+  function updateLightboxImg() {
+    document.getElementById('lightbox-img-element').src = currentImages[currentIndex];
+  }
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight' && document.getElementById('editorial-lightbox').classList.contains('active')) changeLightbox(1);
+    if (e.key === 'ArrowLeft' && document.getElementById('editorial-lightbox').classList.contains('active')) changeLightbox(-1);
+  });
 </script>
+<!-- End ISLD Donated Gallery -->
 
-
-
-  <!-- MODAL LIGHTBOX -->
+<!-- MODAL LIGHTBOX -->
   <div class="modal-overlay" id="photo-modal">
     <div class="modal-title">Project: <span id="modal-project-name">Abdul Rab</span></div>
     <button class="modal-close" id="modal-close-btn">&times;</button>
