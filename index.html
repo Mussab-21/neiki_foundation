@@ -1786,6 +1786,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 
+  
   <style>
   .hero-donation-content {
     position: absolute;
@@ -1801,16 +1802,17 @@
     padding-right: 2rem;
     color: white;
   }
-  .hero-donation-card {
-    background: white;
-    border-radius: 16px;
-    padding: 2.5rem 2.25rem;
-    width: 100%;
-    max-width: 440px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    animation: fadeUp 1s ease 0.5s both;
+  .hero-donation-eyebrow {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #4DB8FF;
+    margin-bottom: 1rem;
+    display: block;
+    animation: fadeUp 1s ease 0.1s both;
   }
-  
   .hero-donation-headline {
     font-family: var(--font-sans-bold);
     font-size: clamp(3.5rem, 6vw, 5.5rem);
@@ -1829,7 +1831,137 @@
     opacity: 0.95;
     line-height: 1.5;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    animation: fadeUp 1s ease 0.35s both;
+    animation: fadeUp 1s ease 0.3s both;
+    margin-bottom: 2.5rem;
+  }
+  .hero-donation-buttons {
+    display: flex;
+    gap: 1rem;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+  .btn-primary-hero {
+    background: var(--color-primary);
+    color: white;
+    padding: 1.1rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-sans-bold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.05rem;
+  }
+  .btn-primary-hero:hover {
+    background: #062338;
+    transform: translateY(-2px);
+  }
+  .btn-secondary-hero {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 1.1rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-sans-bold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.05rem;
+  }
+  .btn-secondary-hero:hover {
+    background: white;
+    color: #112A46;
+  }
+  .hero-trust-text {
+    margin-top: 3.5rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+  
+  /* Panel */
+  .hero-donation-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 16px;
+    padding: 2.5rem 2.25rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: fadeLeft 1s ease 0.4s both;
+    color: var(--color-text);
+  }
+  
+  .hero-card-title {
+    font-family: var(--font-sans-bold);
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  .hero-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .hero-cause-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 0.5rem;
+    display: block;
+    letter-spacing: 1px;
+  }
+  .hero-cause-value {
+    font-family: var(--font-sans-bold);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .hero-amount-select {
+    width: 100%; padding: 1rem; border: 1.5px solid #E1DCD1; border-radius: 8px; margin-bottom: 1.5rem; font-family: var(--font-body); font-size: 1rem; color: var(--color-text); background-color: #FAF8F4; cursor: pointer; outline: none; transition: border-color 0.3s;
+  }
+  .hero-amount-select:focus {
+    border-color: var(--color-primary);
+  }
+  
+  .hero-donate-btn {
+    display: block; width: 100%; text-align: center; background: var(--color-primary); color: white; padding: 1.1rem; border-radius: 8px; font-family: var(--font-sans-bold); font-size: 1.15rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,158,219,0.3); margin-bottom: 1.5rem;
+  }
+  .hero-donate-btn:hover {
+    background: #062338; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,158,219,0.4);
+  }
+  
+  .hero-card-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .hero-card-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .hero-card-footer a:hover {
+    text-decoration: underline;
+  }
+  .hero-future-text {
+    font-size: 0.8rem;
+    color: #999;
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
   }
   
   @media (max-width: 900px) {
@@ -1845,8 +1977,11 @@
       margin-bottom: 2rem;
     }
     .hero-donation-subtext {
-      margin: 0 auto;
+      margin: 0 auto 1.5rem;
       font-size: 1.15rem;
+    }
+    .hero-donation-buttons {
+      justify-content: center;
     }
     .hero-donation-card {
       padding: 1.5rem;
@@ -1855,13 +1990,21 @@
       font-size: 3rem;
       margin-bottom: 1rem;
     }
+    .hero-trust-text {
+      display: none;
+    }
   }
   @media (max-width: 500px) {
     .hero-donation-headline {
       font-size: 2.5rem;
     }
+    .hero-donation-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
   }
   </style>
+
 
 </head>
 
@@ -2011,29 +2154,38 @@
   <section class="hero-container">
     <div class="hero-wrapper">
 
+      
       <!-- Slide 0 (Donation) -->
       <div class="hero-slide active">
         <img src="assets/img/neiki_hero_donation_slide.png" alt="Donate for a Cause" class="hero-img">
-        <div class="hero-overlay" style="background: linear-gradient(to right, rgba(17,42,70,0.85) 0%, rgba(17,42,70,0.4) 50%, rgba(0,0,0,0.1) 100%);"></div>
+        <div class="hero-overlay" style="background: linear-gradient(to right, rgba(17,42,70,0.9) 0%, rgba(17,42,70,0.6) 40%, rgba(0,0,0,0.1) 100%);"></div>
         
         <div class="hero-donation-content">
           <div class="hero-donation-text">
-            <h1 class="hero-donation-headline">DONATE FOR A CAUSE</h1>
-            <p class="hero-donation-subtext">Your support helps us create meaningful change in communities that need it most.</p>
+            <span class="hero-donation-eyebrow">Support NEIKI's Work</span>
+            <h1 class="hero-donation-headline">DONATE FOR<br>A CAUSE</h1>
+            <p class="hero-donation-subtext">Your support helps us continue building clean-water solutions for communities that need them most.</p>
+            
+            <div class="hero-donation-buttons">
+              <a href="impact.html" class="btn-primary-hero">Donate for Water Projects</a>
+              <a href="contact.html" class="btn-secondary-hero">Contact Us</a>
+            </div>
+            
+            <div class="hero-trust-text">
+              <span>Current focus &middot; <strong>Clean Water Projects</strong></span>
+              <span>Questions before donating? <a href="contact.html" style="color:#4DB8FF;text-decoration:none;">Contact Us &rarr;</a></span>
+            </div>
           </div>
           
           <div class="hero-donation-card">
-            <h3 style="font-family: var(--font-sans-bold); font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--color-primary); text-align: center;">Select a Cause</h3>
+            <h3 class="hero-card-title">Make an Impact</h3>
+            <p class="hero-card-desc">Your donation currently supports NEIKI's clean-water projects.</p>
             
-            <select style="width: 100%; padding: 1rem; border: 1.5px solid #E1DCD1; border-radius: 8px; margin-bottom: 1rem; font-family: var(--font-body); font-size: 1rem; color: var(--color-text); background-color: #FAF8F4; cursor: pointer; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#E1DCD1'">
-              <option value="water">Clean Water Projects</option>
-              <option value="education">Education Initiatives</option>
-              <option value="health">Healthcare Services</option>
-              <option value="relief">Flood Relief</option>
-              <option value="general">General Support</option>
-            </select>
+            <span class="hero-cause-label">Current Cause</span>
+            <div class="hero-cause-value">Clean Water Projects</div>
             
-            <select style="width: 100%; padding: 1rem; border: 1.5px solid #E1DCD1; border-radius: 8px; margin-bottom: 1.5rem; font-family: var(--font-body); font-size: 1rem; color: var(--color-text); background-color: #FAF8F4; cursor: pointer; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='#E1DCD1'">
+            <span class="hero-cause-label">Choose an Amount</span>
+            <select class="hero-amount-select">
               <option value="1000">PKR 1,000</option>
               <option value="2500">PKR 2,500</option>
               <option value="5000">PKR 5,000</option>
@@ -2041,7 +2193,16 @@
               <option value="custom">Custom Amount</option>
             </select>
             
-            <a href="under-construction.html" style="display: block; width: 100%; text-align: center; background: var(--color-primary); color: white; padding: 1.1rem; border-radius: 8px; font-family: var(--font-sans-bold); font-size: 1.15rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,158,219,0.3);" onmouseover="this.style.background='#062338'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,158,219,0.4)';" onmouseout="this.style.background='var(--color-primary)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,158,219,0.3)';">Donate Now</a>
+            <a href="under-construction.html" class="hero-donate-btn">Donate Now</a>
+            
+            <div class="hero-card-footer">
+              Have a question before donating?<br>
+              <a href="contact.html">Contact Us &rarr;</a>
+            </div>
+            
+            <div class="hero-future-text">
+              More causes will be added as NEIKI expands its programs.
+            </div>
           </div>
         </div>
       </div>
@@ -3095,6 +3256,17 @@
 
 
     startSlide();
+
+    // Pause slider on hover
+    const heroContainerElement = document.querySelector('.hero-wrapper');
+    if (heroContainerElement) {
+      heroContainerElement.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+      heroContainerElement.addEventListener('mouseleave', () => {
+        resetSlide();
+      });
+    }
 
   </script>
 
