@@ -1510,6 +1510,14 @@
 
       align-items: center;
 
+      background: rgba(0, 0, 0, 0.15);
+
+      padding: 1rem 0.5rem;
+
+      border-radius: 40px;
+
+      backdrop-filter: blur(4px);
+
     }
 
     .carousel-controls .dot {
@@ -2156,55 +2164,504 @@
 
       
       <!-- Slide 0 (Donation) -->
+      <!-- Slide 0 (Donation) -->
+      <!-- Slide 0 (Donation) -->
       <div class="hero-slide active">
-        <img src="assets/img/neiki_hero_donation_slide.png" alt="Donate for a Cause" class="hero-img">
-        <div class="hero-overlay" style="background: linear-gradient(to right, rgba(17,42,70,0.9) 0%, rgba(17,42,70,0.6) 40%, rgba(0,0,0,0.1) 100%);"></div>
-        
-        <div class="hero-donation-content">
-          <div class="hero-donation-text">
-            <span class="hero-donation-eyebrow">Support NEIKI's Work</span>
-            <h1 class="hero-donation-headline">DONATE FOR<br>A CAUSE</h1>
-            <p class="hero-donation-subtext">Your support helps us continue building clean-water solutions for communities that need them most.</p>
-            
-            <div class="hero-donation-buttons">
-              <a href="impact.html" class="btn-primary-hero">Donate for Water Projects</a>
-              <a href="contact.html" class="btn-secondary-hero">Contact Us</a>
-            </div>
-            
-            <div class="hero-trust-text">
-              <span>Current focus &middot; <strong>Clean Water Projects</strong></span>
-              <span>Questions before donating? <a href="contact.html" style="color:#4DB8FF;text-decoration:none;">Contact Us &rarr;</a></span>
+        <style>
+          /* Premium donation hero: image and donation panel are true side-by-side columns. */
+          .new-donate-slide {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            background: #fff;
+          }
+
+          .new-donate-media {
+            position: relative;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #17384a;
+          }
+
+          .new-donate-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+
+          .new-donate-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(5, 25, 36, .85) 0%, rgba(5, 25, 36, .45) 50%, rgba(5, 25, 36, .05) 100%),
+                        linear-gradient(0deg, rgba(0,0,0,.40) 0%, transparent 50%);
+          }
+
+          .new-donate-overlay-content {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+          }
+
+          .overlay-main-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .new-donate-headline {
+            max-width: 600px;
+            margin-bottom: 1rem;
+            font-family: var(--font-sans-bold);
+            font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            color: #fff;
+            text-shadow: 0 4px 20px rgba(0,0,0,.3);
+          }
+
+          .new-donate-subtext {
+            max-width: 500px;
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: clamp(1rem, 1.25vw, 1.15rem);
+            line-height: 1.5;
+            color: rgba(255,255,255,.9);
+          }
+
+          .new-donate-pillars {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            max-width: 610px;
+            border-top: 1px solid rgba(255,255,255,.25);
+            padding-top: 1.2rem;
+          }
+
+          .new-donate-pillar {
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+            padding-right: .7rem;
+            border-right: 1px solid rgba(255,255,255,.22);
+            text-align: center;
+            align-items: center;
+          }
+
+          .new-donate-pillar:last-child { border-right: 0; }
+
+          .new-donate-pillar-icon {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+          }
+
+          .new-donate-pillar span:last-child {
+            font-family: var(--font-body);
+            font-size: .75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,.94);
+          }
+
+          .left-trust-wrapper {
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,.25);
+            padding-top: 1.25rem;
+          }
+
+          .left-secure-note {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: .85rem;
+            font-size: .75rem;
+            font-weight: 600;
+            color: #67d6f5;
+          }
+
+          .left-secure-note svg { flex: 0 0 auto; }
+
+          .left-trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+          }
+
+          .left-trust-item {
+            text-align: left;
+          }
+
+          .left-trust-icon {
+            width: 20px;
+            height: 20px;
+            margin-bottom: .4rem;
+            display: flex;
+            align-items: center;
+            color: #67d6f5;
+          }
+
+          .left-trust-text h5 {
+            margin-bottom: .2rem;
+            font-family: var(--font-sans-bold);
+            font-size: .7rem;
+            font-weight: 800;
+            color: #fff;
+          }
+
+          .left-trust-text p {
+            font-family: var(--font-body);
+            font-size: .55rem;
+            line-height: 1.4;
+            color: rgba(255,255,255,.8);
+          }
+
+          .new-donate-form-wrapper {
+            min-width: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1.25rem, 3vw, 2.75rem);
+            background: #fff;
+            overflow-y: auto;
+          }
+
+          .new-donate-card {
+            width: 100%;
+            max-width: 520px;
+            margin: auto;
+            padding: clamp(1.25rem, 3vw, 2.2rem);
+            background: #fff;
+            border-radius: 20px;
+          }
+
+          .new-donate-card-title {
+            margin-bottom: .5rem;
+            font-family: var(--font-sans-bold);
+            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+            line-height: 1.1;
+            font-weight: 900;
+            color: #1a202c;
+          }
+
+          .new-donate-card-desc {
+            margin-bottom: 1.25rem;
+            font-family: var(--font-heading);
+            font-size: .95rem;
+            line-height: 1.5;
+            color: #4a5568;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #edf2f7;
+          }
+
+          .new-donate-label {
+            display: block;
+            margin-bottom: .5rem;
+            font-family: var(--font-sans-bold);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #718096;
+          }
+
+          .custom-amount-input-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+          }
+
+          .custom-amount-input-wrapper .currency {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-sans-bold);
+            font-size: .95rem;
+            font-weight: 800;
+            color: #2d3748;
+            pointer-events: none;
+          }
+
+          .custom-amount-input-wrapper .min-label {
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-body);
+            font-size: .8rem;
+            font-weight: 500;
+            color: #a0aec0;
+            pointer-events: none;
+          }
+
+          .custom-amount-input {
+            width: 100%;
+            padding: 1rem 5.5rem 1rem 3.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            background: #faf5f5;
+            color: #1a202c;
+            font-family: var(--font-sans-bold);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all .2s;
+          }
+
+          .custom-amount-input:focus {
+            border-color: var(--color-primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,158,219,.15);
+          }
+
+          .custom-amount-input::placeholder {
+            color: #a0aec0;
+            font-weight: 400;
+          }
+
+          .quick-amount-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: .6rem;
+            margin-bottom: 1.25rem;
+          }
+
+          .quick-btn {
+            min-width: 0;
+            padding: .75rem .2rem;
+            border: 1px solid #bee3f8;
+            border-radius: 6px;
+            background: #fff;
+            color: var(--color-primary);
+            font-family: var(--font-sans-bold);
+            font-size: .78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .15s ease;
+          }
+
+          .quick-btn:hover {
+            background: #ebf8ff;
+          }
+
+          .quick-btn.active {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: #fff;
+          }
+
+          .new-donate-submit {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: .9rem;
+            border: 0;
+            border-radius: 8px;
+            background: var(--color-primary);
+            color: #fff;
+            font-family: var(--font-sans-bold);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+          }
+
+          .new-donate-submit:hover {
+            background: #008cc9;
+            transform: translateY(-1px);
+          }
+
+          @media (max-width: 1100px) {
+            .new-donate-headline { font-size: clamp(2.4rem, 4vw, 3.5rem); }
+            .new-donate-form-wrapper { padding: 1.25rem; }
+            .new-donate-card { padding: 1.7rem; }
+          }
+
+          @media (max-width: 900px) {
+            .new-donate-slide {
+              grid-template-columns: 1fr;
+              grid-template-rows: 45% 55%;
+              overflow-y: auto;
+            }
+            .new-donate-media { min-height: 330px; }
+            .new-donate-overlay-content {
+              padding: 2rem;
+            }
+            .left-trust-wrapper { display: none; } /* Hide extra icons on mobile to save space */
+            .new-donate-form-wrapper { padding: 1.5rem; }
+            .new-donate-card { max-width: 620px; }
+          }
+
+          @media (max-width: 560px) {
+            .new-donate-slide { grid-template-rows: 40% 60%; }
+            .new-donate-media { min-height: 280px; }
+            .new-donate-overlay-content { padding: 1.25rem; }
+            .new-donate-headline { font-size: 2.2rem; letter-spacing: -1px; }
+            .new-donate-subtext { margin-bottom: 1rem; font-size: .88rem; }
+            .new-donate-pillars { gap: .25rem; padding-top: .75rem; }
+            .new-donate-pillar { padding-right: .3rem; }
+            .new-donate-pillar-icon { width: 22px; height: 22px; }
+            .new-donate-pillar span:last-child { font-size: .6rem; }
+            .new-donate-card { padding: 1.35rem; border-radius: 16px; }
+            .new-donate-card-title { font-size: 1.7rem; }
+            .new-donate-card-desc { font-size: .87rem; margin-bottom: 1.25rem; padding-bottom: 1.25rem; }
+            .quick-amount-buttons { grid-template-columns: repeat(3, 1fr); gap: .4rem; }
+            .quick-btn { font-size: .75rem; padding: .6rem .2rem; }
+          }
+        </style>
+
+        <div class="new-donate-slide">
+          <div class="new-donate-media">
+            <img src="assets/img/donation_water_pump_new.png" alt="NEIKI community water project creating impact" class="new-donate-img">
+            <div class="new-donate-overlay-content">
+              
+              <div class="overlay-main-text">
+                <h2 class="new-donate-headline">Your Small Step,<br>Their Big Change</h2>
+                <p class="new-donate-subtext">Together, we can build a better future for communities that need it most.</p>
+
+                <div class="new-donate-pillars" aria-label="NEIKI focus areas">
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M8 6h8M8 10h7"/></svg></div>
+                    <span>Education</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/><path d="M12 8v6M9 11h6"/></svg></div>
+                    <span>Healthcare</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><path d="M5 18c3-1 5-3 7-6 2 3 4 5 7 6"/><path d="M6 9c2-1 4-2 6-4 2 2 4 3 6 4"/></svg></div>
+                    <span>Livelihoods</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M14 21v-1a5 5 0 0 1 7 0"/></svg></div>
+                    <span>Social Welfare</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="left-trust-wrapper">
+                <div class="left-secure-note">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  Your donation is secure and will be used responsibly to create real impact.
+                </div>
+                <div class="left-trust-grid">
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <div class="left-trust-text"><h5>Transparent</h5><p>We ensure transparency and responsible use of every rupee.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></div>
+                    <div class="left-trust-text"><h5>Accountable</h5><p>Strong governance and monitoring for measurable impact.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="7.5 19.79 7.5 14.6 3 12"/><polyline points="21 12 16.5 14.6 16.5 19.79"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                    <div class="left-trust-text"><h5>Collaborative</h5><p>In partnership with institutions aligned with UN SDGs.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div class="left-trust-text"><h5>Community First</h5><p>Empowering communities for long-term self-reliance and resilience.</p></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div class="hero-donation-card">
-            <h3 class="hero-card-title">Make an Impact</h3>
-            <p class="hero-card-desc">Your donation currently supports NEIKI's clean-water projects.</p>
-            
-            <span class="hero-cause-label">Current Cause</span>
-            <div class="hero-cause-value">Clean Water Projects</div>
-            
-            <span class="hero-cause-label">Choose an Amount</span>
-            <select class="hero-amount-select">
-              <option value="1000">PKR 1,000</option>
-              <option value="2500">PKR 2,500</option>
-              <option value="5000">PKR 5,000</option>
-              <option value="10000">PKR 10,000</option>
-              <option value="custom">Custom Amount</option>
-            </select>
-            
-            <a href="under-construction.html" class="hero-donate-btn">Donate Now</a>
-            
-            <div class="hero-card-footer">
-              Have a question before donating?<br>
-              <a href="contact.html">Contact Us &rarr;</a>
-            </div>
-            
-            <div class="hero-future-text">
-              More causes will be added as NEIKI expands its programs.
+
+          <div class="new-donate-form-wrapper">
+            <div class="new-donate-card">
+              <h3 class="new-donate-card-title">Make an Impact</h3>
+              <p class="new-donate-card-desc">Your donation helps NEIKI deliver impactful programs in clean water, education, healthcare, livelihoods, and social welfare for underserved communities. Every contribution brings positive, lasting change.</p>
+
+              <label class="new-donate-label" for="donate-amount-input">CHOOSE AN AMOUNT</label>
+              <div class="custom-amount-input-wrapper">
+                <span class="currency">PKR</span>
+                <input type="number" id="donate-amount-input" class="custom-amount-input" placeholder="Enter any amount" min="1" step="1" inputmode="numeric" autocomplete="off">
+                <span class="min-label">Min: PKR 1</span>
+              </div>
+
+              <div class="quick-amount-buttons">
+                <button type="button" class="quick-btn" data-amount="100">PKR 100</button>
+                <button type="button" class="quick-btn" data-amount="500">PKR 500</button>
+                <button type="button" class="quick-btn active" data-amount="1000">PKR 1,000</button>
+                <button type="button" class="quick-btn" data-amount="2500">PKR 2,500</button>
+                <button type="button" class="quick-btn" data-other="true">Other</button>
+              </div>
+
+              <button type="button" onclick="submitDonation()" class="new-donate-submit">
+                Donate Now
+              </button>
             </div>
           </div>
         </div>
+
+        <script>
+          (function () {
+            const amountInput = document.getElementById('donate-amount-input');
+            const quickButtons = document.querySelectorAll('.quick-btn');
+            if (!amountInput) return;
+
+            function updateActiveButton(value) {
+              const amount = Number(value);
+              quickButtons.forEach(btn => {
+                const preset = btn.dataset.amount ? Number(btn.dataset.amount) : null;
+                btn.classList.toggle('active', preset !== null && preset === amount);
+              });
+            }
+
+            quickButtons.forEach(btn => {
+              btn.addEventListener('click', function () {
+                if (this.dataset.other === 'true') {
+                  amountInput.value = '';
+                  amountInput.focus();
+                  quickButtons.forEach(b => b.classList.remove('active'));
+                  return;
+                }
+                amountInput.value = this.dataset.amount;
+                updateActiveButton(amountInput.value);
+              });
+            });
+
+            amountInput.addEventListener('input', function () {
+              if (Number(this.value) < 1 && this.value !== '') this.value = '';
+              updateActiveButton(this.value);
+            });
+            
+            // Initial state set
+            amountInput.value = '1000';
+          })();
+
+          function submitDonation() {
+            const input = document.getElementById('donate-amount-input');
+            const rawAmount = input ? input.value.trim() : '';
+            const amount = Number(rawAmount);
+
+            if (!rawAmount || !Number.isInteger(amount) || amount < 1) {
+              if (input) {
+                input.focus();
+                input.setCustomValidity('Please enter a whole-number amount of at least PKR 1.');
+                input.reportValidity();
+                input.setCustomValidity('');
+              }
+              return;
+            }
+
+            // Keep the existing placeholder donation flow until a payment gateway is connected.
+            window.location.href = 'under-construction.html';
+          }
+        </script>
       </div>
 
       <!-- Slide 1 -->
@@ -2345,22 +2802,7 @@
     </div>
   </section>
 
-  <!-- Featured Project / Impact Story Section -->
-  <section class="featured-project-section" style="padding: 5rem 2rem; background-color: var(--color-primary); color: white;">
-    <div class="container" style="display: flex; gap: 4rem; align-items: center; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 300px;">
-        <h3 style="font-family: var(--font-sans-bold); font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; color: rgba(255,255,255,0.7);">Featured Impact Story</h3>
-        <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; font-weight: 900; margin-bottom: 1.5rem; line-height: 1.2;">Bringing Life Back to Communities</h2>
-        <p style="font-family: var(--font-heading); font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; line-height: 1.6;">
-          Our recent flood relief interventions have provided emergency shelters, rations, and clean water to thousands of displaced families, ensuring dignity and rapid recovery in the face of devastating natural disasters.
-        </p>
-        <a href="flood-relief.html" class="hero-btn" style="background-color: white; color: var(--color-primary); padding: 1rem 2.5rem; font-size: 1.1rem;">Explore the Story &rarr;</a>
-      </div>
-      <div style="flex: 1; min-width: 300px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-        <img src="assets/img/flood_relief_card.png" alt="Flood Relief Impact" style="width: 100%; height: auto; display: block;">
-      </div>
-    </div>
-  </section>
+
 
 
 
@@ -2997,41 +3439,11 @@
 
     
   <!-- Interactive Donation Section -->
-  <section style="position: relative; padding: 5rem 0; background-color: var(--color-bg-light); overflow: hidden;">
-    <!-- Abstract Water Ripple Background -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: radial-gradient(circle at center, var(--color-primary) 0%, transparent 70%); pointer-events: none;"></div>
-    
-    <div class="container" style="position: relative; z-index: 2;">
-      <div style="display: flex; flex-wrap: wrap; align-items: center; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); transition: transform 0.4s ease, box-shadow 0.4s ease;" 
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 45px rgba(0, 158, 219, 0.15)';" 
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.06)';">
-        
-        <!-- Image Side -->
-        <div style="flex: 1 1 50%; min-width: 300px; position: relative;">
-          <!-- Using the generated cinematic documentary visual -->
-          <img src="assets/img/donation_impact_visual.png" alt="Community impact" style="width: 100%; height: 100%; min-height: 350px; object-fit: cover; display: block;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15));"></div>
-        </div>
 
-        <!-- Content Side -->
-        <div style="flex: 1 1 50%; min-width: 300px; padding: 3rem 4rem;">
-          <h2 style="font-family: var(--font-sans-bold); font-size: 2.25rem; color: var(--color-text); margin-bottom: 1rem; line-height: 1.2;">Your support can create real change.</h2>
-          <p style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 2rem; line-height: 1.6;">Every contribution helps us continue serving communities beyond boundaries.</p>
-          
-          <a href="under-construction.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--color-primary); color: white; font-family: var(--font-sans-bold); font-size: 1.05rem; font-weight: 700; padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 158, 219, 0.3);"
-             onmouseover="this.style.background='#062338'; this.style.transform='scale(1.05)';" 
-             onmouseout="this.style.background='var(--color-primary)'; this.style.transform='scale(1)';">
-            Donate Now
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
 <footer class="site-footer new-footer" style="padding: 3rem 0 1.5rem; background-color: var(--color-primary); color: white; font-family: var(--font-body);">
     <div class="container" style="max-width: 1000px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; align-items: start;">
         
         <!-- Brand & Description -->
         <div>
@@ -3048,7 +3460,6 @@
             <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
             <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
             <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
-            <li><a href="under-construction.html" style="color: var(--color-accent); font-weight: 700; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--color-accent)'; this.style.textDecoration='none';">Donate</a></li>
           </ul>
         </div>
 
@@ -3077,6 +3488,14 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
             </a>
           </div>
+        </div>
+
+        <!-- Support Action (New column) -->
+        <div style="display: flex; align-items: flex-start; justify-content: flex-end;">
+          <a href="under-construction.html" style="background-color: white; color: var(--color-primary); padding: 0.75rem 2rem; border-radius: 8px; font-family: var(--font-sans-bold); font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+            Donate Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
 
       </div>
@@ -3227,11 +3646,14 @@
 
 
 
+    let isHovering = false;
+
     function resetSlide() {
 
       clearInterval(slideInterval);
-
-      startSlide();
+      if (!isHovering) {
+        startSlide();
+      }
 
     }
 
@@ -3261,9 +3683,11 @@
     const heroContainerElement = document.querySelector('.hero-wrapper');
     if (heroContainerElement) {
       heroContainerElement.addEventListener('mouseenter', () => {
+        isHovering = true;
         clearInterval(slideInterval);
       });
       heroContainerElement.addEventListener('mouseleave', () => {
+        isHovering = false;
         resetSlide();
       });
     }
