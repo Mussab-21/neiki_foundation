@@ -1670,6 +1670,7 @@
       
       /* Mobile layout adjustments for vertical space */
       .about-header { min-height: auto; padding: 4rem 1rem 2rem 1rem; }
+      .about-header h2 { font-size: 1.05rem !important; line-height: 1.5 !important; text-align: left !important; }
       .about-mission { font-size: 1.1rem; line-height: 1.5; text-align: left; }
       
       .zigzag-section { padding: 2rem 1rem; }
@@ -1680,18 +1681,21 @@
       .zigzag-content p { font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.5rem; }
       
       /* Mobile Carousel for Four Cards */
-      .four-cards-section { overflow: hidden; padding-left: 1rem; padding-right: 1rem; }
+      .four-cards-section { overflow: hidden; padding-left: 0.5rem; padding-right: 0.5rem; }
       .four-cards-grid { 
         display: flex; 
         transition: transform 0.3s ease-out; 
         will-change: transform; 
         gap: 0;
       }
-      .four-card {
+      .fc-slide {
         flex: 0 0 100%;
         width: 100%;
-        padding: 0 0.5rem;
+        padding: 0 0.25rem;
         box-sizing: border-box;
+      }
+      .four-card {
+        margin: 0 !important;
       }
       .fc-dots {
         display: flex;
@@ -2263,41 +2267,49 @@
 
     <div class="four-cards-grid" id="fcTrack">
 
-      <a href="flood-relief.html" class="four-card">
-        <div class="four-card-img"><img loading="lazy" src="assets/img/flood_relief_card.png" alt="2025 Flood Relief" onerror="this.src='assets/img/card_story.png'"></div>
-        <div class="four-card-content">
-          <h3>2025 Flood Relief</h3>
-          <p>See our emergency response and rehabilitation efforts for the 2025 floods.</p>
-          <span>Explore &rarr;</span>
-        </div>
-      </a>
+      <div class="fc-slide">
+        <a href="flood-relief.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/flood_relief_card.png" alt="2025 Flood Relief" onerror="this.src='assets/img/card_story.png'"></div>
+          <div class="four-card-content">
+            <h3>2025 Flood Relief</h3>
+            <p>See our emergency response and rehabilitation efforts for the 2025 floods.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
+      </div>
 
-      <a href="mission.html" class="four-card">
-        <div class="four-card-img"><img loading="lazy" src="assets/img/mission_statement_card.png" alt="Mission Statement" onerror="this.src='assets/img/card_role.png'"></div>
-        <div class="four-card-content">
-          <h3>Mission Statement</h3>
-          <p>Learn about our core mission to serve humanity and build a better world.</p>
-          <span>Explore &rarr;</span>
-        </div>
-      </a>
+      <div class="fc-slide">
+        <a href="mission.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/mission_statement_card.png" alt="Mission Statement" onerror="this.src='assets/img/card_role.png'"></div>
+          <div class="four-card-content">
+            <h3>Mission Statement</h3>
+            <p>Learn about our core mission to serve humanity and build a better world.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
+      </div>
 
-      <a href="core-values.html" class="four-card">
-        <div class="four-card-img"><img loading="lazy" src="assets/img/card_values.png" alt="Our Core Values"></div>
-        <div class="four-card-content">
-          <h3>Our Core Values</h3>
-          <p>Guided by integrity, compassion, and transparency, we are dedicated to inclusive and sustainable human development.</p>
-          <span>Explore &rarr;</span>
-        </div>
-      </a>
+      <div class="fc-slide">
+        <a href="core-values.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/card_values.png" alt="Our Core Values"></div>
+          <div class="four-card-content">
+            <h3>Our Core Values</h3>
+            <p>Guided by integrity, compassion, and transparency, we are dedicated to inclusive and sustainable human development.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
+      </div>
 
-      <a href="future-goals.html" class="four-card">
-        <div class="four-card-img"><img loading="lazy" src="assets/img/future_goals.jpeg" alt="Our Future Goals"></div>
-        <div class="four-card-content">
-          <h3>Our Future Goals</h3>
-          <p>Explore our strategic focus areas designed to create lasting impact across the nation.</p>
-          <span>Explore &rarr;</span>
-        </div>
-      </a>
+      <div class="fc-slide">
+        <a href="future-goals.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/future_goals.jpeg" alt="Our Future Goals"></div>
+          <div class="four-card-content">
+            <h3>Our Future Goals</h3>
+            <p>Explore our strategic focus areas designed to create lasting impact across the nation.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
+      </div>
 
     </div>
     <div class="fc-dots" id="fcDots"></div>
@@ -2366,7 +2378,7 @@
         } else {
           if (dotsContainer) dotsContainer.style.display = 'flex';
         }
-        autoSlideInterval = setInterval(nextSlide, 4000);
+        autoSlideInterval = setInterval(nextSlide, 1000);
       }
 
       function resetAutoSlide() {
