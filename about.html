@@ -1665,12 +1665,11 @@
     }
 
     @media(max-width: 768px) {
-      .four-cards-grid { grid-template-columns: 1fr; }
       .offices-box { padding: 2rem; }
       
       /* Mobile layout adjustments for vertical space */
-      .about-header { min-height: auto; padding: 4rem 1rem 2rem 1rem; }
-      .about-header h2 { font-size: 1.05rem !important; line-height: 1.5 !important; text-align: left !important; }
+      .about-header { min-height: auto; padding: 4rem 1rem 2rem 1rem; text-align: left !important; }
+      .intro-mission-statement { font-size: 1.1rem !important; line-height: 1.5 !important; text-align: left !important; margin: 0 !important; width: 100%; }
       .about-mission { font-size: 1.1rem; line-height: 1.5; text-align: left; }
       
       .zigzag-section { padding: 2rem 1rem; }
@@ -1683,10 +1682,12 @@
       /* Mobile Carousel for Four Cards */
       .four-cards-section { overflow: hidden; padding-left: 0.5rem; padding-right: 0.5rem; }
       .four-cards-grid { 
-        display: flex; 
+        display: flex !important; 
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
         transition: transform 0.3s ease-out; 
         will-change: transform; 
-        gap: 0;
+        gap: 0 !important;
       }
       .fc-slide {
         flex: 0 0 100%;
@@ -2177,7 +2178,7 @@
   <section class="about-header container" style="padding-bottom: 2rem;">
     <h1 style="font-size: 3.5rem; color: var(--color-primary); font-family: var(--font-sans-bold); text-transform: uppercase;">About Us</h1>
     <div style="height: 40px;"></div>
-    <h2 style="font-size: 1.8rem; max-width: 1000px; margin: 0 auto; line-height: 1.6; font-family: var(--font-heading); color: var(--color-text); font-weight: 400;">
+    <h2 class="intro-mission-statement" style="font-size: 1.8rem; max-width: 1000px; margin: 0 auto; line-height: 1.6; font-family: var(--font-heading); color: var(--color-text); font-weight: 400;">
       NEIKI SUB SAY FOUNDATION is a <em style="color: var(--color-primary); font-style: normal; font-weight: 700;">non-profit</em>, <em style="color: var(--color-primary); font-style: normal; font-weight: 700;">non-political</em> organization committed to improving lives through humanitarian service, community empowerment, and sustainable development. We work to create lasting impact in health, education, livelihoods, social welfare, and environmental resilience ensuring dignity, opportunity, and inclusion for all.
     </h2>
   </section>
