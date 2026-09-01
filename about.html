@@ -1665,11 +1665,19 @@
     }
 
     @media(max-width: 768px) {
-
       .four-cards-grid { grid-template-columns: 1fr; }
-
       .offices-box { padding: 2rem; }
-
+      
+      /* Mobile layout adjustments for vertical space */
+      .about-header { min-height: auto; padding: 4rem 1rem; }
+      .about-mission { font-size: 1.5rem; line-height: 1.4; }
+      
+      .zigzag-section { padding: 2rem 1rem; }
+      .zigzag-row { gap: 1rem; margin-bottom: 2rem; }
+      .zigzag-row, .zigzag-row:nth-child(even) { gap: 1rem; }
+      .zigzag-img { aspect-ratio: 21/9; max-height: 200px; border-radius: 8px; }
+      .zigzag-content h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+      .zigzag-content p { font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.5rem; }
     }
 
     
