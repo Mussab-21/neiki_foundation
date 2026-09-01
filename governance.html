@@ -2036,12 +2036,46 @@
       <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(17,42,70,0.6) 0%, rgba(17,42,70,0.9) 100%);"></div>
     </div>
     <div class="container" style="position: relative; z-index: 2; text-align: center; color: white;">
-      <h1 class="anim-fade-down" style="font-family: var(--font-sans-bold); font-size: 4rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">Organizational Structure<br>& Governance</h1>
+      <h1 class="anim-fade-down hero-heading" style="font-family: var(--font-sans-bold); font-size: 4rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">Organizational Structure<br>& Governance</h1>
       <p class="anim-fade-up" style="font-family: var(--font-heading); font-size: 1.5rem; max-width: 800px; margin: 0 auto; line-height: 1.5; font-weight: 300; animation-delay: 0.3s;">Integrity, participation, and professional management.</p>
     </div>
   </section>
 
   <style>
+    @media (max-width: 768px) {
+      .hero-heading { font-size: 2.2rem !important; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; }
+      .gov-intro { font-size: 1.05rem !important; line-height: 1.6 !important; }
+      
+      .president-wrapper { text-align: left !important; }
+      .president-card { padding: 1.5rem !important; }
+      .president-card h3 { font-size: 1.5rem !important; }
+      .president-card p { font-size: 1rem !important; line-height: 1.5 !important; }
+      
+      .org-line-vert { margin: 0 0 0 30px !important; height: 25px !important; }
+      
+      .org-grid { 
+        display: flex !important; 
+        flex-direction: column; 
+        gap: 1.25rem !important; 
+        padding-left: 50px; 
+        position: relative; 
+      }
+      
+      .org-grid::before {
+        content: ''; position: absolute; left: 30px; top: -25px; bottom: 50px; width: 4px; background: var(--color-primary); opacity: 0.3;
+      }
+
+      .org-grid-item { position: relative; width: 100%; }
+      .org-grid-item::before {
+        content: ''; position: absolute; left: -20px; top: 30px; width: 20px; height: 4px; background: var(--color-primary); opacity: 0.3;
+      }
+      
+      .gov-card { padding: 1.25rem !important; }
+      .gov-card h3 { font-size: 1.25rem !important; margin-bottom: 0.5rem !important; }
+      .gov-card p { font-size: 0.95rem !important; line-height: 1.5 !important; }
+      
+      .dir-pill { padding: 0.75rem 1rem !important; font-size: 0.9rem !important; }
+    }
     .anim-fade-down { animation: fadeDown 1s ease-out forwards; opacity: 0; }
     .anim-fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
@@ -2112,7 +2146,7 @@
   <!-- Intro -->
   <section style="padding: 5rem 0; background-color: white; text-align: center;">
     <div class="container reveal" style="max-width: 900px;">
-      <p style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-text-muted); line-height: 1.8;">
+      <p class="gov-intro" style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-text-muted); line-height: 1.8;">
         NEIKI SUB SAY FOUNDATION operates under a structured, transparent, and accountable governance framework designed to ensure effective leadership, sound decision-making, and efficient delivery of humanitarian and development programs. The governance model is built on integrity, participation, and professional management, ensuring alignment between strategic oversight and operational execution.
       </p>
     </div>
@@ -2127,8 +2161,8 @@
       </div>
 
       <!-- The President -->
-      <div class="reveal" style="max-width: 600px; margin: 0 auto 2rem; text-align: center;">
-        <div class="gov-card" style="border-top-color: #E5243B;">
+      <div class="reveal president-wrapper" style="max-width: 600px; margin: 0 auto 2rem; text-align: center;">
+        <div class="gov-card president-card" style="border-top-color: #E5243B;">
           <h3 style="font-family: var(--font-sans-bold); font-size: 1.8rem; color: #E5243B; margin-bottom: 1rem;">The President</h3>
           <p style="font-family: var(--font-heading); font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.6;">
             Serves as the Head of Governance and Chair of the Board of Trustees, Advisory Council, and Executive Management Committee (EMC). The President provides strategic leadership, represents the Foundation globally, and ensures alignment with our mission, policies, and global humanitarian standards.
@@ -2139,34 +2173,42 @@
       <div class="org-line-vert reveal"></div>
 
       <!-- Grid for Board, Council, EMC, Audit -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+      <div class="org-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
         
-        <div class="gov-card reveal" style="transition-delay: 0.1s;">
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Board of Trustees</h3>
-          <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-            The supreme decision-making body, responsible for approving the Foundation’s vision, policies, annual budgets, audit reports, and long-term strategic plans. Ensures governance integrity and overall direction.
-          </p>
+        <div class="org-grid-item">
+          <div class="gov-card reveal" style="transition-delay: 0.1s;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Board of Trustees</h3>
+            <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+              The supreme decision-making body, responsible for approving the Foundation’s vision, policies, annual budgets, audit reports, and long-term strategic plans. Ensures governance integrity and overall direction.
+            </p>
+          </div>
         </div>
 
-        <div class="gov-card reveal" style="transition-delay: 0.2s;">
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Advisory Council</h3>
-          <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-            Composed of subject-matter experts in social welfare, health, law, finance, education, and development. Provides technical guidance, strategic advice, and ensures alignment with international best practices.
-          </p>
+        <div class="org-grid-item">
+          <div class="gov-card reveal" style="transition-delay: 0.2s;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Advisory Council</h3>
+            <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+              Composed of subject-matter experts in social welfare, health, law, finance, education, and development. Provides technical guidance, strategic advice, and ensures alignment with international best practices.
+            </p>
+          </div>
         </div>
 
-        <div class="gov-card reveal" style="transition-delay: 0.3s;">
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Management Board</h3>
-          <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-            Headed by the President and comprising the Vice President, Secretary General, and Directors. Translates governance decisions into operational strategies, overseeing coordination and program execution.
-          </p>
+        <div class="org-grid-item">
+          <div class="gov-card reveal" style="transition-delay: 0.3s;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Management Board</h3>
+            <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+              Headed by the President and comprising the Vice President, Secretary General, and Directors. Translates governance decisions into operational strategies, overseeing coordination and program execution.
+            </p>
+          </div>
         </div>
 
-        <div class="gov-card reveal" style="transition-delay: 0.4s;">
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Finance & Audit Committee</h3>
-          <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-            Reporting directly to the Board, this committee ensures financial transparency, audit compliance, donor accountability, and adherence to legal and regulatory requirements.
-          </p>
+        <div class="org-grid-item">
+          <div class="gov-card reveal" style="transition-delay: 0.4s;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1rem;">Finance & Audit Committee</h3>
+            <p style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+              Reporting directly to the Board, this committee ensures financial transparency, audit compliance, donor accountability, and adherence to legal and regulatory requirements.
+            </p>
+          </div>
         </div>
 
       </div>
