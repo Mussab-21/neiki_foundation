@@ -30,8 +30,6 @@
 
 
     <style>
-      .facts-card { background-color: var(--color-primary) !important; color: white !important; }
-      .facts-card .stat-number, .facts-card .stat-label, .facts-card p, .facts-card h2, .facts-card .facts-link { color: white !important; }
       .newsletter-card { background-color: var(--color-primary) !important; color: white !important; }
       .newsletter-card h2, .newsletter-card p { color: white !important; }
       .future-goals-card { background-color: var(--color-primary) !important; color: white !important; }
@@ -41,14 +39,15 @@
     
 
     <style>
-      .btn-outline-blue {
+      .btn-outline, .btn-outline-blue {
+          background-color: transparent !important;
+          color: var(--color-primary) !important;
+          border: 2px solid var(--color-primary) !important;
+          transition: all 0.3s;
+      }
+      .btn-outline:hover, .btn-outline-blue:hover {
           background-color: var(--color-primary) !important;
           color: white !important;
-          border: 2px solid var(--color-primary) !important;
-      }
-      .btn-outline-blue:hover {
-          background-color: #008cc9 !important; /* Slightly darker light blue for hover */
-          border-color: #008cc9 !important;
       }
     </style>
     
@@ -287,6 +286,7 @@
   <!-- Header -->
 
   
+  
   <header class="site-header" id="header">
     <div class="container header-inner">
       <div class="header-left-group">
@@ -313,6 +313,7 @@
       </div>
     </div>
   </header>
+
 
 
 
@@ -857,13 +858,16 @@
       </div>
       
       <!-- Carousel UI -->
-      <div class="carousel-controls">
-        <div class="dot active" data-slide="0"></div>
-        <div class="dot" data-slide="1"></div>
-        <div class="dot" data-slide="2"></div>
-        <div class="dot" data-slide="3"></div>
-        <div class="car-arrow up-arrow">&#8593;</div>
-        <div class="car-arrow down-arrow">&#8595;</div>
+      <div class="carousel-controls new-carousel-controls">
+        <div class="dots-wrapper">
+          <div class="dot active" data-slide="0"></div>
+          <div class="dot" data-slide="1"></div>
+          <div class="dot" data-slide="2"></div>
+          <div class="dot" data-slide="3"></div>
+        </div>
+        <div class="play-pause-toggle">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </div>
       </div>
     </div>
   </section>
