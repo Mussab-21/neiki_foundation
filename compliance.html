@@ -1887,6 +1887,30 @@
 
 
 
+
+    /* GENERIC MOBILE FIXES */
+    @media (max-width: 768px) {
+      /* Fix hero overflow */
+      .hero-section h1, h1.anim-fade-down, .hero-heading { font-size: 2.2rem !important; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; }
+      
+      /* Fix intro text size */
+      p[style*="font-size: 1.25rem"], p[style*="font-size:1.25rem"], p[style*="font-size: 1.5rem"] {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        text-align: left !important;
+      }
+      
+      /* Compact cards */
+      .restriction-card, .gov-card, .stat-card, .feature-card, .certificate-card, .value-card, .program-card, .impact-card {
+        padding: 1.25rem !important;
+      }
+      h2 { font-size: 1.8rem !important; word-wrap: break-word; overflow-wrap: break-word; line-height: 1.2 !important; }
+      h3 { font-size: 1.35rem !important; line-height: 1.3 !important; }
+      
+      /* Pills */
+      .dir-pill, .pill { padding: 0.5rem 0.75rem !important; font-size: 0.85rem !important; border-radius: 20px !important; }
+    }
+
 </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
@@ -2119,6 +2143,13 @@
     .restriction-card:hover {
       transform: translateY(-5px);
     }
+    @media (max-width: 768px) {
+      .certificate-card { margin-top: -40px !important; }
+      .cert-grid { gap: 1rem !important; }
+      .cert-item { padding-bottom: 0.5rem !important; }
+      .cert-val { font-size: 1.05rem !important; }
+      .approved-objects-box { padding: 1.5rem !important; }
+    }
   </style>
 
   <!-- Certificate Section -->
@@ -2200,7 +2231,7 @@
         </div>
 
         <div style="flex: 2; min-width: 300px;">
-          <div style="background: rgba(255,255,255,0.05); padding: 3rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); font-family: var(--font-heading); font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.9);">
+          <div class="approved-objects-box" style="background: rgba(255,255,255,0.05); padding: 3rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); font-family: var(--font-heading); font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.9);">
             <p style="margin-bottom: 1.5rem;">
               Under its SECP licence issued pursuant to Section 42 of the Companies Act, 2017, NEIKI SUB SAY FOUNDATION is authorized to undertake humanitarian and development activities for public welfare, including:
             </p>

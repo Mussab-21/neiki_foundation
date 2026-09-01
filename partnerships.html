@@ -1887,6 +1887,30 @@
 
 
 
+
+    /* GENERIC MOBILE FIXES */
+    @media (max-width: 768px) {
+      /* Fix hero overflow */
+      .hero-section h1, h1.anim-fade-down, .hero-heading { font-size: 2.2rem !important; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; }
+      
+      /* Fix intro text size */
+      p[style*="font-size: 1.25rem"], p[style*="font-size:1.25rem"], p[style*="font-size: 1.5rem"] {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        text-align: left !important;
+      }
+      
+      /* Compact cards */
+      .restriction-card, .gov-card, .stat-card, .feature-card, .certificate-card, .value-card, .program-card, .impact-card {
+        padding: 1.25rem !important;
+      }
+      h2 { font-size: 1.8rem !important; word-wrap: break-word; overflow-wrap: break-word; line-height: 1.2 !important; }
+      h3 { font-size: 1.35rem !important; line-height: 1.3 !important; }
+      
+      /* Pills */
+      .dir-pill, .pill { padding: 0.5rem 0.75rem !important; font-size: 0.85rem !important; border-radius: 20px !important; }
+    }
+
 </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
@@ -2110,6 +2134,15 @@
       .map-container { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
       .map-center { position: relative; transform: none; top: 0; left: 0; margin: 2rem; }
       .map-node { position: relative; transform: none !important; top: 0; left: 0; right: 0; bottom: 0; }
+      .partner-detail-box { padding: 1.5rem !important; margin-top: 1.5rem !important; }
+      .partner-detail-box h3 { font-size: 1.25rem !important; margin-bottom: 0.5rem !important; }
+      .partner-detail-box p { font-size: 0.95rem !important; margin-top: 0.5rem !important; line-height: 1.5 !important; }
+      .flip-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+      .flip-card { height: 280px; }
+      .flip-front, .flip-back { padding: 1.5rem; }
+      .flip-front .icon { font-size: 2rem; margin-bottom: 1rem; }
+      .flip-front h3 { font-size: 1.25rem; }
+      .flip-back p { font-size: 0.95rem; line-height: 1.5; }
     }
   </style>
 

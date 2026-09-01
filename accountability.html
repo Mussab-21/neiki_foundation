@@ -1887,6 +1887,30 @@
 
 
 
+
+    /* GENERIC MOBILE FIXES */
+    @media (max-width: 768px) {
+      /* Fix hero overflow */
+      .hero-section h1, h1.anim-fade-down, .hero-heading { font-size: 2.2rem !important; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; }
+      
+      /* Fix intro text size */
+      p[style*="font-size: 1.25rem"], p[style*="font-size:1.25rem"], p[style*="font-size: 1.5rem"] {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        text-align: left !important;
+      }
+      
+      /* Compact cards */
+      .restriction-card, .gov-card, .stat-card, .feature-card, .certificate-card, .value-card, .program-card, .impact-card {
+        padding: 1.25rem !important;
+      }
+      h2 { font-size: 1.8rem !important; word-wrap: break-word; overflow-wrap: break-word; line-height: 1.2 !important; }
+      h3 { font-size: 1.35rem !important; line-height: 1.3 !important; }
+      
+      /* Pills */
+      .dir-pill, .pill { padding: 0.5rem 0.75rem !important; font-size: 0.85rem !important; border-radius: 20px !important; }
+    }
+
 </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
@@ -2125,10 +2149,18 @@
     @media (max-width: 768px) {
       .dashboard-container { flex-direction: column; }
       .dash-sidebar { width: 100%; display: flex; overflow-x: auto; padding: 0; }
-      .dash-tab { padding: 1rem; border-left: none; border-bottom: 4px solid transparent; white-space: nowrap; }
+      .dash-tab { padding: 1rem; border-left: none; border-bottom: 4px solid transparent; white-space: nowrap; font-size: 0.95rem; }
       .dash-tab.active { border-bottom-color: var(--color-accent); border-left-color: transparent; }
-      .dash-content-area { padding: 2rem; }
-      .principle-grid { grid-template-columns: 1fr; }
+      .dash-content-area { padding: 1.25rem !important; }
+      .principle-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .meal-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .meal-card { padding: 1.5rem !important; }
+      .meal-icon { width: 60px !important; height: 60px !important; font-size: 1.5rem !important; margin-bottom: 1rem !important; }
+      .dash-panel h3 { font-size: 1.35rem !important; margin-bottom: 0.5rem !important; }
+      .dash-panel p { font-size: 0.95rem !important; margin-bottom: 0.5rem !important; line-height: 1.6; }
+      .p-card { padding: 1rem !important; }
+      .blockquote-trust { padding: 2rem 1rem !important; margin: 2rem 0 !important; }
+      .blockquote-trust h2 { font-size: 1.5rem !important; }
     }
   </style>
 
