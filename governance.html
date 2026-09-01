@@ -2075,6 +2075,20 @@
       .gov-card p { font-size: 0.95rem !important; line-height: 1.5 !important; }
       
       .dir-pill { padding: 0.75rem 1rem !important; font-size: 0.9rem !important; }
+      
+      /* Lower Section Compaction */
+      .ops-section, .support-section, .summary-section { padding: 3rem 0 !important; }
+      .ops-wrapper { gap: 2rem !important; }
+      .ops-heading, .gov-principles-heading, .summary-heading { font-size: 1.75rem !important; line-height: 1.2 !important; margin-bottom: 1rem !important; }
+      .ops-para, .support-para, .summary-para { font-size: 0.95rem !important; line-height: 1.5 !important; }
+      .dir-heading, .support-heading { font-size: 1.5rem !important; margin-bottom: 1rem !important; }
+      .dir-pill-container { gap: 0.5rem !important; }
+      .dir-pill { padding: 0.5rem 0.75rem !important; font-size: 0.85rem !important; border-radius: 20px !important; flex: 1 1 45%; justify-content: flex-start; }
+      .support-offices-card { padding: 1.5rem !important; margin-bottom: 2rem !important; border-radius: 12px !important; }
+      .gov-principles-grid { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+      .gov-principles-grid .gov-card { padding: 1.25rem 1rem !important; }
+      .gov-principles-grid h4 { font-size: 1rem !important; }
+      .gov-principles-grid p { font-size: 0.85rem !important; line-height: 1.4 !important; }
     }
     .anim-fade-down { animation: fadeDown 1s ease-out forwards; opacity: 0; }
     .anim-fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
@@ -2216,21 +2230,21 @@
   </section>
 
   <!-- Operations & Directorates -->
-  <section style="padding: 5rem 0; background-color: white;">
+  <section class="ops-section" style="padding: 5rem 0; background-color: white;">
     <div class="container">
       
-      <div class="reveal" style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center;">
+      <div class="reveal ops-wrapper" style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center;">
         
         <div style="flex: 1; min-width: 300px;">
-          <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: var(--color-text); margin-bottom: 1rem;">Leadership & Operational Structure</h2>
-          <p style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7;">
+          <h2 class="ops-heading" style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: var(--color-text); margin-bottom: 1rem;">Leadership & Operational Structure</h2>
+          <p class="ops-para" style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7;">
             The <strong>Secretary General (Chief Executive Officer)</strong> leads day-to-day operations, ensuring efficient implementation of programs, internal coordination, and organizational performance. Reporting to the Secretary General, the <strong>Director of Programs</strong> supervises all thematic and field operations through specialized Program Directorates.
           </p>
         </div>
 
         <div style="flex: 1.5; min-width: 300px;">
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.8rem; color: var(--color-text); margin-bottom: 1.5rem;">Program Directorates</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <h3 class="dir-heading" style="font-family: var(--font-sans-bold); font-size: 1.8rem; color: var(--color-text); margin-bottom: 1.5rem;">Program Directorates</h3>
+          <div class="dir-pill-container" style="display: flex; flex-wrap: wrap; gap: 1rem;">
             <div class="dir-pill"><span style="color:var(--color-primary);">•</span> Education & Skill Development</div>
             <div class="dir-pill"><span style="color:var(--color-primary);">•</span> Health & Medical Services</div>
             <div class="dir-pill"><span style="color:var(--color-primary);">•</span> Water & Sanitation (WASH)</div>
@@ -2244,7 +2258,7 @@
             <div class="dir-pill"><span style="color:var(--color-primary);">•</span> Media & Advertisement</div>
             <div class="dir-pill"><span style="color:var(--color-primary);">•</span> Project Research & Development</div>
           </div>
-          <p style="margin-top: 1.5rem; font-family: var(--font-heading); color: var(--color-text-muted);">
+          <p style="margin-top: 1.5rem; font-family: var(--font-heading); color: var(--color-text-muted);" class="ops-para">
             <em>Each directorate operates under standardized systems for quality assurance, monitoring, and inter-departmental coordination.</em>
           </p>
         </div>
@@ -2255,18 +2269,18 @@
   </section>
 
   <!-- Principles & Field Operations -->
-  <section style="padding: 5rem 0; background-color: var(--color-bg-light);">
+  <section class="support-section" style="padding: 5rem 0; background-color: var(--color-bg-light);">
     <div class="container">
       
-      <div class="reveal" style="background: white; border-radius: 20px; padding: 4rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-bottom: 4rem;">
-        <h2 style="font-family: var(--font-sans-bold); font-size: 2.2rem; color: var(--color-text); margin-bottom: 1.5rem;">Supporting Offices & Field Operations</h2>
-        <p style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7;">
+      <div class="reveal support-offices-card" style="background: white; border-radius: 20px; padding: 4rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-bottom: 4rem;">
+        <h2 class="support-heading" style="font-family: var(--font-sans-bold); font-size: 2.2rem; color: var(--color-text); margin-bottom: 1.5rem;">Supporting Offices & Field Operations</h2>
+        <p class="support-para" style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7;">
           At the operational level, <strong>Regional Coordinators</strong> manage provincial or district activities, supported by <strong>Project Managers, Monitoring Officers, Technical Consultants, and Community Mobilizers</strong>. These teams ensure effective implementation, data collection, reporting, and community engagement at the grassroots level.
         </p>
       </div>
 
-      <h2 class="reveal" style="font-family: var(--font-sans-bold); font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: var(--color-text);">Governance Principles</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <h2 class="reveal gov-principles-heading" style="font-family: var(--font-sans-bold); font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: var(--color-text);">Governance Principles</h2>
+      <div class="gov-principles-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
         
         <div class="gov-card reveal" style="border-top-color: #E5243B; text-align: center;">
           <h4 style="font-family: var(--font-sans-bold); font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--color-text);">Transparency & Accountability</h4>
@@ -2294,10 +2308,10 @@
   </section>
 
   <!-- Summary -->
-  <section style="padding: 6rem 0; background-color: var(--color-primary); color: white; text-align: center; border-bottom: 2px solid white;">
+  <section class="summary-section" style="padding: 6rem 0; background-color: var(--color-primary); color: white; text-align: center; border-bottom: 2px solid white;">
     <div class="container reveal" style="max-width: 900px;">
-      <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1.5rem;">Serving Beyond Boundaries</h2>
-      <p style="font-family: var(--font-heading); font-size: 1.25rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+      <h2 class="summary-heading" style="font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1.5rem;">Serving Beyond Boundaries</h2>
+      <p class="summary-para" style="font-family: var(--font-heading); font-size: 1.25rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
         This integrated governance and organizational structure enables <strong>NEIKI SUB SAY FOUNDATION®</strong> to function efficiently—from strategic leadership at the top to community service on the ground—ensuring clarity of roles, strong accountability, and smooth coordination across all levels. Guided by our core principle, we ensure that every action reflects professionalism, responsibility, and commitment to sustainable human development.
       </p>
     </div>
