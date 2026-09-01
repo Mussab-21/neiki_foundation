@@ -758,41 +758,90 @@
 
           @media (max-width: 900px) {
             .new-donate-slide {
-              grid-template-columns: 1fr;
-              grid-template-rows: 45% 55%;
+              display: flex;
+              flex-direction: column;
+              position: relative;
               overflow-y: auto;
+              min-height: 100vh; /* Ensure full height on mobile */
             }
-            .new-donate-media { min-height: 330px; }
+            .new-donate-media {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 1;
+            }
+            .new-donate-media::after {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
+            }
             .new-donate-overlay-content {
-              padding: 2rem;
+              position: relative;
+              z-index: 2;
+              padding: 2rem 1.5rem 0 1.5rem;
+              height: auto;
             }
             .left-trust-wrapper { display: none; } /* Hide extra icons on mobile to save space */
-            .new-donate-form-wrapper { padding: 1.5rem; }
-            .new-donate-card { max-width: 620px; }
             
-            /* Match Sketch: 3 Pillars, 3 Buttons */
-            .new-donate-pillar:nth-child(4) { display: none !important; }
-            .new-donate-pillars { grid-template-columns: repeat(3, 1fr) !important; max-width: 100% !important; border-top: none !important; }
-            .new-donate-pillar { border: 1px solid rgba(255,255,255,0.4); border-radius: 8px; padding: 0.5rem !important; margin-right: 0.5rem; }
-            .new-donate-pillar:last-child { margin-right: 0; border-right: 1px solid rgba(255,255,255,0.4); }
-            .quick-amount-buttons button:nth-child(n+4) { display: none !important; }
-            .quick-amount-buttons { grid-template-columns: repeat(3, 1fr) !important; }
+            .new-donate-form-wrapper {
+              position: relative;
+              z-index: 2;
+              background: transparent !important;
+              padding: 0 1.5rem 1.5rem 1.5rem !important;
+              margin-top: auto; /* Push form to the bottom */
+            }
+            .new-donate-card {
+              max-width: 620px;
+              background: transparent !important;
+              padding: 0 !important;
+              box-shadow: none !important;
+              margin: 0 auto !important;
+            }
+            
+            /* Text color overrides for transparent background */
+            .new-donate-card-title, .new-donate-card-desc, .new-donate-label {
+              color: white !important;
+            }
+            
+            /* Action Row */
+            .hide-mobile { display: none !important; }
+            .action-row-mobile {
+              display: flex;
+              gap: 0.5rem;
+              margin-top: 1rem;
+              align-items: stretch;
+            }
+            .quick-amount-buttons {
+              flex: 1;
+              display: flex !important;
+              gap: 0.5rem !important;
+              margin-bottom: 0 !important;
+              grid-template-columns: none !important; /* Override desktop grid */
+            }
+            .quick-btn {
+              flex: 1;
+            }
+            .new-donate-submit {
+              margin-top: 0 !important;
+              padding: 0.8rem 1rem !important;
+              flex: 0 0 auto;
+              white-space: nowrap;
+            }
           }
 
           @media (max-width: 560px) {
-            .new-donate-slide { grid-template-rows: 40% 60%; }
-            .new-donate-media { min-height: 280px; }
-            .new-donate-overlay-content { padding: 1.25rem; }
+            .new-donate-overlay-content { padding: 1.25rem 1.25rem 0 1.25rem; }
+            .new-donate-form-wrapper { padding: 0 1.25rem 1.25rem 1.25rem !important; }
             .new-donate-headline { font-size: 2.2rem; letter-spacing: -1px; }
-            .new-donate-subtext { display: none; } /* Hide subtext to match sketch which only shows headline and 3 boxes */
-            .new-donate-pillars { gap: 0.5rem; padding-top: 0; }
-            .new-donate-pillar { padding: 0.5rem !important; border-radius: 4px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.5); }
-            .new-donate-pillar-icon { width: 20px; height: 20px; margin-bottom: 4px; }
-            .new-donate-pillar span:last-child { font-size: .55rem; text-transform: uppercase; }
-            .new-donate-card { padding: 1.35rem; border-radius: 16px; }
+            .new-donate-subtext { display: none; }
+            .new-donate-pillars { display: none; } /* Hide pillars completely to make room for form */
+            
             .new-donate-card-title { font-size: 1.7rem; }
-            .new-donate-card-desc { font-size: .87rem; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid #edf2f7; }
+            .new-donate-card-desc { font-size: .87rem; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.2) !important; }
             .quick-btn { font-size: .75rem; padding: .8rem .2rem; }
+            .new-donate-submit { font-size: 0.85rem !important; padding: 0.8rem !important; }
           }
         </style>
 
@@ -864,17 +913,19 @@
                 <span class="min-label">Min: PKR 1</span>
               </div>
 
-              <div class="quick-amount-buttons">
-                <button type="button" class="quick-btn" data-amount="100">PKR 100</button>
-                <button type="button" class="quick-btn" data-amount="500">PKR 500</button>
-                <button type="button" class="quick-btn active" data-amount="1000">PKR 1,000</button>
-                <button type="button" class="quick-btn" data-amount="2500">PKR 2,500</button>
-                <button type="button" class="quick-btn" data-other="true">Other</button>
-              </div>
+              <div class="action-row-mobile">
+                <div class="quick-amount-buttons">
+                  <button type="button" class="quick-btn" data-amount="100">PKR 100</button>
+                  <button type="button" class="quick-btn" data-amount="500">PKR 500</button>
+                  <button type="button" class="quick-btn active" data-amount="1000">PKR 1,000</button>
+                  <button type="button" class="quick-btn hide-mobile" data-amount="2500">PKR 2,500</button>
+                  <button type="button" class="quick-btn hide-mobile" data-other="true">Other</button>
+                </div>
 
-              <button type="button" onclick="submitDonation()" class="new-donate-submit">
-                Donate Now
-              </button>
+                <button type="button" onclick="submitDonation()" class="new-donate-submit">
+                  Donate Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
