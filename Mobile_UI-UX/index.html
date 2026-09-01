@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEIKI Sub Say Foundation | Serving Beyond Boundaries</title>
+
+  <meta name="description" content="NEIKI is a community-powered non-profit organization dedicated to building clean water projects, providing food security, and health assistance across Pakistan.">
+
+  
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+
+    <style>
+      .facts-card { background-color: var(--color-primary) !important; color: white !important; }
+      .facts-card .stat-number, .facts-card .stat-label, .facts-card p, .facts-card h2, .facts-card .facts-link { color: white !important; }
+      .newsletter-card { background-color: var(--color-primary) !important; color: white !important; }
+      .newsletter-card h2, .newsletter-card p { color: white !important; }
+      .future-goals-card { background-color: var(--color-primary) !important; color: white !important; }
+      .future-goals-card h3, .future-goals-card p { color: white !important; }
+      .site-footer, .new-footer { background-color: var(--color-primary) !important; }
+    </style>
+    
+
+    <style>
+      .btn-outline-blue {
+          background-color: var(--color-primary) !important;
+          color: white !important;
+          border: 2px solid var(--color-primary) !important;
+      }
+      .btn-outline-blue:hover {
+          background-color: #008cc9 !important; /* Slightly darker light blue for hover */
+          border-color: #008cc9 !important;
+      }
+    </style>
+    
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+
+  
+  <style>
+  .hero-donation-content {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    z-index: 5;
+  }
+  .hero-donation-text {
+    flex: 1;
+    padding-right: 2rem;
+    color: white;
+  }
+  .hero-donation-eyebrow {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #4DB8FF;
+    margin-bottom: 1rem;
+    display: block;
+    animation: fadeUp 1s ease 0.1s both;
+  }
+  .hero-donation-headline {
+    font-family: var(--font-sans-bold);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1.5px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    animation: fadeUp 1s ease 0.2s both;
+  }
+  .hero-donation-subtext {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    max-width: 500px;
+    opacity: 0.95;
+    line-height: 1.5;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    animation: fadeUp 1s ease 0.3s both;
+    margin-bottom: 2.5rem;
+  }
+  .hero-donation-buttons {
+    display: flex;
+    gap: 1rem;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+  .btn-primary-hero {
+    background: var(--color-primary);
+    color: white;
+    padding: 1.1rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-sans-bold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.05rem;
+  }
+  .btn-primary-hero:hover {
+    background: #062338;
+    transform: translateY(-2px);
+  }
+  .btn-secondary-hero {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 1.1rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-sans-bold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.05rem;
+  }
+  .btn-secondary-hero:hover {
+    background: white;
+    color: #112A46;
+  }
+  .hero-trust-text {
+    margin-top: 3.5rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+  
+  /* Panel */
+  .hero-donation-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 16px;
+    padding: 2.5rem 2.25rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: fadeLeft 1s ease 0.4s both;
+    color: var(--color-text);
+  }
+  
+  .hero-card-title {
+    font-family: var(--font-sans-bold);
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  .hero-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .hero-cause-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 0.5rem;
+    display: block;
+    letter-spacing: 1px;
+  }
+  .hero-cause-value {
+    font-family: var(--font-sans-bold);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .hero-amount-select {
+    width: 100%; padding: 1rem; border: 1.5px solid #E1DCD1; border-radius: 8px; margin-bottom: 1.5rem; font-family: var(--font-body); font-size: 1rem; color: var(--color-text); background-color: #FAF8F4; cursor: pointer; outline: none; transition: border-color 0.3s;
+  }
+  .hero-amount-select:focus {
+    border-color: var(--color-primary);
+  }
+  
+  .hero-donate-btn {
+    display: block; width: 100%; text-align: center; background: var(--color-primary); color: white; padding: 1.1rem; border-radius: 8px; font-family: var(--font-sans-bold); font-size: 1.15rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,158,219,0.3); margin-bottom: 1.5rem;
+  }
+  .hero-donate-btn:hover {
+    background: #062338; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,158,219,0.4);
+  }
+  
+  .hero-card-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .hero-card-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .hero-card-footer a:hover {
+    text-decoration: underline;
+  }
+  .hero-future-text {
+    font-size: 0.8rem;
+    color: #999;
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  @media (max-width: 900px) {
+    .hero-donation-content {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+      padding-top: 2rem;
+    }
+    .hero-donation-text {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+    .hero-donation-subtext {
+      margin: 0 auto 1.5rem;
+      font-size: 1.15rem;
+    }
+    .hero-donation-buttons {
+      justify-content: center;
+    }
+    .hero-donation-card {
+      padding: 1.5rem;
+    }
+    .hero-donation-headline {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-trust-text {
+      display: none;
+    }
+  }
+  @media (max-width: 500px) {
+    .hero-donation-headline {
+      font-size: 2.5rem;
+    }
+    .hero-donation-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  </style>
+
+
+</head>
+
+<body>
+
+
+
+  
+
+  <!-- Header -->
+
+  
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <div class="header-left-group">
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+        <a href="/" class="nav-brand">
+          <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+        </a>
+      </div>
+      <a href="donate.html" class="header-donate-btn">Donate Us</a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="flood-relief.html">2025 Flood Relief</a></li>
+          <li><a href="accountability.html">Accountability & Impact</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Desktop Actions (hidden on mobile) -->
+      <div class="header-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <a href="contact.html" style="...">Contact Us</a>
+        <a href="donate.html" style="...">Donate</a>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+  <!-- Hero Section (Carousel) -->
+  <section class="hero-container">
+    <div class="hero-wrapper">
+
+      
+      <!-- Slide 0 (Donation) -->
+      <!-- Slide 0 (Donation) -->
+      <!-- Slide 0 (Donation) -->
+      <div class="hero-slide active">
+        <style>
+          /* Premium donation hero: image and donation panel are true side-by-side columns. */
+          .new-donate-slide {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            background: #fff;
+          }
+
+          .new-donate-media {
+            position: relative;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #17384a;
+          }
+
+          .new-donate-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+
+          .new-donate-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(5, 25, 36, .85) 0%, rgba(5, 25, 36, .45) 50%, rgba(5, 25, 36, .05) 100%),
+                        linear-gradient(0deg, rgba(0,0,0,.40) 0%, transparent 50%);
+          }
+
+          .new-donate-overlay-content {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+          }
+
+          .overlay-main-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .new-donate-headline {
+            max-width: 600px;
+            margin-bottom: 1rem;
+            font-family: var(--font-sans-bold);
+            font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            color: #fff;
+            text-shadow: 0 4px 20px rgba(0,0,0,.3);
+          }
+
+          .new-donate-subtext {
+            max-width: 500px;
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: clamp(1rem, 1.25vw, 1.15rem);
+            line-height: 1.5;
+            color: rgba(255,255,255,.9);
+          }
+
+          .new-donate-pillars {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            max-width: 610px;
+            border-top: 1px solid rgba(255,255,255,.25);
+            padding-top: 1.2rem;
+          }
+
+          .new-donate-pillar {
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+            padding-right: .7rem;
+            border-right: 1px solid rgba(255,255,255,.22);
+            text-align: center;
+            align-items: center;
+          }
+
+          .new-donate-pillar:last-child { border-right: 0; }
+
+          .new-donate-pillar-icon {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+          }
+
+          .new-donate-pillar span:last-child {
+            font-family: var(--font-body);
+            font-size: .75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,.94);
+          }
+
+          .left-trust-wrapper {
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,.25);
+            padding-top: 1.25rem;
+          }
+
+          .left-secure-note {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: .85rem;
+            font-size: .75rem;
+            font-weight: 600;
+            color: #67d6f5;
+          }
+
+          .left-secure-note svg { flex: 0 0 auto; }
+
+          .left-trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+          }
+
+          .left-trust-item {
+            text-align: left;
+          }
+
+          .left-trust-icon {
+            width: 20px;
+            height: 20px;
+            margin-bottom: .4rem;
+            display: flex;
+            align-items: center;
+            color: #67d6f5;
+          }
+
+          .left-trust-text h5 {
+            margin-bottom: .2rem;
+            font-family: var(--font-sans-bold);
+            font-size: .7rem;
+            font-weight: 800;
+            color: #fff;
+          }
+
+          .left-trust-text p {
+            font-family: var(--font-body);
+            font-size: .55rem;
+            line-height: 1.4;
+            color: rgba(255,255,255,.8);
+          }
+
+          .new-donate-form-wrapper {
+            min-width: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1.25rem, 3vw, 2.75rem);
+            background: #fff;
+            overflow-y: auto;
+          }
+
+          .new-donate-card {
+            width: 100%;
+            max-width: 520px;
+            margin: auto;
+            padding: clamp(1.25rem, 3vw, 2.2rem);
+            background: #fff;
+            border-radius: 20px;
+          }
+
+          .new-donate-card-title {
+            margin-bottom: .5rem;
+            font-family: var(--font-sans-bold);
+            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+            line-height: 1.1;
+            font-weight: 900;
+            color: #1a202c;
+          }
+
+          .new-donate-card-desc {
+            margin-bottom: 1.25rem;
+            font-family: var(--font-heading);
+            font-size: .95rem;
+            line-height: 1.5;
+            color: #4a5568;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #edf2f7;
+          }
+
+          .new-donate-label {
+            display: block;
+            margin-bottom: .5rem;
+            font-family: var(--font-sans-bold);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #718096;
+          }
+
+          .custom-amount-input-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+          }
+
+          .custom-amount-input-wrapper .currency {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-sans-bold);
+            font-size: .95rem;
+            font-weight: 800;
+            color: #2d3748;
+            pointer-events: none;
+          }
+
+          .custom-amount-input-wrapper .min-label {
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-body);
+            font-size: .8rem;
+            font-weight: 500;
+            color: #a0aec0;
+            pointer-events: none;
+          }
+
+          .custom-amount-input {
+            width: 100%;
+            padding: 1rem 5.5rem 1rem 3.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            background: #faf5f5;
+            color: #1a202c;
+            font-family: var(--font-sans-bold);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all .2s;
+          }
+
+          .custom-amount-input:focus {
+            border-color: var(--color-primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,158,219,.15);
+          }
+
+          .custom-amount-input::placeholder {
+            color: #a0aec0;
+            font-weight: 400;
+          }
+
+          .quick-amount-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: .6rem;
+            margin-bottom: 1.25rem;
+          }
+
+          .quick-btn {
+            min-width: 0;
+            padding: .75rem .2rem;
+            border: 1px solid #bee3f8;
+            border-radius: 6px;
+            background: #fff;
+            color: var(--color-primary);
+            font-family: var(--font-sans-bold);
+            font-size: .78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .15s ease;
+          }
+
+          .quick-btn:hover {
+            background: #ebf8ff;
+          }
+
+          .quick-btn.active {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: #fff;
+          }
+
+          .new-donate-submit {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: .9rem;
+            border: 0;
+            border-radius: 8px;
+            background: var(--color-primary);
+            color: #fff;
+            font-family: var(--font-sans-bold);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+          }
+
+          .new-donate-submit:hover {
+            background: #008cc9;
+            transform: translateY(-1px);
+          }
+
+          @media (max-width: 1100px) {
+            .new-donate-headline { font-size: clamp(2.4rem, 4vw, 3.5rem); }
+            .new-donate-form-wrapper { padding: 1.25rem; }
+            .new-donate-card { padding: 1.7rem; }
+          }
+
+          @media (max-width: 900px) {
+            .new-donate-slide {
+              grid-template-columns: 1fr;
+              grid-template-rows: 45% 55%;
+              overflow-y: auto;
+            }
+            .new-donate-media { min-height: 330px; }
+            .new-donate-overlay-content {
+              padding: 2rem;
+            }
+            .left-trust-wrapper { display: none; } /* Hide extra icons on mobile to save space */
+            .new-donate-form-wrapper { padding: 1.5rem; }
+            .new-donate-card { max-width: 620px; }
+          }
+
+          @media (max-width: 560px) {
+            .new-donate-slide { grid-template-rows: 40% 60%; }
+            .new-donate-media { min-height: 280px; }
+            .new-donate-overlay-content { padding: 1.25rem; }
+            .new-donate-headline { font-size: 2.2rem; letter-spacing: -1px; }
+            .new-donate-subtext { margin-bottom: 1rem; font-size: .88rem; }
+            .new-donate-pillars { gap: .25rem; padding-top: .75rem; }
+            .new-donate-pillar { padding-right: .3rem; }
+            .new-donate-pillar-icon { width: 22px; height: 22px; }
+            .new-donate-pillar span:last-child { font-size: .6rem; }
+            .new-donate-card { padding: 1.35rem; border-radius: 16px; }
+            .new-donate-card-title { font-size: 1.7rem; }
+            .new-donate-card-desc { font-size: .87rem; margin-bottom: 1.25rem; padding-bottom: 1.25rem; }
+            .quick-amount-buttons { grid-template-columns: repeat(3, 1fr); gap: .4rem; }
+            .quick-btn { font-size: .75rem; padding: .6rem .2rem; }
+          }
+        </style>
+
+        <div class="new-donate-slide">
+          <div class="new-donate-media">
+            <img loading="lazy" src="assets/img/donation_water_pump_new.png" alt="NEIKI community water project creating impact" class="new-donate-img">
+            <div class="new-donate-overlay-content">
+              
+              <div class="overlay-main-text">
+                <h2 class="new-donate-headline">Your Small Step,<br>Their Big Change</h2>
+                <p class="new-donate-subtext">Together, we can build a better future for communities that need it most.</p>
+
+                <div class="new-donate-pillars" aria-label="NEIKI focus areas">
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M8 6h8M8 10h7"/></svg></div>
+                    <span>Education</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/><path d="M12 8v6M9 11h6"/></svg></div>
+                    <span>Healthcare</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><path d="M5 18c3-1 5-3 7-6 2 3 4 5 7 6"/><path d="M6 9c2-1 4-2 6-4 2 2 4 3 6 4"/></svg></div>
+                    <span>Livelihoods</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M14 21v-1a5 5 0 0 1 7 0"/></svg></div>
+                    <span>Social Welfare</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="left-trust-wrapper">
+                <div class="left-secure-note">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  Your donation is secure and will be used responsibly to create real impact.
+                </div>
+                <div class="left-trust-grid">
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <div class="left-trust-text"><h5>Transparent</h5><p>We ensure transparency and responsible use of every rupee.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></div>
+                    <div class="left-trust-text"><h5>Accountable</h5><p>Strong governance and monitoring for measurable impact.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="7.5 19.79 7.5 14.6 3 12"/><polyline points="21 12 16.5 14.6 16.5 19.79"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                    <div class="left-trust-text"><h5>Collaborative</h5><p>In partnership with institutions aligned with UN SDGs.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div class="left-trust-text"><h5>Community First</h5><p>Empowering communities for long-term self-reliance and resilience.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="new-donate-form-wrapper">
+            <div class="new-donate-card">
+              <h3 class="new-donate-card-title">Make an Impact</h3>
+              <p class="new-donate-card-desc">Your donation helps NEIKI deliver impactful programs in clean water, education, healthcare, livelihoods, and social welfare for underserved communities. Every contribution brings positive, lasting change.</p>
+
+              <label class="new-donate-label" for="donate-amount-input">CHOOSE AN AMOUNT</label>
+              <div class="custom-amount-input-wrapper">
+                <span class="currency">PKR</span>
+                <input type="number" id="donate-amount-input" class="custom-amount-input" placeholder="Enter any amount" min="1" step="1" inputmode="numeric" autocomplete="off">
+                <span class="min-label">Min: PKR 1</span>
+              </div>
+
+              <div class="quick-amount-buttons">
+                <button type="button" class="quick-btn" data-amount="100">PKR 100</button>
+                <button type="button" class="quick-btn" data-amount="500">PKR 500</button>
+                <button type="button" class="quick-btn active" data-amount="1000">PKR 1,000</button>
+                <button type="button" class="quick-btn" data-amount="2500">PKR 2,500</button>
+                <button type="button" class="quick-btn" data-other="true">Other</button>
+              </div>
+
+              <button type="button" onclick="submitDonation()" class="new-donate-submit">
+                Donate Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          (function () {
+            const amountInput = document.getElementById('donate-amount-input');
+            const quickButtons = document.querySelectorAll('.quick-btn');
+            if (!amountInput) return;
+
+            function updateActiveButton(value) {
+              const amount = Number(value);
+              quickButtons.forEach(btn => {
+                const preset = btn.dataset.amount ? Number(btn.dataset.amount) : null;
+                btn.classList.toggle('active', preset !== null && preset === amount);
+              });
+            }
+
+            quickButtons.forEach(btn => {
+              btn.addEventListener('click', function () {
+                if (this.dataset.other === 'true') {
+                  amountInput.value = '';
+                  amountInput.focus();
+                  quickButtons.forEach(b => b.classList.remove('active'));
+                  return;
+                }
+                amountInput.value = this.dataset.amount;
+                updateActiveButton(amountInput.value);
+              });
+            });
+
+            amountInput.addEventListener('input', function () {
+              if (Number(this.value) < 1 && this.value !== '') this.value = '';
+              updateActiveButton(this.value);
+            });
+            
+            // Initial state set
+            amountInput.value = '1000';
+          })();
+
+          function submitDonation() {
+            const input = document.getElementById('donate-amount-input');
+            const rawAmount = input ? input.value.trim() : '';
+            const amount = Number(rawAmount);
+
+            if (!rawAmount || !Number.isInteger(amount) || amount < 1) {
+              if (input) {
+                input.focus();
+                input.setCustomValidity('Please enter a whole-number amount of at least PKR 1.');
+                input.reportValidity();
+                input.setCustomValidity('');
+              }
+              return;
+            }
+
+            // Keep the existing placeholder donation flow until a payment gateway is connected.
+            window.location.href = 'donate.html';
+          }
+        </script>
+      </div>
+
+      <!-- Slide 1 -->
+      <div class="hero-slide">
+        <img src="assets/img/stories_of_impact.jpeg" alt="Stories of Impact" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-headline">STORIES OF IMPACT</h1>
+          <p class="hero-subtext">Fresh water storage tanks in northern and northwestern parts, addressing water shortages with sustainable filtration plants.</p>
+          <a href="impact.html" class="hero-btn">See our work</a>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <img src="assets/img/future_goals.jpeg" alt="Future Goals" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-headline">FUTURE GOALS</h1>
+          <p class="hero-subtext">Expanding our reach to provide sustainable healthcare, education, and economic initiatives for generations to come.</p>
+          <a href="future-goals.html" class="hero-btn">See our goals</a>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <img src="assets/img/core_values.jpeg" alt="Core Values" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-headline">CORE VALUES</h1>
+          <p class="hero-subtext">Guided by integrity, compassion, and transparency, we are dedicated to inclusive and sustainable human development.</p>
+          <a href="core-values.html" class="hero-btn">Discover our values</a>
+        </div>
+      </div>
+      
+      <!-- Carousel UI -->
+      <div class="carousel-controls">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+        <div class="dot" data-slide="3"></div>
+        <div class="car-arrow up-arrow">&#8593;</div>
+        <div class="car-arrow down-arrow">&#8595;</div>
+      </div>
+    </div>
+  </section>
+
+<!-- Facts Section -->
+
+  <section class="facts-wrapper" style="margin-top: 3rem;" >
+
+    <div class="container">
+
+      <div class="facts-card">
+
+        <div class="facts-header">
+          <div class="facts-title-wrapper">
+            <h2>Foundation Progress</h2>
+            <p>The impact we have made across Pakistan.</p>
+          </div>
+        </div>
+
+        <div class="stats-row" style="justify-content: space-around;">
+          <div class="stat-item" style="flex: 0 0 auto;">
+            <div class="stat-number">81+</div>
+            <div class="stat-label">Water Projects</div>
+          </div>
+          <div class="stat-item" style="flex: 0 0 auto;">
+            <div class="stat-number">1.2M</div>
+            <div class="stat-label">People Served</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- Mission Statement -->
+
+  <section class="mission-section" >
+
+    <div class="container">
+
+      <div class="mission-statement">
+
+        To build a compassionate, inclusive, and sustainable world where <em>every</em> individual has the opportunity to live with dignity, security, and hope.
+
+      </div>
+
+      <a href="vision.html" class="btn-outline-blue">Read our vision statement</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- What We Do Section -->
+  <section class="what-we-do-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: var(--color-text); text-transform: uppercase; font-weight: 900;">What We Do</h2>
+        <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 1rem auto;"></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        
+        <a href="impact.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; transition: transform 0.3s; background: var(--color-bg-light);" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="assets/img/water_project_1.png" alt="Clean Water" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Clean Water Projects</h3>
+            <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Providing sustainable access to clean and safe drinking water across underserved communities.</p>
+            <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+          </div>
+        </a>
+
+        <a href="flood-relief.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; transition: transform 0.3s; background: var(--color-bg-light);" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="assets/img/flood_relief_card.png" alt="Emergency Relief" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Emergency & Relief</h3>
+            <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Immediate on-ground response providing food, shelter, and medical aid during crises.</p>
+            <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+          </div>
+        </a>
+
+        <a href="thematic-areas.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; transition: transform 0.3s; background: var(--color-bg-light);" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <img loading="lazy" src="assets/img/impact_banner.jpeg" alt="Community Support" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Community Support</h3>
+            <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Fostering long-term growth through education, healthcare, and economic empowerment.</p>
+            <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+    <!-- Gallery Section -->
+  <section class="gallery-section container" style="padding-top: 3rem; padding-bottom: 2rem;">
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 3.5rem; font-weight: 900; color: inherit; text-transform: uppercase;">OUR GALLERY</h2>
+        <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 1rem auto;"></div>
+    </div>
+    
+    <!-- Beautiful Completed Projects Slider -->
+    <div style="width: 100%; position: relative; overflow: hidden; padding: 1rem 0;">
+        <div style="display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem; scrollbar-width: none;" class="custom-slider">
+            <img loading="lazy" src="assets/Our_gallery/01.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/1.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/1.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/11111.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/2.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/3.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/3.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/4.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/4.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/5.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/5.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/5.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/6.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/IMG-20251203-WA0016.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/IMG-20251203-WA0017.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/Screenshot%202025-12-30%20134638.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/Screenshot%202026-01-06%20135252.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%206.00.13%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%208.58.24%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%209.10.18%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%209.10.19%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.45%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.46%20PM%20%281%29.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.46%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+        </div>
+        <style>
+            .custom-slider::-webkit-scrollbar { display: none; }
+            .custom-slider img {
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+            }
+            .custom-slider img:hover {
+                transform: translateY(-10px) scale(1.02);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const slider = document.querySelector('.custom-slider');
+                if (slider) {
+                    let isHovered = false;
+                    slider.addEventListener('mouseenter', () => isHovered = true);
+                    slider.addEventListener('mouseleave', () => isHovered = false);
+                    
+                    function scrollLoop() {
+                        if (!isHovered) {
+                            slider.scrollLeft += 1.5;
+                            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1) {
+                                slider.scrollLeft = 0;
+                            }
+                        }
+                        requestAnimationFrame(scrollLoop);
+                    }
+                    requestAnimationFrame(scrollLoop);
+                }
+            });
+        </script>
+    </div>
+  </section>
+
+
+
+
+  
+
+
+
+  
+
+
+
+    
+
+
+
+  
+
+
+
+  <!-- Future Goals Section -->
+  <style>
+    .future-goals-marquee-section {
+      background-color: var(--color-bg-light);
+      padding: 3rem 0;
+      overflow: hidden;
+      text-align: center;
+    }
+    .fg-heading {
+      font-family: var(--font-sans-bold);
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      color: var(--color-text);
+      font-weight: 900;
+    }
+    .fg-divider {
+      width: 60px;
+      height: 4px;
+      background-color: var(--color-primary);
+      margin: 0 auto 3rem;
+    }
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      padding: 2rem 0;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 150px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--color-bg-light) 0%, transparent 100%);
+    }
+    .marquee-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--color-bg-light) 0%, transparent 100%);
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+    }
+    .marquee-wrapper:hover .marquee-content {
+      animation-play-state: paused;
+    }
+    .goal-card-min {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 320px;
+      height: 220px;
+      margin: 0 1.5rem;
+      background: var(--color-primary);
+      color: white !important;
+      border-radius: 24px;
+      text-decoration: none;
+      white-space: normal;
+      padding: 2rem;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s, background 0.3s;
+      box-shadow: 0 10px 30px rgba(0, 158, 219, 0.2);
+    }
+    .goal-card-min:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 158, 219, 0.4);
+      background: #008cc9;
+    }
+    .goal-icon {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      background: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .goal-title {
+      font-family: var(--font-sans-bold);
+      font-size: 1.25rem;
+      line-height: 1.4;
+      text-align: center;
+      font-weight: 700;
+    }
+    
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+
+  <section class="future-goals-marquee-section" >
+    <div class="container">
+      <h2 class="fg-heading">Future Goals</h2>
+      <div class="fg-divider"></div>
+      <p style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text-muted); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">Explore our strategic focus areas designed to create lasting impact across the nation. Click any goal to discover our long-term roadmap.</p>
+    </div>
+    
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        <!-- Original Set -->
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌱</div>
+          <div class="goal-title">Environmental Sustainability</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🚑</div>
+          <div class="goal-title">Emergency & Healthcare</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌾</div>
+          <div class="goal-title">Food & Ration Drives</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🏘️</div>
+          <div class="goal-title">Community Development</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">📚</div>
+          <div class="goal-title">Education & Empowerment</div>
+        </a>
+        <!-- Duplicate Set for infinite scrolling -->
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌱</div>
+          <div class="goal-title">Environmental Sustainability</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🚑</div>
+          <div class="goal-title">Emergency & Healthcare</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🌾</div>
+          <div class="goal-title">Food & Ration Drives</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">🏘️</div>
+          <div class="goal-title">Community Development</div>
+        </a>
+        <a href="future-goals.html" class="goal-card-min">
+          <div class="goal-icon">📚</div>
+          <div class="goal-title">Education & Empowerment</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Condensed Governance Structure -->
+  <section class="structure-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white);">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-text);">Strong governance. Clear accountability.</h2>
+      
+      <!-- Governance Icons Row -->
+      <div style="display: flex; justify-content: center; align-items: flex-start; gap: 3rem; margin: 2rem auto 3rem; flex-wrap: wrap;">
+        
+        <div style="text-align: center; max-width: 120px;">
+          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Board of Trustees</h4>
+        </div>
+        
+        <div style="text-align: center; max-width: 120px;">
+          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Advisory Council</h4>
+        </div>
+
+        <div style="text-align: center; max-width: 120px;">
+          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Management Board</h4>
+        </div>
+
+        <div style="text-align: center; max-width: 120px;">
+          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          </div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Finance & Audit</h4>
+        </div>
+
+      </div>
+
+      <a href="governance.html" class="hero-btn" style="background-color: var(--color-primary); color: white; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px;">Explore Governance &rarr;</a>
+    </div>
+  </section>
+
+
+
+  <!-- Sustainable Development Goals (Wheel) -->
+<style>
+/* SDG Interactive Wheel */
+    .sdg-interactive-section {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 3rem 0;
+      overflow: hidden;
+    }
+    .sdg-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    #sdg-wheel-svg {
+      width: 450px;
+      height: 450px;
+      filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+      
+    }
+    .sdg-slice {
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-origin: 250px 250px;
+    }
+    .sdg-slice:hover, .sdg-slice.active {
+      transform: scale(1.1);
+      stroke-width: 2px;
+      stroke: white;
+      z-index: 10;
+    }
+    
+    .sdg-info-panel {
+      flex: 1;
+      max-width: 500px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .sdg-icon-badge {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.4s ease;
+    }
+    #sdg-info-title {
+      font-family: var(--font-sans-bold);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      transition: color 0.4s ease;
+    }
+    #sdg-info-desc {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+    }
+    .sdg-hint {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-sans-bold);
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+  
+</style>
+
+<!-- Interactive SDG Section -->
+  <section class="sdg-interactive-section" >
+    <div class="container" style="text-align: center; margin-bottom: 4rem;">
+      <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; margin-bottom: 1rem;">Explore Our Alignment with the SDGs</h2>
+      <p style="font-family: var(--font-heading); font-size: 1.25rem; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">Interact with the wheel below to see how NEIKI SUB SAY FOUNDATION’s strategic roadmap matches the 17 Global Goals for Sustainable Development.</p>
+    </div>
+    
+    <div class="sdg-container">
+      
+      <!-- SVG Wheel generated by JS -->
+      <div style="position: relative;">
+        <div class="sdg-hint">Hover or Click a Slice</div>
+        <svg id="sdg-wheel-svg" viewBox="0 0 500 500" style="filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));">
+          <g id="sdg-wheel-group" style="transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1); transform-origin: 250px 250px;"></g>
+        </svg>
+      </div>
+      
+      <!-- Info Panel -->
+      <div class="sdg-info-panel" id="sdg-info-panel">
+        <div class="sdg-icon-badge" id="sdg-badge" style="background-color: #E5243B;">1</div>
+        <h3 id="sdg-info-title" style="color: #E5243B;">No Poverty</h3>
+        <p id="sdg-info-desc">End poverty in all its forms everywhere. NEIKI aligns with this goal through our extensive livelihood and income-generation programs, focusing on uplifting the most vulnerable and marginalized communities.</p>
+      </div>
+
+    </div>
+  </section>
+
+<script>
+// Interactive SDG Wheel Data
+    const sdgs = [
+      { num: 1, name: "No Poverty", color: "#e5243b", desc: "End poverty in all its forms everywhere. NEIKI aligns with this goal through our extensive livelihood and income-generation programs, focusing on uplifting the most vulnerable and marginalized communities." },
+      { num: 2, name: "Zero Hunger", color: "#dda63a", desc: "End hunger, achieve food security and improved nutrition. We actively organize food distribution drives and long-term agricultural support to combat malnutrition." },
+      { num: 3, name: "Good Health", color: "#4c9f38", desc: "Ensure healthy lives and promote well-being for all. We conduct medical camps, awareness campaigns, and establish local clinics in underserved areas." },
+      { num: 4, name: "Quality Education", color: "#c5192d", desc: "Ensure inclusive and equitable quality education. NEIKI provides scholarships, vocational skills, and builds educational infrastructure to empower the youth." },
+      { num: 5, name: "Gender Equality", color: "#ff3a21", desc: "Achieve gender equality and empower all women and girls. Our inclusive policies ensure equal opportunities and specialized programs for women's empowerment." },
+      { num: 6, name: "Clean Water", color: "#26bde2", desc: "Ensure availability and sustainable management of water. We build solar-powered wells and water filtration systems to guarantee clean drinking water." },
+      { num: 7, name: "Clean Energy", color: "#fcc30b", desc: "Ensure access to affordable, reliable, sustainable and modern energy. We integrate solar technology into our infrastructure projects." },
+      { num: 8, name: "Economic Growth", color: "#a21942", desc: "Promote sustained, inclusive and sustainable economic growth. We focus on skill development and entrepreneurship to boost local economies." },
+      { num: 9, name: "Industry & Innovation", color: "#fd6925", desc: "Build resilient infrastructure and foster innovation. We employ modern, innovative approaches to community building and resource management." },
+      { num: 10, name: "Reduced Inequalities", color: "#dd1367", desc: "Reduce inequality within and among countries. Our core value of inclusiveness ensures our programs target those most commonly left behind." },
+      { num: 11, name: "Sustainable Cities", color: "#fd9d24", desc: "Make cities and human settlements inclusive, safe, resilient and sustainable. We advocate for and build sustainable community centers." },
+      { num: 12, name: "Responsible Consumption", color: "#bf8b2e", desc: "Ensure sustainable consumption and production patterns. We promote resource efficiency in all our projects." },
+      { num: 13, name: "Climate Action", color: "#3f7e44", desc: "Take urgent action to combat climate change. NEIKI's sustainability focus ensures our interventions are environmentally conscious." },
+      { num: 14, name: "Life Below Water", color: "#0a97d9", desc: "Conserve and sustainably use the oceans, seas and marine resources. We promote environmental stewardship in coastal program areas." },
+      { num: 15, name: "Life on Land", color: "#56c02b", desc: "Protect, restore and promote sustainable use of terrestrial ecosystems. We engage in tree-planting and environmental conservation drives." },
+      { num: 16, name: "Peace & Justice", color: "#00689d", desc: "Promote peaceful and inclusive societies for sustainable development. We promote civic responsibility and ethical, transparent governance." },
+      { num: 17, name: "Partnerships", color: "#19486a", desc: "Strengthen the means of implementation and revitalize the global partnership. Collaboration is one of our strategic objectives to achieve large-scale impact." }
+    ];
+
+    const wheelGroup = document.getElementById('sdg-wheel-group');
+    const badge = document.getElementById('sdg-badge');
+    const title = document.getElementById('sdg-info-title');
+    const desc = document.getElementById('sdg-info-desc');
+    
+    const cx = 250;
+    const cy = 250;
+    const radius = 240;
+    const innerRadius = 140;
+    const numSlices = 17;
+    const sliceAngle = 360 / numSlices;
+    const gap = 1; // 1 degree gap between slices
+
+    function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+      var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+      return {
+        x: centerX + (radius * Math.cos(angleInRadians)),
+        y: centerY + (radius * Math.sin(angleInRadians))
+      };
+    }
+
+    function describeArc(x, y, innerR, outerR, startAngle, endAngle){
+        var start = polarToCartesian(x, y, outerR, endAngle);
+        var end = polarToCartesian(x, y, outerR, startAngle);
+        var innerStart = polarToCartesian(x, y, innerR, endAngle);
+        var innerEnd = polarToCartesian(x, y, innerR, startAngle);
+        var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+        var d = [
+            "M", start.x, start.y, 
+            "A", outerR, outerR, 0, largeArcFlag, 0, end.x, end.y,
+            "L", innerEnd.x, innerEnd.y,
+            "A", innerR, innerR, 0, largeArcFlag, 1, innerStart.x, innerStart.y,
+            "Z"
+        ].join(" ");
+        return d;
+    }
+
+    let currentIndex = 0;
+    let autoRotateInterval;
+
+    function activateSlice(index) {
+        // Reset all
+        document.querySelectorAll('.sdg-slice-group').forEach(g => {
+            const path = g.querySelector('path');
+            if(path) {
+                path.classList.remove('active');
+                path.style.transform = 'scale(1)';
+            }
+        });
+
+        // Activate new
+        const activeGroup = document.getElementById(`sdg-slice-${index}`);
+        if(activeGroup) {
+            const activePath = activeGroup.querySelector('path');
+            if(activePath) {
+                activePath.classList.add('active');
+                activePath.style.transform = 'scale(1.05)';
+            }
+        }
+
+        // Update Panel
+        const sdg = sdgs[index];
+        if (badge && title && desc) {
+            badge.innerText = sdg.num;
+            badge.style.backgroundColor = sdg.color;
+            title.innerText = sdg.name;
+            title.style.color = sdg.color;
+            desc.innerText = sdg.desc;
+        }
+
+        // Rotate Wheel to point to the panel (right side = 90 degrees)
+        const startAngle = index * sliceAngle;
+        const midAngle = startAngle + (sliceAngle / 2);
+        let rotationTarget = 90 - midAngle;
+        
+        if(wheelGroup) {
+            wheelGroup.style.transform = `rotate(${rotationTarget}deg)`;
+        }
+        
+        currentIndex = index;
+    }
+
+    function startAutoRotation() {
+        clearInterval(autoRotateInterval);
+        autoRotateInterval = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % numSlices;
+            activateSlice(nextIndex);
+        }, 10000); // 10 seconds
+    }
+
+    // Generate Wheel
+    if(wheelGroup) {
+        sdgs.forEach((sdg, index) => {
+          const startAngle = index * sliceAngle;
+          const endAngle = startAngle + sliceAngle - gap;
+          
+          const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+          group.setAttribute("id", `sdg-slice-${index}`);
+          group.setAttribute("class", "sdg-slice-group");
+          group.style.cursor = "pointer";
+          
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute("d", describeArc(cx, cy, innerRadius, radius, startAngle, endAngle));
+          path.setAttribute("fill", sdg.color);
+          path.style.transition = "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+          path.style.transformOrigin = "250px 250px";
+          
+          const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          const midAngle = startAngle + (sliceAngle - gap) / 2;
+          const textPos = polarToCartesian(cx, cy, (innerRadius + radius) / 2, midAngle);
+          
+          text.setAttribute("x", textPos.x);
+          text.setAttribute("y", textPos.y + 6);
+          text.setAttribute("fill", "white");
+          text.setAttribute("text-anchor", "middle");
+          text.setAttribute("font-family", "sans-serif");
+          text.setAttribute("font-weight", "bold");
+          text.setAttribute("font-size", "22px");
+          text.setAttribute("filter", "drop-shadow(0px 2px 2px rgba(0,0,0,0.5))");
+          text.textContent = sdg.num;
+          text.setAttribute("transform", `rotate(${midAngle}, ${textPos.x}, ${textPos.y})`);
+
+          group.appendChild(path);
+          group.appendChild(text);
+
+          group.addEventListener('mouseenter', () => {
+            activateSlice(index);
+            clearInterval(autoRotateInterval);
+          });
+          
+          group.addEventListener('mouseleave', () => {
+            startAutoRotation();
+          });
+
+          wheelGroup.appendChild(group);
+        });
+
+        activateSlice(0);
+        startAutoRotation();
+    }
+</script>
+
+
+
+  <!-- Get Involved Section -->
+  <section class="get-involved-section" style="padding: 5rem 2rem; background-color: var(--color-bg-light);">
+    <div class="container">
+      <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; margin-bottom: 3rem; text-align: center; color: var(--color-text); text-transform: uppercase; font-weight: 900;">How to make a difference?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        
+        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary);">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">DONATE</h3>
+          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Support our work financially to fund ongoing and future projects.</p>
+          <a href="#" onclick="alert('Donations are currently offline as we integrate our payment systems. Please contact us directly.'); return false;" class="text-link" style="font-size: 1.1rem;">Give Now &rarr;</a>
+        </div>
+        
+        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-accent);">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">VOLUNTEER</h3>
+          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Give your time and skills to make an on-the-ground impact.</p>
+          <a href="contact.html" class="text-link" style="color: var(--color-accent); font-size: 1.1rem;">Join Us &rarr;</a>
+        </div>
+        
+        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-secondary);">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">PARTNER</h3>
+          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Help us expand our impact through institutional collaboration.</p>
+          <a href="partnerships.html" class="text-link" style="color: var(--color-secondary); font-size: 1.1rem;">Partner With Us &rarr;</a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Trust & Accountability Strip -->
+  <section class="trust-section" style="padding: 3rem 2rem; background-color: #2F3943; color: white;">
+    <div class="container" style="text-align: center;">
+      <h3 style="font-family: var(--font-sans-bold); font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem; color: rgba(255,255,255,0.6);">TRUST & ACCOUNTABILITY</h3>
+      <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 2rem; font-family: var(--font-heading); font-size: 1.1rem;">
+        <span>✓ Governance</span>
+        <span>✓ Compliance</span>
+        <span>✓ Impact Reporting</span>
+        <span>✓ SDG Alignment</span>
+      </div>
+      <a href="accountability.html" style="color: white; font-weight: bold; text-decoration: underline; font-family: var(--font-body); font-size: 1rem; transition: color 0.3s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='white'">Learn More &rarr;</a>
+    </div>
+  </section>
+
+
+<!-- Footer -->
+
+    
+  <!-- Interactive Donation Section -->
+
+
+<footer class="site-footer new-footer" style="padding: 3rem 0 1.5rem; background-color: var(--color-primary); color: white; font-family: var(--font-body);">
+    <div class="container" style="max-width: 1000px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; align-items: start;">
+        
+        <!-- Brand & Description -->
+        <div>
+          <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
+            <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
+          </a>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
+        </div>
+
+        <!-- Explore -->
+        <div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
+            <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
+            <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Social -->
+        <div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
+          <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Info@neikisubsay.org
+          </a>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Support Action (New column) -->
+        <div style="display: flex; align-items: flex-start; justify-content: flex-end;">
+          <a href="donate.html" style="background-color: white; color: var(--color-primary); padding: 0.75rem 2rem; border-radius: 8px; font-family: var(--font-sans-bold); font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+            Donate Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Copyright Line -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+        <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
+        <div>
+          <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Scripts -->
+
+  <script>
+
+    // Mega Menu functionality
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const megaMenus = document.querySelectorAll('.mega-menu');
+
+
+
+    navLinks.forEach(link => {
+
+      link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const targetId = link.getAttribute('data-target');
+
+        const targetMenu = document.getElementById(targetId);
+
+        
+
+        // close others
+
+        megaMenus.forEach(menu => {
+
+          if (menu !== targetMenu) menu.classList.remove('active');
+
+        });
+
+        navLinks.forEach(nav => {
+
+          if (nav !== link) nav.querySelector('.arrow').innerText = '▼';
+
+        });
+
+
+
+        if (targetMenu) {
+
+          targetMenu.classList.toggle('active');
+
+          const arrow = link.querySelector('.arrow');
+
+          if (targetMenu.classList.contains('active')) {
+
+            arrow.innerText = '▼'; // Up arrow
+
+          } else {
+
+            arrow.innerText = '▼'; // Down arrow
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+
+    // Close menu when clicking outside
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.site-header')) {
+
+        megaMenus.forEach(menu => menu.classList.remove('active'));
+
+        navLinks.forEach(nav => nav.querySelector('.arrow').innerText = '▼');
+
+      }
+
+    });
+
+
+
+    // Carousel functionality
+
+    const slides = document.querySelectorAll('.hero-slide');
+
+    const dots = document.querySelectorAll('.carousel-controls .dot');
+
+    const upArrow = document.querySelector('.up-arrow');
+
+    const downArrow = document.querySelector('.down-arrow');
+
+    let currentSlide = 0;
+
+    let slideInterval;
+
+
+
+    function showSlide(index) {
+
+      if (!slides.length) return;
+
+      slides[currentSlide].classList.remove('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+      
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      
+
+      slides[currentSlide].classList.add('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+    }
+
+
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+
+
+    function startSlide() {
+
+      slideInterval = setInterval(nextSlide, 5000);
+
+    }
+
+
+
+    let isHovering = false;
+
+    function resetSlide() {
+
+      clearInterval(slideInterval);
+      if (!isHovering) {
+        startSlide();
+      }
+
+    }
+
+
+
+    if (upArrow && downArrow) {
+
+      upArrow.addEventListener('click', () => { prevSlide(); resetSlide(); });
+
+      downArrow.addEventListener('click', () => { nextSlide(); resetSlide(); });
+
+    }
+
+    
+
+    dots.forEach((dot, idx) => {
+
+      dot.addEventListener('click', () => { showSlide(idx); resetSlide(); });
+
+    });
+
+
+
+    startSlide();
+
+    // Pause slider on hover
+    const heroContainerElement = document.querySelector('.hero-wrapper');
+    if (heroContainerElement) {
+      heroContainerElement.addEventListener('mouseenter', () => {
+        isHovering = true;
+        clearInterval(slideInterval);
+      });
+      heroContainerElement.addEventListener('mouseleave', () => {
+        isHovering = false;
+        resetSlide();
+      });
+    }
+
+  </script>
+
+<script src="js/mobile.js"></script>
+
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-bottom-nav">
+  <a href="index.html" class="mobile-nav-item active">
+    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="impact.html" class="mobile-nav-item">
+    <svg viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.8 0-1.2-1-.8-1.6l6-10h1l-1 7h3.5c.8 0 1.2 1 .8 1.6l-6 10z"/></svg>
+    <span>Impact</span>
+  </a>
+  <a href="donate.html" class="mobile-nav-item donate-btn-nav">
+    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <span>Donate</span>
+  </a>
+  <a href="about.html" class="mobile-nav-item">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    <span>About</span>
+  </a>
+  <a href="contact.html" class="mobile-nav-item">
+    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    <span>Contact</span>
+  </a>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    if(toggle && nav) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        nav.classList.toggle('menu-open');
+      });
+    }
+  });
+</script>
+</body>
+
+
+
+</html>
+

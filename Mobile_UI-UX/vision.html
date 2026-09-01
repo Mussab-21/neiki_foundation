@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Vision | NEIKI Sub Say Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-primary: #009EDB; /* NEIKI Blue */
+      --color-deep-navy: #0a192f;
+      --color-deep-navy-light: #112240;
+      --color-accent: #4FD1E8; 
+      --color-bg-white: #FFFFFF;
+      --color-bg-light: #F0F7FA; /* Subtle light blue */
+      --color-text: #1C2B33;
+      --color-text-muted: #5B6B73;
+      
+      --font-body: 'Inter', sans-serif;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-body); color: var(--color-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    
+    /* Top Bar & Header */
+
+    /* Header Dropdowns */
+    .logo-link { display: flex; align-items: center; }
+    
+    .header-logo {
+      height: 50px;
+      width: auto;
+      margin-right: 2rem;
+      object-fit: contain;
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 38px;
+        margin-right: 1rem;
+      }
+    }
+
+
+    .site-header {
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+    }
+
+    .header-inner {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      height: 80px;
+
+    }
+
+    .text-logo {
+
+      font-family: var(--font-heading);
+
+      font-weight: 700;
+
+      font-size: 1.75rem;
+
+      letter-spacing: -0.5px;
+
+      color: white;
+
+      display: flex;
+
+      align-items: baseline;
+
+    }
+
+    .text-logo span {
+
+      font-family: var(--font-body);
+
+      font-weight: 400;
+
+      font-size: 1rem;
+
+      letter-spacing: 0;
+
+      margin-left: 8px;
+
+      opacity: 0.9;
+
+    }
+
+    .main-nav ul {
+
+      display: flex;
+
+      list-style: none;
+
+      gap: 2rem;
+
+    }
+
+    .main-nav a {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+    }
+
+    .main-nav a:hover {
+
+      color: var(--color-accent);
+
+    }
+
+    .header-search {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+    }
+
+
+
+    
+    /* --- MEGA MENU & CAROUSEL --- */
+
+    .header-logo-icon { height: 45px; object-fit: contain; margin-right: 15px; }
+
+    .header-logo-wordmark { height: 45px; object-fit: contain; }
+
+    .header-search { display: flex; align-items: center; cursor: pointer; font-size: 1.15rem; font-weight: 600; }
+
+    .header-search img { height: 26px; margin-left: 10px; border-radius: 50%; }
+
+
+
+    /* Remove old dropdown css to avoid conflict */
+
+    .dropdown-menu { display: none !important; } 
+
+
+
+    .site-header { position: relative; } /* To contain absolute mega menu */
+
+    
+
+    .mega-menu {
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      width: 100%;
+
+      background-color: var(--color-primary); /* Navy blue */
+
+      color: white;
+
+      display: none;
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding: 3rem 0;
+
+      z-index: 1000;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    }
+
+    .mega-menu.active { display: block; }
+
+    .mega-menu-inner {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      gap: 2rem;
+
+    }
+
+    .mega-col h3 { font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; line-height:1; }
+
+    .mega-col h4 { font-family: var(--font-sans-bold); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+    .mega-col p { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); }
+
+    .mega-col a { display: block; margin-bottom: 1rem; color: white; opacity: 0.9; text-decoration: none; font-size:0.95rem; }
+
+    .mega-col a:hover { opacity: 1; text-decoration: underline; }
+
+    .intro-col a { font-weight: bold; text-decoration: underline; font-family: var(--font-body); }
+
+    .nav-link { display: flex; align-items: center; gap: 4px; }
+
+    .arrow { font-size: 0.8rem; font-family: monospace; }
+
+
+
+    
+    /* Hero */
+    .hero { position: relative; height: 75vh; min-height: 500px; display: flex; align-items: center; background: url('assets/img/vision_banner.png') center/cover no-repeat; }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0, 162, 232, 0.85) 0%, rgba(10, 25, 47, 0.4) 100%); }
+    .hero-content { position: relative; z-index: 2; color: white; max-width: 600px; }
+    .hero h1 { font-size: 5rem; font-weight: 900; line-height: 1; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: -2px; }
+    @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } }
+    .hero-accent { width: 60px; height: 4px; background: white; margin: 1.5rem 0; border-radius: 2px; }
+    .hero p { font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem; line-height: 1.5; opacity: 0.95; }
+    .btn-solid { display: inline-flex; align-items: center; gap: 10px; background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; border: 2px solid white; transition: all 0.3s; }
+    .btn-solid:hover { background: white; color: var(--color-primary); }
+    
+    /* Section Shared */
+    .section-title { text-align: center; font-size: 2.25rem; font-weight: 800; color: var(--color-deep-navy); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: -0.5px; }
+    .section-accent { width: 50px; height: 4px; background: var(--color-primary); margin: 0 auto 2rem auto; border-radius: 2px; }
+    .section-accent.left { margin-left: 0; }
+    .section-p { max-width: 800px; margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
+
+    /* Compassionate World */
+    .compassionate { padding: 6rem 0; background: white; }
+    .compassionate .strong-statement { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); text-align: center; max-width: 900px; margin: 0 auto 2rem auto; line-height: 1.4; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+    .pillar-card { background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 2rem; border-radius: 16px; text-align: left; transition: transform 0.3s; }
+    .pillar-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 162, 232, 0.1); }
+    .pillar-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--color-bg-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--color-primary); font-size: 1.5rem; font-weight: 900; }
+    .pillar-card h4 { font-size: 1.25rem; font-weight: 800; color: var(--color-deep-navy); margin-bottom: 0.75rem; text-transform: uppercase; }
+    .pillar-card p { font-size: 0.95rem; color: var(--color-text-muted); }
+    @media (max-width: 768px) { .pillars-grid { grid-template-columns: 1fr; } }
+    
+    /* Split Sections */
+    .split-section { padding: 6rem 0; }
+    .split-section.bg-light { background: var(--color-bg-light); }
+    .split-row { display: flex; align-items: center; gap: 4rem; }
+    .split-row.reverse { flex-direction: row-reverse; }
+    .split-img { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); aspect-ratio: 4/3; }
+    .split-img img { width: 100%; height: 100%; object-fit: cover; }
+    .split-content { flex: 1; }
+    .split-content .section-title { text-align: left; }
+    .split-content .section-p { text-align: left; margin-left: 0; }
+    .link-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--color-primary); margin-top: 1rem; }
+    .link-arrow:hover { gap: 12px; color: var(--color-deep-navy); }
+    @media (max-width: 900px) { .split-row, .split-row.reverse { flex-direction: column; } .split-img { width: 100%; } }
+
+    /* Impact Stats */
+    .impact-stats { padding: 6rem 0; background: white; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+    .stat-card { border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 2rem 1.5rem; border-radius: 16px; text-align: center; background: white; }
+    .stat-icon { font-size: 2.5rem; color: var(--color-primary); margin-bottom: 1rem; }
+    .stat-num { font-size: 2.5rem; font-weight: 900; color: var(--color-deep-navy); line-height: 1; margin-bottom: 0.5rem; }
+    .stat-label { font-size: 1.1rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.25rem; }
+    .stat-sub { font-size: 0.85rem; color: var(--color-text-muted); }
+    @media (max-width: 1024px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
+
+    /* CTA Section */
+    .cta-section { background: var(--color-primary); padding: 6rem 0; color: white; text-align: center; }
+    .cta-section h2 { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1rem; }
+    .cta-section p { font-size: 1.25rem; margin-bottom: 2.5rem; opacity: 0.9; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; border: 2px solid white; transition: all 0.3s; }
+    .btn-outline:hover { background: white; color: var(--color-primary); }
+
+    /* Footer */
+    .site-footer { background: var(--color-primary); color: white; padding: 5rem 0 2rem 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 4rem; }
+    .footer-logo { max-width: 180px; margin-bottom: 1.5rem; }
+    .footer-desc { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 2rem; }
+    .social-links { display: flex; gap: 1rem; }
+    .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s; }
+    .social-icon:hover { background: var(--color-primary); transform: translateY(-3px); }
+    .footer-col h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 1rem; }
+    .footer-col a { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .footer-col a:hover { color: white; }
+    .footer-btn { display: inline-block; background: var(--color-primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; font-weight: 600; margin-top: 1rem; text-align: center; }
+    .footer-btn:hover { background: white; color: var(--color-primary); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.5); margin-left: 1rem; }
+    .footer-bottom-links a:hover { color: white; }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; } }
+    
+    /* Animation (Keep it subtle as requested) */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  /* New Footer */
+
+    .site-footer { display: none; } /* hide old footer rules */
+
+    .new-footer {
+
+      display: block;
+
+      background-color: var(--color-primary); /* Dark slate matching Gates */
+
+      color: white;
+
+      padding: 6rem 0 4rem;
+
+      font-family: var(--font-body);
+
+      border-top: none;
+
+    }
+
+    .footer-flex {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+    }
+
+    .footer-left {
+
+      flex: 0 0 300px;
+
+    }
+
+    .footer-right {
+
+      flex: 1;
+
+      max-width: 700px;
+
+    }
+
+    .footer-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      gap: 3rem;
+    }
+
+    .footer-tagline {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      font-weight: 600;
+
+      max-width: 300px;
+
+      line-height: 1.4;
+
+    }
+
+    .footer-socials {
+
+      display: flex;
+
+      gap: 0.75rem;
+
+    }
+
+    .footer-socials a {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 32px; height: 32px;
+
+      border: 1px solid rgba(255,255,255,0.6);
+
+      border-radius: 50%;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 0.85rem;
+
+      transition: all 0.3s;
+
+      text-transform: uppercase;
+
+      font-weight: bold;
+
+    }
+
+    .footer-socials a:hover {
+
+      background: white; color: #2F3943;
+
+    }
+
+    .footer-nav-primary {
+
+      font-weight: 700;
+
+      font-size: 1.1rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-primary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-primary a:first-child { margin-left: 0; }
+
+    .footer-nav-primary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-divider {
+
+      border: none;
+
+      border-top: 1px solid rgba(255,255,255,0.2);
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-secondary {
+
+      font-weight: 600;
+
+      font-size: 0.95rem;
+
+      margin-bottom: 3rem;
+
+      line-height: 2;
+
+    }
+
+    .footer-nav-secondary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-secondary a:first-child { margin-left: 0; }
+
+    .footer-nav-secondary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-nav-tertiary {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.6);
+
+      line-height: 2;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-tertiary a { color: rgba(255,255,255,0.6); margin: 0 0.25rem; text-decoration: none; }
+
+    .footer-nav-tertiary a:first-child { margin-left: 0; }
+
+    .footer-nav-tertiary a:hover { color: white; text-decoration: underline; }
+
+    
+
+    .footer-copyright {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.5);
+
+    }
+
+    @media(max-width: 768px) {
+
+      .footer-flex { flex-direction: column; }
+
+      .footer-top-row { flex-direction: column; gap: 2rem; }
+
+    }
+
+
+
+    
+  </style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- Header -->
+
+  <header class="site-header" id="header">
+
+    <div class="container header-inner">
+
+      <a href="/" class="nav-brand">
+
+        <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle Menu" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;display:none;margin-left:auto;">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="about.html" class="nav-link" data-target="about-mega-menu">About us <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="impact.html" class="nav-link" data-target="work-mega-menu">Our Impact <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="flood-relief.html" class="direct-link" style="color: var(--color-accent); font-weight: 700;">2025 Flood Relief</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-target="ideas-mega-menu">Accountability & Impact <span class="arrow">▼</span></a>
+          </li>
+        </ul>
+      </nav>
+
+
+      
+
+      <div class="header-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <a href="contact.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.4rem 1rem; border-radius: 4px; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.background='transparent';">Contact Us</a>
+        <a href="donate.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-primary); background: white; padding: 0.4rem 1.25rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.background='#f0f0f0'; this.style.transform='translateY(-1px)';" onmouseout="this.style.background='white'; this.style.transform='translateY(0)';">Donate</a>
+      </div>
+
+    </div>
+
+
+
+    <!-- Mega Menu - About Us -->
+
+    <div class="mega-menu" id="about-mega-menu">
+
+      <div class="container mega-menu-inner">
+
+        <div class="mega-col intro-col">
+
+          <h3>About us</h3>
+
+          <p>Learn about our origins, our vision, and the core values that drive our mission to serve humanity.</p>
+
+          <a href="about.html">Learn more about us</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Identity & Purpose</h4>
+          <a href="vision.html">Vision statement</a>
+
+          <a href="mission.html">Mission statement</a>
+
+          <a href="core-values.html">Core values</a>
+
+          <a href="objectives.html">Strategic Objectives</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Governance</h4>
+          <a href="chairman-message.html">Chairman Message</a>
+          <a href="governance.html">Organizational Structure & Governance</a>
+
+          <a href="compliance.html">Legal Registration & Compliance</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+                        <!-- Mega Menu - Our Impact -->
+    <div class="mega-menu" id="work-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Our Impact</h3>
+          <p>Discover our on-the-ground impact, completed water projects, and our vision for tomorrow.</p>
+          <a href="impact.html">Explore our impact</a>
+        </div>
+        <div class="mega-col">
+          <h4>Our Programs</h4>
+          <a href="program-framework.html">Program Framework</a>
+          <a href="thematic-areas.html">Main Thematic Areas</a>
+          <a href="flagship-programs.html">Flagship Programs</a>
+        </div>
+        <div class="mega-col">
+          <h4>Completed Initiatives</h4>
+          <a href="impact.html">Phase 1 Water Projects</a>
+          <a href="future-goals.html">Future Goals & Vision</a>
+        </div>
+      </div>
+    </div>
+
+
+
+        <!-- Mega Menu - Accountability -->
+    <div class="mega-menu" id="ideas-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Accountability & Impact</h3>
+          <p>Transparency, structured monitoring, and clear communication are at the heart of our operations.</p>
+          <a href="accountability.html">Read about our approach</a>
+        </div>
+        
+        <div class="mega-col">
+          <h4>Network & Outreach</h4>
+          <a href="partnerships.html">Partnerships & Collaborations</a>
+          </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content fade-up">
+      <h1>OUR VISION</h1>
+      <div class="hero-accent"></div>
+      <p>A future where every person has the opportunity to live with dignity and hope.</p>
+      <a href="#vision" class="btn-solid">Explore Our Vision <span>&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- A Compassionate World -->
+  <section id="vision" class="compassionate container fade-up">
+    <h2 class="section-title">Vision Statement</h2>
+    <div class="section-accent"></div>
+    
+    <p class="strong-statement">"To build a compassionate, inclusive, and sustainable world where every individual, regardless of background, location, or circumstance has the opportunity to live with dignity, security, and hope."</p>
+    
+    <p class="section-p">NEIKI SUB SAY FOUNDATION envisions societies where humanitarian values guide development, inequalities are reduced, and communities are empowered to thrive through collective responsibility and shared humanity, guided by the universal principle of "Serving Beyond Boundaries".</p>
+    
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">🤍</div>
+        <h4>Dignity</h4>
+        <p>Upholding the inherent worth of every individual and ensuring their basic rights and respect.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🌱</div>
+        <h4>Sustainability</h4>
+        <p>Building lasting solutions that protect our environment and strengthen communities.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🤝</div>
+        <h4>Inclusion</h4>
+        <p>Ensuring no one is left behind and everyone has the opportunity to thrive and lead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- A Brighter Future -->
+  <section class="split-section bg-light">
+    <div class="container split-row fade-up">
+      <div class="split-img">
+        <img loading="lazy" src="assets/img/brighter_future_pakistan.png" alt="Brighter Future" onerror="this.src='assets/img/impact1.jpg'">
+      </div>
+      <div class="split-content">
+        <h2 class="section-title">A Brighter Future</h2>
+        <div class="section-accent left"></div>
+        <p class="section-p">Our vision is not just a statement; it is the ultimate destination that guides every project, every partnership, and every decision at the NEIKI SUB SAY FOUNDATION.</p>
+        <p class="section-p">We envision a world free from the chains of poverty and inequity. By focusing on long-term, systemic change, we are working toward a reality where future generations inherit a society built on mutual respect and shared prosperity.</p>
+        <a href="future-goals.html" class="link-arrow">Learn More About Our Future &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inclusive Growth -->
+  <section class="split-section">
+    <div class="container split-row reverse fade-up">
+      <div class="split-img">
+        <img loading="lazy" src="assets/img/partnerships_action.png" alt="Inclusive Growth" onerror="this.src='assets/img/impact3.jpg'">
+      </div>
+      <div class="split-content">
+        <h2 class="section-title">Inclusive Growth</h2>
+        <div class="section-accent left"></div>
+        <p class="section-p">True progress must include everyone. We are dedicated to ensuring that marginalized and vulnerable populations are not left behind as the world advances.</p>
+        <p class="section-p">Our vision commands us to act with empathy and precision, creating pathways for inclusive growth where every individual has the resources and agency to shape their own destiny.</p>
+        <a href="pages/impact.html" class="link-arrow">Explore Our Approach &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+    <footer class="site-footer new-footer" style="padding: 3rem 0 1.5rem; background-color: var(--color-primary); color: white; font-family: var(--font-body);">
+    <div class="container" style="max-width: 1000px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; align-items: start;">
+        
+        <!-- Brand & Description -->
+        <div>
+          <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
+            <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
+          </a>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
+        </div>
+
+        <!-- Explore -->
+        <div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
+            <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
+            <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Social -->
+        <div>
+          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
+          <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Info@neikisubsay.org
+          </a>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Support Action (New column) -->
+        <div style="display: flex; align-items: flex-start; justify-content: flex-end;">
+          <a href="donate.html" style="background-color: white; color: var(--color-primary); padding: 0.75rem 2rem; border-radius: 8px; font-family: var(--font-sans-bold); font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+            Donate Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Copyright Line -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+        <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
+        <div>
+          <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple fade-up animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+  </script>
+<script>
+
+    // Mega Menu functionality
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const megaMenus = document.querySelectorAll('.mega-menu');
+
+
+
+    navLinks.forEach(link => {
+
+      link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const targetId = link.getAttribute('data-target');
+
+        const targetMenu = document.getElementById(targetId);
+
+        
+
+        // close others
+
+        megaMenus.forEach(menu => {
+
+          if (menu !== targetMenu) menu.classList.remove('active');
+
+        });
+
+        navLinks.forEach(nav => {
+
+          if (nav !== link) nav.querySelector('.arrow').innerText = '▼';
+
+        });
+
+
+
+        if (targetMenu) {
+
+          targetMenu.classList.toggle('active');
+
+          const arrow = link.querySelector('.arrow');
+
+          if (targetMenu.classList.contains('active')) {
+
+            arrow.innerText = '▼'; // Up arrow
+
+          } else {
+
+            arrow.innerText = '▼'; // Down arrow
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+
+    // Close menu when clicking outside
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.site-header')) {
+
+        megaMenus.forEach(menu => menu.classList.remove('active'));
+
+        navLinks.forEach(nav => nav.querySelector('.arrow').innerText = '▼');
+
+      }
+
+    });
+
+
+
+    
+  </script>
+<script src="js/mobile.js"></script>
+</body>
+</html>
