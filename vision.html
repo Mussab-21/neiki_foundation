@@ -249,7 +249,38 @@
     .pillar-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--color-bg-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--color-primary); font-size: 1.5rem; font-weight: 900; }
     .pillar-card h4 { font-size: 1.25rem; font-weight: 800; color: var(--color-deep-navy); margin-bottom: 0.75rem; text-transform: uppercase; }
     .pillar-card p { font-size: 0.95rem; color: var(--color-text-muted); }
-    @media (max-width: 768px) { .pillars-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { 
+      .pillars-carousel-wrapper { overflow: hidden; padding: 0 0.5rem; }
+      .pillars-grid { 
+        display: flex !important; 
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        transition: transform 0.3s ease-out; 
+        will-change: transform; 
+        gap: 0 !important;
+        margin-top: 2rem;
+      }
+      .pillar-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 0.25rem;
+        box-sizing: border-box;
+      }
+      .pillar-card {
+        margin: 0 !important;
+        height: 100%;
+      }
+      .fc-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+      }
+      .fc-dot {
+        width: 8px; height: 8px; border-radius: 50%; background-color: #ccc; transition: all 0.3s;
+      }
+      .fc-dot.active { background-color: var(--color-primary); width: 16px; border-radius: 4px; }
+    }
     
     /* Split Sections */
     .split-section { padding: 6rem 0; }
@@ -659,22 +690,31 @@
     
     <p class="section-p">NEIKI SUB SAY FOUNDATION envisions societies where humanitarian values guide development, inequalities are reduced, and communities are empowered to thrive through collective responsibility and shared humanity, guided by the universal principle of "Serving Beyond Boundaries".</p>
     
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="pillar-icon">🤍</div>
-        <h4>Dignity</h4>
-        <p>Upholding the inherent worth of every individual and ensuring their basic rights and respect.</p>
+    <div class="pillars-carousel-wrapper">
+      <div class="pillars-grid" id="fcTrack">
+        <div class="pillar-slide">
+          <div class="pillar-card">
+            <div class="pillar-icon">🤍</div>
+            <h4>Dignity</h4>
+            <p>Upholding the inherent worth of every individual and ensuring their basic rights and respect.</p>
+          </div>
+        </div>
+        <div class="pillar-slide">
+          <div class="pillar-card">
+            <div class="pillar-icon">🌱</div>
+            <h4>Sustainability</h4>
+            <p>Building lasting solutions that protect our environment and strengthen communities.</p>
+          </div>
+        </div>
+        <div class="pillar-slide">
+          <div class="pillar-card">
+            <div class="pillar-icon">🤝</div>
+            <h4>Inclusion</h4>
+            <p>Ensuring no one is left behind and everyone has the opportunity to thrive and lead.</p>
+          </div>
+        </div>
       </div>
-      <div class="pillar-card">
-        <div class="pillar-icon">🌱</div>
-        <h4>Sustainability</h4>
-        <p>Building lasting solutions that protect our environment and strengthen communities.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon">🤝</div>
-        <h4>Inclusion</h4>
-        <p>Ensuring no one is left behind and everyone has the opportunity to thrive and lead.</p>
-      </div>
+      <div class="fc-dots" id="fcDots"></div>
     </div>
   </section>
 
@@ -902,7 +942,100 @@
 
 
 
-    
+    // Mobile Carousel Logic for Pillars
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('fcTrack');
+      const dotsContainer = document.getElementById('fcDots');
+      if (!track) return;
+      
+      const slides = track.querySelectorAll('.pillar-slide');
+      if (slides.length === 0) return;
+      
+      let currentIndex = 0;
+      let startX = 0;
+      let isDragging = false;
+      let autoSlideInterval;
+      
+      // Create dots
+      slides.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('fc-dot');
+        if (i === 0) dot.classList.add('active');
+        if (dotsContainer) dotsContainer.appendChild(dot);
+      });
+      const dots = dotsContainer ? dotsContainer.querySelectorAll('.fc-dot') : [];
+
+      function updateCarousel() {
+        if (window.innerWidth >= 769) {
+          track.style.transition = 'none';
+          track.style.transform = `translateX(0)`;
+          if (dotsContainer) dotsContainer.style.display = 'none';
+        } else {
+          track.style.transition = 'transform 0.3s ease-out';
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+          if (dotsContainer) dotsContainer.style.display = 'flex';
+        }
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      function nextSlide() {
+        if (window.innerWidth >= 769) return;
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        if (window.innerWidth >= 769) return;
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+      }
+
+      function startAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      track.addEventListener('touchstart', e => {
+        if (window.innerWidth >= 769) return;
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        clearInterval(autoSlideInterval);
+      }, {passive: true});
+
+      track.addEventListener('touchmove', e => {
+        if (!isDragging || window.innerWidth >= 769) return;
+      }, {passive: true});
+
+      track.addEventListener('touchend', e => {
+        if (!isDragging || window.innerWidth >= 769) return;
+        isDragging = false;
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+
+        if (diffX > 50) {
+          nextSlide();
+        } else if (diffX < -50) {
+          prevSlide();
+        }
+        resetAutoSlide();
+      });
+
+      window.addEventListener('resize', () => {
+        updateCarousel();
+        startAutoSlide();
+      });
+      
+      updateCarousel();
+      startAutoSlide();
+    });
+
   </script>
 <script src="js/mobile.js?v=3"></script>
 </body>
