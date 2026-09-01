@@ -24,7 +24,7 @@
 
   
 
-  <link rel="stylesheet" href="css/main.css?v=4">
+  <link rel="stylesheet" href="css/main.css?v=5">
 
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
@@ -1031,37 +1031,299 @@
     </div>
   </section>
 
-<!-- Facts Section -->
+<!-- ══════════════════════════════════════════════
+     DUAL SWIPEABLE STATS CARDS
+     Card 1: Foundation Facts (stat slider)
+     Card 2: Strong Governance (icon slider)
+     ══════════════════════════════════════════════ -->
+<section class="dual-cards-section">
+  <style>
+    .dual-cards-section {
+      padding: 1.5rem 1rem;
+      background: var(--color-bg-white);
+    }
+    .dual-cards-row {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Each card */
+    .swipe-card {
+      flex: 1;
+      min-width: 0;
+      background: var(--color-primary);
+      border-radius: 16px;
+      padding: 1.25rem 1rem 1rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 160px;
+    }
+    .swipe-card-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.6rem;
+    }
+    /* Card 1 — stat slides */
+    .stat-slides-wrapper {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-slide {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100%;
+      animation: fadeSlide 0.35s ease;
+    }
+    .stat-slide.active { display: flex; }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateX(14px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .stat-slide-number {
+      font-family: var(--font-sans-bold);
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-slide-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+    /* Card 2 — governance icon slides */
+    .gov-slides-wrapper {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .gov-slide {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      animation: fadeSlide 0.35s ease;
+    }
+    .gov-slide.active { display: flex; }
+    .gov-icons-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .gov-icon-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      text-align: center;
+    }
+    .gov-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .gov-icon-circle svg { color: white; }
+    .gov-icon-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.2;
+    }
+    .gov-explore-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+    .gov-explore-link:hover { opacity: 1; text-decoration: underline; }
+    /* Dot indicators */
+    .swipe-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 0.7rem;
+    }
+    .swipe-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .swipe-dot.active {
+      background: white;
+      width: 16px;
+      border-radius: 3px;
+    }
+  </style>
 
-  <section class="facts-wrapper" style="margin-top: 3rem;" >
+  <div class="dual-cards-row">
 
-    <div class="container">
+    <!-- CARD 1: Foundation Facts -->
+    <div class="swipe-card" id="factsCard"
+         ontouchstart="sc1_ts(event)" ontouchend="sc1_te(event)">
+      <div class="swipe-card-label">Foundation Facts</div>
+      <div class="stat-slides-wrapper">
+        <div class="stat-slide active" data-card1="0">
+          <div class="stat-slide-number">81+</div>
+          <div class="stat-slide-label">Water Projects</div>
+        </div>
+        <div class="stat-slide" data-card1="1">
+          <div class="stat-slide-number">1.2M</div>
+          <div class="stat-slide-label">People Served</div>
+        </div>
+        <div class="stat-slide" data-card1="2">
+          <div class="stat-slide-number">5+</div>
+          <div class="stat-slide-label">Active Districts</div>
+        </div>
+        <div class="stat-slide" data-card1="3">
+          <div class="stat-slide-number">2021</div>
+          <div class="stat-slide-label">Year Founded</div>
+        </div>
+      </div>
+      <div class="swipe-dots" id="dots1">
+        <div class="swipe-dot active" onclick="sc1_goto(0)"></div>
+        <div class="swipe-dot" onclick="sc1_goto(1)"></div>
+        <div class="swipe-dot" onclick="sc1_goto(2)"></div>
+        <div class="swipe-dot" onclick="sc1_goto(3)"></div>
+      </div>
+    </div>
 
-      <div class="facts-card">
+    <!-- CARD 2: Strong Governance -->
+    <div class="swipe-card" id="govCard"
+         ontouchstart="sc2_ts(event)" ontouchend="sc2_te(event)">
+      <div class="swipe-card-label">Strong Governance</div>
+      <div class="gov-slides-wrapper">
 
-        <div class="facts-header">
-          <div class="facts-title-wrapper">
-            <h2>Foundation Progress</h2>
-            <p>The impact we have made across Pakistan.</p>
+        <div class="gov-slide active" data-card2="0">
+          <div class="gov-icons-row">
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="gov-icon-label">Transparent</span>
+            </div>
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
+              </div>
+              <span class="gov-icon-label">Accountable</span>
+            </div>
           </div>
+          <a href="governance.html" class="gov-explore-link">Explore More &rarr;</a>
         </div>
 
-        <div class="stats-row" style="justify-content: space-around;">
-          <div class="stat-item" style="flex: 0 0 auto;">
-            <div class="stat-number">81+</div>
-            <div class="stat-label">Water Projects</div>
+        <div class="gov-slide" data-card2="1">
+          <div class="gov-icons-row">
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <span class="gov-icon-label">Community First</span>
+            </div>
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+              <span class="gov-icon-label">Collaborative</span>
+            </div>
           </div>
-          <div class="stat-item" style="flex: 0 0 auto;">
-            <div class="stat-number">1.2M</div>
-            <div class="stat-label">People Served</div>
+          <a href="partnerships.html" class="gov-explore-link">Explore More &rarr;</a>
+        </div>
+
+        <div class="gov-slide" data-card2="2">
+          <div class="gov-icons-row">
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <span class="gov-icon-label">UN SDG Aligned</span>
+            </div>
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <span class="gov-icon-label">Impact Driven</span>
+            </div>
           </div>
+          <a href="accountability.html" class="gov-explore-link">Explore More &rarr;</a>
         </div>
 
       </div>
-
+      <div class="swipe-dots" id="dots2">
+        <div class="swipe-dot active" onclick="sc2_goto(0)"></div>
+        <div class="swipe-dot" onclick="sc2_goto(1)"></div>
+        <div class="swipe-dot" onclick="sc2_goto(2)"></div>
+      </div>
     </div>
 
-  </section>
+  </div><!-- /.dual-cards-row -->
+
+  <script>
+  // ── Card 1: Foundation Facts ─────────────────
+  let c1_cur = 0, c1_tx = 0;
+  const c1_slides = document.querySelectorAll('[data-card1]');
+  const c1_dots   = document.querySelectorAll('#dots1 .swipe-dot');
+
+  function sc1_goto(n) {
+    c1_slides[c1_cur].classList.remove('active');
+    c1_dots[c1_cur].classList.remove('active');
+    c1_cur = (n + c1_slides.length) % c1_slides.length;
+    c1_slides[c1_cur].classList.add('active');
+    c1_dots[c1_cur].classList.add('active');
+  }
+  function sc1_ts(e) { c1_tx = e.changedTouches[0].clientX; }
+  function sc1_te(e) {
+    const dx = e.changedTouches[0].clientX - c1_tx;
+    if (Math.abs(dx) > 30) sc1_goto(c1_cur + (dx < 0 ? 1 : -1));
+  }
+  // Auto-rotate card 1 every 3.5 s
+  setInterval(() => sc1_goto(c1_cur + 1), 3500);
+
+  // ── Card 2: Strong Governance ────────────────
+  let c2_cur = 0, c2_tx = 0;
+  const c2_slides = document.querySelectorAll('[data-card2]');
+  const c2_dots   = document.querySelectorAll('#dots2 .swipe-dot');
+
+  function sc2_goto(n) {
+    c2_slides[c2_cur].classList.remove('active');
+    c2_dots[c2_cur].classList.remove('active');
+    c2_cur = (n + c2_slides.length) % c2_slides.length;
+    c2_slides[c2_cur].classList.add('active');
+    c2_dots[c2_cur].classList.add('active');
+  }
+  function sc2_ts(e) { c2_tx = e.changedTouches[0].clientX; }
+  function sc2_te(e) {
+    const dx = e.changedTouches[0].clientX - c2_tx;
+    if (Math.abs(dx) > 30) sc2_goto(c2_cur + (dx < 0 ? 1 : -1));
+  }
+  // Auto-rotate card 2 every 4.5 s (offset from card 1)
+  setInterval(() => sc2_goto(c2_cur + 1), 4500);
+  </script>
+</section>
+
+
 
 
 
