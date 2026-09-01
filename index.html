@@ -24,7 +24,7 @@
 
   
 
-  <link rel="stylesheet" href="css/main.css?v=7">
+  <link rel="stylesheet" href="css/main.css?v=8">
 
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
@@ -2170,35 +2170,215 @@
 
 
   <!-- Get Involved Section -->
-  <section class="get-involved-section" style="padding: 5rem 2rem; background-color: var(--color-bg-light);">
-    <div class="container">
-      <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; margin-bottom: 3rem; text-align: center; color: var(--color-text); text-transform: uppercase; font-weight: 900;">How to make a difference?</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+  <section class="get-involved-section" style="padding: 5rem 0; background-color: var(--color-bg-light); overflow: hidden;">
+    <style>
+      .get-involved-heading {
+        font-family: var(--font-sans-bold);
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--color-text);
+        text-transform: uppercase;
+        font-weight: 900;
+        line-height: 1.2;
+        padding: 0 1rem;
+      }
+      .gi-carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        touch-action: pan-y;
+      }
+      .gi-carousel-track {
+        display: flex;
+        transition: transform 0.3s ease-out;
+        will-change: transform;
+      }
+      .gi-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+      }
+      @media (min-width: 769px) {
+        .gi-slide {
+          flex: 0 0 33.333%;
+        }
+      }
+      .gi-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+      }
+      .gi-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s, width 0.3s, border-radius 0.3s;
+      }
+      .gi-dot.active {
+        background-color: var(--color-primary);
+        width: 16px;
+        border-radius: 4px;
+      }
+      .gi-slide a, .gi-slide div { -webkit-user-drag: none; }
+    </style>
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0;">
+      <h2 class="get-involved-heading">How to make a difference?</h2>
+      
+      <div class="gi-carousel-container" id="giCarousel">
+        <div class="gi-carousel-track" id="giTrack">
         
-        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">DONATE</h3>
-          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Support our work financially to fund ongoing and future projects.</p>
-          <a href="#" onclick="alert('Donations are currently offline as we integrate our payment systems. Please contact us directly.'); return false;" class="text-link" style="font-size: 1.1rem;">Give Now &rarr;</a>
+          <div class="gi-slide">
+            <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); height: 100%;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
+              <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">DONATE</h3>
+              <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Support our work financially to fund ongoing and future projects.</p>
+              <a href="#" onclick="alert('Donations are currently offline as we integrate our payment systems. Please contact us directly.'); return false;" class="text-link" style="font-size: 1.1rem; color: var(--color-primary); font-weight: bold; text-decoration: none;">Give Now &rarr;</a>
+            </div>
+          </div>
+          
+          <div class="gi-slide">
+            <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-accent); height: 100%;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+              <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">VOLUNTEER</h3>
+              <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Give your time and skills to make an on-the-ground impact.</p>
+              <a href="contact.html" class="text-link" style="color: var(--color-accent); font-size: 1.1rem; font-weight: bold; text-decoration: none;">Join Us &rarr;</a>
+            </div>
+          </div>
+          
+          <div class="gi-slide">
+            <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-secondary); height: 100%;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+              <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">PARTNER</h3>
+              <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Help us expand our impact through institutional collaboration.</p>
+              <a href="partnerships.html" class="text-link" style="color: var(--color-secondary); font-size: 1.1rem; font-weight: bold; text-decoration: none;">Partner With Us &rarr;</a>
+            </div>
+          </div>
+        
         </div>
-        
-        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-accent);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">VOLUNTEER</h3>
-          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Give your time and skills to make an on-the-ground impact.</p>
-          <a href="contact.html" class="text-link" style="color: var(--color-accent); font-size: 1.1rem;">Join Us &rarr;</a>
+
+        <div class="gi-dots" id="giDots">
+          <!-- Dots generated by JS -->
         </div>
-        
-        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-secondary);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">PARTNER</h3>
-          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Help us expand our impact through institutional collaboration.</p>
-          <a href="partnerships.html" class="text-link" style="color: var(--color-secondary); font-size: 1.1rem;">Partner With Us &rarr;</a>
-        </div>
-        
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('giTrack');
+      const slides = document.querySelectorAll('.gi-slide');
+      const dotsContainer = document.getElementById('giDots');
+      const carouselContainer = document.getElementById('giCarousel');
+      
+      let currentIndex = 0;
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      let autoSlideInterval;
+      
+      if (!track || slides.length === 0) return;
+
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('gi-dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          resetAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+      const dots = document.querySelectorAll('.gi-dot');
+
+      function updateDots() {
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index > slides.length - 1) index = slides.length - 1;
+        currentIndex = index;
+        track.style.transition = 'transform 0.3s ease-out';
+        if (window.innerWidth >= 769) {
+          track.style.transform = `translateX(0)`;
+        } else {
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        updateDots();
+      }
+
+      function nextSlide() {
+        if (window.innerWidth >= 769) return;
+        if (currentIndex < slides.length - 1) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(0);
+        }
+      }
+
+      function startAutoSlide() {
+        if (window.innerWidth >= 769) {
+          if (dotsContainer) dotsContainer.style.display = 'none';
+          return;
+        } else {
+          if (dotsContainer) dotsContainer.style.display = 'flex';
+        }
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      carouselContainer.addEventListener('touchstart', (e) => {
+        if (window.innerWidth >= 769) return;
+        startX = e.touches[0].clientX;
+        currentX = startX;
+        isDragging = true;
+        track.style.transition = 'none';
+        clearInterval(autoSlideInterval);
+      }, {passive: true});
+
+      carouselContainer.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+        track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diff}px))`;
+      }, {passive: true});
+
+      carouselContainer.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentIndex > 0) goToSlide(currentIndex - 1);
+          else if (diff < 0 && currentIndex < slides.length - 1) goToSlide(currentIndex + 1);
+          else goToSlide(currentIndex);
+        } else {
+          goToSlide(currentIndex);
+        }
+        startAutoSlide();
+      });
+      
+      window.addEventListener('resize', () => {
+        goToSlide(0);
+        resetAutoSlide();
+      });
+
+      startAutoSlide();
+    });
+  </script>
 
 
 
