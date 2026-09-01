@@ -1955,6 +1955,19 @@
       50% { opacity: 1; }
       100% { opacity: 0.5; }
     }
+    @media (max-width: 900px) {
+      .sdg-interactive-section { padding: 1.5rem 0; }
+      .sdg-interactive-section .container { margin-bottom: 1.5rem !important; padding: 0 1rem; }
+      .sdg-interactive-section h2 { font-size: 1.6rem !important; margin-bottom: 0.5rem !important; line-height: 1.1; }
+      .sdg-interactive-section p { font-size: 0.85rem !important; line-height: 1.3 !important; }
+      .sdg-container { flex-direction: column; gap: 1.5rem; }
+      #sdg-wheel-svg { width: 270px; height: 270px; }
+      .sdg-hint { top: -20px; font-size: 0.6rem; }
+      .sdg-info-panel { min-height: auto; padding: 1.2rem; margin: 0 1rem; width: auto; max-width: none; }
+      .sdg-icon-badge { width: 45px; height: 45px; font-size: 1.2rem; margin-bottom: 0.5rem; border-radius: 10px; }
+      #sdg-info-title { font-size: 1.3rem; margin-bottom: 0.3rem; }
+      #sdg-info-desc { font-size: 0.85rem; line-height: 1.3; }
+    }
   
 </style>
 
@@ -2134,6 +2147,10 @@
           group.appendChild(text);
 
           group.addEventListener('mouseenter', () => {
+            activateSlice(index);
+            clearInterval(autoRotateInterval);
+          });
+          group.addEventListener('click', () => {
             activateSlice(index);
             clearInterval(autoRotateInterval);
           });
