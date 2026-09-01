@@ -2136,6 +2136,22 @@
   
   <!-- Chairman Message -->
 
+  <style>
+    .chairman-heading { font-family: var(--font-sans-bold); font-size: 2.5rem; color: inherit; margin-bottom: 1rem; }
+    .chairman-divider { width: 80px; margin: 0 auto 3rem; border: none; border-top: 3px solid var(--color-primary); }
+    .chairman-quote-wrapper { max-width: 800px; margin: 0 auto; text-align: center; }
+    .chairman-quote-text { font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem; color: inherit; margin-bottom: 1.5rem; line-height: 1.6; }
+    .chairman-author { font-size: 0.9rem; font-family: var(--font-sans-bold); color: var(--color-text-muted); margin-bottom: 4rem; letter-spacing: 0.5px; }
+
+    @media (max-width: 768px) {
+      .chairman-heading { font-size: 1.75rem; text-align: left; }
+      .chairman-divider { margin: 0 0 2rem 0; }
+      .chairman-quote-wrapper { text-align: left; }
+      .chairman-quote-text { font-size: 1rem; font-weight: 500; }
+      .chairman-author { text-align: left; }
+    }
+  </style>
+
   <section class="chairman-message-section" style="padding: 6rem 2rem; background-color: var(--color-bg-white);">
 
     <div class="container" style="text-align: center;">
@@ -2144,21 +2160,21 @@
 
       <img loading="lazy" src="assets/img/neiki_chairman_headshot_final.png" alt="Usman Mustafa" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem;">
 
-      <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: inherit; margin-bottom: 1rem;">Chairman / President</h2>
+      <h2 class="chairman-heading">Chairman / President</h2>
 
-      <hr style="width: 80px; margin: 0 auto 3rem; border: none; border-top: 3px solid var(--color-primary);">
+      <hr class="chairman-divider">
 
       
 
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <div class="chairman-quote-wrapper">
 
-        <p style="font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem; color: inherit; margin-bottom: 1rem;">
+        <p class="chairman-quote-text">
 
           " On behalf of NEIKI SUB SAY FOUNDATION, I take great pride in presenting this organizational profile, which reflects our mission, institutional framework, and long-term commitment to sustainable and inclusive human development. This profile represents our values, strategic direction and resolve to serve humanity with integrity, professionalism, and compassion. "
 
         </p>
 
-        <p style="font-size: 0.9rem; font-family: var(--font-sans-bold); color: var(--color-text-muted); margin-bottom: 4rem; letter-spacing: 0.5px;">
+        <p class="chairman-author">
 
           - Usman Mustafa<br>NEIKI SUB SAY FOUNDATION Chairman / President
 
