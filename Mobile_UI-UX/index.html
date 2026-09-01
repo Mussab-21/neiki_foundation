@@ -287,6 +287,7 @@
 
   
   
+  
   <header class="site-header" id="header">
     <div class="container header-inner">
       <div class="header-left-group">
@@ -313,6 +314,7 @@
       </div>
     </div>
   </header>
+
 
 
 
@@ -1894,6 +1896,7 @@
       toggle.addEventListener('click', function(e) {
         e.preventDefault();
         nav.classList.toggle('menu-open');
+        toggle.innerHTML = nav.classList.contains('menu-open') ? '&#10005;' : '&#9776;';
       });
     }
   });

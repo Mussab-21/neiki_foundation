@@ -50,10 +50,17 @@ MOBILE_CSS = """
     gap: 15px;
   }
   .mobile-menu-toggle {
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
     color: white !important;
     font-size: 1.8rem;
-    background: none; border: none; padding: 0;
+    background: transparent;
+    border: 1px dotted rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    padding: 0;
   }
   .header-logo {
     height: 30px !important;
@@ -95,11 +102,11 @@ MOBILE_CSS = """
   }
   .main-nav a {
     color: white !important;
-    font-size: 1.4rem !important;
+    font-size: 1.2rem !important;
     font-family: var(--font-sans-bold) !important;
     text-decoration: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -409,11 +416,30 @@ if "nav.classList.toggle('menu-open')" not in html:
       toggle.addEventListener('click', function(e) {
         e.preventDefault();
         nav.classList.toggle('menu-open');
+        toggle.innerHTML = nav.classList.contains('menu-open') ? '&#10005;' : '&#9776;';
       });
     }
   });
 </script>
 </body>""")
+else:
+    # If the script already exists, replace it to include the icon toggle
+    import re
+    script_pattern = r"<script>\s*document\.addEventListener\('DOMContentLoaded', function\(\) \{\s*const toggle = document\.querySelector\('\.mobile-menu-toggle'\);.*?<\/script>"
+    new_script = """<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    if(toggle && nav) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        nav.classList.toggle('menu-open');
+        toggle.innerHTML = nav.classList.contains('menu-open') ? '&#10005;' : '&#9776;';
+      });
+    }
+  });
+</script>"""
+    html = re.sub(script_pattern, new_script, html, flags=re.DOTALL)
 
 with open(index_path, 'w', encoding='utf-8') as f:
     f.write(html)

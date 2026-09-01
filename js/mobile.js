@@ -1,15 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle
-  const toggleBtn = document.querySelector('.mobile-menu-toggle');
-  const nav = document.querySelector('.main-nav');
-  const searchBtn = document.querySelector('.header-search');
-  const megaMenu = document.querySelector('.mega-menu');
+  // 1. Create Mobile Fullscreen Nav dynamically if not exists
+  let mobileNavContainer = document.getElementById('globalMobileNav');
+  if (!mobileNavContainer) {
+    const mobileNavHTML = `
+      <div class="mobile-nav-content">
+        <a href="about.html" class="mobile-nav-link">About Us <span class="chevron">&#8250;</span></a>
+        <a href="impact.html" class="mobile-nav-link">Our Impact <span class="chevron">&#8250;</span></a>
+        <a href="flood-relief.html" class="mobile-nav-link">2025 Flood Relief <span class="chevron">&#8250;</span></a>
+        <a href="accountability.html" class="mobile-nav-link">Accountability & Impact <span class="chevron">&#8250;</span></a>
+      </div>
+    `;
+    mobileNavContainer = document.createElement('div');
+    mobileNavContainer.className = 'mobile-fullscreen-nav';
+    mobileNavContainer.id = 'globalMobileNav';
+    mobileNavContainer.innerHTML = mobileNavHTML;
+    document.body.appendChild(mobileNavContainer);
+  }
 
-  if (toggleBtn && nav) {
+  // 2. Mobile Menu Toggle Logic
+  const toggleBtn = document.querySelector('.mobile-menu-toggle');
+  if (toggleBtn) {
     toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation(); // prevent closing immediately if clicking outside logic exists
-      nav.classList.toggle('mobile-open');
-      if (megaMenu) megaMenu.classList.remove('active'); // Close mega menu if open
+      e.stopPropagation();
+      e.preventDefault();
+      
+      const isOpen = mobileNavContainer.classList.contains('open');
+      if (isOpen) {
+        mobileNavContainer.classList.remove('open');
+        toggleBtn.innerHTML = '&#9776;'; // Hamburger
+        document.body.style.overflow = '';
+      } else {
+        mobileNavContainer.classList.add('open');
+        toggleBtn.innerHTML = '&#10005;'; // X
+        document.body.style.overflow = 'hidden';
+      }
     });
   }
 
