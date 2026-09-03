@@ -3179,7 +3179,7 @@
     }, {
       root: null,
       rootMargin: '0px 0px -25% 0px',
-      threshold: 0.1
+      threshold: 0
     });
 
     projects.forEach(p => observer.observe(p));
@@ -3190,7 +3190,7 @@
   let currentIndex = 0;
 
   function openLightbox(imgElement, pid) {
-    const allImages = Array.from(document.querySelectorAll(`.gallery-img[data-pid="$219"]`));
+    const allImages = Array.from(document.querySelectorAll(`.gallery-img[data-pid="${pid}"]`));
     currentImages = allImages.map(img => img.src);
     currentIndex = currentImages.indexOf(imgElement.src);
     
