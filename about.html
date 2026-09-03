@@ -1665,11 +1665,49 @@
     }
 
     @media(max-width: 768px) {
-
-      .four-cards-grid { grid-template-columns: 1fr; }
-
       .offices-box { padding: 2rem; }
-
+      
+      /* Mobile layout adjustments for vertical space */
+      .about-header { min-height: auto; padding: 4rem 1rem 2rem 1rem; text-align: left !important; }
+      .intro-mission-statement { font-size: 1.1rem !important; line-height: 1.5 !important; text-align: left !important; margin: 0 !important; width: 100%; }
+      .about-mission { font-size: 1.1rem; line-height: 1.5; text-align: left; }
+      
+      .zigzag-section { padding: 2rem 1rem; }
+      .zigzag-row { gap: 1rem; margin-bottom: 2rem; }
+      .zigzag-row, .zigzag-row:nth-child(even) { gap: 1rem; }
+      .zigzag-img { aspect-ratio: 21/9; max-height: 200px; border-radius: 8px; }
+      .zigzag-content h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+      .zigzag-content p { font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.5rem; }
+      
+      /* Mobile Carousel for Four Cards */
+      .four-cards-section { overflow: hidden; padding-left: 0.5rem; padding-right: 0.5rem; }
+      .four-cards-grid { 
+        display: flex !important; 
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        transition: transform 0.3s ease-out; 
+        will-change: transform; 
+        gap: 0 !important;
+      }
+      .fc-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 0.25rem;
+        box-sizing: border-box;
+      }
+      .four-card {
+        margin: 0 !important;
+      }
+      .fc-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+      }
+      .fc-dot {
+        width: 8px; height: 8px; border-radius: 50%; background-color: #ccc; transition: all 0.3s;
+      }
+      .fc-dot.active { background-color: var(--color-primary); width: 16px; border-radius: 4px; }
     }
 
     
@@ -1949,44 +1987,56 @@
     
 
     <style>
-      /* Ensure text is white against the light blue background */
-      .four-cards-wrapper .four-card h3 { color: white !important; }
-      .four-cards-wrapper .four-card p { color: rgba(255, 255, 255, 0.9) !important; }
-      .four-cards-wrapper .four-card a { color: white !important; }
-      .four-cards-wrapper .four-card a:hover { color: rgba(255, 255, 255, 0.7) !important; text-decoration: none; }
-    </style>
-    
-
-    <style>
-      /* Style each individual four-card to be light blue */
-      .four-card { 
-        background-color: var(--color-primary) !important; 
-        padding: 24px; 
-        border-radius: 16px; 
-        text-align: center !important; 
-        box-shadow: 0 10px 30px rgba(0, 162, 232, 0.15);
-        display: flex;
-        flex-direction: column;
+      /* Ensure text is dark and background is light like What We Do */
+      .four-card {
+        display: block;
+        text-decoration: none;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #eaeaea;
+        background: var(--color-bg-white, #ffffff);
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        margin: 0 0.25rem;
       }
-      .four-card-img { border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; margin-bottom: 1.5rem; }
-      .four-card h3 { color: white !important; font-size: 1.5rem !important; margin-bottom: 1rem !important; }
-      .four-card p { color: rgba(255, 255, 255, 0.9) !important; flex: 1; }
-      .four-card a { 
-        color: white !important; 
-        background-color: rgba(0,0,0,0.1);
-        padding: 10px 20px;
-        border-radius: 50px;
-        text-decoration: none !important;
-        display: inline-block;
-        margin-top: 1rem;
-        transition: background 0.3s;
+      .four-card-img {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
       }
-      .four-card a:hover { background-color: white !important; color: var(--color-primary) !important; }
+      .four-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .four-card-content {
+        padding: 1.5rem;
+      }
+      .four-card h3 {
+        font-family: var(--font-sans-bold);
+        font-size: 1.25rem;
+        color: #2F3943;
+        margin-bottom: 0.5rem;
+      }
+      .four-card p {
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        color: rgba(47, 57, 67, 0.7);
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+      .four-card span {
+        color: var(--color-primary);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
     </style>
     
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/mobile-header.css?v=3">
 </head>
 
 
@@ -2001,9 +2051,10 @@
 
       <a href="/" class="nav-brand">
 
-        <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+        <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
 
       </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle Menu" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;display:none;margin-left:auto;">&#9776;</button>
       <nav class="main-nav">
         <ul>
           <li>
@@ -2026,7 +2077,7 @@
 
       <div class="header-actions" style="display: flex; gap: 1rem; align-items: center;">
         <a href="contact.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.4rem 1rem; border-radius: 4px; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.background='transparent';">Contact Us</a>
-        <a href="under-construction.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-primary); background: white; padding: 0.4rem 1.25rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.background='#f0f0f0'; this.style.transform='translateY(-1px)';" onmouseout="this.style.background='white'; this.style.transform='translateY(0)';">Donate</a>
+        <a href="donate.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-primary); background: white; padding: 0.4rem 1.25rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.background='#f0f0f0'; this.style.transform='translateY(-1px)';" onmouseout="this.style.background='white'; this.style.transform='translateY(0)';">Donate</a>
       </div>
 
     </div>
@@ -2127,7 +2178,7 @@
   <section class="about-header container" style="padding-bottom: 2rem;">
     <h1 style="font-size: 3.5rem; color: var(--color-primary); font-family: var(--font-sans-bold); text-transform: uppercase;">About Us</h1>
     <div style="height: 40px;"></div>
-    <h2 style="font-size: 1.8rem; max-width: 1000px; margin: 0 auto; line-height: 1.6; font-family: var(--font-heading); color: var(--color-text); font-weight: 400;">
+    <h2 class="intro-mission-statement" style="font-size: 1.8rem; max-width: 1000px; margin: 0 auto; line-height: 1.6; font-family: var(--font-heading); color: var(--color-text); font-weight: 400;">
       NEIKI SUB SAY FOUNDATION is a <em style="color: var(--color-primary); font-style: normal; font-weight: 700;">non-profit</em>, <em style="color: var(--color-primary); font-style: normal; font-weight: 700;">non-political</em> organization committed to improving lives through humanitarian service, community empowerment, and sustainable development. We work to create lasting impact in health, education, livelihoods, social welfare, and environmental resilience ensuring dignity, opportunity, and inclusion for all.
     </h2>
   </section>
@@ -2141,7 +2192,7 @@
     <div class="zigzag-row fade-up-on-scroll">
 
       <div class="zigzag-img">
-        <img src="assets/img/humanity_dignity.jpg" alt="Humanity and Dignity">
+        <img loading="lazy" src="assets/img/humanity_dignity.jpg" alt="Humanity and Dignity">
       </div>
 
       <div class="zigzag-content">
@@ -2162,7 +2213,7 @@
 
       <div class="zigzag-img">
 
-        <img src="assets/img/sustainability.jpeg" alt="Sustainability & Empowerment">
+        <img loading="lazy" src="assets/img/sustainability.jpeg" alt="Sustainability & Empowerment">
 
       </div>
 
@@ -2184,7 +2235,7 @@
 
       <div class="zigzag-img">
 
-        <img src="assets/img/partnerships_action.png" alt="Partnerships & Coordinated Action">
+        <img loading="lazy" src="assets/img/partnerships_action.png" alt="Partnerships & Coordinated Action">
 
       </div>
 
@@ -2215,78 +2266,294 @@
 
   <section class="four-cards-section container" style="margin-top: 2rem;">
 
-    <div class="four-cards-grid">
+    <div class="four-cards-grid" id="fcTrack">
 
-      <div class="four-card">
-        <div class="four-card-img"><img src="assets/img/flood_relief_card.png" alt="2025 Flood Relief" onerror="this.src='assets/img/card_story.png'"></div>
-        <h3>2025 Flood Relief</h3>
-        <p>See our emergency response and rehabilitation efforts for the 2025 floods.</p>
-        <a href="flood-relief.html">View flood response</a>
+      <div class="fc-slide">
+        <a href="flood-relief.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/flood_relief_card.png" alt="2025 Flood Relief" onerror="this.src='assets/img/card_story.png'"></div>
+          <div class="four-card-content">
+            <h3>2025 Flood Relief</h3>
+            <p>See our emergency response and rehabilitation efforts for the 2025 floods.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
       </div>
 
-      <div class="four-card">
-        <div class="four-card-img"><img src="assets/img/mission_statement_card.png" alt="Mission Statement" onerror="this.src='assets/img/card_role.png'"></div>
-        <h3>Mission Statement</h3>
-        <p>Learn about our core mission to serve humanity and build a better world.</p>
-        <a href="mission.html">Read mission statement</a>
+      <div class="fc-slide">
+        <a href="mission.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/mission_statement_card.png" alt="Mission Statement" onerror="this.src='assets/img/card_role.png'"></div>
+          <div class="four-card-content">
+            <h3>Mission Statement</h3>
+            <p>Learn about our core mission to serve humanity and build a better world.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
       </div>
 
-      <div class="four-card">
-
-        <div class="four-card-img"><img src="assets/img/card_values.png" alt="Our Core Values"></div>
-
-        <h3>Our Core Values</h3>
-
-        <p>Guided by integrity, compassion, and transparency, we are dedicated to inclusive and sustainable human development.</p>
-
-        <a href="core-values.html">Learn about our values</a>
-
+      <div class="fc-slide">
+        <a href="core-values.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/card_values.png" alt="Our Core Values"></div>
+          <div class="four-card-content">
+            <h3>Our Core Values</h3>
+            <p>Guided by integrity, compassion, and transparency, we are dedicated to inclusive and sustainable human development.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
       </div>
 
-      <div class="four-card">
-
-        <div class="four-card-img"><img src="assets/img/future_goals.jpeg" alt="Our Future Goals"></div>
-        <h3>Our Future Goals</h3>
-        <p>Explore our strategic focus areas designed to create lasting impact across the nation.</p>
-        <a href="future-goals.html">View our future goals</a>
-
+      <div class="fc-slide">
+        <a href="future-goals.html" class="four-card">
+          <div class="four-card-img"><img loading="lazy" src="assets/img/future_goals.jpeg" alt="Our Future Goals"></div>
+          <div class="four-card-content">
+            <h3>Our Future Goals</h3>
+            <p>Explore our strategic focus areas designed to create lasting impact across the nation.</p>
+            <span>Explore &rarr;</span>
+          </div>
+        </a>
       </div>
 
     </div>
+    <div class="fc-dots" id="fcDots"></div>
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('fcTrack');
+      const slides = document.querySelectorAll('.four-card');
+      const dotsContainer = document.getElementById('fcDots');
+      const carouselContainer = document.querySelector('.four-cards-section');
+      
+      let currentIndex = 0;
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      let autoSlideInterval;
+      
+      if (!track || slides.length === 0) return;
+
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('fc-dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          resetAutoSlide();
+        });
+        if(dotsContainer) dotsContainer.appendChild(dot);
+      });
+      const dots = document.querySelectorAll('.fc-dot');
+
+      function updateDots() {
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index > slides.length - 1) index = slides.length - 1;
+        currentIndex = index;
+        if (window.innerWidth >= 769) {
+          track.style.transition = 'none';
+          track.style.transform = `translateX(0)`;
+        } else {
+          track.style.transition = 'transform 0.3s ease-out';
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        updateDots();
+      }
+
+      function nextSlide() {
+        if (window.innerWidth >= 769) return;
+        if (currentIndex < slides.length - 1) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(0);
+        }
+      }
+
+      function startAutoSlide() {
+        if (window.innerWidth >= 769) {
+          if (dotsContainer) dotsContainer.style.display = 'none';
+          return;
+        } else {
+          if (dotsContainer) dotsContainer.style.display = 'flex';
+        }
+        autoSlideInterval = setInterval(nextSlide, 1000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      if(carouselContainer) {
+        carouselContainer.addEventListener('touchstart', (e) => {
+          if (window.innerWidth >= 769) return;
+          startX = e.touches[0].clientX;
+          currentX = startX;
+          isDragging = true;
+          track.style.transition = 'none';
+          clearInterval(autoSlideInterval);
+        }, {passive: true});
+
+        carouselContainer.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          currentX = e.touches[0].clientX;
+          const diff = currentX - startX;
+          track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diff}px))`;
+        }, {passive: true});
+
+        carouselContainer.addEventListener('touchend', (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          const diff = currentX - startX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0 && currentIndex > 0) goToSlide(currentIndex - 1);
+            else if (diff < 0 && currentIndex < slides.length - 1) goToSlide(currentIndex + 1);
+            else goToSlide(currentIndex);
+          } else {
+            goToSlide(currentIndex);
+          }
+          startAutoSlide();
+        });
+      }
+      
+      window.addEventListener('resize', () => {
+        goToSlide(0);
+        resetAutoSlide();
+      });
+
+      startAutoSlide();
+    });
+  </script>
 
 
-<!-- Facts Section -->
 
-  <section class="facts-wrapper" >
-
-    <div class="container">
-
-      <div class="facts-card">
-
-        <div class="facts-header">
-          <div class="facts-title-wrapper">
-            <h2>Foundation Progress</h2>
-            <p>The impact we have made across Pakistan.</p>
+<!-- Foundation Progress (Swipeable Card) -->
+  <section class="foundation-progress-section" style="padding: 2rem 1rem; margin-bottom: 2rem;">
+    <style>
+      .fp-card-wrapper { max-width: 500px; margin: 0 auto; }
+      .swipe-card {
+        background: var(--color-primary);
+        border-radius: 16px;
+        padding: 1.5rem;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 180px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      .swipe-card-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+      .stat-slides-wrapper {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+      }
+      .stat-slide {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100%;
+        animation: fadeSlide 0.35s ease;
+      }
+      .stat-slide.active { display: flex; }
+      .stat-slide-number {
+        font-family: var(--font-sans-bold);
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 0.25rem;
+        color: white;
+      }
+      .stat-slide-label {
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.9);
+      }
+      .swipe-dots {
+        display: flex;
+        gap: 6px;
+        margin-top: 1rem;
+      }
+      .swipe-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: rgba(255,255,255,0.3);
+        transition: all 0.3s ease;
+      }
+      .swipe-dot.active { background: white; width: 16px; border-radius: 4px; }
+      @keyframes fadeSlide {
+        0% { opacity: 0; transform: translateX(10px); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+    </style>
+    
+    <div class="fp-card-wrapper">
+      <div class="swipe-card" id="fpCard">
+        <div class="swipe-card-label">Foundation Progress</div>
+        <div class="stat-slides-wrapper">
+          <div class="stat-slide active" data-fpc="0">
+            <div class="stat-slide-number">81+</div>
+            <div class="stat-slide-label">Water Projects</div>
+          </div>
+          <div class="stat-slide" data-fpc="1">
+            <div class="stat-slide-number">1.2M</div>
+            <div class="stat-slide-label">People Served</div>
+          </div>
+          <div class="stat-slide" data-fpc="2">
+            <div class="stat-slide-number">5+</div>
+            <div class="stat-slide-label">Active Districts</div>
+          </div>
+          <div class="stat-slide" data-fpc="3">
+            <div class="stat-slide-number">2021</div>
+            <div class="stat-slide-label">Year Founded</div>
           </div>
         </div>
-
-        <div class="stats-row" style="justify-content: space-around;">
-          <div class="stat-item" style="flex: 0 0 auto;">
-            <div class="stat-number">81+</div>
-            <div class="stat-label">Water Projects</div>
-          </div>
-          <div class="stat-item" style="flex: 0 0 auto;">
-            <div class="stat-number">1.2M</div>
-            <div class="stat-label">People Served</div>
-          </div>
+        <div class="swipe-dots" id="fpDots">
+          <div class="swipe-dot active" onclick="fp_goto(0)"></div>
+          <div class="swipe-dot" onclick="fp_goto(1)"></div>
+          <div class="swipe-dot" onclick="fp_goto(2)"></div>
+          <div class="swipe-dot" onclick="fp_goto(3)"></div>
         </div>
-
       </div>
-
     </div>
+    
+    <script>
+      let fp_cur = 0, fp_tx = 0;
+      const fp_slides = document.querySelectorAll('[data-fpc]');
+      const fp_dots = document.querySelectorAll('#fpDots .swipe-dot');
+      const fp_card = document.getElementById('fpCard');
 
+      function fp_goto(n) {
+        if (!fp_slides.length) return;
+        fp_slides[fp_cur].classList.remove('active');
+        fp_dots[fp_cur].classList.remove('active');
+        fp_cur = (n + fp_slides.length) % fp_slides.length;
+        fp_slides[fp_cur].classList.add('active');
+        fp_dots[fp_cur].classList.add('active');
+      }
+      
+      if (fp_card) {
+        fp_card.addEventListener('touchstart', (e) => { fp_tx = e.changedTouches[0].clientX; }, {passive:true});
+        fp_card.addEventListener('touchend', (e) => {
+          const dx = e.changedTouches[0].clientX - fp_tx;
+          if (Math.abs(dx) > 30) fp_goto(fp_cur + (dx < 0 ? 1 : -1));
+        }, {passive:true});
+        setInterval(() => fp_goto(fp_cur + 1), 3500);
+      }
+    </script>
   </section>
 
 
@@ -2298,66 +2565,101 @@
   <!-- Footer -->
 
     <footer class="site-footer new-footer" style="padding: 3rem 0 1.5rem; background-color: var(--color-primary); color: white; font-family: var(--font-body);">
-    <div class="container" style="max-width: 1000px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-        
-        <!-- Brand & Description -->
-        <div>
-          <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
-            <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
-          </a>
-          <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
-        </div>
-
-        <!-- Explore -->
-        <div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
-          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
-            <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
-            <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
-            <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
-            <li><a href="under-construction.html" style="color: var(--color-accent); font-weight: 700; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--color-accent)'; this.style.textDecoration='none';">Donate</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact & Social -->
-        <div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
-          <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            Info@neikisubsay.org
-          </a>
-
-          <div style="display: flex; gap: 0.75rem; align-items: center;">
-            <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-            </a>
-            <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-            </a>
-          </div>
-        </div>
-
+  <style>
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      align-items: start;
+    }
+    .footer-brand { grid-area: brand; }
+    .footer-explore { grid-area: explore; }
+    .footer-contact { grid-area: contact; }
+    .footer-donate { grid-area: donate; justify-self: end; }
+    
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1.5fr auto;
+        grid-template-areas: "brand explore contact donate";
+      }
+    }
+    @media (max-width: 767px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+          "brand brand"
+          "explore donate"
+          "contact contact";
+      }
+    }
+  </style>
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
+    <div class="footer-grid">
+      
+      <!-- Brand & Description -->
+      <div class="footer-brand">
+        <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
+          <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
+        </a>
+        <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
       </div>
 
-      <!-- Copyright Line -->
-      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
-        <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
-        <div>
-          <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
+      <!-- Explore -->
+      <div class="footer-explore">
+        <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+          <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
+          <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
+          <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div class="footer-contact">
+        <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
+        <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Info@neikisubsay.org
+        </a>
+
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
         </div>
+      </div>
+
+      <!-- Support Action -->
+      <div class="footer-donate" style="display: flex; align-items: flex-start;">
+        <a href="donate.html" style="background-color: white; color: var(--color-primary); padding: 0.75rem 1.5rem; border-radius: 8px; font-family: var(--font-sans-bold); font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); white-space: nowrap;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+          Donate Now
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Copyright Line -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+      <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
+      <div>
+        <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
 <!-- Scripts -->
 
@@ -2579,6 +2881,7 @@
 
 </script>
 
+<script src="js/mobile.js?v=3"></script>
 </body>
 
 

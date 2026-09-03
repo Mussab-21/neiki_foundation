@@ -1,0 +1,12 @@
+# Ignore large files and dependencies
+*.pdf
+*.mp4
+node_modules/
+.DS_Store
+Neiki_Production_Build/
+
+assets/My_Assets/
+assets/Musab/
+assets/Phase 1. ISLD donated Projects/
+*.HEIC
+*.xlsx

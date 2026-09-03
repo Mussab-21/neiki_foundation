@@ -24,1737 +24,7 @@
 
   
 
-  <style>
-
-    /* Reset & Base */
-
-    :root {
-
-      --color-primary: #009EDB; /* UN Blue */
-
-      --color-secondary: #1E88C7; /* Mid Blue */
-
-      --color-accent: #4FD1E8; 
-
-      --color-bg-white: #FFFFFF;
-
-      --color-bg-light: #F6F4F0; /* Beige */
-
-      --color-text: #1C2B33;
-
-      --color-text-muted: #5B6B73;
-
-      
-
-      --font-heading: 'Noto Serif', serif;
-
-      --font-body: 'Noto Sans', sans-serif;
-
-      --font-sans-bold: 'Noto Sans', sans-serif;
-
-      
-
-      --radius-card: 24px;
-
-      --radius-btn: 4px;
-
-    }
-
-    
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-
-      font-family: var(--font-body);
-
-      color: inherit;
-
-      
-
-      line-height: 1.6;
-
-      -webkit-font-smoothing: antialiased;
-
-    }
-
-    img, video { max-width: 100%; display: block; }
-
-    a { text-decoration: none; color: inherit; }
-
-    .container {
-
-      width: 100%;
-
-      max-width: 1280px;
-
-      margin: 0 auto;
-
-      padding: 0 2rem;
-
-    }
-
-
-
-    /* Top Bar & Header */
-
-    .site-header {
-
-      background-color: var(--color-primary);
-
-      color: white;
-
-      position: sticky;
-
-      top: 0;
-
-      z-index: 100;
-
-    }
-
-    .header-inner {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      height: 80px;
-
-    }
-
-    .text-logo {
-
-      font-family: var(--font-heading);
-
-      font-weight: 700;
-
-      font-size: 1.75rem;
-
-      letter-spacing: -0.5px;
-
-      color: white;
-
-      display: flex;
-
-      align-items: baseline;
-
-    }
-
-    .text-logo span {
-
-      font-family: var(--font-body);
-
-      font-weight: 400;
-
-      font-size: 1rem;
-
-      letter-spacing: 0;
-
-      margin-left: 8px;
-
-      opacity: 0.9;
-
-    }
-
-    .main-nav ul {
-
-      display: flex;
-
-      list-style: none;
-
-      gap: 2rem;
-
-    }
-
-    .main-nav a {
-
-      font-size: 0.9375rem;
-
-      font-weight: 500;
-
-    }
-
-    .main-nav a:hover {
-
-      color: var(--color-accent);
-
-    }
-
-    .header-search {
-
-      font-size: 0.9375rem;
-
-      font-weight: 500;
-
-      cursor: pointer;
-
-    }
-
-
-
-    /* Hero Carousel */
-
-    .hero-container {
-
-      background-color: var(--color-primary);
-
-      padding: 0 2rem 2rem 2rem; /* creates the frame */
-
-    }
-
-    .hero-wrapper {
-
-      position: relative;
-
-      height: calc(100vh - 120px);
-
-      min-height: 600px;
-
-      border-radius: 40px;
-
-      overflow: hidden;
-
-    }
-
-    .hero-slide {
-
-      position: absolute;
-
-      top: 0; left: 0; width: 100%; height: 100%;
-
-      opacity: 0;
-
-      transition: opacity 0.8s ease;
-
-      z-index: 1;
-
-    }
-
-    .hero-slide.active {
-
-      opacity: 1;
-
-      z-index: 2;
-
-    }
-
-    .hero-img {
-
-      position: absolute;
-
-      top: 0; left: 0; width: 100%; height: 100%;
-
-      object-fit: cover;
-
-    }
-
-    .hero-overlay {
-
-      position: absolute;
-
-      top: 0; left: 0; width: 100%; height: 100%;
-
-      background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%);
-
-    }
-
-    .hero-content {
-
-      position: absolute;
-
-      bottom: 12%;
-
-      left: 5%;
-
-      max-width: 650px;
-
-      color: white;
-
-    }
-
-    .hero-headline {
-
-      font-family: var(--font-sans-bold);
-
-      font-size: 4.5rem;
-
-      font-weight: 900;
-
-      line-height: 1;
-
-      text-transform: uppercase;
-
-      margin-bottom: 1rem;
-
-      letter-spacing: -1px;
-
-    }
-
-    .hero-subtext {
-
-      font-family: var(--font-heading);
-
-      font-size: 1.25rem;
-
-      margin-bottom: 2rem;
-
-    }
-
-    .hero-btn {
-
-      display: inline-block;
-
-      background-color: var(--color-primary);
-
-      color: white;
-
-      font-family: var(--font-body);
-
-      font-weight: 600;
-
-      padding: 1rem 2rem;
-
-      border-radius: var(--radius-btn);
-
-      transition: background 0.3s;
-
-    }
-
-    .hero-btn:hover {
-
-      background-color: #007AA5;
-
-    }
-
-    .carousel-indicators {
-
-      position: absolute;
-
-      right: 2rem;
-
-      top: 50%;
-
-      transform: translateY(-50%);
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 1rem;
-
-      z-index: 10;
-
-    }
-
-    .dot {
-
-      width: 10px;
-
-      height: 10px;
-
-      border-radius: 50%;
-
-      border: 2px solid white;
-
-      cursor: pointer;
-
-    }
-
-    .dot.active {
-
-      background-color: var(--color-primary);
-
-      border-color: var(--color-primary);
-
-    }
-
-
-
-    /* Mission Statement */
-
-    .mission-section {
-
-      padding: 3rem 2rem;
-
-      text-align: center;
-
-    }
-
-    .mission-statement {
-
-      font-family: var(--font-heading);
-
-      font-size: 3rem;
-
-      line-height: 1.3;
-
-      max-width: 1000px;
-
-      margin: 0 auto;
-
-      color: inherit;
-
-    }
-
-    .mission-statement em {
-
-      font-style: italic;
-
-      color: var(--color-primary);
-
-    }
-
-
-
-    /* Horizontal Cards (Core Programs) */
-
-    .horizontal-cards-section {
-
-      padding: 4rem 0;
-
-    }
-
-    .card-horizontal {
-
-      display: flex;
-
-      flex-direction: row;
-
-      gap: 4rem;
-
-      margin-bottom: 4rem;
-
-      align-items: center;
-
-    }
-
-    .card-horizontal:nth-child(even) {
-
-      flex-direction: row-reverse;
-
-    }
-
-    .card-horizontal-img {
-
-      flex: 0 0 50%;
-
-      border-radius: var(--radius-card);
-
-      overflow: hidden;
-
-      aspect-ratio: 16/10;
-
-    }
-
-    .card-horizontal-img img {
-
-      width: 100%; height: 100%; object-fit: cover;
-
-      transition: transform 0.5s ease;
-
-    }
-
-    .card-horizontal:hover .card-horizontal-img img {
-
-      transform: scale(1.03);
-
-    }
-
-    .card-horizontal-content {
-
-      flex: 1;
-
-    }
-
-    .card-horizontal-eyebrow {
-
-      text-transform: uppercase;
-
-      font-size: 0.875rem;
-
-      font-weight: 700;
-
-      color: rgba(255,255,255,0.8);
-
-      margin-bottom: 1rem;
-
-      letter-spacing: 1px;
-
-    }
-
-    .card-horizontal h3 {
-
-      font-size: 2.5rem;
-
-      margin-bottom: 1.25rem;
-
-      color: inherit;
-
-      font-family: var(--font-heading);
-
-      line-height: 1.2;
-
-    }
-
-    .card-horizontal p {
-
-      color: rgba(255,255,255,0.8);
-
-      margin-bottom: 2rem;
-
-      font-size: 1.125rem;
-
-      line-height: 1.6;
-
-      font-family: var(--font-heading);
-
-    }
-
-    .text-link {
-
-      font-weight: 600;
-
-      color: var(--color-primary);
-
-      text-decoration: none;
-
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-      font-size: 1.05rem;
-
-    }
-
-    .text-link:hover {
-
-      text-decoration: underline;
-
-    }
-
-
-
-    /* Facts Section */
-
-    .facts-wrapper {
-
-      padding: 0 2rem 4rem 2rem;
-
-    }
-
-    .facts-card {
-
-      background-color: var(--color-primary);
-      color: white;
-
-      border-radius: 40px;
-
-      padding: 4rem;
-
-      position: relative;
-
-    }
-
-    .facts-header {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: flex-start;
-
-      margin-bottom: 4rem;
-
-    }
-
-    .facts-title-wrapper h2 {
-
-      font-family: var(--font-heading);
-
-      font-size: 2.5rem;
-
-      font-weight: 400;
-
-      color: inherit;
-
-      margin-bottom: 0.5rem;
-
-    }
-
-    .facts-title-wrapper p {
-
-      color: rgba(255,255,255,0.8);
-
-      font-size: 0.9375rem;
-
-      font-family: var(--font-heading);
-
-    }
-
-    .facts-link {
-
-      font-weight: 600;
-
-      color: inherit;
-
-      font-size: 0.9375rem;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-    }
-
-    .facts-link:hover { text-decoration: underline; }
-
-    
-
-    .stats-row {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      gap: 2rem;
-
-    }
-
-    .stat-item {
-
-      text-align: center;
-
-      flex: 1;
-
-    }
-
-    .stat-number {
-
-      font-family: var(--font-heading);
-
-      font-size: 4.5rem;
-
-      font-weight: 300;
-
-      color: inherit;
-
-      line-height: 1;
-
-      margin-bottom: 0.5rem;
-
-    }
-
-    .stat-label {
-
-      font-size: 1.125rem;
-
-      color: rgba(255,255,255,0.8);
-
-      font-family: var(--font-heading);
-
-    }
-
-
-
-    /* Dark Ideas Section */
-
-    .ideas-section {
-
-      background-color: #2F3943; /* Slate dark */
-
-      color: white;
-
-      padding: 3rem 0;
-
-      overflow: hidden;
-
-    }
-
-    .ideas-top {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: baseline;
-
-      margin-bottom: 3rem;
-
-    }
-
-    .ideas-title {
-
-      font-family: var(--font-sans-bold);
-
-      font-size: 3rem;
-
-      font-weight: 900;
-
-      text-transform: uppercase;
-
-      letter-spacing: -0.5px;
-
-    }
-
-    .ideas-layout {
-
-      display: flex;
-
-      gap: 4rem;
-
-    }
-
-    .ideas-sidebar {
-
-      flex: 0 0 250px;
-
-    }
-
-    .ideas-nav {
-
-      list-style: none;
-
-    }
-
-    .ideas-nav li {
-
-      margin-bottom: 1rem;
-
-    }
-
-    .ideas-nav a {
-
-      color: rgba(255,255,255,0.6);
-
-      font-size: 1.25rem;
-
-      font-weight: 700;
-
-      text-decoration: none;
-
-      transition: color 0.2s;
-
-    }
-
-    .ideas-nav a:hover, .ideas-nav a.active {
-
-      color: white;
-
-    }
-
-    .ideas-carousel {
-
-      flex: 1;
-
-      display: flex;
-
-      gap: 2rem;
-
-      overflow-x: auto;
-
-      padding-bottom: 1rem;
-
-      scrollbar-width: none;
-
-    }
-
-    .ideas-carousel::-webkit-scrollbar { display: none; }
-
-    .idea-card {
-
-      flex: 0 0 380px;
-
-      position: relative;
-
-      cursor: pointer;
-
-    }
-
-    .idea-card-img {
-
-      border-radius: 12px;
-
-      aspect-ratio: 16/10;
-
-      overflow: hidden;
-
-      margin-bottom: 1.5rem;
-
-      position: relative;
-
-    }
-
-    .idea-card-img img {
-
-      width: 100%; height: 100%; object-fit: cover;
-
-    }
-
-    .idea-card-btn {
-
-      position: absolute;
-
-      right: 1rem;
-
-      bottom: 1rem;
-
-      width: 40px; height: 40px;
-
-      background-color: var(--color-primary);
-
-      color: white;
-
-      border-radius: 4px;
-
-      display: flex; align-items: center; justify-content: center;
-
-      font-weight: bold;
-
-    }
-
-    .idea-card h4 {
-
-      font-family: var(--font-sans-bold);
-
-      font-size: 1.5rem;
-
-      font-weight: 800;
-
-      margin-bottom: 1rem;
-
-      line-height: 1.2;
-
-    }
-
-    .idea-card p {
-
-      color: rgba(255,255,255,0.8);
-
-      font-family: var(--font-heading);
-
-      font-size: 1rem;
-
-      line-height: 1.5;
-
-    }
-
-
-
-    /* Newsletter Section */
-
-    .newsletter-wrapper {
-
-      padding: 4rem 2rem;
-
-    }
-
-    .newsletter-card {
-
-      background-color: var(--color-primary); /* Navy */
-
-      border-radius: 40px;
-
-      padding: 5rem 4rem;
-
-      display: flex;
-
-      align-items: flex-start;
-
-      justify-content: space-between;
-
-      gap: 4rem;
-
-      color: white;
-
-    }
-
-    .newsletter-content {
-
-      flex: 1;
-
-      max-width: 500px;
-
-    }
-
-    .newsletter-content h2 {
-
-      font-family: var(--font-sans-bold);
-
-      font-size: 2.5rem;
-
-      font-weight: 900;
-
-      text-transform: uppercase;
-
-      margin-bottom: 1.5rem;
-
-      letter-spacing: -0.5px;
-
-    }
-
-    .newsletter-content p {
-
-      font-family: var(--font-heading);
-
-      font-size: 1.25rem;
-
-      line-height: 1.6;
-
-    }
-
-    .newsletter-form-container {
-
-      flex: 1;
-
-      max-width: 500px;
-
-    }
-
-    .newsletter-form {
-
-      display: flex;
-
-      width: 100%;
-
-    }
-
-    .newsletter-input {
-
-      flex: 1;
-
-      padding: 1.25rem;
-
-      border: none;
-
-      border-radius: 4px 0 0 4px;
-
-      font-size: 1rem;
-
-      font-family: var(--font-body);
-
-    }
-
-    .newsletter-btn {
-
-      background-color: #2F3943;
-
-      color: white;
-
-      padding: 0 2rem;
-
-      border: none;
-
-      border-radius: 0 4px 4px 0;
-
-      font-weight: 700;
-
-      cursor: pointer;
-
-      font-size: 1rem;
-
-      transition: background-color 0.2s;
-
-    }
-
-    .newsletter-btn:hover {
-
-      background-color: #1a2026;
-
-    }
-
-    .newsletter-disclaimer {
-
-      margin-top: 1rem;
-
-      font-size: 0.75rem;
-
-      color: rgba(255,255,255,0.7);
-
-      line-height: 1.4;
-
-    }
-
-    .newsletter-disclaimer a { text-decoration: underline; color: white; }
-
-
-
-    /* Footer */
-
-    .site-footer {
-
-      background-color: var(--color-primary); /* Navy Blue Theme */
-
-      color: white;
-
-      padding: 4rem 0 2rem;
-
-      border-top: none;
-
-    }
-
-    .footer-grid {
-
-      display: grid;
-
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-
-      gap: 3rem;
-
-      margin-bottom: 4rem;
-
-    }
-
-    .footer-col-brand .text-logo {
-
-      color: white;
-
-      margin-bottom: 1.5rem;
-
-      display: flex;
-
-    }
-
-    .footer-col h4 {
-
-      font-family: var(--font-body);
-
-      font-weight: 700;
-
-      margin-bottom: 1.5rem;
-
-      color: white;
-
-    }
-
-    .footer-col ul { list-style:none; }
-
-    .footer-col ul li { margin-bottom:0.75rem; }
-
-    .footer-col a { color: rgba(255,255,255,0.8); }
-
-    .footer-col a:hover { color: var(--color-accent); text-decoration: underline; }
-
-    
-
-    .footer-bottom {
-
-      border-top: 1px solid rgba(255,255,255,0.1);
-
-      padding-top: 2rem;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      font-size: 0.875rem;
-
-      color: rgba(255,255,255,0.6);
-
-    }
-
-
-
-    /* Responsive */
-
-    @media (max-width: 1024px) {
-
-      .hero-headline { font-size: 3.5rem; }
-
-      .card-horizontal, .card-horizontal:nth-child(even) { flex-direction: column; gap: 2rem; }
-
-      .facts-card { padding: 3rem; }
-
-      .stats-row { flex-wrap: wrap; }
-
-      .stat-item { flex: 0 0 45%; margin-bottom: 2rem; }
-
-      .newsletter-card { flex-direction: column; padding: 3rem; }
-
-      .ideas-layout { flex-direction: column; }
-
-    }
-
-    @media (max-width: 768px) {
-
-      .hero-container { padding: 0; }
-
-      .hero-wrapper { border-radius: 0; height: 60vh; }
-
-      .hero-content { left: 2rem; right: 2rem; }
-
-      .hero-headline { font-size: 2.5rem; }
-
-      .mission-statement { font-size: 2rem; }
-
-      .facts-wrapper { padding: 0; }
-
-      .facts-card { border-radius: 0; }
-
-      .stat-item { flex: 0 0 100%; }
-
-      .footer-grid { grid-template-columns: 1fr; }
-
-    }
-
-  
-
-    /* --- NEW CSS ADDITIONS --- */
-
-    /* Header Dropdowns */
-
-    .logo-link { display: flex; align-items: center; }
-
-    
-
-    .header-logo {
-      height: 50px;
-      width: auto;
-      margin-right: 2rem;
-      object-fit: contain;
-    }
-    @media (max-width: 768px) {
-      .header-logo {
-        height: 38px;
-        margin-right: 1rem;
-      }
-    }
-
-    .has-dropdown { position: relative; }
-
-    .dropdown-menu {
-
-      display: none;
-
-      position: absolute;
-
-      top: 100%;
-
-      left: 0;
-
-      background-color: white;
-
-      color: inherit;
-
-      min-width: 200px;
-
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-      border-radius: 4px;
-
-      padding: 0.5rem 0;
-
-      z-index: 200;
-
-    }
-
-    .has-dropdown:hover .dropdown-menu {
-
-      display: block;
-
-    }
-
-    .dropdown-menu a {
-
-      display: block;
-
-      padding: 0.75rem 1.5rem;
-
-      font-weight: 500;
-
-      color: var(--color-text) !important;
-
-    }
-
-    .dropdown-menu a:hover {
-
-      background-color: var(--color-bg-light);
-
-      color: var(--color-primary) !important;
-
-    }
-
-
-
-    /* Intro Cards */
-
-    .intro-cards-section { margin-bottom: 5rem; }
-
-    .intro-cards-wrapper { display: flex; gap: 2rem; }
-
-    .intro-card { flex: 1; display: flex; border-radius: 12px; overflow: hidden; align-items: center; padding-right: 2rem; }
-
-    .intro-card.bg-light-blue { background-color: #E6F3FA; }
-
-    .intro-card.bg-white { background-color: white; }
-
-    .intro-card-img-wrapper { position: relative; flex: 0 0 50%; max-width: 50%; height: 250px; margin-right: 2rem; }
-
-    .intro-card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-
-    .yellow-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background-color: #FFC000; border-radius: 4px 0 0 4px; }
-
-    .intro-card-content { flex: 1; padding: 1rem 0; }
-
-    .intro-card-content h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; color: inherit; }
-
-    .intro-card-content h3 em { font-style: italic; color: var(--color-secondary); font-weight: 400; }
-
-    .intro-card-content p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.5; font-family: var(--font-heading); }
-
-    .text-link-underline { font-weight: 700; color: inherit; text-decoration: underline; font-size: 0.9375rem; display: inline-block; }
-
-    .text-link-underline:hover { color: var(--color-primary); }
-
-
-
-    /* Partners Section */
-
-    .partners-section {
-
-      display: flex;
-
-      align-items: center;
-
-      margin-bottom: 6rem;
-
-      gap: 4rem;
-
-    }
-
-    .partners-image-container {
-
-      flex: 0 0 50%;
-
-      height: 600px;
-
-    }
-
-    .partners-image-container img {
-
-      width: 100%;
-
-      height: 100%;
-
-      object-fit: cover;
-
-      border-radius: 0 80px 80px 0;
-
-    }
-
-    .partners-content {
-
-      flex: 1;
-
-      padding-right: 4rem;
-
-      text-align: center;
-
-      max-width: 550px;
-
-    }
-
-    .partners-title {
-
-      font-family: 'Caveat', cursive, var(--font-heading);
-
-      font-size: 4.5rem;
-
-      font-weight: 400;
-
-      line-height: 1.1;
-
-      color: inherit;
-
-      margin-bottom: 2rem;
-
-      font-style: italic;
-
-    }
-
-    .partners-desc {
-
-      font-family: var(--font-heading);
-
-      font-size: 1.125rem;
-
-      color: rgba(255,255,255,0.8);
-
-      line-height: 1.6;
-
-      margin-bottom: 2.5rem;
-
-    }
-
-    .btn-yellow {
-
-      display: inline-block;
-
-      background-color: #EED202;
-
-      color: inherit;
-
-      font-family: var(--font-sans-bold);
-
-      font-weight: 700;
-
-      padding: 1rem 2.5rem;
-
-      border-radius: 4px;
-
-      text-decoration: none;
-
-      font-size: 1rem;
-
-      transition: background-color 0.3s;
-
-    }
-
-    .btn-yellow:hover { background-color: #D4BA00; }
-
-
-
-    /* More About Section */
-
-    .more-about-section { padding: 3rem 2rem; }
-
-    .section-heading-uppercase {
-
-      font-family: var(--font-sans-bold);
-
-      font-size: 2rem;
-
-      font-weight: 900;
-
-      text-transform: uppercase;
-
-      margin-bottom: 3rem;
-
-      color: inherit;
-
-      letter-spacing: -0.5px;
-
-    }
-
-    .more-cards-wrapper { display: flex; gap: 2rem; }
-
-    .more-card { flex: 1; }
-
-    .more-card-img { border-radius: 16px; overflow: hidden; aspect-ratio: 16/11; margin-bottom: 1.5rem; }
-
-    .more-card-img img { width: 100%; height: 100%; object-fit: cover; }
-
-    .more-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: inherit; }
-
-    .more-card p { font-family: var(--font-heading); color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
-
-
-
-    /* Button under mission statement */
-
-    .btn-outline-blue {
-
-      display: inline-block;
-
-      border: 1px solid var(--color-secondary);
-
-      color: var(--color-secondary);
-
-      background: transparent;
-
-      padding: 0.75rem 2rem;
-
-      border-radius: 4px;
-
-      font-weight: 600;
-
-      font-size: 1rem;
-
-      margin-top: 2rem;
-
-      transition: all 0.3s;
-
-    }
-
-    .btn-outline-blue:hover {
-
-      background: var(--color-secondary);
-
-      color: white;
-
-    }
-
-    
-
-    @media (max-width: 1024px) {
-
-      .intro-cards-wrapper { flex-direction: column; }
-
-      .partners-section { flex-direction: column; }
-
-      .partners-image-container { border-radius: 0; width: 100%; }
-
-      .partners-image-container img { border-radius: 0; }
-
-      .partners-content { padding: 2rem; }
-
-      .more-cards-wrapper { flex-direction: column; }
-
-    }
-
-
-
-
-
-    /* --- MEGA MENU & CAROUSEL --- */
-
-    .header-logo-icon { height: 45px; object-fit: contain; margin-right: 15px; }
-
-    .header-logo-wordmark { height: 45px; object-fit: contain; }
-
-    .header-search { display: flex; align-items: center; cursor: pointer; font-size: 1.15rem; font-weight: 600; }
-
-    .header-search img { height: 26px; margin-left: 10px; border-radius: 50%; }
-
-
-
-    /* Remove old dropdown css to avoid conflict */
-
-    .dropdown-menu { display: none !important; } 
-
-
-
-    .site-header { position: relative; } /* To contain absolute mega menu */
-
-    
-
-    .mega-menu {
-
-      position: absolute;
-
-      top: 100%;
-
-      left: 0;
-
-      width: 100%;
-
-      background-color: var(--color-primary); /* Navy blue */
-
-      color: white;
-
-      display: none;
-
-      border-top: 1px solid rgba(255,255,255,0.1);
-
-      padding: 3rem 0;
-
-      z-index: 1000;
-
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-    }
-
-    .mega-menu.active { display: block; }
-
-    .mega-menu-inner {
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-
-      gap: 2rem;
-
-    }
-
-    .mega-col h3 { font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; line-height:1; }
-
-    .mega-col h4 { font-family: var(--font-sans-bold); font-size: 1.1rem; margin-bottom: 1.5rem; }
-
-    .mega-col p { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); }
-
-    .mega-col a { display: block; margin-bottom: 1rem; color: white; opacity: 0.9; text-decoration: none; font-size:0.95rem; }
-
-    .mega-col a:hover { opacity: 1; text-decoration: underline; }
-
-    .intro-col a { font-weight: bold; text-decoration: underline; font-family: var(--font-body); }
-
-    .nav-link { display: flex; align-items: center; gap: 4px; }
-
-    .arrow { font-size: 0.8rem; font-family: monospace; }
-
-
-
-    /* New Carousel Controls */
-
-    .carousel-controls {
-
-      position: absolute;
-
-      right: 2rem;
-
-      top: 50%;
-
-      transform: translateY(-50%);
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 1rem;
-
-      z-index: 10;
-
-      align-items: center;
-
-    }
-
-    .carousel-controls .dot {
-
-      width: 12px;
-
-      height: 12px;
-
-      border-radius: 50%;
-
-      border: 2px solid white;
-
-      background: transparent;
-
-      cursor: pointer;
-
-      margin-bottom: 5px;
-
-    }
-
-    .carousel-controls .dot.active {
-
-      background-color: #EED202; /* Yellow filled circle */
-
-      border-color: #EED202;
-
-    }
-
-    .carousel-controls .car-arrow {
-
-      color: white;
-
-      font-size: 1.5rem;
-
-      cursor: pointer;
-
-      font-weight: bold;
-
-      user-select: none;
-
-    }
-
-    .carousel-controls .car-arrow:hover {
-
-      color: #EED202;
-
-    }
-
-    .carousel-indicators { display: none !important; } /* Hide old one */
-
-
-
-    /* New Footer */
-
-    .site-footer { display: none; } /* hide old footer rules */
-
-    .new-footer {
-
-      display: block;
-
-      background-color: var(--color-primary); /* Dark slate matching Gates */
-
-      color: white;
-
-      padding: 3rem 0 4rem;
-
-      font-family: var(--font-body);
-
-      border-top: none;
-
-    }
-
-    .footer-flex {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      gap: 4rem;
-
-    }
-
-    .footer-left {
-
-      flex: 0 0 300px;
-
-    }
-
-    .footer-right {
-
-      flex: 1;
-
-      max-width: 700px;
-
-    }
-
-    .footer-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 3rem;
-      gap: 3rem;
-    }
-
-    .footer-tagline {
-
-      font-family: var(--font-heading);
-
-      font-size: 1.125rem;
-
-      font-weight: 600;
-
-      max-width: 300px;
-
-      line-height: 1.4;
-
-    }
-
-    .footer-socials {
-
-      display: flex;
-
-      gap: 0.75rem;
-
-    }
-
-    .footer-socials a {
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      width: 32px; height: 32px;
-
-      border: 1px solid rgba(255,255,255,0.6);
-
-      border-radius: 50%;
-
-      color: white;
-
-      text-decoration: none;
-
-      font-size: 0.85rem;
-
-      transition: all 0.3s;
-
-      text-transform: uppercase;
-
-      font-weight: bold;
-
-    }
-
-    .footer-socials a:hover {
-
-      background: white; color: #2F3943;
-
-    }
-
-    .footer-nav-primary {
-
-      font-weight: 700;
-
-      font-size: 1.1rem;
-
-      margin-bottom: 2rem;
-
-    }
-
-    .footer-nav-primary a { margin: 0 0.5rem; color: white; text-decoration: none; }
-
-    .footer-nav-primary a:first-child { margin-left: 0; }
-
-    .footer-nav-primary a:hover { text-decoration: underline; }
-
-    
-
-    .footer-divider {
-
-      border: none;
-
-      border-top: 1px solid rgba(255,255,255,0.2);
-
-      margin-bottom: 2rem;
-
-    }
-
-    .footer-nav-secondary {
-
-      font-weight: 600;
-
-      font-size: 0.95rem;
-
-      margin-bottom: 3rem;
-
-      line-height: 2;
-
-    }
-
-    .footer-nav-secondary a { margin: 0 0.5rem; color: white; text-decoration: none; }
-
-    .footer-nav-secondary a:first-child { margin-left: 0; }
-
-    .footer-nav-secondary a:hover { text-decoration: underline; }
-
-    
-
-    .footer-nav-tertiary {
-
-      font-size: 0.85rem;
-
-      color: rgba(255,255,255,0.6);
-
-      line-height: 2;
-
-      margin-bottom: 2rem;
-
-    }
-
-    .footer-nav-tertiary a { color: rgba(255,255,255,0.6); margin: 0 0.25rem; text-decoration: none; }
-
-    .footer-nav-tertiary a:first-child { margin-left: 0; }
-
-    .footer-nav-tertiary a:hover { color: white; text-decoration: underline; }
-
-    
-
-    .footer-copyright {
-
-      font-size: 0.85rem;
-
-      color: rgba(255,255,255,0.5);
-
-    }
-
-    @media(max-width: 768px) {
-
-      .footer-flex { flex-direction: column; }
-
-      .footer-top-row { flex-direction: column; gap: 2rem; }
-
-    }
-
-</style>
+  <link rel="stylesheet" href="css/main.css?v=8">
 
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
@@ -2003,9 +273,63 @@
       width: 100%;
     }
   }
+  
+  /* --- RESPONSIVE UTILITIES --- */
+  @media (min-width: 901px) {
+    .mobile-only { display: none !important; }
+    .desktop-only { display: block !important; }
+  }
+  @media (max-width: 900px) {
+    .mobile-only { display: block !important; }
+    .desktop-only { display: none !important; }
+  }
+
+  /* --- RESTORE DESKTOP UI OVERRIDES --- */
+  @media (min-width: 901px) {
+    /* Restore Hero Section */
+    .hero-wrapper {
+      height: calc(100vh - 120px) !important;
+      min-height: 600px !important;
+      border-radius: 40px !important;
+    }
+    .new-donate-slide {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      background: #fff !important;
+      position: absolute !important;
+      inset: 0 !important;
+      overflow: hidden !important;
+    }
+    .new-donate-media {
+      position: relative !important;
+      height: 100% !important;
+    }
+    .new-donate-form-wrapper {
+      background: #fff !important;
+      position: relative !important;
+      padding: 2.75rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .new-donate-card {
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    .new-donate-overlay-content {
+      padding: 4rem 3.5rem 2.5rem !important;
+    }
+    
+    /* Mission section font size */
+    .mission-statement {
+      font-size: 3rem !important;
+    }
+  }
   </style>
 
 
+
+  <link rel="stylesheet" href="css/mobile-header.css?v=4">
 </head>
 
 <body>
@@ -2022,9 +346,11 @@
 
       <a href="/" class="nav-brand">
 
-        <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+        <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
 
       </a>
+      <a href="donate.html" class="mobile-donate-pill" aria-label="Donate">Donate</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle Menu" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;display:none;margin-left:auto;">&#9776;</button>
       <nav class="main-nav">
         <ul>
           <li>
@@ -2047,7 +373,7 @@
 
       <div class="header-actions" style="display: flex; gap: 1rem; align-items: center;">
         <a href="contact.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.4rem 1rem; border-radius: 4px; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.background='transparent';">Contact Us</a>
-        <a href="under-construction.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-primary); background: white; padding: 0.4rem 1.25rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.background='#f0f0f0'; this.style.transform='translateY(-1px)';" onmouseout="this.style.background='white'; this.style.transform='translateY(0)';">Donate</a>
+        <a href="donate.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-primary); background: white; padding: 0.4rem 1.25rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.background='#f0f0f0'; this.style.transform='translateY(-1px)';" onmouseout="this.style.background='white'; this.style.transform='translateY(0)';">Donate</a>
       </div>
 
     </div>
@@ -2156,55 +482,562 @@
 
       
       <!-- Slide 0 (Donation) -->
+      <!-- Slide 0 (Donation) -->
+      <!-- Slide 0 (Donation) -->
       <div class="hero-slide active">
-        <img src="assets/img/neiki_hero_donation_slide.png" alt="Donate for a Cause" class="hero-img">
-        <div class="hero-overlay" style="background: linear-gradient(to right, rgba(17,42,70,0.9) 0%, rgba(17,42,70,0.6) 40%, rgba(0,0,0,0.1) 100%);"></div>
-        
-        <div class="hero-donation-content">
-          <div class="hero-donation-text">
-            <span class="hero-donation-eyebrow">Support NEIKI's Work</span>
-            <h1 class="hero-donation-headline">DONATE FOR<br>A CAUSE</h1>
-            <p class="hero-donation-subtext">Your support helps us continue building clean-water solutions for communities that need them most.</p>
+        <style>
+          /* Premium donation hero: image and donation panel are true side-by-side columns. */
+          .new-donate-slide {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            background: #fff;
+          }
+
+          .new-donate-media {
+            position: relative;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #17384a;
+          }
+
+          .new-donate-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+
+          .new-donate-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(5, 25, 36, .85) 0%, rgba(5, 25, 36, .45) 50%, rgba(5, 25, 36, .05) 100%),
+                        linear-gradient(0deg, rgba(0,0,0,.40) 0%, transparent 50%);
+          }
+
+          .new-donate-overlay-content {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+          }
+
+          .overlay-main-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .new-donate-headline {
+            max-width: 600px;
+            margin-bottom: 1rem;
+            font-family: var(--font-sans-bold);
+            font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            color: #fff;
+            text-shadow: 0 4px 20px rgba(0,0,0,.3);
+          }
+
+          .new-donate-subtext {
+            max-width: 500px;
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: clamp(1rem, 1.25vw, 1.15rem);
+            line-height: 1.5;
+            color: rgba(255,255,255,.9);
+          }
+
+          .new-donate-pillars {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            max-width: 610px;
+            border-top: 1px solid rgba(255,255,255,.25);
+            padding-top: 1.2rem;
+          }
+
+          .new-donate-pillar {
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+            padding-right: .7rem;
+            border-right: 1px solid rgba(255,255,255,.22);
+            text-align: center;
+            align-items: center;
+          }
+
+          .new-donate-pillar:last-child { border-right: 0; }
+
+          .new-donate-pillar-icon {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+          }
+
+          .new-donate-pillar span:last-child {
+            font-family: var(--font-body);
+            font-size: .75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,.94);
+          }
+
+          .left-trust-wrapper {
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,.25);
+            padding-top: 1.25rem;
+          }
+
+          .left-secure-note {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: .85rem;
+            font-size: .75rem;
+            font-weight: 600;
+            color: #67d6f5;
+          }
+
+          .left-secure-note svg { flex: 0 0 auto; }
+
+          .left-trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+          }
+
+          .left-trust-item {
+            text-align: left;
+          }
+
+          .left-trust-icon {
+            width: 20px;
+            height: 20px;
+            margin-bottom: .4rem;
+            display: flex;
+            align-items: center;
+            color: #67d6f5;
+          }
+
+          .left-trust-text h5 {
+            margin-bottom: .2rem;
+            font-family: var(--font-sans-bold);
+            font-size: .7rem;
+            font-weight: 800;
+            color: #fff;
+          }
+
+          .left-trust-text p {
+            font-family: var(--font-body);
+            font-size: .55rem;
+            line-height: 1.4;
+            color: rgba(255,255,255,.8);
+          }
+
+          .new-donate-form-wrapper {
+            min-width: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1.25rem, 3vw, 2.75rem);
+            background: #fff;
+            overflow-y: auto;
+          }
+
+          .new-donate-card {
+            width: 100%;
+            max-width: 520px;
+            margin: auto;
+            padding: clamp(1.25rem, 3vw, 2.2rem);
+            background: #fff;
+            border-radius: 20px;
+          }
+
+          .new-donate-card-title {
+            margin-bottom: .5rem;
+            font-family: var(--font-sans-bold);
+            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+            line-height: 1.1;
+            font-weight: 900;
+            color: #1a202c;
+          }
+
+          .new-donate-card-desc {
+            margin-bottom: 1.25rem;
+            font-family: var(--font-heading);
+            font-size: .95rem;
+            line-height: 1.5;
+            color: #4a5568;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #edf2f7;
+          }
+
+          .new-donate-label {
+            display: block;
+            margin-bottom: .5rem;
+            font-family: var(--font-sans-bold);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #718096;
+          }
+
+          .custom-amount-input-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+          }
+
+          .custom-amount-input-wrapper .currency {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-sans-bold);
+            font-size: .95rem;
+            font-weight: 800;
+            color: #2d3748;
+            pointer-events: none;
+          }
+
+          .custom-amount-input-wrapper .min-label {
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-body);
+            font-size: .8rem;
+            font-weight: 500;
+            color: #a0aec0;
+            pointer-events: none;
+          }
+
+          .custom-amount-input {
+            width: 100%;
+            padding: 1rem 5.5rem 1rem 3.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            background: #faf5f5;
+            color: #1a202c;
+            font-family: var(--font-sans-bold);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all .2s;
+          }
+
+          .custom-amount-input:focus {
+            border-color: var(--color-primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,158,219,.15);
+          }
+
+          .custom-amount-input::placeholder {
+            color: #a0aec0;
+            font-weight: 400;
+          }
+
+          .quick-amount-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: .6rem;
+            margin-bottom: 1.25rem;
+          }
+
+          .quick-btn {
+            min-width: 0;
+            padding: .75rem .2rem;
+            border: 1px solid #bee3f8;
+            border-radius: 6px;
+            background: #fff;
+            color: var(--color-primary);
+            font-family: var(--font-sans-bold);
+            font-size: .78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .15s ease;
+          }
+
+          .quick-btn:hover {
+            background: #ebf8ff;
+          }
+
+          .quick-btn.active {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: #fff;
+          }
+
+          .new-donate-submit {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: .9rem;
+            border: 0;
+            border-radius: 8px;
+            background: var(--color-primary);
+            color: #fff;
+            font-family: var(--font-sans-bold);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+          }
+
+          .new-donate-submit:hover {
+            background: #008cc9;
+            transform: translateY(-1px);
+          }
+
+          @media (max-width: 1100px) {
+            .new-donate-headline { font-size: clamp(2.4rem, 4vw, 3.5rem); }
+            .new-donate-form-wrapper { padding: 1.25rem; }
+            .new-donate-card { padding: 1.7rem; }
+          }
+
+          @media (max-width: 900px) {
+            .new-donate-slide {
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              overflow-y: auto;
+              min-height: 100vh; /* Ensure full height on mobile */
+            }
+            .new-donate-media {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 1;
+            }
+            .new-donate-media::after {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
+            }
+            .new-donate-overlay-content {
+              position: relative;
+              z-index: 2;
+              padding: 2rem 1.5rem 0 1.5rem;
+              height: auto;
+            }
+            .left-trust-wrapper { display: none; } /* Hide extra icons on mobile to save space */
             
-            <div class="hero-donation-buttons">
-              <a href="impact.html" class="btn-primary-hero">Donate for Water Projects</a>
-              <a href="contact.html" class="btn-secondary-hero">Contact Us</a>
-            </div>
+            .new-donate-form-wrapper {
+              position: relative;
+              z-index: 2;
+              background: transparent !important;
+              padding: 0 1.5rem 1.5rem 1.5rem !important;
+              margin-top: auto; /* Push form to the bottom */
+            }
+            .new-donate-card {
+              max-width: 620px;
+              background: transparent !important;
+              padding: 0 !important;
+              box-shadow: none !important;
+              margin: 0 auto !important;
+            }
             
-            <div class="hero-trust-text">
-              <span>Current focus &middot; <strong>Clean Water Projects</strong></span>
-              <span>Questions before donating? <a href="contact.html" style="color:#4DB8FF;text-decoration:none;">Contact Us &rarr;</a></span>
+            /* Text color overrides for transparent background */
+            .new-donate-card-title, .new-donate-card-desc, .new-donate-label {
+              color: white !important;
+            }
+            
+            /* Action Row */
+            .hide-mobile { display: none !important; }
+            .action-row-mobile {
+              display: flex;
+              gap: 0.5rem;
+              margin-top: 1rem;
+              align-items: stretch;
+            }
+            .quick-amount-buttons {
+              flex: 1;
+              display: flex !important;
+              gap: 0.5rem !important;
+              margin-bottom: 0 !important;
+              grid-template-columns: none !important; /* Override desktop grid */
+            }
+            .quick-btn {
+              flex: 1;
+            }
+            .new-donate-submit {
+              margin-top: 0 !important;
+              padding: 0.8rem 1rem !important;
+              flex: 0 0 auto;
+              white-space: nowrap;
+            }
+          }
+
+          @media (max-width: 560px) {
+            .new-donate-overlay-content { padding: 1.25rem 1.25rem 0 1.25rem; }
+            .new-donate-form-wrapper { padding: 0 1.25rem 1.25rem 1.25rem !important; }
+            .new-donate-headline { font-size: 2.2rem; letter-spacing: -1px; }
+            .new-donate-subtext { display: none; }
+            .new-donate-pillars { display: none; } /* Hide pillars completely to make room for form */
+            
+            .new-donate-card-title { font-size: 1.7rem; }
+            .new-donate-card-desc { font-size: .87rem; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.2) !important; }
+            .quick-btn { font-size: .75rem; padding: .8rem .2rem; }
+            .new-donate-submit { font-size: 0.85rem !important; padding: 0.8rem !important; }
+          }
+        </style>
+
+        <div class="new-donate-slide">
+          <div class="new-donate-media">
+            <img loading="lazy" src="assets/img/donation_water_pump_new.png" alt="NEIKI community water project creating impact" class="new-donate-img">
+            <div class="new-donate-overlay-content">
+              
+              <div class="overlay-main-text">
+                <h2 class="new-donate-headline">Your Small Step,<br>Their Big Change</h2>
+                <p class="new-donate-subtext">Together, we can build a better future for communities that need it most.</p>
+
+                <div class="new-donate-pillars" aria-label="NEIKI focus areas">
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M8 6h8M8 10h7"/></svg></div>
+                    <span>Education</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/><path d="M12 8v6M9 11h6"/></svg></div>
+                    <span>Healthcare</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><path d="M5 18c3-1 5-3 7-6 2 3 4 5 7 6"/><path d="M6 9c2-1 4-2 6-4 2 2 4 3 6 4"/></svg></div>
+                    <span>Livelihoods</span>
+                  </div>
+                  <div class="new-donate-pillar">
+                    <div class="new-donate-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M14 21v-1a5 5 0 0 1 7 0"/></svg></div>
+                    <span>Social Welfare</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="left-trust-wrapper">
+                <div class="left-secure-note">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  Your donation is secure and will be used responsibly to create real impact.
+                </div>
+                <div class="left-trust-grid">
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <div class="left-trust-text"><h5>Transparent</h5><p>We ensure transparency and responsible use of every rupee.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></div>
+                    <div class="left-trust-text"><h5>Accountable</h5><p>Strong governance and monitoring for measurable impact.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="7.5 19.79 7.5 14.6 3 12"/><polyline points="21 12 16.5 14.6 16.5 19.79"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                    <div class="left-trust-text"><h5>Collaborative</h5><p>In partnership with institutions aligned with UN SDGs.</p></div>
+                  </div>
+                  <div class="left-trust-item">
+                    <div class="left-trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div class="left-trust-text"><h5>Community First</h5><p>Empowering communities for long-term self-reliance and resilience.</p></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div class="hero-donation-card">
-            <h3 class="hero-card-title">Make an Impact</h3>
-            <p class="hero-card-desc">Your donation currently supports NEIKI's clean-water projects.</p>
-            
-            <span class="hero-cause-label">Current Cause</span>
-            <div class="hero-cause-value">Clean Water Projects</div>
-            
-            <span class="hero-cause-label">Choose an Amount</span>
-            <select class="hero-amount-select">
-              <option value="1000">PKR 1,000</option>
-              <option value="2500">PKR 2,500</option>
-              <option value="5000">PKR 5,000</option>
-              <option value="10000">PKR 10,000</option>
-              <option value="custom">Custom Amount</option>
-            </select>
-            
-            <a href="under-construction.html" class="hero-donate-btn">Donate Now</a>
-            
-            <div class="hero-card-footer">
-              Have a question before donating?<br>
-              <a href="contact.html">Contact Us &rarr;</a>
-            </div>
-            
-            <div class="hero-future-text">
-              More causes will be added as NEIKI expands its programs.
+
+          <div class="new-donate-form-wrapper">
+            <div class="new-donate-card">
+              <h3 class="new-donate-card-title">Make an Impact</h3>
+              <p class="new-donate-card-desc">Your donation helps NEIKI deliver impactful programs in clean water, education, healthcare, livelihoods, and social welfare for underserved communities. Every contribution brings positive, lasting change.</p>
+
+              <label class="new-donate-label" for="donate-amount-input">CHOOSE AN AMOUNT</label>
+              <div class="custom-amount-input-wrapper">
+                <span class="currency">PKR</span>
+                <input type="number" id="donate-amount-input" class="custom-amount-input" placeholder="Enter any amount" min="1" step="1" inputmode="numeric" autocomplete="off">
+                <span class="min-label">Min: PKR 1</span>
+              </div>
+
+              <div class="action-row-mobile">
+                <div class="quick-amount-buttons">
+                  <button type="button" class="quick-btn" data-amount="100">PKR 100</button>
+                  <button type="button" class="quick-btn" data-amount="500">PKR 500</button>
+                  <button type="button" class="quick-btn active" data-amount="1000">PKR 1,000</button>
+                  <button type="button" class="quick-btn hide-mobile" data-amount="2500">PKR 2,500</button>
+                  <button type="button" class="quick-btn hide-mobile" data-other="true">Other</button>
+                </div>
+
+                <button type="button" onclick="submitDonation()" class="new-donate-submit">
+                  Donate Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        <script>
+          (function () {
+            const amountInput = document.getElementById('donate-amount-input');
+            const quickButtons = document.querySelectorAll('.quick-btn');
+            if (!amountInput) return;
+
+            function updateActiveButton(value) {
+              const amount = Number(value);
+              quickButtons.forEach(btn => {
+                const preset = btn.dataset.amount ? Number(btn.dataset.amount) : null;
+                btn.classList.toggle('active', preset !== null && preset === amount);
+              });
+            }
+
+            quickButtons.forEach(btn => {
+              btn.addEventListener('click', function () {
+                if (this.dataset.other === 'true') {
+                  amountInput.value = '';
+                  amountInput.focus();
+                  quickButtons.forEach(b => b.classList.remove('active'));
+                  return;
+                }
+                amountInput.value = this.dataset.amount;
+                updateActiveButton(amountInput.value);
+              });
+            });
+
+            amountInput.addEventListener('input', function () {
+              if (Number(this.value) < 1 && this.value !== '') this.value = '';
+              updateActiveButton(this.value);
+            });
+            
+            // Initial state set
+            amountInput.value = '1000';
+          })();
+
+          function submitDonation() {
+            const input = document.getElementById('donate-amount-input');
+            const rawAmount = input ? input.value.trim() : '';
+            const amount = Number(rawAmount);
+
+            if (!rawAmount || !Number.isInteger(amount) || amount < 1) {
+              if (input) {
+                input.focus();
+                input.setCustomValidity('Please enter a whole-number amount of at least PKR 1.');
+                input.reportValidity();
+                input.setCustomValidity('');
+              }
+              return;
+            }
+
+            // Keep the existing placeholder donation flow until a payment gateway is connected.
+            window.location.href = 'donate.html';
+          }
+        </script>
       </div>
 
       <!-- Slide 1 -->
@@ -2250,21 +1083,315 @@
     </div>
   </section>
 
-<!-- Facts Section -->
+<!-- ══════════════════════════════════════════════
+     DUAL SWIPEABLE STATS CARDS
+     Card 1: Foundation Facts (stat slider)
+     Card 2: Strong Governance (icon slider)
+     ══════════════════════════════════════════════ -->
+<div class="mobile-only">
+<section class="dual-cards-section">
+  <style>
+    .dual-cards-section {
+      padding: 1.5rem 1rem;
+      background: var(--color-bg-white);
+    }
+    .dual-cards-row {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Each card */
+    .swipe-card {
+      flex: 1;
+      min-width: 0;
+      background: var(--color-primary);
+      border-radius: 16px;
+      padding: 1.25rem 1rem 1rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 160px;
+    }
+    .swipe-card-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.6rem;
+    }
+    /* Card 1 — stat slides */
+    .stat-slides-wrapper {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-slide {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100%;
+      animation: fadeSlide 0.35s ease;
+    }
+    .stat-slide.active { display: flex; }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateX(14px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .stat-slide-number {
+      font-family: var(--font-sans-bold);
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-slide-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+    /* Card 2 — governance icon slides */
+    .gov-slides-wrapper {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .gov-slide {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      animation: fadeSlide 0.35s ease;
+    }
+    .gov-slide.active { display: flex; }
+    .gov-icons-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .gov-icon-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      text-align: center;
+    }
+    .gov-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .gov-icon-circle svg { color: white; }
+    .gov-icon-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.2;
+    }
+    .gov-explore-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+    .gov-explore-link:hover { opacity: 1; text-decoration: underline; }
+    /* Dot indicators */
+    .swipe-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 0.7rem;
+    }
+    .swipe-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .swipe-dot.active {
+      background: white;
+      width: 16px;
+      border-radius: 3px;
+    }
+  </style>
 
-  <section class="facts-wrapper" style="margin-top: 3rem;" >
+  <div class="dual-cards-row">
 
+    <!-- CARD 1: Foundation Facts -->
+    <div class="swipe-card" id="factsCard"
+         ontouchstart="sc1_ts(event)" ontouchend="sc1_te(event)">
+      <div class="swipe-card-label">Foundation Facts</div>
+      <div class="stat-slides-wrapper">
+        <div class="stat-slide active" data-card1="0">
+          <div class="stat-slide-number">81+</div>
+          <div class="stat-slide-label">Water Projects</div>
+        </div>
+        <div class="stat-slide" data-card1="1">
+          <div class="stat-slide-number">1.2M</div>
+          <div class="stat-slide-label">People Served</div>
+        </div>
+        <div class="stat-slide" data-card1="2">
+          <div class="stat-slide-number">5+</div>
+          <div class="stat-slide-label">Active Districts</div>
+        </div>
+        <div class="stat-slide" data-card1="3">
+          <div class="stat-slide-number">2021</div>
+          <div class="stat-slide-label">Year Founded</div>
+        </div>
+      </div>
+      <div class="swipe-dots" id="dots1">
+        <div class="swipe-dot active" onclick="sc1_goto(0)"></div>
+        <div class="swipe-dot" onclick="sc1_goto(1)"></div>
+        <div class="swipe-dot" onclick="sc1_goto(2)"></div>
+        <div class="swipe-dot" onclick="sc1_goto(3)"></div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Strong Governance -->
+    <div class="swipe-card" id="govCard"
+         ontouchstart="sc2_ts(event)" ontouchend="sc2_te(event)">
+      <div class="swipe-card-label">Strong Governance</div>
+      <div class="gov-slides-wrapper">
+
+        <div class="gov-slide active" data-card2="0">
+          <div class="gov-icons-row">
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="gov-icon-label">Transparent</span>
+            </div>
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
+              </div>
+              <span class="gov-icon-label">Accountable</span>
+            </div>
+          </div>
+          <a href="governance.html" class="gov-explore-link">Explore More &rarr;</a>
+        </div>
+
+        <div class="gov-slide" data-card2="1">
+          <div class="gov-icons-row">
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <span class="gov-icon-label">Community First</span>
+            </div>
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+              <span class="gov-icon-label">Collaborative</span>
+            </div>
+          </div>
+          <a href="partnerships.html" class="gov-explore-link">Explore More &rarr;</a>
+        </div>
+
+        <div class="gov-slide" data-card2="2">
+          <div class="gov-icons-row">
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <span class="gov-icon-label">UN SDG Aligned</span>
+            </div>
+            <div class="gov-icon-item">
+              <div class="gov-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <span class="gov-icon-label">Impact Driven</span>
+            </div>
+          </div>
+          <a href="accountability.html" class="gov-explore-link">Explore More &rarr;</a>
+        </div>
+
+      </div>
+      <div class="swipe-dots" id="dots2">
+        <div class="swipe-dot active" onclick="sc2_goto(0)"></div>
+        <div class="swipe-dot" onclick="sc2_goto(1)"></div>
+        <div class="swipe-dot" onclick="sc2_goto(2)"></div>
+      </div>
+    </div>
+
+  </div><!-- /.dual-cards-row -->
+
+  <script>
+  // ── Card 1: Foundation Facts ─────────────────
+  let c1_cur = 0, c1_tx = 0;
+  const c1_slides = document.querySelectorAll('[data-card1]');
+  const c1_dots   = document.querySelectorAll('#dots1 .swipe-dot');
+
+  function sc1_goto(n) {
+    if (window.innerWidth >= 901) return;
+    c1_slides[c1_cur].classList.remove('active');
+    c1_dots[c1_cur].classList.remove('active');
+    c1_cur = (n + c1_slides.length) % c1_slides.length;
+    c1_slides[c1_cur].classList.add('active');
+    c1_dots[c1_cur].classList.add('active');
+  }
+  function sc1_ts(e) { if (window.innerWidth >= 901) return; c1_tx = e.changedTouches[0].clientX; }
+  function sc1_te(e) {
+    if (window.innerWidth >= 901) return;
+    const dx = e.changedTouches[0].clientX - c1_tx;
+    if (Math.abs(dx) > 30) sc1_goto(c1_cur + (dx < 0 ? 1 : -1));
+  }
+  // Auto-rotate card 1 every 3.5 s
+  setInterval(() => { if (window.innerWidth < 901) sc1_goto(c1_cur + 1); }, 3500);
+
+  // ── Card 2: Strong Governance ────────────────
+  let c2_cur = 0, c2_tx = 0;
+  const c2_slides = document.querySelectorAll('[data-card2]');
+  const c2_dots   = document.querySelectorAll('#dots2 .swipe-dot');
+
+  function sc2_goto(n) {
+    if (window.innerWidth >= 901) return;
+    c2_slides[c2_cur].classList.remove('active');
+    c2_dots[c2_cur].classList.remove('active');
+    c2_cur = (n + c2_slides.length) % c2_slides.length;
+    c2_slides[c2_cur].classList.add('active');
+    c2_dots[c2_cur].classList.add('active');
+  }
+  function sc2_ts(e) { if (window.innerWidth >= 901) return; c2_tx = e.changedTouches[0].clientX; }
+  function sc2_te(e) {
+    if (window.innerWidth >= 901) return;
+    const dx = e.changedTouches[0].clientX - c2_tx;
+    if (Math.abs(dx) > 30) sc2_goto(c2_cur + (dx < 0 ? 1 : -1));
+  }
+  // Auto-rotate card 2 every 4.5 s (offset from card 1)
+  setInterval(() => { if (window.innerWidth < 901) sc2_goto(c2_cur + 1); }, 4500);
+  </script>
+</section>
+</div>
+
+<div class="desktop-only">
+  <!-- Facts Section -->
+  <section class="facts-wrapper" style="margin-top: 3rem;">
     <div class="container">
-
       <div class="facts-card">
-
         <div class="facts-header">
           <div class="facts-title-wrapper">
             <h2>Foundation Progress</h2>
             <p>The impact we have made across Pakistan.</p>
           </div>
         </div>
-
         <div class="stats-row" style="justify-content: space-around;">
           <div class="stat-item" style="flex: 0 0 auto;">
             <div class="stat-number">81+</div>
@@ -2275,36 +1402,311 @@
             <div class="stat-label">People Served</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+  <!-- Vision Statement -->
+
+  <section class="mission-section">
+
+    <div class="container" style="text-align: center;">
+
+      <div class="mission-statement" style="margin: 0 auto 2rem auto; text-align: center; float: none;">
+
+        To build a compassionate, inclusive, and sustainable world where <em>every</em> voice matters.
 
       </div>
+
+      <a href="vision.html" class="btn-outline-blue" style="display:inline-block; margin: 0 auto;">Read our vision statement</a>
 
     </div>
 
   </section>
 
 
-
-
-
-  <!-- Mission Statement -->
-
-  <section class="mission-section" >
-
+  <!-- What We Do Section -->
+<div class="mobile-only">
+  <section class="what-we-do-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white); overflow: hidden;">
+    <style>
+      .wwd-heading {
+        font-family: var(--font-sans-bold);
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        color: var(--color-text);
+        text-transform: uppercase;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+      .wwd-carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        /* prevent touch actions like scrolling down while swiping */
+        touch-action: pan-y;
+      }
+      .wwd-carousel-track {
+        display: flex;
+        transition: transform 0.3s ease-out;
+        will-change: transform;
+      }
+      .wwd-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 0.25rem;
+        box-sizing: border-box;
+      }
+      .wwd-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+      }
+      .wwd-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s, width 0.3s, border-radius 0.3s;
+      }
+      .wwd-dot.active {
+        background-color: var(--color-primary);
+        width: 16px;
+        border-radius: 4px;
+      }
+      .wwd-slide a {
+        -webkit-user-drag: none;
+      }
+      .wwd-slide img {
+        -webkit-user-drag: none;
+      }
+    </style>
     <div class="container">
-
-      <div class="mission-statement">
-
-        To build a compassionate, inclusive, and sustainable world where <em>every</em> individual has the opportunity to live with dignity, security, and hope.
-
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 class="wwd-heading">What We Do</h2>
+        <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 1rem auto;"></div>
       </div>
+      
+      <div class="wwd-carousel-container" id="wwdCarousel">
+        <div class="wwd-carousel-track" id="wwdTrack">
+          
+          <!-- Slide 1 -->
+          <div class="wwd-slide">
+            <a href="impact.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; background: var(--color-bg-light);">
+              <img loading="lazy" src="assets/img/water_project_1.png" alt="Clean Water" style="width: 100%; height: 200px; object-fit: cover;">
+              <div style="padding: 1.5rem;">
+                <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Clean Water Projects</h3>
+                <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Providing sustainable access to clean and safe drinking water across underserved communities.</p>
+                <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+              </div>
+            </a>
+          </div>
 
-      <a href="vision.html" class="btn-outline-blue">Read our vision statement</a>
+          <!-- Slide 2 -->
+          <div class="wwd-slide">
+            <a href="flood-relief.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; background: var(--color-bg-light);">
+              <img loading="lazy" src="assets/img/flood_relief_card.png" alt="Emergency Relief" style="width: 100%; height: 200px; object-fit: cover;">
+              <div style="padding: 1.5rem;">
+                <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Emergency & Relief</h3>
+                <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Immediate on-ground response providing food, shelter, and medical aid during crises.</p>
+                <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+              </div>
+            </a>
+          </div>
 
+          <!-- Slide 3 -->
+          <div class="wwd-slide">
+            <a href="thematic-areas.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; background: var(--color-bg-light);">
+              <img loading="lazy" src="assets/img/impact_banner.jpeg" alt="Community Support" style="width: 100%; height: 200px; object-fit: cover;">
+              <div style="padding: 1.5rem;">
+                <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Community Support</h3>
+                <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Fostering long-term growth through education, healthcare, and economic empowerment.</p>
+                <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="wwd-dots" id="wwdDots">
+          <!-- Dots generated by JS -->
+        </div>
+      </div>
     </div>
-
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('wwdTrack');
+      const slides = document.querySelectorAll('.wwd-slide');
+      const dotsContainer = document.getElementById('wwdDots');
+      const carouselContainer = document.getElementById('wwdCarousel');
+      
+      let currentIndex = 0;
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      let autoSlideInterval;
+      
+      if (!track || slides.length === 0) return;
 
+      // Create dots
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('wwd-dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          resetAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+      const dots = document.querySelectorAll('.wwd-dot');
+
+      function updateDots() {
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        if (window.innerWidth >= 901) {
+          track.style.transform = 'none';
+          return;
+        }
+        if (index < 0) index = 0;
+        if (index > slides.length - 1) index = slides.length - 1;
+        currentIndex = index;
+        track.style.transition = 'transform 0.3s ease-out';
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+      }
+
+      function nextSlide() {
+        if (currentIndex < slides.length - 1) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(0); // loop back
+        }
+      }
+
+      function startAutoSlide() {
+        if (window.innerWidth >= 901) {
+          if (dotsContainer) dotsContainer.style.display = 'none';
+          track.style.transform = 'none';
+          return;
+        } else {
+          if (dotsContainer) dotsContainer.style.display = 'flex';
+        }
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      // Touch events
+      carouselContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        currentX = startX;
+        isDragging = true;
+        track.style.transition = 'none';
+        clearInterval(autoSlideInterval);
+      }, {passive: true});
+
+      carouselContainer.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+        track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diff}px))`;
+      }, {passive: true});
+
+      carouselContainer.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+          } else if (diff < 0 && currentIndex < slides.length - 1) {
+            goToSlide(currentIndex + 1);
+          } else {
+            goToSlide(currentIndex);
+          }
+        } else {
+          goToSlide(currentIndex);
+        }
+        startAutoSlide();
+      });
+
+      // Mouse events for desktop swipe test
+      carouselContainer.addEventListener('mousedown', (e) => {
+        startX = e.clientX;
+        currentX = startX;
+        isDragging = true;
+        track.style.transition = 'none';
+        clearInterval(autoSlideInterval);
+      });
+
+      carouselContainer.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        currentX = e.clientX;
+        const diff = currentX - startX;
+        track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diff}px))`;
+      });
+
+      carouselContainer.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        
+        // Prevent click if we dragged
+        if (Math.abs(diff) > 5) {
+           setTimeout(() => {
+             const links = carouselContainer.querySelectorAll('a');
+             links.forEach(link => {
+               link.style.pointerEvents = 'none';
+               setTimeout(() => link.style.pointerEvents = '', 50);
+             });
+           }, 0);
+        }
+
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentIndex > 0) goToSlide(currentIndex - 1);
+          else if (diff < 0 && currentIndex < slides.length - 1) goToSlide(currentIndex + 1);
+          else goToSlide(currentIndex);
+        } else {
+          goToSlide(currentIndex);
+        }
+        startAutoSlide();
+      });
+
+      carouselContainer.addEventListener('mouseleave', () => {
+        if (isDragging) {
+          isDragging = false;
+          goToSlide(currentIndex);
+          startAutoSlide();
+        }
+      });
+
+      startAutoSlide();
+    });
+  </script>
+  </section>
+</div>
+
+<div class="desktop-only">
   <!-- What We Do Section -->
   <section class="what-we-do-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white);">
     <div class="container">
@@ -2344,23 +1746,9 @@
       </div>
     </div>
   </section>
+</div>
 
-  <!-- Featured Project / Impact Story Section -->
-  <section class="featured-project-section" style="padding: 5rem 2rem; background-color: var(--color-primary); color: white;">
-    <div class="container" style="display: flex; gap: 4rem; align-items: center; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 300px;">
-        <h3 style="font-family: var(--font-sans-bold); font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; color: rgba(255,255,255,0.7);">Featured Impact Story</h3>
-        <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; font-weight: 900; margin-bottom: 1.5rem; line-height: 1.2;">Bringing Life Back to Communities</h2>
-        <p style="font-family: var(--font-heading); font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; line-height: 1.6;">
-          Our recent flood relief interventions have provided emergency shelters, rations, and clean water to thousands of displaced families, ensuring dignity and rapid recovery in the face of devastating natural disasters.
-        </p>
-        <a href="flood-relief.html" class="hero-btn" style="background-color: white; color: var(--color-primary); padding: 1rem 2.5rem; font-size: 1.1rem;">Explore the Story &rarr;</a>
-      </div>
-      <div style="flex: 1; min-width: 300px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-        <img src="assets/img/flood_relief_card.png" alt="Flood Relief Impact" style="width: 100%; height: auto; display: block;">
-      </div>
-    </div>
-  </section>
+
 
 
 
@@ -2377,30 +1765,30 @@
     <!-- Beautiful Completed Projects Slider -->
     <div style="width: 100%; position: relative; overflow: hidden; padding: 1rem 0;">
         <div style="display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem; scrollbar-width: none;" class="custom-slider">
-            <img src="assets/Our_gallery/01.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/1.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/1.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/11111.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/2.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/3.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/3.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/4.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/4.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/5.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/5.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/5.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/6.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/IMG-20251203-WA0016.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/IMG-20251203-WA0017.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/Screenshot%202025-12-30%20134638.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/Screenshot%202026-01-06%20135252.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%206.00.13%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%208.58.24%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%209.10.18%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%209.10.19%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.45%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.46%20PM%20%281%29.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
-            <img src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.46%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/01.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/1.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/1.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/11111.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/2.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/3.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/3.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/4.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/4.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/5.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/5.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/5.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/6.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/IMG-20251203-WA0016.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/IMG-20251203-WA0017.jpg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/Screenshot%202025-12-30%20134638.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/Screenshot%202026-01-06%20135252.png" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%206.00.13%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%208.58.24%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%209.10.18%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202025-12-26%20at%209.10.19%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.45%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.46%20PM%20%281%29.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
+            <img loading="lazy" src="assets/Our_gallery/WhatsApp%20Image%202026-01-07%20at%201.37.46%20PM.jpeg" style="height: 300px; width: 450px; object-fit: cover; border-radius: 16px; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);" alt="Gallery Image">
         </div>
         <style>
             .custom-slider::-webkit-scrollbar { display: none; }
@@ -2482,7 +1870,7 @@
       overflow: hidden;
       white-space: nowrap;
       position: relative;
-      padding: 2rem 0;
+      padding: 1rem 0;
     }
     .marquee-wrapper::before,
     .marquee-wrapper::after {
@@ -2560,8 +1948,6 @@
   <section class="future-goals-marquee-section" >
     <div class="container">
       <h2 class="fg-heading">Future Goals</h2>
-      <div class="fg-divider"></div>
-      <p style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text-muted); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">Explore our strategic focus areas designed to create lasting impact across the nation. Click any goal to discover our long-term roadmap.</p>
     </div>
     
     <div class="marquee-wrapper">
@@ -2613,47 +1999,7 @@
   </section>
 
 
-  <!-- Condensed Governance Structure -->
-  <section class="structure-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white);">
-    <div class="container" style="text-align: center;">
-      <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-text);">Strong governance. Clear accountability.</h2>
-      
-      <!-- Governance Icons Row -->
-      <div style="display: flex; justify-content: center; align-items: flex-start; gap: 3rem; margin: 2rem auto 3rem; flex-wrap: wrap;">
-        
-        <div style="text-align: center; max-width: 120px;">
-          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Board of Trustees</h4>
-        </div>
-        
-        <div style="text-align: center; max-width: 120px;">
-          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          </div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Advisory Council</h4>
-        </div>
 
-        <div style="text-align: center; max-width: 120px;">
-          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Management Board</h4>
-        </div>
-
-        <div style="text-align: center; max-width: 120px;">
-          <div style="color: var(--color-primary); margin-bottom: 0.5rem; display: flex; justify-content: center;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-          </div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 0.9rem; color: var(--color-text);">Finance & Audit</h4>
-        </div>
-
-      </div>
-
-      <a href="governance.html" class="hero-btn" style="background-color: var(--color-primary); color: white; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px;">Explore Governance &rarr;</a>
-    </div>
-  </section>
 
 
 
@@ -2747,6 +2093,19 @@
       0% { opacity: 0.5; }
       50% { opacity: 1; }
       100% { opacity: 0.5; }
+    }
+    @media (max-width: 900px) {
+      .sdg-interactive-section { padding: 1.5rem 0; }
+      .sdg-interactive-section .container { margin-bottom: 1.5rem !important; padding: 0 1rem; }
+      .sdg-interactive-section h2 { font-size: 1.6rem !important; margin-bottom: 0.5rem !important; line-height: 1.1; }
+      .sdg-interactive-section p { font-size: 0.85rem !important; line-height: 1.3 !important; }
+      .sdg-container { flex-direction: column; gap: 1.5rem; }
+      #sdg-wheel-svg { width: 270px; height: 270px; }
+      .sdg-hint { top: -20px; font-size: 0.6rem; }
+      .sdg-info-panel { min-height: auto; padding: 1.2rem; margin: 0 1rem; width: auto; max-width: none; }
+      .sdg-icon-badge { width: 45px; height: 45px; font-size: 1.2rem; margin-bottom: 0.5rem; border-radius: 10px; }
+      #sdg-info-title { font-size: 1.3rem; margin-bottom: 0.3rem; }
+      #sdg-info-desc { font-size: 0.85rem; line-height: 1.3; }
     }
   
 </style>
@@ -2930,6 +2289,10 @@
             activateSlice(index);
             clearInterval(autoRotateInterval);
           });
+          group.addEventListener('click', () => {
+            activateSlice(index);
+            clearInterval(autoRotateInterval);
+          });
           
           group.addEventListener('mouseleave', () => {
             startAutoRotation();
@@ -2946,43 +2309,281 @@
 
 
   <!-- Get Involved Section -->
-  <section class="get-involved-section" style="padding: 5rem 2rem; background-color: var(--color-bg-light);">
-    <div class="container">
-      <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; margin-bottom: 3rem; text-align: center; color: var(--color-text); text-transform: uppercase; font-weight: 900;">How to make a difference?</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+  <section class="get-involved-section" style="padding: 5rem 0; background-color: var(--color-bg-light); overflow: hidden;">
+    <style>
+      .get-involved-heading {
+        font-family: var(--font-sans-bold);
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--color-text);
+        text-transform: uppercase;
+        font-weight: 900;
+        line-height: 1.2;
+        padding: 0 1rem;
+      }
+      .gi-carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        touch-action: pan-y;
+      }
+      .gi-carousel-track {
+        display: flex;
+        transition: transform 0.3s ease-out;
+        will-change: transform;
+      }
+      .gi-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+      }
+      @media (min-width: 769px) {
+        .gi-slide {
+          flex: 0 0 33.333%;
+        }
+      }
+      .gi-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+      }
+      .gi-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s, width 0.3s, border-radius 0.3s;
+      }
+      .gi-dot.active {
+        background-color: var(--color-primary);
+        width: 16px;
+        border-radius: 4px;
+      }
+      .gi-slide a, .gi-slide div { -webkit-user-drag: none; }
+    </style>
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0;">
+      <h2 class="get-involved-heading">How to make a difference?</h2>
+      
+      <div class="gi-carousel-container" id="giCarousel">
+        <div class="gi-carousel-track" id="giTrack">
         
-        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">DONATE</h3>
-          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Support our work financially to fund ongoing and future projects.</p>
-          <a href="#" onclick="alert('Donations are currently offline as we integrate our payment systems. Please contact us directly.'); return false;" class="text-link" style="font-size: 1.1rem;">Give Now &rarr;</a>
+          <div class="gi-slide">
+            <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); height: 100%;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
+              <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">DONATE</h3>
+              <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Support our work financially to fund ongoing and future projects.</p>
+              <a href="#" onclick="alert('Donations are currently offline as we integrate our payment systems. Please contact us directly.'); return false;" class="text-link" style="font-size: 1.1rem; color: var(--color-primary); font-weight: bold; text-decoration: none;">Give Now &rarr;</a>
+            </div>
+          </div>
+          
+          <div class="gi-slide">
+            <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-accent); height: 100%;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+              <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">VOLUNTEER</h3>
+              <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Give your time and skills to make an on-the-ground impact.</p>
+              <a href="contact.html" class="text-link" style="color: var(--color-accent); font-size: 1.1rem; font-weight: bold; text-decoration: none;">Join Us &rarr;</a>
+            </div>
+          </div>
+          
+          <div class="gi-slide">
+            <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-secondary); height: 100%;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+              <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">PARTNER</h3>
+              <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Help us expand our impact through institutional collaboration.</p>
+              <a href="partnerships.html" class="text-link" style="color: var(--color-secondary); font-size: 1.1rem; font-weight: bold; text-decoration: none;">Partner With Us &rarr;</a>
+            </div>
+          </div>
+        
         </div>
-        
-        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-accent);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">VOLUNTEER</h3>
-          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Give your time and skills to make an on-the-ground impact.</p>
-          <a href="contact.html" class="text-link" style="color: var(--color-accent); font-size: 1.1rem;">Join Us &rarr;</a>
+
+        <div class="gi-dots" id="giDots">
+          <!-- Dots generated by JS -->
         </div>
-        
-        <div style="padding: 3rem 2rem; border-radius: 20px; background: white; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-secondary);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
-          <h3 style="font-family: var(--font-sans-bold); font-size: 1.75rem; margin-bottom: 1rem; color: var(--color-text);">PARTNER</h3>
-          <p style="margin-bottom: 2rem; color: var(--color-text-muted); font-family: var(--font-heading); font-size: 1.1rem;">Help us expand our impact through institutional collaboration.</p>
-          <a href="partnerships.html" class="text-link" style="color: var(--color-secondary); font-size: 1.1rem;">Partner With Us &rarr;</a>
-        </div>
-        
       </div>
     </div>
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('giTrack');
+      const slides = document.querySelectorAll('.gi-slide');
+      const dotsContainer = document.getElementById('giDots');
+      const carouselContainer = document.getElementById('giCarousel');
+      
+      let currentIndex = 0;
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      let autoSlideInterval;
+      
+      if (!track || slides.length === 0) return;
 
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('gi-dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          resetAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+      const dots = document.querySelectorAll('.gi-dot');
+
+      function updateDots() {
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index > slides.length - 1) index = slides.length - 1;
+        currentIndex = index;
+        track.style.transition = 'transform 0.3s ease-out';
+        if (window.innerWidth >= 769) {
+          track.style.transform = `translateX(0)`;
+        } else {
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        updateDots();
+      }
+
+      function nextSlide() {
+        if (window.innerWidth >= 769) return;
+        if (currentIndex < slides.length - 1) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(0);
+        }
+      }
+
+      function startAutoSlide() {
+        if (window.innerWidth >= 769) {
+          if (dotsContainer) dotsContainer.style.display = 'none';
+          return;
+        } else {
+          if (dotsContainer) dotsContainer.style.display = 'flex';
+        }
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      carouselContainer.addEventListener('touchstart', (e) => {
+        if (window.innerWidth >= 769) return;
+        startX = e.touches[0].clientX;
+        currentX = startX;
+        isDragging = true;
+        track.style.transition = 'none';
+        clearInterval(autoSlideInterval);
+      }, {passive: true});
+
+      carouselContainer.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+        track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diff}px))`;
+      }, {passive: true});
+
+      carouselContainer.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentIndex > 0) goToSlide(currentIndex - 1);
+          else if (diff < 0 && currentIndex < slides.length - 1) goToSlide(currentIndex + 1);
+          else goToSlide(currentIndex);
+        } else {
+          goToSlide(currentIndex);
+        }
+        startAutoSlide();
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 901) {
+          clearInterval(autoSlideInterval);
+          if (dotsContainer) dotsContainer.style.display = 'none';
+          track.style.transform = 'none';
+        } else {
+          goToSlide(currentIndex);
+          resetAutoSlide();
+        }
+      });
+
+      startAutoSlide();
+    });
+  </script>
+
+
+
+  <!-- Strong Governance (Desktop Only) -->
+  <div class="desktop-only">
+    <section class="governance-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white);">
+      <div class="container" style="text-align: center;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: var(--color-text); text-transform: uppercase; font-weight: 900; margin-bottom: 1rem;">Structure of the Foundation</h2>
+        <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 0 auto 3rem;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; justify-items: center;">
+          
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: transparent; border: 2px solid var(--color-primary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">The President</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: transparent; border: 2px solid var(--color-primary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Board of Trustees</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: transparent; border: 2px solid var(--color-primary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Advisory Council</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: transparent; border: 2px solid var(--color-primary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Management Board</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: transparent; border: 2px solid var(--color-primary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="16"/><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Finance & Audit Committee</h4>
+          </div>
+
+        </div>
+        <div style="margin-top: 3rem;">
+          <a href="governance.html" class="btn-outline-blue" style="display:inline-block;">More About the Structure of Foundation</a>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- Trust & Accountability Strip -->
   <section class="trust-section" style="padding: 3rem 2rem; background-color: #2F3943; color: white;">
     <div class="container" style="text-align: center;">
       <h3 style="font-family: var(--font-sans-bold); font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem; color: rgba(255,255,255,0.6);">TRUST & ACCOUNTABILITY</h3>
-      <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 2rem; font-family: var(--font-heading); font-size: 1.1rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; margin: 0 auto 2rem; font-family: var(--font-heading); font-size: 1.1rem; max-width: 450px; text-align: left; padding-left: 10%;">
         <span>✓ Governance</span>
         <span>✓ Compliance</span>
         <span>✓ Impact Reporting</span>
@@ -2997,99 +2598,104 @@
 
     
   <!-- Interactive Donation Section -->
-  <section style="position: relative; padding: 5rem 0; background-color: var(--color-bg-light); overflow: hidden;">
-    <!-- Abstract Water Ripple Background -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: radial-gradient(circle at center, var(--color-primary) 0%, transparent 70%); pointer-events: none;"></div>
-    
-    <div class="container" style="position: relative; z-index: 2;">
-      <div style="display: flex; flex-wrap: wrap; align-items: center; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); transition: transform 0.4s ease, box-shadow 0.4s ease;" 
-           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 45px rgba(0, 158, 219, 0.15)';" 
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.06)';">
-        
-        <!-- Image Side -->
-        <div style="flex: 1 1 50%; min-width: 300px; position: relative;">
-          <!-- Using the generated cinematic documentary visual -->
-          <img src="assets/img/donation_impact_visual.png" alt="Community impact" style="width: 100%; height: 100%; min-height: 350px; object-fit: cover; display: block;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15));"></div>
-        </div>
 
-        <!-- Content Side -->
-        <div style="flex: 1 1 50%; min-width: 300px; padding: 3rem 4rem;">
-          <h2 style="font-family: var(--font-sans-bold); font-size: 2.25rem; color: var(--color-text); margin-bottom: 1rem; line-height: 1.2;">Your support can create real change.</h2>
-          <p style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 2rem; line-height: 1.6;">Every contribution helps us continue serving communities beyond boundaries.</p>
-          
-          <a href="under-construction.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--color-primary); color: white; font-family: var(--font-sans-bold); font-size: 1.05rem; font-weight: 700; padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 158, 219, 0.3);"
-             onmouseover="this.style.background='#062338'; this.style.transform='scale(1.05)';" 
-             onmouseout="this.style.background='var(--color-primary)'; this.style.transform='scale(1)';">
-            Donate Now
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
 <footer class="site-footer new-footer" style="padding: 3rem 0 1.5rem; background-color: var(--color-primary); color: white; font-family: var(--font-body);">
-    <div class="container" style="max-width: 1000px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-        
-        <!-- Brand & Description -->
-        <div>
-          <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
-            <img src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
-          </a>
-          <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
-        </div>
-
-        <!-- Explore -->
-        <div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
-          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
-            <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
-            <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
-            <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
-            <li><a href="under-construction.html" style="color: var(--color-accent); font-weight: 700; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.color='var(--color-accent)'; this.style.textDecoration='none';">Donate</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact & Social -->
-        <div>
-          <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
-          <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            Info@neikisubsay.org
-          </a>
-
-          <div style="display: flex; gap: 0.75rem; align-items: center;">
-            <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-            </a>
-            <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-            </a>
-          </div>
-        </div>
-
+  <style>
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      align-items: start;
+    }
+    .footer-brand { grid-area: brand; }
+    .footer-explore { grid-area: explore; }
+    .footer-contact { grid-area: contact; }
+    .footer-donate { grid-area: donate; justify-self: end; }
+    
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1.5fr auto;
+        grid-template-areas: "brand explore contact donate";
+      }
+    }
+    @media (max-width: 767px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+          "brand brand"
+          "explore donate"
+          "contact contact";
+      }
+    }
+  </style>
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
+    <div class="footer-grid">
+      
+      <!-- Brand & Description -->
+      <div class="footer-brand">
+        <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
+          <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
+        </a>
+        <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
       </div>
 
-      <!-- Copyright Line -->
-      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
-        <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
-        <div>
-          <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
+      <!-- Explore -->
+      <div class="footer-explore">
+        <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+          <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
+          <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
+          <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div class="footer-contact">
+        <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
+        <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Info@neikisubsay.org
+        </a>
+
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
         </div>
+      </div>
+
+      <!-- Support Action -->
+      <div class="footer-donate" style="display: flex; align-items: flex-start;">
+        <a href="donate.html" style="background-color: white; color: var(--color-primary); padding: 0.75rem 1.5rem; border-radius: 8px; font-family: var(--font-sans-bold); font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); white-space: nowrap;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+          Donate Now
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Copyright Line -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+      <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
+      <div>
+        <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
 
 
@@ -3227,11 +2833,14 @@
 
 
 
+    let isHovering = false;
+
     function resetSlide() {
 
       clearInterval(slideInterval);
-
-      startSlide();
+      if (!isHovering) {
+        startSlide();
+      }
 
     }
 
@@ -3261,15 +2870,18 @@
     const heroContainerElement = document.querySelector('.hero-wrapper');
     if (heroContainerElement) {
       heroContainerElement.addEventListener('mouseenter', () => {
+        isHovering = true;
         clearInterval(slideInterval);
       });
       heroContainerElement.addEventListener('mouseleave', () => {
+        isHovering = false;
         resetSlide();
       });
     }
 
   </script>
 
+<script src="js/mobile.js?v=4"></script>
 </body>
 
 

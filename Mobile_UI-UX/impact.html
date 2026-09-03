@@ -1,0 +1,3613 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Impact & Water Projects | NEIKI</title>
+
+  <meta name="description" content="NEIKI is a community-powered non-profit organization dedicated to building clean water projects, providing food security, and health assistance across Pakistan.">
+
+  
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  
+
+  <style>
+
+    /* Reset & Base */
+
+    :root {
+
+      --color-primary: #009EDB; /* UN Blue */
+
+      --color-secondary: #1E88C7; /* Mid Blue */
+
+      --color-accent: #4FD1E8; 
+
+      --color-bg-white: #FFFFFF;
+
+      --color-bg-light: #F6F4F0; /* Beige */
+
+      --color-text: #1C2B33;
+
+      --color-text-muted: #5B6B73;
+
+      
+
+      --font-heading: 'Noto Serif', serif;
+
+      --font-body: 'Noto Sans', sans-serif;
+
+      --font-sans-bold: 'Noto Sans', sans-serif;
+
+      
+
+      --radius-card: 24px;
+
+      --radius-btn: 4px;
+
+    }
+
+    
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+
+      font-family: var(--font-body);
+
+      color: var(--color-text);
+
+      background-color: var(--color-bg-white);
+
+      line-height: 1.6;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+    img, video { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+
+      width: 100%;
+
+      max-width: 1280px;
+
+      margin: 0 auto;
+
+      padding: 0 2rem;
+
+    }
+
+
+
+    /* Top Bar & Header */
+
+    .site-header {
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+    }
+
+    .header-inner {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      height: 80px;
+
+    }
+
+    .text-logo {
+
+      font-family: var(--font-heading);
+
+      font-weight: 700;
+
+      font-size: 1.75rem;
+
+      letter-spacing: -0.5px;
+
+      color: white;
+
+      display: flex;
+
+      align-items: baseline;
+
+    }
+
+    .text-logo span {
+
+      font-family: var(--font-body);
+
+      font-weight: 400;
+
+      font-size: 1rem;
+
+      letter-spacing: 0;
+
+      margin-left: 8px;
+
+      opacity: 0.9;
+
+    }
+
+    .main-nav ul {
+
+      display: flex;
+
+      list-style: none;
+
+      gap: 2rem;
+
+    }
+
+    .main-nav a {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+    }
+
+    .main-nav a:hover {
+
+      color: var(--color-accent);
+
+    }
+
+    .header-search {
+
+      font-size: 0.9375rem;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+    }
+
+
+
+    /* Hero Carousel */
+
+    .hero-container {
+
+      background-color: var(--color-primary);
+
+      padding: 0 2rem 2rem 2rem; /* creates the frame */
+
+    }
+
+    .hero-wrapper {
+
+      position: relative;
+
+      height: calc(100vh - 120px);
+
+      min-height: 600px;
+
+      border-radius: 40px;
+
+      overflow: hidden;
+
+    }
+
+    .hero-slide {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      opacity: 0;
+
+      transition: opacity 0.8s ease;
+
+      z-index: 1;
+
+    }
+
+    .hero-slide.active {
+
+      opacity: 1;
+
+      z-index: 2;
+
+    }
+
+    .hero-img {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      object-fit: cover;
+
+    }
+
+    .hero-overlay {
+
+      position: absolute;
+
+      top: 0; left: 0; width: 100%; height: 100%;
+
+      background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%);
+
+    }
+
+    .hero-content {
+
+      position: absolute;
+
+      bottom: 12%;
+
+      left: 5%;
+
+      max-width: 650px;
+
+      color: white;
+
+    }
+
+    .hero-headline {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 4.5rem;
+
+      font-weight: 900;
+
+      line-height: 1;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1rem;
+
+      letter-spacing: -1px;
+
+    }
+
+    .hero-subtext {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .hero-btn {
+
+      display: inline-block;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      font-family: var(--font-body);
+
+      font-weight: 600;
+
+      padding: 1rem 2rem;
+
+      border-radius: var(--radius-btn);
+
+      transition: background 0.3s;
+
+    }
+
+    .hero-btn:hover {
+
+      background-color: #062338;
+
+    }
+
+    .carousel-indicators {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+    }
+
+    .dot {
+
+      width: 10px;
+
+      height: 10px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      cursor: pointer;
+
+    }
+
+    .dot.active {
+
+      background-color: var(--color-primary);
+
+      border-color: var(--color-primary);
+
+    }
+
+
+
+    /* Mission Statement */
+
+    .mission-section {
+
+      padding: 8rem 2rem;
+
+      text-align: center;
+
+    }
+
+    .mission-statement {
+
+      font-family: var(--font-heading);
+
+      font-size: 3rem;
+
+      line-height: 1.3;
+
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+      color: var(--color-text);
+
+    }
+
+    .mission-statement em {
+
+      font-style: italic;
+
+      color: var(--color-primary);
+
+    }
+
+
+
+    /* Horizontal Cards (Core Programs) */
+
+    .horizontal-cards-section {
+
+      padding: 4rem 0;
+
+    }
+
+    .card-horizontal {
+
+      display: flex;
+
+      flex-direction: row;
+
+      gap: 4rem;
+
+      margin-bottom: 4rem;
+
+      align-items: center;
+
+    }
+
+    .card-horizontal:nth-child(even) {
+
+      flex-direction: row-reverse;
+
+    }
+
+    .card-horizontal-img {
+
+      flex: 0 0 50%;
+
+      border-radius: var(--radius-card);
+
+      overflow: hidden;
+
+      aspect-ratio: 16/10;
+
+    }
+
+    .card-horizontal-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+      transition: transform 0.5s ease;
+
+    }
+
+    .card-horizontal:hover .card-horizontal-img img {
+
+      transform: scale(1.03);
+
+    }
+
+    .card-horizontal-content {
+
+      flex: 1;
+
+    }
+
+    .card-horizontal-eyebrow {
+
+      text-transform: uppercase;
+
+      font-size: 0.875rem;
+
+      font-weight: 700;
+
+      color: var(--color-text-muted);
+
+      margin-bottom: 1rem;
+
+      letter-spacing: 1px;
+
+    }
+
+    .card-horizontal h3 {
+
+      font-size: 2.5rem;
+
+      margin-bottom: 1.25rem;
+
+      color: var(--color-text);
+
+      font-family: var(--font-heading);
+
+      line-height: 1.2;
+
+    }
+
+    .card-horizontal p {
+
+      color: var(--color-text-muted);
+
+      margin-bottom: 2rem;
+
+      font-size: 1.125rem;
+
+      line-height: 1.6;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .text-link {
+
+      font-weight: 600;
+
+      color: var(--color-primary);
+
+      text-decoration: none;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 1.05rem;
+
+    }
+
+    .text-link:hover {
+
+      text-decoration: underline;
+
+    }
+
+
+
+    /* Facts Section */
+
+    .facts-wrapper {
+
+      padding: 0 2rem 4rem 2rem;
+
+    }
+
+    .facts-card {
+
+      background-color: var(--color-bg-light);
+
+      border-radius: 40px;
+
+      padding: 4rem;
+
+      position: relative;
+
+    }
+
+    .facts-header {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .facts-title-wrapper h2 {
+
+      font-family: var(--font-heading);
+
+      font-size: 2.5rem;
+
+      font-weight: 400;
+
+      color: var(--color-text);
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .facts-title-wrapper p {
+
+      color: var(--color-text-muted);
+
+      font-size: 0.9375rem;
+
+      font-family: var(--font-heading);
+
+    }
+
+    .facts-link {
+
+      font-weight: 600;
+
+      color: var(--color-text);
+
+      font-size: 0.9375rem;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+    }
+
+    .facts-link:hover { text-decoration: underline; }
+
+    
+
+    .stats-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 2rem;
+
+    }
+
+    .stat-item {
+
+      text-align: center;
+
+      flex: 1;
+
+    }
+
+    .stat-number {
+
+      font-family: var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 300;
+
+      color: var(--color-text);
+
+      line-height: 1;
+
+      margin-bottom: 0.5rem;
+
+    }
+
+    .stat-label {
+
+      font-size: 1.125rem;
+
+      color: var(--color-text-muted);
+
+      font-family: var(--font-heading);
+
+    }
+
+
+
+    /* Dark Ideas Section */
+
+    .ideas-section {
+
+      background-color: #2F3943; /* Slate dark */
+
+      color: white;
+
+      padding: 6rem 0;
+
+      overflow: hidden;
+
+    }
+
+    .ideas-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: baseline;
+
+      margin-bottom: 3rem;
+
+    }
+
+    .ideas-title {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 3rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .ideas-layout {
+
+      display: flex;
+
+      gap: 4rem;
+
+    }
+
+    .ideas-sidebar {
+
+      flex: 0 0 250px;
+
+    }
+
+    .ideas-nav {
+
+      list-style: none;
+
+    }
+
+    .ideas-nav li {
+
+      margin-bottom: 1rem;
+
+    }
+
+    .ideas-nav a {
+
+      color: rgba(255,255,255,0.6);
+
+      font-size: 1.25rem;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition: color 0.2s;
+
+    }
+
+    .ideas-nav a:hover, .ideas-nav a.active {
+
+      color: white;
+
+    }
+
+    .ideas-carousel {
+
+      flex: 1;
+
+      display: flex;
+
+      gap: 2rem;
+
+      overflow-x: auto;
+
+      padding-bottom: 1rem;
+
+      scrollbar-width: none;
+
+    }
+
+    .ideas-carousel::-webkit-scrollbar { display: none; }
+
+    .idea-card {
+
+      flex: 0 0 380px;
+
+      position: relative;
+
+      cursor: pointer;
+
+    }
+
+    .idea-card-img {
+
+      border-radius: 12px;
+
+      aspect-ratio: 16/10;
+
+      overflow: hidden;
+
+      margin-bottom: 1.5rem;
+
+      position: relative;
+
+    }
+
+    .idea-card-img img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+    }
+
+    .idea-card-btn {
+
+      position: absolute;
+
+      right: 1rem;
+
+      bottom: 1rem;
+
+      width: 40px; height: 40px;
+
+      background-color: var(--color-primary);
+
+      color: white;
+
+      border-radius: 4px;
+
+      display: flex; align-items: center; justify-content: center;
+
+      font-weight: bold;
+
+    }
+
+    .idea-card h4 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 1.5rem;
+
+      font-weight: 800;
+
+      margin-bottom: 1rem;
+
+      line-height: 1.2;
+
+    }
+
+    .idea-card p {
+
+      color: rgba(255,255,255,0.8);
+
+      font-family: var(--font-heading);
+
+      font-size: 1rem;
+
+      line-height: 1.5;
+
+    }
+
+
+
+    /* Newsletter Section */
+
+    .newsletter-wrapper {
+
+      padding: 4rem 2rem;
+
+    }
+
+    .newsletter-card {
+
+      background-color: var(--color-primary); /* Navy */
+
+      border-radius: 40px;
+
+      padding: 5rem 4rem;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+      color: white;
+
+    }
+
+    .newsletter-content {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-content h2 {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2.5rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 1.5rem;
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .newsletter-content p {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.25rem;
+
+      line-height: 1.6;
+
+    }
+
+    .newsletter-form-container {
+
+      flex: 1;
+
+      max-width: 500px;
+
+    }
+
+    .newsletter-form {
+
+      display: flex;
+
+      width: 100%;
+
+    }
+
+    .newsletter-input {
+
+      flex: 1;
+
+      padding: 1.25rem;
+
+      border: none;
+
+      border-radius: 4px 0 0 4px;
+
+      font-size: 1rem;
+
+      font-family: var(--font-body);
+
+    }
+
+    .newsletter-btn {
+
+      background-color: #2F3943;
+
+      color: white;
+
+      padding: 0 2rem;
+
+      border: none;
+
+      border-radius: 0 4px 4px 0;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      font-size: 1rem;
+
+      transition: background-color 0.2s;
+
+    }
+
+    .newsletter-btn:hover {
+
+      background-color: #1a2026;
+
+    }
+
+    .newsletter-disclaimer {
+
+      margin-top: 1rem;
+
+      font-size: 0.75rem;
+
+      color: rgba(255,255,255,0.7);
+
+      line-height: 1.4;
+
+    }
+
+    .newsletter-disclaimer a { text-decoration: underline; color: white; }
+
+
+
+    /* Footer */
+
+    .site-footer {
+
+      background-color: var(--color-primary); /* Navy Blue Theme */
+
+      color: white;
+
+      padding: 4rem 0 2rem;
+
+      border-top: none;
+
+    }
+
+    .footer-grid {
+
+      display: grid;
+
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+
+      gap: 3rem;
+
+      margin-bottom: 4rem;
+
+    }
+
+    .footer-col-brand .text-logo {
+
+      color: white;
+
+      margin-bottom: 1.5rem;
+
+      display: flex;
+
+    }
+
+    .footer-col h4 {
+
+      font-family: var(--font-body);
+
+      font-weight: 700;
+
+      margin-bottom: 1.5rem;
+
+      color: white;
+
+    }
+
+    .footer-col ul { list-style:none; }
+
+    .footer-col ul li { margin-bottom:0.75rem; }
+
+    .footer-col a { color: rgba(255,255,255,0.8); }
+
+    .footer-col a:hover { color: var(--color-accent); text-decoration: underline; }
+
+    
+
+    .footer-bottom {
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding-top: 2rem;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 0.875rem;
+
+      color: rgba(255,255,255,0.6);
+
+    }
+
+
+
+    /* Responsive */
+
+    @media (max-width: 1024px) {
+
+      .hero-headline { font-size: 3.5rem; }
+
+      .card-horizontal, .card-horizontal:nth-child(even) { flex-direction: column; gap: 2rem; }
+
+      .facts-card { padding: 3rem; }
+
+      .stats-row { flex-wrap: wrap; }
+
+      .stat-item { flex: 0 0 45%; margin-bottom: 2rem; }
+
+      .newsletter-card { flex-direction: column; padding: 3rem; }
+
+      .ideas-layout { flex-direction: column; }
+
+    }
+
+    @media (max-width: 768px) {
+
+      .hero-container { padding: 0; }
+
+      .hero-wrapper { border-radius: 0; height: 60vh; }
+
+      .hero-content { left: 2rem; right: 2rem; }
+
+      .hero-headline { font-size: 2.5rem; }
+
+      .mission-statement { font-size: 2rem; }
+
+      .facts-wrapper { padding: 0; }
+
+      .facts-card { border-radius: 0; }
+
+      .stat-item { flex: 0 0 100%; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+
+    }
+
+  
+
+    /* --- NEW CSS ADDITIONS --- */
+
+    /* Header Dropdowns */
+
+    .logo-link { display: flex; align-items: center; }
+
+    
+
+    .header-logo {
+      height: 50px;
+      width: auto;
+      margin-right: 2rem;
+      object-fit: contain;
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 38px;
+        margin-right: 1rem;
+      }
+    }
+
+    .has-dropdown { position: relative; }
+
+    .dropdown-menu {
+
+      display: none;
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      background-color: white;
+
+      color: var(--color-text);
+
+      min-width: 200px;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+      border-radius: 4px;
+
+      padding: 0.5rem 0;
+
+      z-index: 200;
+
+    }
+
+    .has-dropdown:hover .dropdown-menu {
+
+      display: block;
+
+    }
+
+    .dropdown-menu a {
+
+      display: block;
+
+      padding: 0.75rem 1.5rem;
+
+      font-weight: 500;
+
+      color: var(--color-text) !important;
+
+    }
+
+    .dropdown-menu a:hover {
+
+      background-color: var(--color-bg-light);
+
+      color: var(--color-primary) !important;
+
+    }
+
+
+
+    /* Intro Cards */
+
+    .intro-cards-section { margin-bottom: 5rem; }
+
+    .intro-cards-wrapper { display: flex; gap: 2rem; }
+
+    .intro-card { flex: 1; display: flex; border-radius: 12px; overflow: hidden; align-items: center; padding-right: 2rem; }
+
+    .intro-card.bg-light-blue { background-color: #E6F3FA; }
+
+    .intro-card.bg-white { background-color: white; }
+
+    .intro-card-img-wrapper { position: relative; flex: 0 0 50%; max-width: 50%; height: 250px; margin-right: 2rem; }
+
+    .intro-card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+    .yellow-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background-color: #FFC000; border-radius: 4px 0 0 4px; }
+
+    .intro-card-content { flex: 1; padding: 1rem 0; }
+
+    .intro-card-content h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; color: var(--color-text); }
+
+    .intro-card-content h3 em { font-style: italic; color: var(--color-secondary); font-weight: 400; }
+
+    .intro-card-content p { color: var(--color-text-muted); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.5; font-family: var(--font-heading); }
+
+    .text-link-underline { font-weight: 700; color: var(--color-text); text-decoration: underline; font-size: 0.9375rem; display: inline-block; }
+
+    .text-link-underline:hover { color: var(--color-primary); }
+
+
+
+    /* Partners Section */
+
+    .partners-section {
+
+      display: flex;
+
+      align-items: center;
+
+      margin-bottom: 6rem;
+
+      gap: 4rem;
+
+    }
+
+    .partners-image-container {
+
+      flex: 0 0 50%;
+
+      height: 600px;
+
+    }
+
+    .partners-image-container img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 0 80px 80px 0;
+
+    }
+
+    .partners-content {
+
+      flex: 1;
+
+      padding-right: 4rem;
+
+      text-align: center;
+
+      max-width: 550px;
+
+    }
+
+    .partners-title {
+
+      font-family: 'Caveat', cursive, var(--font-heading);
+
+      font-size: 4.5rem;
+
+      font-weight: 400;
+
+      line-height: 1.1;
+
+      color: var(--color-text);
+
+      margin-bottom: 2rem;
+
+      font-style: italic;
+
+    }
+
+    .partners-desc {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      color: var(--color-text-muted);
+
+      line-height: 1.6;
+
+      margin-bottom: 2.5rem;
+
+    }
+
+    .btn-yellow {
+
+      display: inline-block;
+
+      background-color: #EED202;
+
+      color: var(--color-text);
+
+      font-family: var(--font-sans-bold);
+
+      font-weight: 700;
+
+      padding: 1rem 2.5rem;
+
+      border-radius: 4px;
+
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      transition: background-color 0.3s;
+
+    }
+
+    .btn-yellow:hover { background-color: #D4BA00; }
+
+
+
+    /* More About Section */
+
+    .more-about-section { padding: 6rem 2rem; }
+
+    .section-heading-uppercase {
+
+      font-family: var(--font-sans-bold);
+
+      font-size: 2rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 3rem;
+
+      color: var(--color-text);
+
+      letter-spacing: -0.5px;
+
+    }
+
+    .more-cards-wrapper { display: flex; gap: 2rem; }
+
+    .more-card { flex: 1; }
+
+    .more-card-img { border-radius: 16px; overflow: hidden; aspect-ratio: 16/11; margin-bottom: 1.5rem; }
+
+    .more-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .more-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--color-text); }
+
+    .more-card p { font-family: var(--font-heading); color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
+
+
+
+    /* Button under mission statement */
+
+    .btn-outline-blue {
+
+      display: inline-block;
+
+      border: 1px solid var(--color-secondary);
+
+      color: var(--color-secondary);
+
+      background: transparent;
+
+      padding: 0.75rem 2rem;
+
+      border-radius: 4px;
+
+      font-weight: 600;
+
+      font-size: 1rem;
+
+      margin-top: 2rem;
+
+      transition: all 0.3s;
+
+    }
+
+    .btn-outline-blue:hover {
+
+      background: var(--color-secondary);
+
+      color: white;
+
+    }
+
+    
+
+    @media (max-width: 1024px) {
+
+      .intro-cards-wrapper { flex-direction: column; }
+
+      .partners-section { flex-direction: column; }
+
+      .partners-image-container { border-radius: 0; width: 100%; }
+
+      .partners-image-container img { border-radius: 0; }
+
+      .partners-content { padding: 2rem; }
+
+      .more-cards-wrapper { flex-direction: column; }
+
+    }
+
+
+
+
+
+    /* --- MEGA MENU & CAROUSEL --- */
+
+    .header-logo-icon { height: 45px; object-fit: contain; margin-right: 15px; }
+
+    .header-logo-wordmark { height: 45px; object-fit: contain; }
+
+    .header-search { display: flex; align-items: center; cursor: pointer; font-size: 1.15rem; font-weight: 600; }
+
+    .header-search img { height: 26px; margin-left: 10px; border-radius: 50%; }
+
+
+
+    /* Remove old dropdown css to avoid conflict */
+
+    .dropdown-menu { display: none !important; } 
+
+
+
+    .site-header { position: relative; } /* To contain absolute mega menu */
+
+    
+
+    .mega-menu {
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 0;
+
+      width: 100%;
+
+      background-color: var(--color-primary); /* Navy blue */
+
+      color: white;
+
+      display: none;
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding: 3rem 0;
+
+      z-index: 1000;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    }
+
+    .mega-menu.active { display: block; }
+
+    .mega-menu-inner {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      gap: 2rem;
+
+    }
+
+    .mega-col h3 { font-family: var(--font-sans-bold); font-size: 2.5rem; margin-bottom: 1rem; line-height:1; }
+
+    .mega-col h4 { font-family: var(--font-sans-bold); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+    .mega-col p { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); }
+
+    .mega-col a { display: block; margin-bottom: 1rem; color: white; opacity: 0.9; text-decoration: none; font-size:0.95rem; }
+
+    .mega-col a:hover { opacity: 1; text-decoration: underline; }
+
+    .intro-col a { font-weight: bold; text-decoration: underline; font-family: var(--font-body); }
+
+    .nav-link { display: flex; align-items: center; gap: 4px; }
+
+    .arrow { font-size: 0.8rem; font-family: monospace; }
+
+
+
+    /* New Carousel Controls */
+
+    .carousel-controls {
+
+      position: absolute;
+
+      right: 2rem;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 1rem;
+
+      z-index: 10;
+
+      align-items: center;
+
+    }
+
+    .carousel-controls .dot {
+
+      width: 12px;
+
+      height: 12px;
+
+      border-radius: 50%;
+
+      border: 2px solid white;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      margin-bottom: 5px;
+
+    }
+
+    .carousel-controls .dot.active {
+
+      background-color: #EED202; /* Yellow filled circle */
+
+      border-color: #EED202;
+
+    }
+
+    .carousel-controls .car-arrow {
+
+      color: white;
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      user-select: none;
+
+    }
+
+    .carousel-controls .car-arrow:hover {
+
+      color: #EED202;
+
+    }
+
+    .carousel-indicators { display: none !important; } /* Hide old one */
+
+
+
+
+
+    /* --- ABOUT PAGE CSS --- */
+
+    .about-header { text-align: center; padding: 0 2rem; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+    .about-header h4 { font-family: var(--font-sans-bold); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; color: var(--color-primary); letter-spacing: 2px; }
+
+    .about-mission { font-family: var(--font-heading); font-size: 3.5rem; max-width: 1000px; margin: 0 auto; line-height: 1.2; color: var(--color-text); font-weight: 300; }
+
+    .about-mission em { font-style: italic; color: var(--color-secondary); }
+
+
+
+    .about-para { max-width: 800px; margin: 0 auto; padding: 0 2rem 4rem; font-family: var(--font-heading); font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted); }
+
+    .about-para p { margin-bottom: 1.5rem; }
+
+
+
+    .four-cards-section { padding: 4rem 2rem; background-color: white; }
+
+    .four-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+
+    .four-card { display: flex; flex-direction: column; }
+
+    .four-card-img { border-radius: 12px; overflow: hidden; aspect-ratio: 16/10; margin-bottom: 1.5rem; }
+
+    .four-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .four-card h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text); line-height: 1.2; }
+
+    .four-card p { font-family: var(--font-heading); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
+
+    .four-card a { font-weight: 700; color: var(--color-text); text-decoration: underline; display: inline-block; }
+
+    .four-card a:hover { color: var(--color-primary); }
+
+
+
+    .zigzag-section { padding: 4rem 2rem; }
+
+    .zigzag-row { display: flex; align-items: center; gap: 4rem; margin-bottom: 6rem; }
+
+    .zigzag-row:nth-child(even) { flex-direction: row-reverse; }
+
+    .zigzag-img { flex: 0 0 50%; max-width: 50%; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; }
+
+    .zigzag-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .zigzag-content { flex: 1; max-width: 500px; }
+
+    .zigzag-content h3 { font-family: var(--font-sans-bold); font-size: 1.75rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
+
+    .zigzag-content p { font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+
+
+    .offices-section { padding: 4rem 2rem; }
+
+    .offices-box { background-color: #2F3943; border-radius: 32px; padding: 4rem; color: white; position: relative; overflow: hidden; min-height: 500px; display: flex; flex-direction: column; }
+
+    .offices-title { font-family: var(--font-sans-bold); font-size: 1.5rem; text-transform: uppercase; z-index: 2; margin-bottom: 2rem; }
+
+    .map-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.2; object-fit: cover; z-index: 1; }
+
+    .map-content { z-index: 2; position: relative; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
+
+    .map-card { background: #FFC000; color: var(--color-text); padding: 1.5rem; border-radius: 8px; width: 250px; font-weight: 700; }
+
+    .map-card h4 { font-family: var(--font-sans-bold); font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+
+    .map-card a { font-size: 0.9rem; text-decoration: underline; }
+
+
+
+    .faq-section { padding: 6rem 2rem; max-width: 800px; margin: 0 auto; }
+
+    .faq-title { font-family: var(--font-sans-bold); font-size: 2.5rem; text-transform: uppercase; margin-bottom: 3rem; text-align: center; }
+
+    .faq-item { border-bottom: 1px solid #eaeaea; padding: 1.5rem 0; }
+
+    .faq-question { font-family: var(--font-sans-bold); font-size: 1.25rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--color-text); }
+
+    .faq-answer { font-family: var(--font-heading); font-size: 1rem; line-height: 1.6; color: var(--color-text-muted); display: none; padding-top: 1rem; }
+
+    .faq-item.active .faq-answer { display: block; }
+
+    
+
+    @media(max-width: 1024px) {
+
+      .four-cards-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .zigzag-row, .zigzag-row:nth-child(even) { flex-direction: column; }
+
+      .zigzag-img { max-width: 100%; }
+
+      .about-mission { font-size: 2.5rem; }
+
+    }
+
+    @media(max-width: 768px) {
+
+      .four-cards-grid { grid-template-columns: 1fr; }
+
+      .offices-box { padding: 2rem; }
+
+    }
+
+    
+
+    /* New Footer */
+
+    .site-footer { display: none; } /* hide old footer rules */
+
+    .new-footer {
+
+      display: block;
+
+      background-color: var(--color-primary); /* Dark slate matching Gates */
+
+      color: white;
+
+      padding: 6rem 0 4rem;
+
+      font-family: var(--font-body);
+
+      border-top: none;
+
+    }
+
+    .footer-flex {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 4rem;
+
+    }
+
+    .footer-left {
+
+      flex: 0 0 300px;
+
+    }
+
+    .footer-right {
+
+      flex: 1;
+
+      max-width: 700px;
+
+    }
+
+    .footer-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      gap: 3rem;
+    }
+
+    .footer-tagline {
+
+      font-family: var(--font-heading);
+
+      font-size: 1.125rem;
+
+      font-weight: 600;
+
+      max-width: 300px;
+
+      line-height: 1.4;
+
+    }
+
+    .footer-socials {
+
+      display: flex;
+
+      gap: 0.75rem;
+
+    }
+
+    .footer-socials a {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 32px; height: 32px;
+
+      border: 1px solid rgba(255,255,255,0.6);
+
+      border-radius: 50%;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 0.85rem;
+
+      transition: all 0.3s;
+
+      text-transform: uppercase;
+
+      font-weight: bold;
+
+    }
+
+    .footer-socials a:hover {
+
+      background: white; color: #2F3943;
+
+    }
+
+    .footer-nav-primary {
+
+      font-weight: 700;
+
+      font-size: 1.1rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-primary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-primary a:first-child { margin-left: 0; }
+
+    .footer-nav-primary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-divider {
+
+      border: none;
+
+      border-top: 1px solid rgba(255,255,255,0.2);
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-secondary {
+
+      font-weight: 600;
+
+      font-size: 0.95rem;
+
+      margin-bottom: 3rem;
+
+      line-height: 2;
+
+    }
+
+    .footer-nav-secondary a { margin: 0 0.5rem; color: white; text-decoration: none; }
+
+    .footer-nav-secondary a:first-child { margin-left: 0; }
+
+    .footer-nav-secondary a:hover { text-decoration: underline; }
+
+    
+
+    .footer-nav-tertiary {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.6);
+
+      line-height: 2;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .footer-nav-tertiary a { color: rgba(255,255,255,0.6); margin: 0 0.25rem; text-decoration: none; }
+
+    .footer-nav-tertiary a:first-child { margin-left: 0; }
+
+    .footer-nav-tertiary a:hover { color: white; text-decoration: underline; }
+
+    
+
+    .footer-copyright {
+
+      font-size: 0.85rem;
+
+      color: rgba(255,255,255,0.5);
+
+    }
+
+    @media(max-width: 768px) {
+
+      .footer-flex { flex-direction: column; }
+
+      .footer-top-row { flex-direction: column; gap: 2rem; }
+
+    }
+
+
+
+    .fade-up-on-scroll {
+
+      opacity: 0;
+
+      transform: translateY(40px);
+
+      transition: opacity 45ms ease-out, transform 45ms ease-out;
+
+    }
+
+    .fade-up-on-scroll.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+
+
+</style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+</head>
+
+
+
+<body>
+
+<!-- Header -->
+
+  <header class="site-header" id="header">
+
+    <div class="container header-inner">
+
+      <a href="/" class="nav-brand">
+
+        <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" class="header-logo">
+
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle Menu" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;display:none;margin-left:auto;">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="about.html" class="nav-link" data-target="about-mega-menu">About us <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="impact.html" class="nav-link" data-target="work-mega-menu">Our Impact <span class="arrow">▼</span></a>
+          </li>
+          <li>
+            <a href="flood-relief.html" class="direct-link" style="color: var(--color-accent); font-weight: 700;">2025 Flood Relief</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-target="ideas-mega-menu">Accountability & Impact <span class="arrow">▼</span></a>
+          </li>
+        </ul>
+      </nav>
+
+
+      
+
+      <div class="header-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <a href="contact.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.4rem 1rem; border-radius: 4px; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.background='transparent';">Contact Us</a>
+        <a href="donate.html" style="font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-primary); background: white; padding: 0.4rem 1.25rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.background='#f0f0f0'; this.style.transform='translateY(-1px)';" onmouseout="this.style.background='white'; this.style.transform='translateY(0)';">Donate</a>
+      </div>
+
+    </div>
+
+
+
+    <!-- Mega Menu - About Us -->
+
+    <div class="mega-menu" id="about-mega-menu">
+
+      <div class="container mega-menu-inner">
+
+        <div class="mega-col intro-col">
+
+          <h3>About us</h3>
+
+          <p>Learn about our origins, our vision, and the core values that drive our mission to serve humanity.</p>
+
+          <a href="about.html">Learn more about us</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Identity & Purpose</h4>
+          <a href="vision.html">Vision statement</a>
+
+          <a href="mission.html">Mission statement</a>
+
+          <a href="core-values.html">Core values</a>
+
+          <a href="objectives.html">Strategic Objectives</a>
+
+        </div>
+
+        <div class="mega-col">
+
+          <h4>Governance</h4>
+          <a href="chairman-message.html">Chairman Message</a>
+          <a href="governance.html">Organizational Structure & Governance</a>
+
+          <a href="compliance.html">Legal Registration & Compliance</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+                        <!-- Mega Menu - Our Impact -->
+    <div class="mega-menu" id="work-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Our Impact</h3>
+          <p>Discover our on-the-ground impact, completed water projects, and our vision for tomorrow.</p>
+          <a href="impact.html">Explore our impact</a>
+        </div>
+        <div class="mega-col">
+          <h4>Our Programs</h4>
+          <a href="program-framework.html">Program Framework</a>
+          <a href="thematic-areas.html">Main Thematic Areas</a>
+          <a href="flagship-programs.html">Flagship Programs</a>
+        </div>
+        <div class="mega-col">
+          <h4>Completed Initiatives</h4>
+          <a href="impact.html">Phase 1 Water Projects</a>
+          <a href="future-goals.html">Future Goals & Vision</a>
+        </div>
+      </div>
+    </div>
+
+
+
+        <!-- Mega Menu - Accountability -->
+    <div class="mega-menu" id="ideas-mega-menu">
+      <div class="container mega-menu-inner">
+        <div class="mega-col intro-col">
+          <h3>Accountability & Impact</h3>
+          <p>Transparency, structured monitoring, and clear communication are at the heart of our operations.</p>
+          <a href="accountability.html">Read about our approach</a>
+        </div>
+        
+        <div class="mega-col">
+          <h4>Network & Outreach</h4>
+          <a href="partnerships.html">Partnerships & Collaborations</a>
+          </div>
+      </div>
+    </div>
+
+  </header>
+  <!-- Hero Section -->
+  <section class="hero-section" style="position: relative; height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0A192F;">
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
+      <img loading="lazy" src="assets/img/impact_banner.jpeg" alt="Water Project Impact" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(0, 158, 219, 0.4) 0%, rgba(17,42,70,0.9) 100%);"></div>
+    </div>
+    <div class="container" style="position: relative; z-index: 2; text-align: center; color: white;">
+      <h1 class="anim-fade-down" style="font-family: var(--font-sans-bold); font-size: 4.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.5);">The Impact<br>We've Made</h1>
+      <p class="anim-fade-up" style="font-family: var(--font-heading); font-size: 1.5rem; max-width: 800px; margin: 0 auto; line-height: 1.5; font-weight: 300; animation-delay: 0.3s;">Phase 1 ISLD Donated Water Projects & Solutions</p>
+    </div>
+  </section>
+
+  <style>
+    .anim-fade-down { animation: fadeDown 1s ease-out forwards; opacity: 0; }
+    .anim-fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.1, 0.8, 0.1, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* TIMELINE STYLES */
+    .timeline-section { padding: 6rem 0; background-color: var(--color-bg-light); }
+    .timeline { position: relative; max-width: 1000px; margin: 4rem auto 0; padding: 2rem 0; }
+    .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--color-primary); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+    .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; margin-bottom: 3rem; }
+    .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: white; border: 4px solid var(--color-primary); top: 20px; border-radius: 50%; z-index: 1; }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 50%; }
+    .timeline-item.right::after { left: -10px; }
+    .timeline-content { padding: 2rem 2.5rem; background: white; position: relative; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); transition: transform 0.4s ease, box-shadow 0.4s ease; opacity: 0; }
+    .timeline-item.left .timeline-content { transform: translateX(-50px); }
+    .timeline-item.right .timeline-content { transform: translateX(50px); }
+    .timeline-content.visible { opacity: 1; transform: translateX(0) !important; }
+    .timeline-content:hover { transform: translateY(-5px) !important; box-shadow: 0 15px 40px rgba(0, 158, 219, 0.2); }
+    .timeline-num { position: absolute; top: 10px; right: 20px; font-size: 4rem; font-family: var(--font-sans-bold); color: rgba(0, 158, 219, 0.1); line-height: 1; z-index: 0; }
+    .timeline-content h3 { font-family: var(--font-sans-bold); font-size: 1.5rem; color: var(--color-text); margin-bottom: 1rem; position: relative; z-index: 1; }
+    .timeline-content p { font-family: var(--font-heading); color: var(--color-text-muted); line-height: 1.6; position: relative; z-index: 1; }
+    @media (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item::after { left: 21px; }
+      .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
+      .timeline-item.right { left: 0; }
+      .timeline-item.left .timeline-content, .timeline-item.right .timeline-content { transform: translateX(30px); }
+    }
+
+    /* FIXED GRID GALLERY */
+    .uniform-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+      background: #000;
+      aspect-ratio: 1 / 1; /* FORCES ALL TO BE PERFECT SQUARES */
+      cursor: pointer;
+    }
+    .project-img-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* CROPS TO FIT PERFECTLY */
+      display: block;
+      transition: transform 0.6s ease, opacity 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      opacity: 0.6;
+    }
+    .project-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(17, 42, 70, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      text-align: center;
+      padding: 2rem;
+    }
+    .gallery-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .view-project-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-family: var(--font-sans-bold);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .view-project-btn:hover {
+      background: white;
+      color: #112A46;
+    }
+
+    /* MODAL SLIDESHOW STYLES */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      z-index: 10000;
+      background: transparent;
+      border: none;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--color-primary); }
+    
+    .modal-title {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: white;
+      font-family: var(--font-sans-bold);
+      font-size: 1.5rem;
+    }
+    .modal-title span { color: var(--color-primary); }
+
+    .slider-container {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+    .slider-btn:hover { background: var(--color-primary); }
+    .slider-prev { left: -60px; }
+    .slider-next { right: -60px; }
+    
+    .slider-counter {
+      position: absolute;
+      bottom: -40px;
+      color: rgba(255,255,255,0.7);
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+    }
+
+    @media(max-width: 768px) {
+      .slider-btn { width: 40px; height: 40px; }
+      .slider-prev { left: -10px; }
+      .slider-next { right: -10px; }
+    }
+  </style>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 900px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 3rem; color: var(--color-text); margin-bottom: 1rem;">Comprehensive Water Solutions</h2>
+        <p style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-text-muted); line-height: 1.7;">
+          Water is the foundation of life. Our Phase 1 initiative focuses on delivering diverse, sustainable water systems tailored to the specific geographical and communal needs of underserved regions.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item left"><div class="timeline-content scroll-anim"><div class="timeline-num">01</div><h3>Family Water Hand Pump</h3><p>Designed for individual households, providing safe and immediate access to clean drinking water right at home.</p></div></div>
+        <div class="timeline-item right"><div class="timeline-content scroll-anim"><div class="timeline-num">02</div><h3>Community Water Hand Pump</h3><p>Larger, more durable pumps installed in central locations to serve multiple families and small neighborhoods.</p></div></div>
+        <div class="timeline-item left"><div class="timeline-content scroll-anim"><div class="timeline-num">03</div><h3>Deep Water Well</h3><p>Excavated deep into the earth to reach pure aquifers, ensuring a reliable water supply even during dry seasons.</p></div></div>
+        <div class="timeline-item right"><div class="timeline-content scroll-anim"><div class="timeline-num">04</div><h3>Solar Water Plant</h3><p>Eco-friendly water extraction utilizing solar panels to pump water from deep reserves without electricity costs.</p></div></div>
+        <div class="timeline-item left"><div class="timeline-content scroll-anim"><div class="timeline-num">05</div><h3>Water Purification Plant</h3><p>Medium to large-scale RO plants that filter out contaminants, serving entire regions with WHO-standard clean water.</p></div></div>
+        <div class="timeline-item right"><div class="timeline-content scroll-anim"><div class="timeline-num">06</div><h3>Natural Water Supply</h3><p>Projects designed to channel and distribute water from natural springs and mountain streams safely to communities.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  
+
+<style>
+  :root {
+    --neiki-accent: #009EDB;
+    --neiki-dark: #112A46;
+    --neiki-text: #333333;
+    --neiki-light: #F7F9FA;
+    --timeline-line: #E1E8ED;
+  }
+
+  .editorial-section {
+    background-color: var(--neiki-light);
+    padding: 100px 0;
+    font-family: var(--font-body);
+  }
+
+  .editorial-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+  }
+
+  .editorial-header h2 {
+    font-family: var(--font-sans-bold);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--neiki-dark);
+    margin-bottom: 20px;
+  }
+
+  .editorial-header p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .timeline-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+  }
+
+  /* The actual vertical line */
+  .timeline-track {
+    position: absolute;
+    left: 200px; /* 200px from left for the anchors */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--timeline-line);
+    z-index: 1;
+  }
+
+  .timeline-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-project {
+    display: flex;
+    width: 100%;
+    margin-bottom: 100px;
+    position: relative;
+    /* Initial state for animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .timeline-project.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Left Anchor (Project Number) */
+  .timeline-anchor {
+    width: 200px;
+    padding-right: 40px;
+    text-align: right;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .anchor-text {
+    font-family: var(--font-sans-bold);
+    font-size: 2.2rem;
+    color: var(--timeline-line);
+    position: sticky;
+    top: 150px;
+    transition: color 0.4s ease;
+    line-height: 1;
+  }
+
+  .timeline-project.in-view .anchor-text {
+    color: var(--neiki-dark);
+  }
+
+  /* The Dot */
+  .timeline-node {
+    position: absolute;
+    right: -7px; /* Align perfectly over the 2px line */
+    top: 153px; /* Align with sticky text */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--timeline-line);
+    z-index: 2;
+    transition: all 0.4s ease;
+  }
+
+  .timeline-project.in-view .timeline-node {
+    background-color: var(--neiki-accent);
+    box-shadow: 0 0 0 4px rgba(0, 158, 219, 0.2);
+  }
+
+  /* Right Content (Project Details) */
+  .timeline-details {
+    flex: 1;
+    padding-left: 60px;
+    max-width: 800px; /* Consistent project width */
+  }
+
+  /* Connecting horizontal line to the title */
+  .title-connection {
+    position: relative;
+    display: inline-block;
+  }
+  .title-connection::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    width: 40px;
+    height: 2px;
+    background-color: var(--timeline-line);
+    transition: background-color 0.4s ease;
+  }
+  .timeline-project.in-view .title-connection::before {
+    background-color: var(--neiki-accent);
+  }
+
+  .project-title {
+    font-family: var(--font-sans-bold);
+    font-size: 1.8rem;
+    color: var(--neiki-dark);
+    margin-bottom: 25px;
+    margin-top: -5px; /* Alignment */
+  }
+
+  .project-metadata {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 35px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .meta-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  .meta-value {
+    font-size: 1.1rem;
+    color: var(--neiki-dark);
+    font-weight: 500;
+    font-family: var(--font-heading);
+  }
+
+  /* Image Gallery */
+  .project-gallery {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* Dynamic grid based on image count */
+  .project-gallery.grid-1 { grid-template-columns: 1fr; max-width: 600px; }
+  .project-gallery.grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .project-gallery.grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .project-gallery.grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .project-gallery.grid-more { grid-template-columns: repeat(3, 1fr); }
+
+  .gallery-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+
+  .gallery-img:hover {
+    filter: brightness(0.9);
+  }
+
+  .timeline-project.in-view .gallery-img {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 850px) {
+    .timeline-track { left: 30px; }
+    .timeline-anchor { width: 60px; padding-right: 20px; }
+    .anchor-text { font-size: 1.2rem; top: 100px; writing-mode: vertical-rl; transform: rotate(180deg); }
+    .timeline-node { right: -6px; top: 100px; }
+    .timeline-details { padding-left: 30px; }
+    .title-connection::before { width: 15px; left: -30px; }
+    .project-gallery.grid-3, .project-gallery.grid-4, .project-gallery.grid-more { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 550px) {
+    .project-gallery.grid-2, .project-gallery.grid-3, .project-gallery.grid-4, .project-gallery.grid-more { grid-template-columns: 1fr; }
+    .project-metadata { gap: 15px; flex-direction: column; }
+    .project-title { font-size: 1.5rem; }
+  }
+
+  /* Lightbox Styles */
+  .lightbox {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(17, 42, 70, 0.95);
+    z-index: 9999; display: none; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .lightbox.active { display: flex; opacity: 1; }
+  .lightbox-img { max-width: 90%; max-height: 85vh; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+  .lightbox-close { position: absolute; top: 30px; right: 40px; color: white; font-size: 2rem; cursor: pointer; }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 2.5rem; cursor: pointer; padding: 20px; }
+  .lightbox-prev { left: 20px; }
+  .lightbox-next { right: 20px; }
+</style>
+
+<!-- ISLD Donated Gallery Redesigned -->
+<section class="editorial-section">
+  <div class="editorial-header">
+    <h2>Projects that mark our journey</h2>
+    <p>Every milestone in NEIKI's timeline represents a real project, a real community, and a real impact. Scroll through the visual history of our Phase 1 water solutions.</p>
+  </div>
+
+  <div class="timeline-container">
+    <div class="timeline-track"></div>
+    <div class="timeline-content-wrapper">
+      
+    <div class="timeline-project" id="proj-200">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#200</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 200</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم عبدالرب صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 200)" data-pid="200"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 200)" data-pid="200"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/4.jpg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 200)" data-pid="200"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.42 PM.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 200)" data-pid="200"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.45 PM.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 200)" data-pid="200"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 200)" data-pid="200"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/200 abdul rab/Presentable/WhatsApp Image 2026-01-07 at 1.37.46 PM.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 200)" data-pid="200">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-201">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#201</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 201</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">بی بی سرورجان(صدقہ پروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 201)" data-pid="201"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 201)" data-pid="201"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/3.jpg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 201)" data-pid="201"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/3.png" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 201)" data-pid="201"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/4.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 201)" data-pid="201"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/4.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 201)" data-pid="201"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/201---- سرور جان۔بی بی/New folder/5.png" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 201)" data-pid="201">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-202">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#202</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 202</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم اشرف صاحب(صدقہ پروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 202)" data-pid="202"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 202)" data-pid="202"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 202)" data-pid="202"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 202)" data-pid="202"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 202)" data-pid="202"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/4.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 202)" data-pid="202"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 202)" data-pid="202"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/202 اشرف صاحب۔/Presentable/WhatsApp Image 2025-12-26 at 6.02.35 PM.jpeg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 202)" data-pid="202">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-203">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#203</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 203</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم ریحان یونس  صاحب(زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/1.png" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 203)" data-pid="203"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 203)" data-pid="203"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 203)" data-pid="203"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 203)" data-pid="203"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 203)" data-pid="203"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/pictorial.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 203)" data-pid="203"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/203 ریحان یونس/Presentable/WhatsApp Image 2026-01-04 at 3.37.24 PM.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 203)" data-pid="203">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-204">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#204</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 204</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم عرفان یونس صاحب (زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 204)" data-pid="204"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/5.png" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 204)" data-pid="204"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 6.00.13 PM.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 204)" data-pid="204"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 8.58.24 PM.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 204)" data-pid="204"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 9.10.18 PM.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 204)" data-pid="204"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/204 S عرفان یونس/Presentable/WhatsApp Image 2025-12-26 at 9.10.19 PM.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 204)" data-pid="204">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-205">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#205</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 205</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم یاسمین یونس صاحب (زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 205)" data-pid="205"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/132123.png" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 205)" data-pid="205"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 205)" data-pid="205"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 205)" data-pid="205"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 205)" data-pid="205"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 205)" data-pid="205"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 205)" data-pid="205"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/205  S  یاسمین یونس/Presentable/page-5-&-6.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 205)" data-pid="205">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-206">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#206</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 206</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم سالم یونس صاحب (زکوۃپروجیکٹ)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">سولرپمپ</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 206)" data-pid="206"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 206)" data-pid="206"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 206)" data-pid="206"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 206)" data-pid="206"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 206)" data-pid="206"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 206)" data-pid="206"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 206)" data-pid="206"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/206 S  سالم یونس/Presentable/page-5-&-6.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 206)" data-pid="206">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-207">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#207</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 207</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم افراسیاب صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/1.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/5.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/IMG-20251203-WA0016.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/IMG-20251203-WA0017.jpg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 207)" data-pid="207"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/207 افراسیاب/Presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 207)" data-pid="207">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-208">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#208</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 208</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم حنیف صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/00113.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/003.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/1.png" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/IMG-20251203-WA0018.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 208)" data-pid="208"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/208 حنیف صاحب/Presentable/Screenshot 2025-12-30 122841.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 208)" data-pid="208">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-209">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#209</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 209</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم خلیل صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/5.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/WhatsApp Image 2025-12-26 at 5.00.58 PM.jpeg" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 209)" data-pid="209"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/209  خلیل/Presentable/WhatsApp Image 2025-12-26 at 9.39.16 PM.jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 209)" data-pid="209">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-210">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#210</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 210</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم فاضل کریم صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/1.png" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 210)" data-pid="210"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 210)" data-pid="210"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 210)" data-pid="210"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 210)" data-pid="210"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 210)" data-pid="210"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 210)" data-pid="210"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 210)" data-pid="210"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/210 فاضل کریم/Presentable/pictirial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 210)" data-pid="210">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-211">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#211</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 211</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم چوہدری اوصاف صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/1.png" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 211)" data-pid="211"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 211)" data-pid="211"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 211)" data-pid="211"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 211)" data-pid="211"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/desfewd.png" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 211)" data-pid="211"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/pictorial.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 211)" data-pid="211"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/211 چوہدری اوصاف/New folder/WhatsApp Image 2025-12-26 at 9.21.41 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 211)" data-pid="211">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-212">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#212</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 212</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم جاویداقبال صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 212)" data-pid="212"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/2.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 212)" data-pid="212"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 212)" data-pid="212"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 212)" data-pid="212"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 212)" data-pid="212"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/5.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 212)" data-pid="212"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 212)" data-pid="212"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/212 جاویداقبال/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 212)" data-pid="212">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-213">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#213</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 213</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">محترم نیاز صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 213)" data-pid="213"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 213)" data-pid="213"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/21212.png" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 213)" data-pid="213"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 213)" data-pid="213"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/6.png" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 213)" data-pid="213"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/pictorials.png" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 213)" data-pid="213"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/Screenshot 2025-12-30 134638.png" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 213)" data-pid="213"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/213  نیاز/Presentable/Untitled.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 213)" data-pid="213">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-214">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#214</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 214</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزتسنیم جاوید صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/Screenshot 2025-12-30 134638.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/Screenshot 2025-12-30 140626.png" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/WhatsApp Image 2025-12-26 at 5.18.43 PM.jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 214)" data-pid="214"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/214 مسز تسنیم جاوید۔/presentable/WhatsApp Image 2025-12-26 at 5.18.45 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.1s;" onclick="openLightbox(this, 214)" data-pid="214">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-215">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#215</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 215</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزمریم صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/11111.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/WhatsApp Image 2025-12-26 at 5.00.52 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/WhatsApp Image 2025-12-26 at 5.00.53 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 215)" data-pid="215"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/215 مریم/presentable/WhatsApp Image 2025-12-26 at 9.55.00 PM.jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 215)" data-pid="215">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-216">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#216</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 216</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزیاسمین صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/ewewewe.png" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.10 PM.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.11 PM.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.14 PM.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.34 PM (1).jpeg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.50 PM.jpeg" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 4.59.55 PM.jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 216)" data-pid="216"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/216 مسز یاسمین/presentable/WhatsApp Image 2025-12-26 at 5.00.02 PM.jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 216)" data-pid="216">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-217">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#217</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 217</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزسرورجان صاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 217)" data-pid="217"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/2.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 217)" data-pid="217"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/3.jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 217)" data-pid="217"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/3.jpg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 217)" data-pid="217"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/4.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 217)" data-pid="217"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/5.jpeg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 217)" data-pid="217"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/6.jpeg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 217)" data-pid="217"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/217 سرورجان/presentable/pictorial.png" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 217)" data-pid="217">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-218">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#218</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 218</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">مسزاقبال سرورصاحب</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-more">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/01.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/02.jpeg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/03 (2).jpeg" class="gallery-img" style="transition-delay: 0.2s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/03.jpeg" class="gallery-img" style="transition-delay: 0.30000000000000004s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/04.jpeg" class="gallery-img" style="transition-delay: 0.4s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/3.jpg" class="gallery-img" style="transition-delay: 0.5s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/4.jpg" class="gallery-img" style="transition-delay: 0.6000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/5.jpeg" class="gallery-img" style="transition-delay: 0.7000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/Presentables/Screenshot 2026-01-06 135252.png" class="gallery-img" style="transition-delay: 0.8s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.28 PM.jpeg" class="gallery-img" style="transition-delay: 0.9s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.0s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.29 PM.jpeg" class="gallery-img" style="transition-delay: 1.1s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.2000000000000002s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM (2).jpeg" class="gallery-img" style="transition-delay: 1.3s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.30 PM.jpeg" class="gallery-img" style="transition-delay: 1.4000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.5s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.31 PM.jpeg" class="gallery-img" style="transition-delay: 1.6s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (1).jpeg" class="gallery-img" style="transition-delay: 1.7000000000000002s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM (2).jpeg" class="gallery-img" style="transition-delay: 1.8s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.32 PM.jpeg" class="gallery-img" style="transition-delay: 1.9000000000000001s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM (1).jpeg" class="gallery-img" style="transition-delay: 2.0s;" onclick="openLightbox(this, 218)" data-pid="218"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/218  مسز اقبال سرور/uc/WhatsApp Image 2026-01-04 at 3.37.33 PM.jpeg" class="gallery-img" style="transition-delay: 2.1s;" onclick="openLightbox(this, 218)" data-pid="218">
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="timeline-project" id="proj-219">
+      <div class="timeline-anchor">
+        <div class="anchor-text">#219</div>
+        <div class="timeline-node"></div>
+      </div>
+      <div class="timeline-details">
+        <h3 class="project-title title-connection">PROJECT 219</h3>
+        
+        <div class="project-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Donated By</span>
+            <span class="meta-value">عبداللہ </span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">تھرپارکر</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Project Type</span>
+            <span class="meta-value">کنواں</span>
+          </div>
+        </div>
+
+        <div class="project-gallery grid-2">
+          <img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/1.jpeg" class="gallery-img" style="transition-delay: 0.0s;" onclick="openLightbox(this, 219)" data-pid="219"><img loading="lazy" src="assets/Phase 1.  ISLD donated Projects/219 EBAD ILAHI ---- ISSUE/Presentable/3.jpg" class="gallery-img" style="transition-delay: 0.1s;" onclick="openLightbox(this, 219)" data-pid="219">
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Element -->
+<div class="lightbox" id="editorial-lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)">&#10094;</span>
+  <img loading="lazy" class="lightbox-img" id="lightbox-img-element" src="">
+  <span class="lightbox-nav lightbox-next" onclick="changeLightbox(1)">&#10095;</span>
+</div>
+
+<script>
+  // Intersection Observer for scroll animations and timeline active state
+  document.addEventListener('DOMContentLoaded', function() {
+    const projects = document.querySelectorAll('.timeline-project');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -25% 0px',
+      threshold: 0.1
+    });
+
+    projects.forEach(p => observer.observe(p));
+  });
+
+  // Lightbox functionality
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function openLightbox(imgElement, pid) {
+    const allImages = Array.from(document.querySelectorAll(`.gallery-img[data-pid="$219"]`));
+    currentImages = allImages.map(img => img.src);
+    currentIndex = currentImages.indexOf(imgElement.src);
+    
+    updateLightboxImg();
+    document.getElementById('editorial-lightbox').classList.add('active');
+  }
+
+  function closeLightbox() {
+    document.getElementById('editorial-lightbox').classList.remove('active');
+  }
+
+  function changeLightbox(dir) {
+    currentIndex += dir;
+    if (currentIndex < 0) currentIndex = currentImages.length - 1;
+    if (currentIndex >= currentImages.length) currentIndex = 0;
+    updateLightboxImg();
+  }
+
+  function updateLightboxImg() {
+    document.getElementById('lightbox-img-element').src = currentImages[currentIndex];
+  }
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight' && document.getElementById('editorial-lightbox').classList.contains('active')) changeLightbox(1);
+    if (e.key === 'ArrowLeft' && document.getElementById('editorial-lightbox').classList.contains('active')) changeLightbox(-1);
+  });
+</script>
+<!-- End ISLD Donated Gallery -->
+
+<!-- MODAL LIGHTBOX -->
+  <div class="modal-overlay" id="photo-modal">
+    <div class="modal-title">Project: <span id="modal-project-name">Abdul Rab</span></div>
+    <button class="modal-close" id="modal-close-btn">&times;</button>
+    
+    <div class="slider-container">
+      <button class="slider-btn slider-prev" id="slider-prev">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
+      </button>
+      
+      <img loading="lazy" src="" alt="Project Photo" class="slider-img" id="slider-img">
+      
+      <button class="slider-btn slider-next" id="slider-next">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </button>
+      
+      <div class="slider-counter"><span id="slider-current">1</span> / <span id="slider-total">5</span></div>
+    </div>
+  </div>
+
+  <script>
+    // Reveal Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) { entry.target.classList.add('active'); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) { entry.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.scroll-anim').forEach(el => timelineObserver.observe(el));
+
+    // Modal Logic
+    const modal = document.getElementById('photo-modal');
+    const closeBtn = document.getElementById('modal-close-btn');
+    const sliderImg = document.getElementById('slider-img');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    const titleEl = document.getElementById('modal-project-name');
+    const currentEl = document.getElementById('slider-current');
+    const totalEl = document.getElementById('slider-total');
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const imagesJson = item.getAttribute('data-images');
+        const title = item.getAttribute('data-title');
+        
+        if (imagesJson) {
+          currentImages = JSON.parse(imagesJson);
+          if (currentImages.length > 0) {
+            currentIndex = 0;
+            titleEl.innerText = title;
+            updateSlider();
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden'; // prevent background scrolling
+          }
+        }
+      });
+    });
+
+    function updateSlider() {
+      sliderImg.src = currentImages[currentIndex];
+      currentEl.innerText = currentIndex + 1;
+      totalEl.innerText = currentImages.length;
+      
+      // Hide buttons if only 1 image
+      if(currentImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      updateSlider();
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    }
+  </script>
+<!-- Footer -->
+
+    <footer class="site-footer new-footer" style="padding: 3rem 0 1.5rem; background-color: var(--color-primary); color: white; font-family: var(--font-body);">
+  <style>
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      align-items: start;
+    }
+    .footer-brand { grid-area: brand; }
+    .footer-explore { grid-area: explore; }
+    .footer-contact { grid-area: contact; }
+    .footer-donate { grid-area: donate; justify-self: end; }
+    
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1.5fr auto;
+        grid-template-areas: "brand explore contact donate";
+      }
+    }
+    @media (max-width: 767px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+          "brand brand"
+          "explore donate"
+          "contact contact";
+      }
+    }
+  </style>
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
+    <div class="footer-grid">
+      
+      <!-- Brand & Description -->
+      <div class="footer-brand">
+        <a href="/" class="nav-brand" style="display: block; margin-bottom: 1rem;">
+          <img loading="lazy" src="assets/img/neiki_logo_white_transparent.png" alt="NEIKI Sub Say Foundation" style="width: 160px; height: auto;">
+        </a>
+        <p style="font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.8); margin: 0;">We are a nonprofit organization committed to advancing sustainable development and alleviating poverty across Pakistan.</p>
+      </div>
+
+      <!-- Explore -->
+      <div class="footer-explore">
+        <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+          <li><a href="about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">About Us</a></li>
+          <li><a href="impact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Our Impact</a></li>
+          <li><a href="flood-relief.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">2025 Flood Relief</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div class="footer-contact">
+        <h4 style="font-family: var(--font-sans-bold); font-size: 1.05rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact</h4>
+        <a href="mailto:Info@neikisubsay.org" style="display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem;" onmouseover="this.style.color='white'; this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Info@neikisubsay.org
+        </a>
+
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <a href="https://www.facebook.com/NEIKI.SubSay/" target="_blank" rel="noopener" aria-label="Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #1877F2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(24,119,242,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/neiki_sub_say/" target="_blank" rel="noopener" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(214,36,159,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://x.com/neiki_sub_say" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #000000; color: white; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/neikisubsay/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #0A66C2; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(10,102,194,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@NEIKI.SubSay" target="_blank" rel="noopener" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #FF0000; color: white; transition: all 0.3s; text-decoration: none;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 4px 10px rgba(255,0,0,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Support Action -->
+      <div class="footer-donate" style="display: flex; align-items: flex-start;">
+        <a href="donate.html" style="background-color: white; color: var(--color-primary); padding: 0.75rem 1.5rem; border-radius: 8px; font-family: var(--font-sans-bold); font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); white-space: nowrap;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+          Donate Now
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Copyright Line -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+      <div>&copy; 2025-2026 NEIKI Sub Say Foundation. All rights reserved.</div>
+      <div>
+        <a href="compliance.html" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='white';" onmouseout="this.style.color='rgba(255,255,255,0.6)';">Legal Registration & Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+
+  <script>
+
+    // Mega Menu functionality
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const megaMenus = document.querySelectorAll('.mega-menu');
+
+
+
+    navLinks.forEach(link => {
+
+      link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const targetId = link.getAttribute('data-target');
+
+        const targetMenu = document.getElementById(targetId);
+
+        
+
+        // close others
+
+        megaMenus.forEach(menu => {
+
+          if (menu !== targetMenu) menu.classList.remove('active');
+
+        });
+
+        navLinks.forEach(nav => {
+
+          if (nav !== link) nav.querySelector('.arrow').innerText = '▼';
+
+        });
+
+
+
+        if (targetMenu) {
+
+          targetMenu.classList.toggle('active');
+
+          const arrow = link.querySelector('.arrow');
+
+          if (targetMenu.classList.contains('active')) {
+
+            arrow.innerText = '▼'; // Up arrow
+
+          } else {
+
+            arrow.innerText = '▼'; // Down arrow
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+
+    // Close menu when clicking outside
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.site-header')) {
+
+        megaMenus.forEach(menu => menu.classList.remove('active'));
+
+        navLinks.forEach(nav => nav.querySelector('.arrow').innerText = '▼');
+
+      }
+
+    });
+
+
+
+    // Carousel functionality
+
+    const slides = document.querySelectorAll('.hero-slide');
+
+    const dots = document.querySelectorAll('.carousel-controls .dot');
+
+    const upArrow = document.querySelector('.up-arrow');
+
+    const downArrow = document.querySelector('.down-arrow');
+
+    let currentSlide = 0;
+
+    let slideInterval;
+
+
+
+    function showSlide(index) {
+
+      if (!slides.length) return;
+
+      slides[currentSlide].classList.remove('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+      
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      
+
+      slides[currentSlide].classList.add('active');
+
+      if(dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+    }
+
+
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+
+
+    function startSlide() {
+
+      slideInterval = setInterval(nextSlide, 5000);
+
+    }
+
+
+
+    function resetSlide() {
+
+      clearInterval(slideInterval);
+
+      startSlide();
+
+    }
+
+
+
+    if (upArrow && downArrow) {
+
+      upArrow.addEventListener('click', () => { prevSlide(); resetSlide(); });
+
+      downArrow.addEventListener('click', () => { nextSlide(); resetSlide(); });
+
+    }
+
+    
+
+    dots.forEach((dot, idx) => {
+
+      dot.addEventListener('click', () => { showSlide(idx); resetSlide(); });
+
+    });
+
+
+
+    startSlide();
+
+  </script>
+
+  <script>
+
+    // FAQ Toggle functionality
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', () => {
+
+        const isActive = item.classList.contains('active');
+
+        // Close all
+
+        faqItems.forEach(i => {
+
+            i.classList.remove('active');
+
+            i.querySelector('span').innerText = '+';
+
+        });
+
+        if (!isActive) {
+
+            item.classList.add('active');
+
+            item.querySelector('span').innerText = '-';
+
+        }
+
+      });
+
+    });
+
+  
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+
+          entry.target.classList.add('visible');
+
+        }
+
+      });
+
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up-on-scroll, .scroll-anim, .timeline-content').forEach(el => observer.observe(el));
+
+</script>
+
+<script src="js/mobile.js"></script>
+</body>
+
+
+
+</html>
