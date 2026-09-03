@@ -273,6 +273,58 @@
       width: 100%;
     }
   }
+  
+  /* --- RESPONSIVE UTILITIES --- */
+  @media (min-width: 901px) {
+    .mobile-only { display: none !important; }
+    .desktop-only { display: block !important; }
+  }
+  @media (max-width: 900px) {
+    .mobile-only { display: block !important; }
+    .desktop-only { display: none !important; }
+  }
+
+  /* --- RESTORE DESKTOP UI OVERRIDES --- */
+  @media (min-width: 901px) {
+    /* Restore Hero Section */
+    .hero-wrapper {
+      height: calc(100vh - 120px) !important;
+      min-height: 600px !important;
+      border-radius: 40px !important;
+    }
+    .new-donate-slide {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      background: #fff !important;
+      position: absolute !important;
+      inset: 0 !important;
+      overflow: hidden !important;
+    }
+    .new-donate-media {
+      position: relative !important;
+      height: 100% !important;
+    }
+    .new-donate-form-wrapper {
+      background: #fff !important;
+      position: relative !important;
+      padding: 2.75rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .new-donate-card {
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    .new-donate-overlay-content {
+      padding: 4rem 3.5rem 2.5rem !important;
+    }
+    
+    /* Mission section font size */
+    .mission-statement {
+      font-size: 3rem !important;
+    }
+  }
   </style>
 
 
@@ -1036,6 +1088,7 @@
      Card 1: Foundation Facts (stat slider)
      Card 2: Strong Governance (icon slider)
      ══════════════════════════════════════════════ -->
+<div class="mobile-only">
 <section class="dual-cards-section">
   <style>
     .dual-cards-section {
@@ -1287,19 +1340,21 @@
   const c1_dots   = document.querySelectorAll('#dots1 .swipe-dot');
 
   function sc1_goto(n) {
+    if (window.innerWidth >= 901) return;
     c1_slides[c1_cur].classList.remove('active');
     c1_dots[c1_cur].classList.remove('active');
     c1_cur = (n + c1_slides.length) % c1_slides.length;
     c1_slides[c1_cur].classList.add('active');
     c1_dots[c1_cur].classList.add('active');
   }
-  function sc1_ts(e) { c1_tx = e.changedTouches[0].clientX; }
+  function sc1_ts(e) { if (window.innerWidth >= 901) return; c1_tx = e.changedTouches[0].clientX; }
   function sc1_te(e) {
+    if (window.innerWidth >= 901) return;
     const dx = e.changedTouches[0].clientX - c1_tx;
     if (Math.abs(dx) > 30) sc1_goto(c1_cur + (dx < 0 ? 1 : -1));
   }
   // Auto-rotate card 1 every 3.5 s
-  setInterval(() => sc1_goto(c1_cur + 1), 3500);
+  setInterval(() => { if (window.innerWidth < 901) sc1_goto(c1_cur + 1); }, 3500);
 
   // ── Card 2: Strong Governance ────────────────
   let c2_cur = 0, c2_tx = 0;
@@ -1307,21 +1362,50 @@
   const c2_dots   = document.querySelectorAll('#dots2 .swipe-dot');
 
   function sc2_goto(n) {
+    if (window.innerWidth >= 901) return;
     c2_slides[c2_cur].classList.remove('active');
     c2_dots[c2_cur].classList.remove('active');
     c2_cur = (n + c2_slides.length) % c2_slides.length;
     c2_slides[c2_cur].classList.add('active');
     c2_dots[c2_cur].classList.add('active');
   }
-  function sc2_ts(e) { c2_tx = e.changedTouches[0].clientX; }
+  function sc2_ts(e) { if (window.innerWidth >= 901) return; c2_tx = e.changedTouches[0].clientX; }
   function sc2_te(e) {
+    if (window.innerWidth >= 901) return;
     const dx = e.changedTouches[0].clientX - c2_tx;
     if (Math.abs(dx) > 30) sc2_goto(c2_cur + (dx < 0 ? 1 : -1));
   }
   // Auto-rotate card 2 every 4.5 s (offset from card 1)
-  setInterval(() => sc2_goto(c2_cur + 1), 4500);
+  setInterval(() => { if (window.innerWidth < 901) sc2_goto(c2_cur + 1); }, 4500);
   </script>
 </section>
+</div>
+
+<div class="desktop-only">
+  <!-- Facts Section -->
+  <section class="facts-wrapper" style="margin-top: 3rem;">
+    <div class="container">
+      <div class="facts-card">
+        <div class="facts-header">
+          <div class="facts-title-wrapper">
+            <h2>Foundation Progress</h2>
+            <p>The impact we have made across Pakistan.</p>
+          </div>
+        </div>
+        <div class="stats-row" style="justify-content: space-around;">
+          <div class="stat-item" style="flex: 0 0 auto;">
+            <div class="stat-number">81+</div>
+            <div class="stat-label">Water Projects</div>
+          </div>
+          <div class="stat-item" style="flex: 0 0 auto;">
+            <div class="stat-number">1.2M</div>
+            <div class="stat-label">People Served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
 
 
@@ -1333,7 +1417,7 @@
 
   <section class="mission-section">
 
-    <div class="container">
+    <div class="container" style="text-align: center;">
 
       <div class="mission-statement">
 
@@ -1341,7 +1425,7 @@
 
       </div>
 
-      <a href="vision.html" class="btn-outline-blue" style="display:inline-block; text-align:left;">Read our vision statement</a>
+      <a href="vision.html" class="btn-outline-blue" style="display:inline-block;">Read our vision statement</a>
 
     </div>
 
@@ -1349,6 +1433,7 @@
 
 
   <!-- What We Do Section -->
+<div class="mobile-only">
   <section class="what-we-do-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white); overflow: hidden;">
     <style>
       .wwd-heading {
@@ -1494,6 +1579,10 @@
       }
 
       function goToSlide(index) {
+        if (window.innerWidth >= 901) {
+          track.style.transform = 'none';
+          return;
+        }
         if (index < 0) index = 0;
         if (index > slides.length - 1) index = slides.length - 1;
         currentIndex = index;
@@ -1511,6 +1600,13 @@
       }
 
       function startAutoSlide() {
+        if (window.innerWidth >= 901) {
+          if (dotsContainer) dotsContainer.style.display = 'none';
+          track.style.transform = 'none';
+          return;
+        } else {
+          if (dotsContainer) dotsContainer.style.display = 'flex';
+        }
         autoSlideInterval = setInterval(nextSlide, 4000);
       }
 
@@ -1604,10 +1700,53 @@
         }
       });
 
-      // Start auto slide
       startAutoSlide();
     });
   </script>
+  </section>
+</div>
+
+<div class="desktop-only">
+  <!-- What We Do Section -->
+  <section class="what-we-do-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: var(--color-text); text-transform: uppercase; font-weight: 900;">What We Do</h2>
+        <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 1rem auto;"></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        
+        <a href="impact.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; transition: transform 0.3s; background: var(--color-bg-light);" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <img src="assets/img/water_project_1.png" alt="Clean Water" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Clean Water Projects</h3>
+            <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Providing sustainable access to clean and safe drinking water across underserved communities.</p>
+            <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+          </div>
+        </a>
+
+        <a href="flood-relief.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; transition: transform 0.3s; background: var(--color-bg-light);" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <img src="assets/img/flood_relief_card.png" alt="Emergency Relief" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Emergency & Relief</h3>
+            <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Immediate on-ground response providing food, shelter, and medical aid during crises.</p>
+            <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+          </div>
+        </a>
+
+        <a href="thematic-areas.html" style="display: block; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; transition: transform 0.3s; background: var(--color-bg-light);" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <img src="assets/img/impact_banner.jpeg" alt="Community Support" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-family: var(--font-sans-bold); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Community Support</h3>
+            <p style="font-family: var(--font-heading); color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Fostering long-term growth through education, healthcare, and economic empowerment.</p>
+            <span style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Explore &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+</div>
 
 
 
@@ -2372,8 +2511,14 @@
       });
       
       window.addEventListener('resize', () => {
-        goToSlide(0);
-        resetAutoSlide();
+        if (window.innerWidth >= 901) {
+          clearInterval(autoSlideInterval);
+          if (dotsContainer) dotsContainer.style.display = 'none';
+          track.style.transform = 'none';
+        } else {
+          goToSlide(currentIndex);
+          resetAutoSlide();
+        }
       });
 
       startAutoSlide();
@@ -2381,6 +2526,65 @@
   </script>
 
 
+
+  <!-- Strong Governance (Desktop Only) -->
+  <div class="desktop-only">
+    <section class="governance-section" style="padding: 4rem 2rem; background-color: var(--color-bg-white);">
+      <div class="container" style="text-align: center;">
+        <h2 style="font-family: var(--font-sans-bold); font-size: 2.5rem; color: var(--color-text); text-transform: uppercase; font-weight: 900; margin-bottom: 1rem;">Strong Governance</h2>
+        <div style="width: 60px; height: 4px; background-color: var(--color-primary); margin: 0 auto 3rem;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; justify-items: center;">
+          
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Transparent</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Accountable</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Community First</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Collaborative</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Ethical</h4>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h4 style="font-family: var(--font-sans-bold); font-size: 1.1rem; color: var(--color-text);">Impact Driven</h4>
+          </div>
+
+        </div>
+        <div style="margin-top: 3rem;">
+          <a href="governance.html" class="btn-outline-blue" style="display:inline-block;">Explore Governance</a>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- Trust & Accountability Strip -->
   <section class="trust-section" style="padding: 3rem 2rem; background-color: #2F3943; color: white;">
